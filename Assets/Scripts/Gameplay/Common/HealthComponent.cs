@@ -13,13 +13,15 @@ namespace Gameplay.Common
         public void TakeDamage(int damage)
         {
             _health -= damage;
-            if (_health <= 0) 
+            if (_health <= 0)
+            {
+                DeSpawn?.Invoke(gameObject);
                 Destroy(this.gameObject);
+            }
         }
 
         public void Destroy()
         {
-            throw new NotImplementedException();
         }
     }
 }
