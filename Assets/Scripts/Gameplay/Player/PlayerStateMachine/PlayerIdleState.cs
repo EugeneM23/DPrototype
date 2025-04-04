@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class PlayerIdleState : IPlayerState
     {
@@ -32,9 +32,10 @@ namespace Gameplay.Player
 
         public void Update()
         {
-            if (_playerInput.Axis != Vector3.zero)
+            if (_playerInput.Axis != Vector3.zero ) 
                 _stateMachine.SetState<PlayerMoveState>();
 
+            
             if (CalculateDistance() < _sootRangeDistance)
                 _stateMachine.SetState<PlayerFireState>();
 

@@ -1,7 +1,8 @@
+using Modules.PrefabPool;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class PlayerInstaller : MonoInstaller
     {
@@ -16,6 +17,8 @@ namespace Gameplay.Player
             Container.Bind<PlayerRotationOnMoveComponent>().AsSingle().WithArguments(_parameters.RotationSpeed).NonLazy();
             Container.Bind<PlayerLookAtComponent>().AsSingle().WithArguments(_parameters.AimingSpeed).NonLazy();
             Container.Bind<PlayerInput>().AsSingle().NonLazy();
+            Container.Bind<Bulletmanager>().AsSingle().NonLazy();
+            Container.Bind<PrefabPool>().AsSingle().NonLazy();
         }
     }
 }

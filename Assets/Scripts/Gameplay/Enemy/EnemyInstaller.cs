@@ -1,14 +1,17 @@
 using UnityEngine;
 using Zenject;
 
-public class EnemyInstaller : MonoInstaller
+namespace Gameplay
 {
-    [SerializeField] private Enemy _enemyPrefab;
-    public override void InstallBindings()
+    public class EnemyInstaller : MonoInstaller
     {
-        for (int i = 0; i < 10; i++)
+        [SerializeField] private Enemy _enemyPrefab;
+        public override void InstallBindings()
         {
-            Container.Bind<Enemy>().FromComponentInNewPrefab(_enemyPrefab).AsCached().NonLazy();
+            for (int i = 0; i < 1; i++)
+            {
+                Container.Bind<Enemy>().FromComponentInNewPrefab(_enemyPrefab).AsCached().NonLazy();
+            }
         }
     }
 }

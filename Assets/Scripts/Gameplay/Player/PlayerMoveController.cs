@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class PlayerMoveController : ITickable
     {

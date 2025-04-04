@@ -1,11 +1,10 @@
-using System;
-using Gameplay.Player;
 using UnityEngine;
 using Zenject;
 
-public class Enemy : MonoBehaviour
+namespace Gameplay
 {
-    [Inject]
-    private Player _player;
-
+    public class Enemy : MonoBehaviour
+    {
+        [Inject] private Player _player;
+    }
 }

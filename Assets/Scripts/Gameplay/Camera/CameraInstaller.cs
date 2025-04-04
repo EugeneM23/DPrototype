@@ -1,7 +1,6 @@
-using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class CameraInstaller : MonoInstaller
     {
@@ -10,7 +9,7 @@ namespace Gameplay.Player
             Container
                 .BindInterfacesAndSelfTo<CameraFolower>()
                 .AsSingle()
-                .WithArguments(Camera.main.gameObject.transform)
+                .WithArguments(UnityEngine.Camera.main.gameObject.transform)
                 .NonLazy();
         }
     }

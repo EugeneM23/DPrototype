@@ -2,14 +2,15 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private Weapon.Weapon _weapon;
+
         private PlayerMoveComponent _playerMoveComponent;
         private PlayerRotationOnMoveComponent _playerRotationOnMoveComponent;
         private PlayerLookAtComponent _playerLookAtComponent;
-        private Weapon _weapon;
 
         [Inject]
         private void Construct(PlayerMoveComponent moveComponent, PlayerRotationOnMoveComponent rotationComponent,
@@ -33,7 +34,7 @@ namespace Gameplay.Player
 
         public void Shoot(Transform targer)
         {
-            //_weapon.Shoot(targer);
+            _weapon.Shoot(targer);
         }
     }
 }

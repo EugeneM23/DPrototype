@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     internal class PlayerRotationOnMoveComponent
     {

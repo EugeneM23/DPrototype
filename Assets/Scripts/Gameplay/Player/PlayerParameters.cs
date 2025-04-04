@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     [Serializable]
     public class PlayerParameters

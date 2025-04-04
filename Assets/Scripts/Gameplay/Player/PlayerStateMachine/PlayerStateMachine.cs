@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Zenject;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class PlayerStateMachine : ITickable, IInitializable
     {

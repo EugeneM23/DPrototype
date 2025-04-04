@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Player
+namespace Gameplay
 {
     public class CameraFolower : ILateTickable
     {
@@ -15,7 +15,7 @@ namespace Gameplay.Player
         {
             _camera = camera;
             _target = target;
-            _offset = Camera.main.transform.position - _target.transform.position;
+            _offset = UnityEngine.Camera.main.transform.position - _target.transform.position;
         }
 
         public void LateTick()
