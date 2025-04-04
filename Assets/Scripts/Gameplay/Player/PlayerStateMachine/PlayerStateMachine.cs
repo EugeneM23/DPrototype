@@ -9,13 +9,13 @@ namespace Gameplay.Player
         private readonly Dictionary<Type, IPlayerState> _states = new();
         private IPlayerState _currentState;
 
-        public PlayerStateMachine(Player player, PlayerInput playerInput, Enemy[] enemys)
+        public PlayerStateMachine(Player player, PlayerInput playerInput, Enemy[] enemys, PlayerParameters parameters)
         {
             _states = new Dictionary<Type, IPlayerState>()
             {
                 [typeof(PlayerMoveState)] = new PlayerMoveState(this, playerInput, player),
-                [typeof(PlayerIdleState)] = new PlayerIdleState(this, playerInput, player, enemys),
-                [typeof(PlayerFireState)] = new PlayerFireState(this, playerInput, player, enemys),
+                [typeof(PlayerIdleState)] = new PlayerIdleState(this, playerInput, player, enemys, parameters),
+                [typeof(PlayerFireState)] = new PlayerFireState(this, playerInput, player, enemys, parameters),
             };
         }
 

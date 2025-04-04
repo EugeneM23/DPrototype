@@ -12,6 +12,7 @@ namespace Gameplay.Player
             _player = player;
             _aimingSpeed = aimingSpeed;
         }
+
         public void LookAt(Vector3 targetPosition)
         {
             Vector3 direction = targetPosition - _player.transform.position;
@@ -21,8 +22,8 @@ namespace Gameplay.Player
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-                _player.transform.rotation =
-                    Quaternion.Slerp(_player.transform.rotation, targetRotation, Time.deltaTime * _aimingSpeed);
+                _player.transform.rotation = Quaternion.RotateTowards(_player.transform.rotation, targetRotation,
+                    _aimingSpeed * Time.deltaTime);
             }
         }
     }

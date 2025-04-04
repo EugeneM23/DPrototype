@@ -6,46 +6,34 @@ namespace Gameplay.Player
 {
     public class Player : MonoBehaviour
     {
-        private PlayerMoveComponent playerMoveComponent;
-        private RotationComponent _rotationComponent;
-        private PlayerLookAtComponent playerLookAtComponent;
+        private PlayerMoveComponent _playerMoveComponent;
+        private PlayerRotationOnMoveComponent _playerRotationOnMoveComponent;
+        private PlayerLookAtComponent _playerLookAtComponent;
         private Weapon _weapon;
 
         [Inject]
-        private void Construct(PlayerMoveComponent playerMoveComponent, RotationComponent rotationComponent, PlayerLookAtComponent playerLookAtComponent)
+        private void Construct(PlayerMoveComponent moveComponent, PlayerRotationOnMoveComponent rotationComponent,
+            PlayerLookAtComponent lookAtComponent)
         {
-            this.playerMoveComponent = playerMoveComponent;
-            _rotationComponent = rotationComponent;
-            this.playerLookAtComponent = playerLookAtComponent;
+            _playerMoveComponent = moveComponent;
+            _playerRotationOnMoveComponent = rotationComponent;
+            _playerLookAtComponent = lookAtComponent;
         }
 
         public void Move(Vector3 direction)
         {
-            playerMoveComponent.Move(direction);
-            _rotationComponent.Ratation(direction);
+            _playerMoveComponent.Move(direction);
+            _playerRotationOnMoveComponent.Ratation(direction);
         }
 
         public void LookAt(Vector3 position)
         {
-            playerLookAtComponent.LookAt(position);
+            _playerLookAtComponent.LookAt(position);
         }
 
         public void Shoot(Transform targer)
         {
             //_weapon.Shoot(targer);
         }
-    }
-
-    internal class Weapon : IWeapon
-    {
-        public void Shoot(Transform targer)
-        {
-            
-        }
-    }
-
-    internal interface IWeapon
-    {
-        public void Shoot(Transform targer);
     }
 }

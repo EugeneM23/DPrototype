@@ -8,13 +8,16 @@ namespace Gameplay.Player
         private readonly PlayerInput _playerInput;
         private readonly Player _player;
         private Enemy[] _enemies;
+        private int _aimDistance;
 
-        public PlayerFireState(PlayerStateMachine stateMachine, PlayerInput playerInput, Player player, Enemy[] enemies)
+        public PlayerFireState(PlayerStateMachine stateMachine, PlayerInput playerInput, Player player, Enemy[] enemies,
+            PlayerParameters parameters)
         {
             _stateMachine = stateMachine;
             _playerInput = playerInput;
             _player = player;
             _enemies = enemies;
+            _aimDistance = parameters.AimingDistance;
         }
 
         public void Enter()
@@ -32,7 +35,7 @@ namespace Gameplay.Player
 
             (float distance, Enemy target) = CalculateDistance();
 
-            if (distance < 6)
+            if (distance < _aimDistance)
             {
                 _player.LookAt(target.transform.position);
                 _player.Shoot(target.transform);

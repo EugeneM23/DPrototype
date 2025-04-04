@@ -10,12 +10,14 @@ namespace Gameplay.Player
         private Enemy[] _enemies;
         private float _sootRangeDistance = 6;
 
-        public PlayerIdleState(PlayerStateMachine stateMachine, PlayerInput playerInput, Player player, Enemy[] enemies)
+        public PlayerIdleState(PlayerStateMachine stateMachine, PlayerInput playerInput, Player player, Enemy[] enemies,
+            PlayerParameters parameters)
         {
             _stateMachine = stateMachine;
             _playerInput = playerInput;
             _player = player;
             _enemies = enemies;
+            _sootRangeDistance = parameters.AimingDistance;
         }
 
         public void Enter()
