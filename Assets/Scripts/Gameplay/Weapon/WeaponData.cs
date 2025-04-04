@@ -2,7 +2,7 @@ using System;
 using Gameplay.Common;
 using UnityEngine;
 
-namespace Gameplay.Weapon
+namespace Gameplay
 {
     [CreateAssetMenu(fileName = "NewWeapon", menuName = "Weapons/Weapon Data")]
     public class WeaponData : ScriptableObject

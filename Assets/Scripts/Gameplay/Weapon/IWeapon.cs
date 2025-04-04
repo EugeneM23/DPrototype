@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.Weapon
+namespace Gameplay
 {
     internal interface IWeapon
     {

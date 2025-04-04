@@ -19,6 +19,8 @@ namespace Gameplay
             Container.Bind<PlayerInput>().AsSingle().NonLazy();
             Container.Bind<Bulletmanager>().AsSingle().NonLazy();
             Container.Bind<PrefabPool>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<PlayerMoveController>().AsSingle().NonLazy();
         }
     }
 }

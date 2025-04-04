@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Gameplay.Weapon;
 using Modules.PrefabPool;
 using UnityEngine;
 

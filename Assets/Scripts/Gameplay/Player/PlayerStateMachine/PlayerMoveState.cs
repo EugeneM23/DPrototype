@@ -6,12 +6,10 @@ namespace Gameplay
     {
         private readonly PlayerStateMachine _stateMachine;
         private readonly Player _player;
-        private readonly PlayerInput _playerInput;
 
-        public PlayerMoveState(PlayerStateMachine stateMachine, PlayerInput playerInput, Player player)
+        public PlayerMoveState(PlayerStateMachine stateMachine, Player player)
         {
             _player = player;
-            _playerInput = playerInput;
             _stateMachine = stateMachine;
         }
 
@@ -27,11 +25,8 @@ namespace Gameplay
 
         public void Update()
         {
-            if (_playerInput.Axis == Vector3.zero)
+            if (_player.GetVelocity() == Vector3.zero)
                 _stateMachine.SetState<PlayerIdleState>();
-
-            _player.Move(_playerInput.Axis);
-            Debug.Log("Update run");
         }
     }
 }

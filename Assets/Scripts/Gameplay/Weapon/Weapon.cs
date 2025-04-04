@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Weapon
+namespace Gameplay
 {
     internal class Weapon : MonoBehaviour, IWeapon
     {

@@ -5,16 +5,14 @@ namespace Gameplay
     public class PlayerFireState : IPlayerState
     {
         private readonly PlayerStateMachine _stateMachine;
-        private readonly PlayerInput _playerInput;
         private readonly Player _player;
         private Enemy[] _enemies;
         private int _aimDistance;
 
-        public PlayerFireState(PlayerStateMachine stateMachine, PlayerInput playerInput, Player player, Enemy[] enemies,
+        public PlayerFireState(PlayerStateMachine stateMachine, Player player, Enemy[] enemies,
             PlayerParameters parameters)
         {
             _stateMachine = stateMachine;
-            _playerInput = playerInput;
             _player = player;
             _enemies = enemies;
             _aimDistance = parameters.AimingDistance;
@@ -30,12 +28,12 @@ namespace Gameplay
 
         public void Update()
         {
-            if (_playerInput.Axis != Vector3.zero) 
+            if (_player.GetVelocity() != Vector3.zero)
                 _stateMachine.SetState<PlayerMoveState>();
 
             if (_enemies.Length <= 0)
                 return;
-            
+
             (float distance, Enemy target) = CalculateDistance();
 
             if (distance < _aimDistance)

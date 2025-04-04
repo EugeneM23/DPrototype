@@ -13,9 +13,9 @@ namespace Gameplay
         {
             _states = new Dictionary<Type, IPlayerState>()
             {
-                [typeof(PlayerMoveState)] = new PlayerMoveState(this, playerInput, player),
-                [typeof(PlayerIdleState)] = new PlayerIdleState(this, playerInput, player, enemys, parameters),
-                [typeof(PlayerFireState)] = new PlayerFireState(this, playerInput, player, enemys, parameters),
+                [typeof(PlayerMoveState)] = new PlayerMoveState(this, player),
+                [typeof(PlayerIdleState)] = new PlayerIdleState(this, player, enemys, parameters),
+                [typeof(PlayerFireState)] = new PlayerFireState(this, player, enemys, parameters),
             };
         }
 
