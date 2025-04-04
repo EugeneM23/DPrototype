@@ -8,6 +8,8 @@ namespace Gameplay.Player
         private readonly Player _target;
         private readonly Transform _camera;
         private readonly Vector3 _offset;
+        private readonly float _smoothTime = 0.15f;
+        private Vector3 _velocity = Vector3.zero;
 
         public CameraFolower(Transform camera, Player target)
         {
@@ -18,7 +20,8 @@ namespace Gameplay.Player
 
         public void LateTick()
         {
-            _camera.position = _target.transform.position + _offset;
+            Vector3 targetPosition = _target.transform.position + _offset;
+            _camera.position = Vector3.SmoothDamp(_camera.position, targetPosition, ref _velocity, _smoothTime);
         }
     }
 }
