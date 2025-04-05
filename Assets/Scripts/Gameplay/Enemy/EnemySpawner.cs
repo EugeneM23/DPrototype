@@ -22,6 +22,7 @@ namespace Gameplay
         {
             GameObject enemy = _manager.SpawnEnemy(_enemyPrefab.gameObject, transform.position);
             enemy.GetComponent<Enemy>().SetTarget(_player.gameObject);
+            enemy.GetComponent<EnemyBrain>().SetTarget(_player.gameObject);
         }
     }
 }

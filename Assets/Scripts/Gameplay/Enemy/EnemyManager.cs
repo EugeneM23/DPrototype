@@ -58,7 +58,6 @@ namespace Gameplay
         private void RemoveEnemy(GameObject enemy)
         {
             _activeEnemies.Remove(enemy);
-            Debug.Log(_activeEnemies.Count);
         }
     }
 }
