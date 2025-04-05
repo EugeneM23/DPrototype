@@ -24,6 +24,12 @@ namespace Gameplay
         public bool PlayerInSightRange { get; private set; }
         public bool PlayerInAttackRange { get; private set; }
 
+        private void OnEnable()
+        {
+            _destination = SearchMovePoint();
+            IsMovePointSet = true;
+        }
+
         private void Update()
         {
             PlayerInSightRange = Vector3.Distance(_target.transform.position, transform.position) < _sightRange;
@@ -38,6 +44,7 @@ namespace Gameplay
 
         public void Patroling()
         {
+            _agent.speed = 3;
             if (!IsMovePointSet)
             {
                 _destination = SearchMovePoint();
@@ -59,15 +66,17 @@ namespace Gameplay
 
         public void ChaseTarget()
         {
+            _agent.speed = 6;
+
             _destination = _target.transform.position;
         }
 
         public void AttackingTarget()
         {
             _destination = transform.position;
-            
+
             Vector3 lookAtPosition = _target.transform.position;
-            lookAtPosition.y = transform.position.y; 
+            lookAtPosition.y = transform.position.y;
             transform.LookAt(lookAtPosition);
         }
 
