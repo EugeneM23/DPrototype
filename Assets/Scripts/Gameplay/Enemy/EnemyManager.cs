@@ -2,29 +2,18 @@ using System.Collections.Generic;
 using Gameplay.Common;
 using Modules.PrefabPool;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyManager : IInitializable
+    public class EnemyManager
     {
-        private readonly GameObject[] _enemiesToSpawn;
         private readonly PrefabPool _prefabPool;
 
         private List<GameObject> _activeEnemies = new List<GameObject>();
 
-        public EnemyManager(GameObject[] enemiesToSpawn,  PrefabPool prefabPool)
+        public EnemyManager(PrefabPool prefabPool)
         {
-            _enemiesToSpawn = enemiesToSpawn;
             _prefabPool = prefabPool;
-        }
-
-        public void Initialize()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                SpawnEnemy(_enemiesToSpawn[0]);
-            }
         }
 
         public bool TryGetTarget(float fireRange, out GameObject target, Transform player)
@@ -32,7 +21,6 @@ namespace Gameplay
             target = GetClosestEnemyInRange(fireRange, player);
             return target != null;
         }
-
 
         private GameObject GetClosestEnemyInRange(float range, Transform player)
         {
@@ -55,14 +43,13 @@ namespace Gameplay
             return closestEnemy;
         }
 
-        private GameObject SpawnEnemy(GameObject enemyPrefab)
+        public GameObject SpawnEnemy(GameObject enemyPrefab, Vector3 transformPosition)
         {
             Enemy enemy = _prefabPool.Spawn<Enemy>(enemyPrefab);
-            enemy.GetComponent<HealthComponent>().DeSpawn += RemoveEnemy;
+            enemy.DeSpawn += RemoveEnemy;
+            enemy.transform.position = transformPosition;
             AddEnemy(enemy.gameObject);
 
-            Vector3 reand = Random.insideUnitSphere * 10;
-            enemy.transform.position = reand;
             return enemy.gameObject;
         }
 

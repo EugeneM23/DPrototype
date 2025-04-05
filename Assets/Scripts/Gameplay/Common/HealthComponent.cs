@@ -15,8 +15,9 @@ namespace Gameplay.Common
             _health -= damage;
             if (_health <= 0)
             {
+                Debug.Log($"{nameof(HealthComponent)} {_health}");
                 DeSpawn?.Invoke(gameObject);
-                Destroy(this.gameObject);
+                Destroy();
             }
         }
 

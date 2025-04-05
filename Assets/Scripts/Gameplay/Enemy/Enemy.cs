@@ -2,7 +2,6 @@ using System;
 using Gameplay.Common;
 using Modules.PrefabPool;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay
@@ -13,17 +12,32 @@ namespace Gameplay
 
         [SerializeField] private LootExplosionComponent _loot;
         [SerializeField] private HealthComponent _healthComponent;
-        [Inject] private Player _player;
+        private GameObject _target;
 
         private void OnEnable()
         {
+            _healthComponent.DeSpawn += Despawn;
             _healthComponent.DeSpawn += _loot.SpawnLoot;
+        }
+
+        private void OnDisable()
+        {
+            _healthComponent.DeSpawn -= Despawn;
+            _healthComponent.DeSpawn -= _loot.SpawnLoot;
+        }
+
+        public void SetTarget(GameObject target)
+        {
+            _target = target;
+        }
+
+        private void Despawn(GameObject obj)
+        {
+            DeSpawn?.Invoke(gameObject);
         }
 
         public void Destroy()
         {
-            Debug.Log("Destroy");
-            DeSpawn?.Invoke(gameObject);
         }
     }
 }
