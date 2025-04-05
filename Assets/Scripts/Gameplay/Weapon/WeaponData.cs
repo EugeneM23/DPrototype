@@ -8,6 +8,7 @@ namespace Gameplay
     public class WeaponData : ScriptableObject
     {
         [field: SerializeField] public float FireRate { get; private set; }
+        [field: SerializeField] public float FireRange { get; private set; }
 
         [field: SerializeField] public BulletInfo _bulletInfo { get; private set; }
     }

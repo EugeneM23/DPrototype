@@ -5,13 +5,10 @@ namespace Gameplay
 {
     public class EnemyInstaller : MonoInstaller
     {
-        [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private GameObject[] _enemyPrefabs;
         public override void InstallBindings()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                Container.Bind<Enemy>().FromComponentInNewPrefab(_enemyPrefab).AsCached().NonLazy();
-            }
+            Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle().WithArguments(_enemyPrefabs).NonLazy();
         }
     }
 }

@@ -21,12 +21,8 @@ namespace Gameplay
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent(out IDamagable damageable))
-            {
-                Debug.Log(_damage);
-                Debug.Log(damageable == null);
+            if (other.gameObject.TryGetComponent(out IDamagable damageable)) 
                 damageable.TakeDamage(_damage);
-            }
             
             Destroy();
         }

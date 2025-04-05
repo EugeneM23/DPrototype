@@ -34,5 +34,10 @@ namespace Gameplay
             if (lastTimeShoot <= 0)
                 _readyToFire = true;
         }
+
+        public float GetFireRange()
+        {
+            return _data.FireRange;
+        }
     }
 }

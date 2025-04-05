@@ -6,16 +6,13 @@ namespace Gameplay
     {
         private readonly PlayerStateMachine _stateMachine;
         private readonly Player _player;
-        private Enemy[] _enemies;
-        private int _aimDistance;
+        private readonly EnemyManager _enemyManager;
 
-        public PlayerFireState(PlayerStateMachine stateMachine, Player player, Enemy[] enemies,
-            PlayerParameters parameters)
+        public PlayerFireState(PlayerStateMachine stateMachine, Player player, EnemyManager enemyManager)
         {
             _stateMachine = stateMachine;
             _player = player;
-            _enemies = enemies;
-            _aimDistance = parameters.AimingDistance;
+            _enemyManager = enemyManager;
         }
 
         public void Enter()
@@ -28,15 +25,11 @@ namespace Gameplay
 
         public void Update()
         {
-            if (_player.GetVelocity() != Vector3.zero)
+            /*if (_player.GetVelocity() != Vector3.zero)
                 _stateMachine.SetState<PlayerMoveState>();
 
-            if (_enemies.Length <= 0)
-                return;
 
-            (float distance, Enemy target) = CalculateDistance();
-
-            if (distance < _aimDistance)
+            if (_enemyManager.TryGetTarget(_player.GetWeaponFirerange(), out GameObject target))
             {
                 _player.LookAt(target.transform.position);
 
@@ -46,7 +39,7 @@ namespace Gameplay
             else
             {
                 _stateMachine.SetState<PlayerIdleState>();
-            }
+            }*/
         }
 
         public bool HasLookedAt(Vector3 targetPosition)
@@ -61,24 +54,6 @@ namespace Gameplay
             float angle = Quaternion.Angle(_player.transform.rotation, targetRotation);
 
             return angle < 1f;
-        }
-
-        private (float minDistance, Enemy closest) CalculateDistance()
-        {
-            Enemy closest = null;
-            float minDistance = Mathf.Infinity;
-
-            foreach (Enemy t in _enemies)
-            {
-                float distance = Vector3.Distance(_player.transform.position, t.transform.position);
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    closest = t;
-                }
-            }
-
-            return (minDistance, closest);
         }
     }
 }
