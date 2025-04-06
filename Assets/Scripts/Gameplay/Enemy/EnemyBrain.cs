@@ -15,15 +15,6 @@ namespace Gameplay
         private Vector3 _destination;
         private float _fireRate;
 
-        public void AttackingTarget()
-        {
-            _destination = transform.position;
-
-            Vector3 lookAtPosition = _target.transform.position;
-            lookAtPosition.y = transform.position.y;
-            transform.LookAt(lookAtPosition);
-        }
-
         public void SetTarget(GameObject target)
         {
             _target = target;
@@ -37,6 +28,11 @@ namespace Gameplay
         public void SetSpeed(float speed)
         {
             _agent.speed = speed;
+        }
+
+        public float GetVelocity()
+        {
+            return _agent.velocity.magnitude;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Gameplay
             _player = player;
             _brain = brain;
             _enemy = enemy;
-            
+
             _states = new Dictionary<Type, IEnemyState>()
             {
                 [typeof(PatrolState)] = new PatrolState(brain),
@@ -39,10 +39,22 @@ namespace Gameplay
 
         public void Tick()
         {
+            Debug.Log(_enemy.IsOnAnimation);
+
+           
+
             var distance = Vector3.Distance(_player.transform.position, _enemy.transform.position);
 
+            Debug.Log(distance);
+            
             if (distance < _brain.Attckrange)
                 SetState<AttackState>();
+            
+            if (_enemy.IsOnAnimation)
+            {
+                _currentState?.Tick();
+                return;
+            }
 
             if (distance > _brain.Attckrange)
                 SetState<ChaseState>();

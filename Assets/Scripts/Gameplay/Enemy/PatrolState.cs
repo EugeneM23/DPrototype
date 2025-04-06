@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
@@ -9,7 +11,7 @@ namespace Gameplay
 
         private Vector3 _currentDestination;
         private float timer;
-        private float wanderTimer = 3;
+        private float wanderTimer = 5;
 
         public PatrolState(EnemyBrain enemy)
         {
@@ -18,30 +20,47 @@ namespace Gameplay
 
         public void Tick()
         {
-            NextDestination();
+            _currentDestination = NextDestination();
             _enemy.SetDestination(_currentDestination);
+
+            if (_enemy.GetVelocity() < 1)
+            {
+                _enemy.GetComponent<Enemy>().IsAidling = true;
+                _enemy.GetComponent<Enemy>().IsWalking = false;
+            }
+            else
+            {
+                _enemy.GetComponent<Enemy>().IsAidling = false;
+                _enemy.GetComponent<Enemy>().IsWalking = true;
+            }
         }
 
-        private void NextDestination()
+        private Vector3 NextDestination()
         {
             timer += Time.deltaTime;
 
             if (timer >= wanderTimer)
             {
-                _currentDestination = GetRandomPointOnNavMesh(_enemy.transform.position, 20);
-
                 timer = 0;
+                return GetRandomPointOnNavMesh(_enemy.transform.position, 20);
             }
+
+            return _currentDestination;
         }
 
         public void Enter()
         {
             _enemy.SetSpeed(2);
+            _currentDestination = NextDestination();
             _enemy.SetDestination(_currentDestination);
+
+            _enemy.GetComponent<Enemy>().IsWalking = true;
         }
 
         public void Exit()
         {
+            _enemy.GetComponent<Enemy>().IsWalking = false;
+            _enemy.GetComponent<Enemy>().IsAidling = false;
         }
 
         Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)

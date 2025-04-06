@@ -22,10 +22,13 @@ namespace Gameplay
         public void Enter()
         {
             _enemy.SetSpeed(5);
+            
+            _enemy.GetComponent<Enemy>().IsRuning = true;
         }
 
         public void Exit()
         {
+            _enemy.GetComponent<Enemy>().IsRuning = false;
         }
     }
 }
