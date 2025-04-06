@@ -264,7 +264,9 @@ MonoBehaviour:
   _loot:
   - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
   - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
-  - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
+  - {fileID: 5755287782797089623, guid: 897cc11a850424735897ce6344160645, type: 3}
+  - {fileID: 5755287782797089623, guid: 897cc11a850424735897ce6344160645, type: 3}
+  - {fileID: 5755287782797089623, guid: 897cc11a850424735897ce6344160645, type: 3}
   - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
 --- !u!1 &527654061929988346
 GameObject:
@@ -2080,7 +2082,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3862082637354106668}
@@ -2115,7 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ChaseRange>k__BackingField: 10
-  <Attckrange>k__BackingField: 4
+  <Attckrange>k__BackingField: 3
   _agent: {fileID: 1764606744511135740}
 --- !u!195 &1764606744511135740
 NavMeshAgent:

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 790439586967029455}
   - component: {fileID: 8075030000004305079}
   m_Layer: 0
-  m_Name: LootBox
+  m_Name: LootBox 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad9ce2b5a352a4afc8559566ea4f7448, type: 2}
+  - {fileID: 2100000, guid: dac3ae54ed4134c16a324648d5e65b19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
