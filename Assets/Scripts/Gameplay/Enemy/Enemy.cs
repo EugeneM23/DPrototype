@@ -2,7 +2,6 @@ using System;
 using Gameplay.Common;
 using Modules.PrefabPool;
 using UnityEngine;
-using Zenject;
 
 namespace Gameplay
 {
@@ -12,7 +11,19 @@ namespace Gameplay
 
         [SerializeField] private LootExplosionComponent _loot;
         [SerializeField] private HealthComponent _healthComponent;
+
         private GameObject _target;
+        private EnemyStateMachine _stateMachine;
+
+        private void Start()
+        {
+            _stateMachine = new EnemyStateMachine(_target, GetComponent<EnemyBrain>(), this);
+        }
+
+        private void Update()
+        {
+            _stateMachine.Tick();
+        }
 
         private void OnEnable()
         {
