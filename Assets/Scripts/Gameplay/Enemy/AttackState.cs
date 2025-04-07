@@ -18,9 +18,7 @@ namespace Gameplay
 
         public void Tick()
         {
-            if (_stateMachine.IsOnAnimation)
-                return;
-
+            _enemy.AgentStop();
             Vector3 direction = _player.transform.position - _enemy.transform.position;
             direction.y = 0;
 
@@ -32,8 +30,18 @@ namespace Gameplay
                 Quaternion.Slerp(_enemy.transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
 
-        public void Enter() => _stateMachine.IsAttaking = true;
+        public void Enter()
+        {
+            _enemy.AgentStop();
 
-        public void Exit() => _stateMachine.IsAttaking = false;
+            _stateMachine.IsAttaking = true;
+            //_stateMachine.IsOnAnimation = true;
+        }
+
+        public void Exit()
+        {
+            _enemy.AgentStarg();
+            _stateMachine.IsAttaking = false;
+        }
     }
 }

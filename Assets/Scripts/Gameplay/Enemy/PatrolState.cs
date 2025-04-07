@@ -25,7 +25,7 @@ namespace Gameplay
             _currentDestination = NextDestination();
             _enemy.SetDestination(_currentDestination);
 
-            if (_enemy.GetVelocity() < 1)
+            /*if (_enemy.GetVelocity() < 1)
             {
                 _stateMachine.IsAidling = true;
                 _stateMachine.IsWalking = false;
@@ -34,7 +34,7 @@ namespace Gameplay
             {
                 _stateMachine.IsAidling = false;
                 _stateMachine.IsWalking = true;
-            }
+            }*/
         }
 
         private Vector3 NextDestination()
@@ -54,7 +54,6 @@ namespace Gameplay
         {
             _enemy.SetSpeed(2);
             _currentDestination = NextDestination();
-            _enemy.SetDestination(_currentDestination);
 
             _stateMachine.IsWalking = true;
         }

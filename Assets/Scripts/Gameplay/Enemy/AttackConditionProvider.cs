@@ -6,8 +6,8 @@ namespace Gameplay
     {
         [SerializeField] private EnemyStateMachine _stateMachine;
 
-        public void FinishAnimation() => _stateMachine.IsOnAnimation = false;
+        /*public void FinishAnimation() => _stateMachine.IsOnAnimation = false;
 
-        public void StartAnimation() => _stateMachine.IsOnAnimation = true;
+        public void StartAnimation() => _stateMachine.IsOnAnimation = true;*/
     }
 }

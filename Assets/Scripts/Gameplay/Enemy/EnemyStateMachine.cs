@@ -12,7 +12,7 @@ namespace Gameplay
         public bool IsWalking;
         public bool IsAidling;
         public bool IsAttaking;
-        public bool IsOnAnimation;
+        //public bool IsOnAnimation;
 
         private Dictionary<Type, IEnemyState> _states;
         private GameObject _player;
@@ -31,7 +31,7 @@ namespace Gameplay
             SetState<PatrolState>();
         }
 
-        public void SetState<T>() where T : IEnemyState
+        private void SetState<T>() where T : IEnemyState
         {
             if (_currentState?.GetType() == typeof(T)) return;
 
@@ -42,19 +42,23 @@ namespace Gameplay
 
         public void Update()
         {
+            Debug.Log(_currentState?.GetType().Name);
+
+            Debug.Log(IsAttaking);
+
+            _currentState?.Tick();
+            
+            
             var distance = Vector3.Distance(_player.transform.position, _enemy.transform.position);
 
-            if (distance < _enemy.Attckrange)
+            if (distance < _enemy.Attckrange) 
                 SetState<AttackState>();
 
-
-            if (distance > _enemy.Attckrange)
+            if (distance > _enemy.Attckrange && distance < _enemy.ChaseRange)
                 SetState<ChaseState>();
 
             if (distance > _enemy.ChaseRange)
                 SetState<PatrolState>();
-
-            _currentState?.Tick();
         }
     }
 }

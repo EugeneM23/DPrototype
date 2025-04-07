@@ -33,5 +33,8 @@ namespace Gameplay
         public void Destroy()
         {
         }
+
+        public void AgentStop() => _agent.isStopped = true;
+        public void AgentStarg() => _agent.isStopped = false;
     }
 }

@@ -2649,9 +2649,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 5481907973978787791}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.45
+  m_Radius: 0.32
   m_Speed: 6
-  m_Acceleration: 10
+  m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 2000
   m_StoppingDistance: 0
@@ -2677,8 +2677,8 @@ MonoBehaviour:
   _animationController: {fileID: 8412395497518586427}
   _agent: {fileID: 2296924171434467480}
   _stateMachine: {fileID: 3540045103944270100}
-  <ChaseRange>k__BackingField: 15
-  <Attckrange>k__BackingField: 3
+  <ChaseRange>k__BackingField: 10
+  <Attckrange>k__BackingField: 2
 --- !u!114 &8412395497518586427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2706,6 +2706,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 4901569950380673614}
+  IsRuning: 0
+  IsWalking: 0
+  IsAidling: 0
+  IsAttaking: 0
+  IsOnAnimation: 0
 --- !u!114 &1252702936675668142
 MonoBehaviour:
   m_ObjectHideFlags: 0
