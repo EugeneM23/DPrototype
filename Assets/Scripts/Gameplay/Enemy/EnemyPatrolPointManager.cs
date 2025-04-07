@@ -8,7 +8,7 @@ namespace Gameplay
 
         public Vector3 GetNext()
         {
-            int randomIndex = UnityEngine.Random.Range(0, _patrolPoints.Length);
+            int randomIndex = Random.Range(0, _patrolPoints.Length);
             return _patrolPoints[randomIndex].position;
         }
 

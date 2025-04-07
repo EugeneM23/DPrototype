@@ -1,3 +1,4 @@
+using System;
 using Gameplay.BehComponents;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,8 +18,10 @@ namespace Gameplay
             _agent.SetDestination(destination);
         }
 
+
         private void Update()
         {
+            Debug.Log("Patrol");
             if (_conditions.IsOnAnimation) return;
 
             if (_enemy.PlayerInAttackRange() || _enemy.PlayerInChaseRange())

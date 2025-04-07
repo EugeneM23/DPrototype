@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,12 +10,15 @@ namespace Gameplay.BehComponents
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private Enemy _enemy;
 
+
         private void Update()
         {
             if (_enemy.PlayerInAttackRange())
             {
                 RotationToTarget();
                 _conditions.IsAttaking = true;
+                _conditions.IsPatroling = false;
+                _conditions.IsChasing = false;
                 _agent.isStopped = true;
             }
             else

@@ -2681,7 +2681,7 @@ MonoBehaviour:
   _animationController: {fileID: 8412395497518586427}
   _agent: {fileID: 2296924171434467480}
   <ChaseRange>k__BackingField: 0
-  <Attckrange>k__BackingField: 2
+  <Attckrange>k__BackingField: 10
 --- !u!114 &1252702936675668142
 MonoBehaviour:
   m_ObjectHideFlags: 0
