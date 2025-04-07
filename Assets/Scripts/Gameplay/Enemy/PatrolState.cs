@@ -7,13 +7,13 @@ namespace Gameplay
 {
     internal class PatrolState : IEnemyState
     {
-        private readonly EnemyBrain _enemy;
+        private readonly Enemy _enemy;
 
         private Vector3 _currentDestination;
         private float timer;
         private float wanderTimer = 5;
 
-        public PatrolState(EnemyBrain enemy)
+        public PatrolState(Enemy enemy)
         {
             _enemy = enemy;
         }

@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    internal class Weapon : MonoBehaviour, IWeapon
+    public class Weapon : MonoBehaviour, IWeapon
     {
         [SerializeField] private WeaponData _data;
         [SerializeField] private Transform _firePoint;

@@ -6,67 +6,43 @@ namespace Gameplay
     public class Player : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
+        [SerializeField] private Animator _animator;
 
-        private PlayerMoveComponent _playerMoveComponent;
-        private PlayerRotationOnMoveComponent _playerRotationOnMoveComponent;
-        private PlayerLookAtComponent _playerLookAtComponent;
+        private PlayerMove _playerMove;
+        private PlayerRotationOnMove _playerRotor;
+        private PlayerLookAt _lookAt;
         private CharacterController _characterController;
-        private EnemyManager _enemyManager;
+        private GameObject _target;
 
-        public bool IsMoving => GetVelocity() != Vector3.zero;
+        private bool IsMoving => GetVelocity() != Vector3.zero;
+        public Animator Animator => _animator;
 
         [Inject]
-        private void Construct(PlayerMoveComponent moveComponent, PlayerRotationOnMoveComponent rotationComponent,
-            PlayerLookAtComponent lookAtComponent, EnemyManager enemyManager)
+        private void Construct(PlayerMove move, PlayerRotationOnMove rotation, PlayerLookAt lookAt)
         {
-            _enemyManager = enemyManager;
-            _playerMoveComponent = moveComponent;
-            _playerRotationOnMoveComponent = rotationComponent;
-            _playerLookAtComponent = lookAtComponent;
+            _playerMove = move;
+            _playerRotor = rotation;
+            _lookAt = lookAt;
             _characterController = GetComponent<CharacterController>();
         }
 
         private void Update()
         {
-            if (IsMoving) return;
+            if (IsMoving || _target == null) return;
 
-            if (_enemyManager.TryGetTarget(_weapon.GetFireRange(), out GameObject target, this.transform))
-            {
-                LookAt(target.transform.position);
-
-                if (HasLookedAt(target.transform.position))
-                    _weapon.Shoot(target.transform);
-            }
-        }
-
-        public bool HasLookedAt(Vector3 targetPosition)
-        {
-            Vector3 direction = targetPosition - transform.position;
-            direction.y = 0f;
-
-            if (direction == Vector3.zero)
-                return true;
-
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            float angle = Quaternion.Angle(transform.rotation, targetRotation);
-
-            return angle < 1f;
+            if (_lookAt.LookAtAndCheck(_target.transform.position))
+                _weapon.Shoot(_target.transform);
         }
 
         public void Move(Vector3 direction)
         {
-            _playerMoveComponent.Move(direction);
-            _playerRotationOnMoveComponent.Ratation(direction);
+            _playerMove.Move(direction);
+            _playerRotor.Ratation(direction);
         }
 
-        public void LookAt(Vector3 position)
-        {
-            _playerLookAtComponent.LookAt(position);
-        }
+        public void SetTarget(GameObject target) => _target = target;
+        public Vector3 GetVelocity() => _characterController.velocity;
 
-        public Vector3 GetVelocity()
-        {
-            return _characterController.velocity;
-        }
+        public Weapon GetWeapon() => _weapon;
     }
 }

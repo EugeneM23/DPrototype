@@ -6,9 +6,9 @@ namespace Gameplay
     public class ChaseState : IEnemyState
     {
         private readonly GameObject _player;
-        private readonly EnemyBrain _enemy;
+        private readonly Enemy _enemy;
 
-        public ChaseState(GameObject player, EnemyBrain enemy)
+        public ChaseState(GameObject player, Enemy enemy)
         {
             _player = player;
             _enemy = enemy;

@@ -4,27 +4,22 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class EnemyStateMachine
+    public class EnemyStateMachine : MonoBehaviour
     {
-        private readonly EnemyBrain _brain;
-        private readonly Dictionary<Type, IEnemyState> _states;
-
+        [SerializeField] private Enemy _enemy;
+        private Dictionary<Type, IEnemyState> _states;
         private GameObject _player;
-        private Enemy _enemy;
 
         private IEnemyState _currentState;
 
-        public EnemyStateMachine(GameObject player, EnemyBrain brain, Enemy enemy)
+        private void Start()
         {
-            _player = player;
-            _brain = brain;
-            _enemy = enemy;
-
+            _player = _enemy.Target;
             _states = new Dictionary<Type, IEnemyState>()
             {
-                [typeof(PatrolState)] = new PatrolState(brain),
-                [typeof(ChaseState)] = new ChaseState(player, brain),
-                [typeof(AttackState)] = new AttackState(player, brain),
+                [typeof(PatrolState)] = new PatrolState(_enemy),
+                [typeof(ChaseState)] = new ChaseState(_player, _enemy),
+                [typeof(AttackState)] = new AttackState(_player, _enemy),
             };
 
             SetState<PatrolState>();
@@ -37,29 +32,18 @@ namespace Gameplay
             _currentState.Enter();
         }
 
-        public void Tick()
+        public void Update()
         {
-            Debug.Log(_enemy.IsOnAnimation);
-
-           
-
             var distance = Vector3.Distance(_player.transform.position, _enemy.transform.position);
 
-            Debug.Log(distance);
-            
-            if (distance < _brain.Attckrange)
+            if (distance < _enemy.Attckrange)
                 SetState<AttackState>();
-            
-            if (_enemy.IsOnAnimation)
-            {
-                _currentState?.Tick();
-                return;
-            }
 
-            if (distance > _brain.Attckrange)
+
+            if (distance > _enemy.Attckrange)
                 SetState<ChaseState>();
 
-            if (distance > _brain.ChaseRange)
+            if (distance > _enemy.ChaseRange)
                 SetState<PatrolState>();
 
             _currentState?.Tick();

@@ -7,20 +7,23 @@ namespace Gameplay
     public class PlayerInstaller : MonoInstaller
     {
         [SerializeField] private Player _player;
-
         [SerializeField] private PlayerParameters _parameters;
 
         public override void InstallBindings()
         {
             Container.Bind<Player>().FromComponentInNewPrefab(_player).AsSingle().NonLazy();
-            Container.Bind<PlayerMoveComponent>().AsSingle().WithArguments(_parameters.Speed).NonLazy();
+            Container.Bind<PlayerMove>().AsSingle().WithArguments(_parameters.Speed).NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerMoveController>().AsSingle().NonLazy();
             Container.Bind<PlayerInput>().AsSingle().NonLazy();
-            Container.Bind<PlayerRotationOnMoveComponent>().AsSingle().WithArguments(_parameters.RotationSpeed).NonLazy();
-            Container.Bind<PlayerLookAtComponent>().AsSingle().WithArguments(_parameters.AimingSpeed).NonLazy();
-            
+            Container.Bind<PlayerRotationOnMove>().AsSingle().WithArguments(_parameters.RotationSpeed)
+                .NonLazy();
+            Container.Bind<PlayerLookAt>().AsSingle().WithArguments(_parameters.AimingSpeed).NonLazy();
+
             Container.Bind<PrefabPool>().AsSingle().NonLazy();
             Container.Bind<Bulletmanager>().AsSingle().NonLazy();
+
+            Container.BindInterfacesAndSelfTo<PlayerAnimationController>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerTargetController>().AsSingle().NonLazy();
         }
     }
 }
