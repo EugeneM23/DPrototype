@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b8fc39c02d2652744b4800c10379ce7d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 215081
+  packageName: Enemy Ghoul
+  packageVersion: 1.0.0
+  assetPath: Assets/asd/Character/Enemy Ghoul/AnimationClips/Ghoul Animator Controller.controller
+  uploadId: 618687

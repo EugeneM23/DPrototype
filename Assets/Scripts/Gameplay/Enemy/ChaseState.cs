@@ -21,7 +21,7 @@ namespace Gameplay
 
         public void Enter()
         {
-            _enemy.SetSpeed(5);
+            _enemy.SetSpeed(8);
             
             _enemy.GetComponent<Enemy>().IsRuning = true;
         }
