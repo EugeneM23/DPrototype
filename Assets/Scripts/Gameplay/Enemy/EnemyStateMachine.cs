@@ -7,9 +7,15 @@ namespace Gameplay
     public class EnemyStateMachine : MonoBehaviour
     {
         [SerializeField] private Enemy _enemy;
+
+        public bool IsRuning;
+        public bool IsWalking;
+        public bool IsAidling;
+        public bool IsAttaking;
+        public bool IsOnAnimation;
+
         private Dictionary<Type, IEnemyState> _states;
         private GameObject _player;
-
         private IEnemyState _currentState;
 
         private void Start()
@@ -17,9 +23,9 @@ namespace Gameplay
             _player = _enemy.Target;
             _states = new Dictionary<Type, IEnemyState>()
             {
-                [typeof(PatrolState)] = new PatrolState(_enemy),
-                [typeof(ChaseState)] = new ChaseState(_player, _enemy),
-                [typeof(AttackState)] = new AttackState(_player, _enemy),
+                [typeof(PatrolState)] = new PatrolState(_enemy, this),
+                [typeof(ChaseState)] = new ChaseState(_player, _enemy, this),
+                [typeof(AttackState)] = new AttackState(_player, _enemy, this),
             };
 
             SetState<PatrolState>();
@@ -27,6 +33,8 @@ namespace Gameplay
 
         public void SetState<T>() where T : IEnemyState
         {
+            if (_currentState?.GetType() == typeof(T)) return;
+
             _currentState?.Exit();
             _currentState = _states[typeof(T)];
             _currentState.Enter();

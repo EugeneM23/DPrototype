@@ -2530,9 +2530,10 @@ GameObject:
   - component: {fileID: 4901569950380673614}
   - component: {fileID: 8412395497518586427}
   - component: {fileID: 3540045103944270100}
+  - component: {fileID: 1252702936675668142}
   - component: {fileID: 4174912901918546833}
   - component: {fileID: -1811297344115943003}
-  - component: {fileID: 1252702936675668142}
+  - component: {fileID: 5498170014603428378}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Untagged
@@ -2673,8 +2674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521a5cd3b16941e28275ba0e0fdadcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loot: {fileID: -1811297344115943003}
-  _healthComponent: {fileID: 4174912901918546833}
   _animationController: {fileID: 8412395497518586427}
   _agent: {fileID: 2296924171434467480}
   _stateMachine: {fileID: 3540045103944270100}
@@ -2693,6 +2692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3196630611226905001}
+  _stateMachine: {fileID: 3540045103944270100}
 --- !u!114 &3540045103944270100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2706,6 +2706,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 4901569950380673614}
+--- !u!114 &1252702936675668142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481907973978787791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72e53484e954409aa75cda9337af440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateMachine: {fileID: 3540045103944270100}
 --- !u!114 &4174912901918546833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2736,7 +2749,7 @@ MonoBehaviour:
   - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
   - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
   - {fileID: 5755287782797089623, guid: fbe59ccd90b464dc7b01034651250d78, type: 3}
---- !u!114 &1252702936675668142
+--- !u!114 &5498170014603428378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2745,9 +2758,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5481907973978787791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b72e53484e954409aa75cda9337af440, type: 3}
+  m_Script: {fileID: 11500000, guid: 54219b7ce3c64808a8d4f76ccf8bb272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loot: {fileID: -1811297344115943003}
+  _healthComponent: {fileID: 4174912901918546833}
   _enemy: {fileID: 4901569950380673614}
 --- !u!1 &5585570460900715633
 GameObject:

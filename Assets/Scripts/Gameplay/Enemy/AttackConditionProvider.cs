@@ -4,16 +4,10 @@ namespace Gameplay
 {
     public class AttackConditionProvider : MonoBehaviour
     {
-        [SerializeField] private Enemy _enemy;
+        [SerializeField] private EnemyStateMachine _stateMachine;
 
-        public void FinishAnimation()
-        {
-            _enemy.IsOnAnimation = false;
-        }
+        public void FinishAnimation() => _stateMachine.IsOnAnimation = false;
 
-        public void StartAnimation()
-        {
-            _enemy.IsOnAnimation = true;
-        }
+        public void StartAnimation() => _stateMachine.IsOnAnimation = true;
     }
 }

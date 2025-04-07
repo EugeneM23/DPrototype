@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Gameplay
@@ -7,28 +6,23 @@ namespace Gameplay
     {
         private readonly GameObject _player;
         private readonly Enemy _enemy;
+        private readonly EnemyStateMachine _stateMachine;
 
-        public ChaseState(GameObject player, Enemy enemy)
+        public ChaseState(GameObject player, Enemy enemy, EnemyStateMachine stateMachine)
         {
             _player = player;
             _enemy = enemy;
+            _stateMachine = stateMachine;
         }
 
-        public void Tick()
-        {
-            _enemy.SetDestination(_player.transform.position);
-        }
+        public void Tick() => _enemy.SetDestination(_player.transform.position);
 
         public void Enter()
         {
             _enemy.SetSpeed(8);
-            
-            _enemy.GetComponent<Enemy>().IsRuning = true;
+            _stateMachine.IsRuning = true;
         }
 
-        public void Exit()
-        {
-            _enemy.GetComponent<Enemy>().IsRuning = false;
-        }
+        public void Exit() => _stateMachine.IsRuning = false;
     }
 }

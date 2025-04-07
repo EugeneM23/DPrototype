@@ -8,14 +8,16 @@ namespace Gameplay
     internal class PatrolState : IEnemyState
     {
         private readonly Enemy _enemy;
+        private readonly EnemyStateMachine _stateMachine;
 
         private Vector3 _currentDestination;
         private float timer;
         private float wanderTimer = 5;
 
-        public PatrolState(Enemy enemy)
+        public PatrolState(Enemy enemy, EnemyStateMachine stateMachine)
         {
             _enemy = enemy;
+            _stateMachine = stateMachine;
         }
 
         public void Tick()
@@ -25,13 +27,13 @@ namespace Gameplay
 
             if (_enemy.GetVelocity() < 1)
             {
-                _enemy.GetComponent<Enemy>().IsAidling = true;
-                _enemy.GetComponent<Enemy>().IsWalking = false;
+                _stateMachine.IsAidling = true;
+                _stateMachine.IsWalking = false;
             }
             else
             {
-                _enemy.GetComponent<Enemy>().IsAidling = false;
-                _enemy.GetComponent<Enemy>().IsWalking = true;
+                _stateMachine.IsAidling = false;
+                _stateMachine.IsWalking = true;
             }
         }
 
@@ -54,13 +56,13 @@ namespace Gameplay
             _currentDestination = NextDestination();
             _enemy.SetDestination(_currentDestination);
 
-            _enemy.GetComponent<Enemy>().IsWalking = true;
+            _stateMachine.IsWalking = true;
         }
 
         public void Exit()
         {
-            _enemy.GetComponent<Enemy>().IsWalking = false;
-            _enemy.GetComponent<Enemy>().IsAidling = false;
+            _stateMachine.IsWalking = false;
+            _stateMachine.IsAidling = false;
         }
 
         Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)

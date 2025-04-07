@@ -5,19 +5,14 @@ namespace Gameplay
     public class EnemyAnimationController : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
-        private Enemy _enemy;
+        [SerializeField] private EnemyStateMachine _stateMachine;
 
         private void Update()
         {
-            _animator.SetBool("IsRunning", _enemy.IsRuning);
-            _animator.SetBool("IsWalking", _enemy.IsWalking);
-            _animator.SetBool("IsAidling", _enemy.IsAidling);
-            _animator.SetBool("IsAttaking", _enemy.IsAttaking);
-        }
-
-        public void SetEnemy(Enemy enemy)
-        {
-            _enemy = enemy;
+            _animator.SetBool("IsRunning", _stateMachine.IsRuning);
+            _animator.SetBool("IsWalking", _stateMachine.IsWalking);
+            _animator.SetBool("IsAidling", _stateMachine.IsAidling);
+            _animator.SetBool("IsAttaking", _stateMachine.IsAttaking);
         }
     }
 }

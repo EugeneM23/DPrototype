@@ -15,7 +15,7 @@ MonoBehaviour:
   <FireRate>k__BackingField: 0.2
   <FireRange>k__BackingField: 15
   <_bulletInfo>k__BackingField:
-    <Damage>k__BackingField: 0
+    <Damage>k__BackingField: 3
     <PhysicsLayer>k__BackingField: 14
     <BulletPrefab>k__BackingField: {fileID: 7546721366558294015, guid: 23a0d17469d27424c861da3286eea41a, type: 3}
     <BulletSpeed>k__BackingField: 50

@@ -7,16 +7,18 @@ namespace Gameplay
     {
         private readonly GameObject _player;
         private readonly Enemy _enemy;
+        private readonly EnemyStateMachine _stateMachine;
 
-        public AttackState(GameObject player, Enemy enemy)
+        public AttackState(GameObject player, Enemy enemy, EnemyStateMachine stateMachine)
         {
             _player = player;
             _enemy = enemy;
+            _stateMachine = stateMachine;
         }
 
         public void Tick()
         {
-            if (_enemy.IsOnAnimation)
+            if (_stateMachine.IsOnAnimation)
                 return;
 
             Vector3 direction = _player.transform.position - _enemy.transform.position;
@@ -30,14 +32,8 @@ namespace Gameplay
                 Quaternion.Slerp(_enemy.transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
 
-        public void Enter()
-        {
-            _enemy.GetComponent<Enemy>().IsAttaking = true;
-        }
+        public void Enter() => _stateMachine.IsAttaking = true;
 
-        public void Exit()
-        {
-            _enemy.GetComponent<Enemy>().IsAttaking = false;
-        }
+        public void Exit() => _stateMachine.IsAttaking = false;
     }
 }
