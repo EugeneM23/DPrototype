@@ -2539,7 +2539,7 @@ GameObject:
   - component: {fileID: -5730019122505000613}
   - component: {fileID: 8412395497518586427}
   m_Layer: 0
-  m_Name: Enemy_01
+  m_Name: Enemy_01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2680,7 +2680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationController: {fileID: 8412395497518586427}
   _agent: {fileID: 2296924171434467480}
-  <ChaseRange>k__BackingField: 7
+  <ChaseRange>k__BackingField: 0
   <Attckrange>k__BackingField: 2
 --- !u!114 &1252702936675668142
 MonoBehaviour:

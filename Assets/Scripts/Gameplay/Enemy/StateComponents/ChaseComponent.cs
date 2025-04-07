@@ -14,7 +14,7 @@ namespace Gameplay.BehComponents
         {
             if (_conditions.IsOnAnimation) return;
 
-            if (_enemy.PlayerInAttackRange() || !_enemy.PlayerInChaseRange())
+            if (_enemy.PlayerInAttackRange())
             {
                 _conditions.IsChasing = false;
                 return;
@@ -23,15 +23,14 @@ namespace Gameplay.BehComponents
             if (!_enemy.PlayerInAttackRange() && !_enemy.PlayerInChaseRange())
             {
                 _conditions.IsChasing = false;
-                _agent.SetDestination(_enemy.transform.position);
                 return;
             }
 
-            if (_enemy.PlayerInChaseRange())
+            if (_enemy.PlayerInChaseRange() && !_conditions.IsAttaking)
             {
                 _conditions.IsChasing = true;
                 _agent.SetDestination(_enemy.Target.transform.position);
-                _agent.speed = 8;
+                _agent.speed = 7;
             }
         }
     }

@@ -1,7 +1,8 @@
+using Gameplay.BehComponents;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Gameplay.BehComponents
+namespace Gameplay
 {
     public class PatrolComponent : MonoBehaviour
     {
@@ -23,10 +24,8 @@ namespace Gameplay.BehComponents
             if (_enemy.PlayerInAttackRange() || _enemy.PlayerInChaseRange())
             {
                 _conditions.IsPatroling = false;
-                _agent.SetDestination(_enemy.transform.position);
                 return;
             }
-
 
             _conditions.IsPatroling = true;
             _agent.speed = 2.5f;

@@ -24,6 +24,7 @@ namespace Gameplay
 
             Container.BindInterfacesAndSelfTo<PlayerAnimationController>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerTargetController>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerLean>().AsSingle().NonLazy();
         }
     }
 }
