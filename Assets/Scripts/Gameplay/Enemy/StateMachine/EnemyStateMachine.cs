@@ -12,18 +12,18 @@ namespace Gameplay
         public bool IsWalking;
         public bool IsAidling;
         public bool IsAttaking;
-        //public bool IsOnAnimation;
 
-        private Dictionary<Type, IEnemyState> _states;
+        private Dictionary<Type, EnemyBaseState> _states;
         private GameObject _player;
-        private IEnemyState _currentState;
+        private EnemyBaseState _currentState;
+        public bool IsOnAnimation { get; set; }
 
         private void Start()
         {
             _player = _enemy.Target;
-            _states = new Dictionary<Type, IEnemyState>()
+            _states = new Dictionary<Type, EnemyBaseState>()
             {
-                [typeof(PatrolState)] = new PatrolState(_enemy, this),
+                [typeof(PatrolState)] = new PatrolState(_player, _enemy,this),
                 [typeof(ChaseState)] = new ChaseState(_player, _enemy, this),
                 [typeof(AttackState)] = new AttackState(_player, _enemy, this),
             };
@@ -31,7 +31,7 @@ namespace Gameplay
             SetState<PatrolState>();
         }
 
-        private void SetState<T>() where T : IEnemyState
+        public void SetState<T>() where T : EnemyBaseState
         {
             if (_currentState?.GetType() == typeof(T)) return;
 
@@ -42,23 +42,18 @@ namespace Gameplay
 
         public void Update()
         {
-            Debug.Log(_currentState?.GetType().Name);
-
-            Debug.Log(IsAttaking);
-
+            Debug.Log(_currentState.GetType().Name);
             _currentState?.Tick();
-            
-            
-            var distance = Vector3.Distance(_player.transform.position, _enemy.transform.position);
+        }
 
-            if (distance < _enemy.Attckrange) 
-                SetState<AttackState>();
+        public bool PlayerInChaseRange()
+        {
+            return Vector3.Distance(transform.position, _player.transform.position) <= _enemy.ChaseRange;
+        }
 
-            if (distance > _enemy.Attckrange && distance < _enemy.ChaseRange)
-                SetState<ChaseState>();
-
-            if (distance > _enemy.ChaseRange)
-                SetState<PatrolState>();
+        public bool PlayerInAttackRange()
+        {
+            return Vector3.Distance(transform.position, _player.transform.position) <= _enemy.Attckrange;
         }
     }
 }

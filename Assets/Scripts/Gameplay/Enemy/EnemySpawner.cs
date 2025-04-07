@@ -8,6 +8,7 @@ namespace Gameplay
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private Transform[] _patrolPoints;
         private EnemyManager _manager;
         private Player _player;
 
@@ -22,6 +23,7 @@ namespace Gameplay
         {
             GameObject enemy = _manager.SpawnEnemy(_enemyPrefab.gameObject, transform.position);
             enemy.GetComponent<Enemy>().SetTarget(_player.gameObject);
+            enemy.GetComponent<EnemyPatrolPointManager>().SetPatrolPoints(_patrolPoints);
         }
     }
 }

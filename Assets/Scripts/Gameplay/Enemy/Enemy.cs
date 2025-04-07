@@ -10,8 +10,7 @@ namespace Gameplay
         public event Action<GameObject> DeSpawn;
 
         [SerializeField] private EnemyAnimationController _animationController;
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private EnemyStateMachine _stateMachine;
+        [SerializeField] public NavMeshAgent _agent;
 
         [field: SerializeField] public float ChaseRange { get; private set; }
         [field: SerializeField] public float Attckrange { get; private set; }
@@ -28,13 +27,16 @@ namespace Gameplay
 
         public float GetVelocity() => _agent.velocity.magnitude;
 
-        public void SetSpeed(int i) => _agent.speed = i;
+        public void SetSpeed(float i) => _agent.speed = i;
 
         public void Destroy()
         {
         }
 
-        public void AgentStop() => _agent.isStopped = true;
-        public void AgentStarg() => _agent.isStopped = false;
+        public bool PlayerInChaseRange() =>
+            Vector3.Distance(transform.position, _target.transform.position) <= ChaseRange;
+
+        public bool PlayerInAttackRange() =>
+            Vector3.Distance(transform.position, _target.transform.position) <= Attckrange;
     }
 }

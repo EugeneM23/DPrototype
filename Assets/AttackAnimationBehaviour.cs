@@ -1,22 +1,17 @@
 using Gameplay;
+using Gameplay.BehComponents;
 using UnityEngine;
 
 public class AttackAnimationBehaviour : StateMachineBehaviour
 {
-    private EnemyStateMachine _stateMachine;
-
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("OnStateEnter");
-
-        _stateMachine = animator.GetComponent<EnemyStateMachine>();
-        _stateMachine.IsAttaking = true;
+        animator.GetComponent<EnemyConditions>().IsOnAnimation = true;
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("OnStateExit");
-        _stateMachine.IsAttaking = false;
+        animator.GetComponent<EnemyConditions>().IsOnAnimation = false;
     }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -27,7 +22,6 @@ public class AttackAnimationBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log(stateInfo.length);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
