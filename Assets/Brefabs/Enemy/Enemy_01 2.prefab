@@ -2672,7 +2672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agent: {fileID: 2296924171434467480}
-  _chaseRange: 10
+  _chaseRange: 30
   _attckrange: 3
 --- !u!114 &4174912901918546833
 MonoBehaviour:

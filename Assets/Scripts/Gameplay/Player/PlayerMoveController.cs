@@ -15,7 +15,7 @@ namespace Gameplay
 
         public void Tick()
         {
-            _player.Move(_playerInput.Axis);
+            _player.Move(_playerInput.Axis.normalized);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
@@ -19,11 +20,16 @@ namespace Gameplay
             _player = player;
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
-            GameObject enemy = _manager.SpawnEnemy(_enemyPrefab.gameObject, transform.position);
-            enemy.GetComponent<Enemy>().SetTarget(_player.gameObject);
-            enemy.GetComponent<Enemy>().SetSpawnPoints(_patrolPoints);
+            while (true)
+            {
+                GameObject enemy = _manager.SpawnEnemy(_enemyPrefab.gameObject, transform.position);
+                enemy.GetComponent<Enemy>().SetTarget(_player.gameObject);
+                enemy.GetComponent<Enemy>().SetSpawnPoints(_patrolPoints);
+                int rand = Random.Range(0, 3);
+                yield return new WaitForSeconds(rand);
+            }
         }
     }
 }
