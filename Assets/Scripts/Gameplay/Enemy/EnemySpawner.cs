@@ -27,7 +27,7 @@ namespace Gameplay
                 GameObject enemy = _manager.SpawnEnemy(_enemyPrefab.gameObject, transform.position);
                 enemy.GetComponent<Enemy>().SetTarget(_player.gameObject);
                 enemy.GetComponent<Enemy>().SetSpawnPoints(_patrolPoints);
-                int rand = Random.Range(0, 3);
+                float rand = Random.Range(0.4f, 5f);
                 yield return new WaitForSeconds(rand);
             }
         }
