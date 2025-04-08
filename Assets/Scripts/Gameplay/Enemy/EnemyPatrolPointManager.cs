@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class EnemyPatrolPointManager : MonoBehaviour
+    [Serializable]
+    public class EnemyPatrolPointManager
     {
         private Transform[] _patrolPoints;
 

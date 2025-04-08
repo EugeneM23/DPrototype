@@ -3,20 +3,22 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class EnemyAnimationController : MonoBehaviour
+    public class EnemyAnimationController
     {
-        [SerializeField] private Animator _animator;
-        [SerializeField] private EnemyConditions _conditions;
+        private readonly Animator _animator;
+        private readonly EnemyConditions _conditions;
 
-        private void Update()
+        public EnemyAnimationController(Animator animator, EnemyConditions conditions)
+        {
+            _animator = animator;
+            _conditions = conditions;
+        }
+
+        public void Tick()
         {
             _animator.SetBool("IsWalking", _conditions.IsPatroling);
             _animator.SetBool("IsRunning", _conditions.IsChasing);
             _animator.SetBool("IsAttaking", _conditions.IsAttaking);
-            /*
-            _animator.SetBool("IsAidling", _stateMachine.IsAidling);
-            _animator.SetBool("IsAttaking", _stateMachine.IsAttaking);#1#
-        */
         }
     }
 }
