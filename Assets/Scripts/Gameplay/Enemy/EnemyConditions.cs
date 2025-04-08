@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.BehComponents
 {
@@ -11,15 +10,15 @@ namespace Gameplay.BehComponents
         public bool IsAttaking;
         public bool IsOnAnimation;
 
-        private readonly Transform _player;
-        private readonly Transform _enemy;
-        private readonly float _chaseRange;
-        private readonly float _attckRange;
+        private readonly Player _player;
+        private readonly Transform _enemyTransform;
+        private float _chaseRange;
+        private float _attckRange;
 
-        public EnemyConditions(Transform player, Transform enemy, float chaseRange, float attckRange)
+        public EnemyConditions(Player player, Transform enemyTransform, float chaseRange, float attckRange)
         {
             _player = player;
-            _enemy = enemy;
+            _enemyTransform = enemyTransform;
             _chaseRange = chaseRange;
             _attckRange = attckRange;
         }
@@ -49,9 +48,9 @@ namespace Gameplay.BehComponents
         }
 
         private bool PlayerInChaseRange() =>
-            Vector3.Distance(_enemy.transform.position, _player.position) <= _chaseRange;
+            Vector3.Distance(_enemyTransform.transform.position, _player.GetTransform().position) <= _chaseRange;
 
         private bool PlayerInAttackRange() =>
-            Vector3.Distance(_enemy.position, _player.position) <= _attckRange;
+            Vector3.Distance(_enemyTransform.position, _player.GetTransform().position) <= _attckRange;
     }
 }

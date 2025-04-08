@@ -13,6 +13,7 @@ namespace Gameplay
         private PlayerLookAt _lookAt;
         private CharacterController _characterController;
         private GameObject _target;
+        private Transform _playerTransform => gameObject.transform;
 
         private bool IsMoving => GetVelocity() != Vector3.zero;
         public Animator Animator => _animator;
@@ -44,5 +45,7 @@ namespace Gameplay
         public Vector3 GetVelocity() => _characterController.velocity;
 
         public Weapon GetWeapon() => _weapon;
+
+        public Transform GetTransform() => _playerTransform;
     }
 }

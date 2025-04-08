@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.Common;
 using Modules.PrefabPool;
 using UnityEngine;
 
@@ -44,7 +45,7 @@ namespace Gameplay
 
         public GameObject SpawnEnemy(GameObject enemyPrefab, Vector3 transformPosition)
         {
-            Enemy enemy = _prefabPool.Spawn<Enemy>(enemyPrefab);
+            HealthComponent enemy = _prefabPool.Spawn<HealthComponent>(enemyPrefab);
             enemy.DeSpawn += RemoveEnemy;
             enemy.transform.position = transformPosition;
             AddEnemy(enemy.gameObject);

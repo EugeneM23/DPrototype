@@ -1,9 +1,10 @@
 using Gameplay.BehComponents;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyAnimationController
+    public class EnemyAnimationController : ITickable
     {
         private readonly Animator _animator;
         private readonly EnemyConditions _conditions;

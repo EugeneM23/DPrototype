@@ -11,13 +11,13 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            _healthComponent.DeSpawn += _enemy.Despawn;
+            //_healthComponent.DeSpawn += _enemy.Despawn;
             //_healthComponent.DeSpawn += _loot.SpawnLoot;
         }
 
         private void OnDisable()
         {
-            _healthComponent.DeSpawn -= _enemy.Despawn;
+            //_healthComponent.DeSpawn -= _enemy.Despawn;
             //_healthComponent.DeSpawn -= _loot.SpawnLoot;
         }
     }

@@ -3,69 +3,59 @@ using Gameplay.BehComponents;
 using Modules.PrefabPool;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 namespace Gameplay
 {
-    public class Enemy : MonoBehaviour, IDespawned
+    public class Enemy : ITickable, IDespawned
     {
         public event Action<GameObject> DeSpawn;
-        
 
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private float _chaseRange;
-        [SerializeField] private float _attckrange;
+        private readonly Transform _enemyTransform;
+        private readonly EnemyBehaviour _behaviour;
+        private readonly EnemyConditions _conditions;
+        private readonly NavMeshAgent _agent;
 
-        private readonly EnemyPatrolPointManager _patrolPointManager = new();
+        private readonly float _chaseRange;
+        private readonly float _attckrange;
+        public float ChaseRange => _chaseRange;
+        public float AttckRange => _attckrange;
 
-        private EnemyConditions _conditions;
-        private PatrolComponent _patrolState;
-        private AttackComponent _attackState;
-        private ChaseComponent _chaseComponent;
-
-        private GameObject _target;
-        private EnemyAnimationController _animationController;
-        public Transform Target => _target.transform;
-
-        private void Start()
+        public Enemy(Transform enemyTransform, EnemyBehaviour behaviour, float chaseRange, float attckrange,
+            EnemyConditions conditions)
         {
-            _conditions =
-                new EnemyConditions(
-                    player: _target.transform,
-                    enemy: gameObject.transform,
-                    chaseRange: _chaseRange,
-                    attckRange: _attckrange);
+            _agent = enemyTransform.GetComponent<NavMeshAgent>();
+            _enemyTransform = enemyTransform;
+            _behaviour = behaviour;
+            _conditions = conditions;
 
-            _patrolState = new PatrolComponent(_agent, _conditions, _patrolPointManager);
-            _attackState = new AttackComponent(_conditions, _agent, new RotationToTarget());
-            _chaseComponent = new ChaseComponent(_agent, _conditions, _target);
-            _animationController = new EnemyAnimationController(GetComponent<Animator>(), _conditions);
+            _chaseRange = chaseRange;
+            _attckrange = attckrange;
+
+            enemyTransform.GetComponent<AttackAnimationProvider>().SetCondition(_conditions);
         }
 
-        private void Update()
+        public void Tick()
         {
             if (_conditions.GetPatrolCondition())
-                _patrolState.Patrol();
+                _behaviour.Patrol();
 
             if (_conditions.GetChaseCondition())
-                _chaseComponent.Chase();
+                _behaviour.Chase();
 
             if (_conditions.GetAttackCondition())
-                _attackState.Attack();
-
-            _animationController.Tick();
+                _behaviour.Attack();
+            
+            Debug.Log(_enemyTransform.position);
         }
 
-        public void SetTarget(GameObject target) => _target = target;
 
-        public void FinishAttackAnimation() => _conditions.IsAttaking = false;
 
-        public void StartAttackAnimation() => _conditions.IsAttaking = true;
-        public void SetSpawnPoints(Transform[] patrolPoints) => _patrolPointManager.SetPatrolPoints(patrolPoints);
-        public void Despawn(GameObject obj) => DeSpawn?.Invoke(gameObject);
+        public void Destroy(GameObject obj) => DeSpawn?.Invoke(_enemyTransform.gameObject);
 
-        public void Destroy(GameObject obj)
+        public NavMeshAgent GetAgent()
         {
-            DeSpawn?.Invoke(gameObject);
+            return _agent;
         }
     }
 }

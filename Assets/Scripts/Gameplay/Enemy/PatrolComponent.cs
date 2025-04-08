@@ -10,10 +10,12 @@ namespace Gameplay
         private readonly EnemyConditions _conditions;
         private readonly EnemyPatrolPointManager _patrolPointManager;
 
-        public PatrolComponent(NavMeshAgent agent, EnemyConditions conditions,
-            EnemyPatrolPointManager patrolPointManager)
+        public PatrolComponent(EnemyConditions conditions, EnemyPatrolPointManager patrolPointManager,
+            NavMeshAgent enemy)
         {
-            _agent = agent;
+            _agent = enemy;
+            _agent.enabled = true;
+
             _conditions = conditions;
             _patrolPointManager = patrolPointManager;
         }

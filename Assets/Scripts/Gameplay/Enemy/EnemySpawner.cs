@@ -1,35 +1,22 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : IInitializable
     {
-        [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private Transform[] _patrolPoints;
-        private EnemyManager _manager;
-        private Player _player;
+        private readonly Transform _enemyTransfrom;
+        private readonly EnemyManager _manager;
 
-        [Inject]
-        public void Construct(EnemyManager manager, Player player)
+        public EnemySpawner(EnemyManager manager, Transform enemyTransfrom)
         {
             _manager = manager;
-            _player = player;
+            _enemyTransfrom = enemyTransfrom;
         }
 
-        private IEnumerator Start()
+        public void Initialize()
         {
-            while (true)
-            {
-                GameObject enemy = _manager.SpawnEnemy(_enemyPrefab.gameObject, transform.position);
-                enemy.GetComponent<Enemy>().SetTarget(_player.gameObject);
-                enemy.GetComponent<Enemy>().SetSpawnPoints(_patrolPoints);
-                float rand = Random.Range(0.4f, 5f);
-                yield return new WaitForSeconds(rand);
-            }
+            //GameObject enemy = _manager.SpawnEnemy(_enemyTransfrom.gameObject, Vector3.zero);
         }
     }
 }

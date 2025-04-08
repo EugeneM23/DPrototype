@@ -1,4 +1,5 @@
 using Gameplay.BehComponents;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,12 +10,14 @@ namespace Gameplay
         private readonly EnemyConditions _conditions;
         private readonly NavMeshAgent _agent;
         private readonly RotationToTarget _rotator;
+        private readonly Transform _target;
 
-        public AttackComponent(EnemyConditions conditions, NavMeshAgent agent, RotationToTarget rotator)
+        public AttackComponent(EnemyConditions conditions, RotationToTarget rotator, Player player, NavMeshAgent enemy)
         {
             _conditions = conditions;
-            _agent = agent;
             _rotator = rotator;
+            _agent = enemy;
+            _target = player.GetTransform();
         }
 
         public void Attack()
@@ -24,7 +27,7 @@ namespace Gameplay
             _conditions.IsAttaking = true;
             _agent.isStopped = true;
 
-            _rotator.Rotation(_agent.transform, _agent.GetComponent<Enemy>().Target);
+            _rotator.Rotation(_agent.transform, _target);
         }
     }
 }

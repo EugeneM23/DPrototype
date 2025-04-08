@@ -1,4 +1,5 @@
 using Gameplay.BehComponents;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,13 +9,13 @@ namespace Gameplay
     {
         private readonly NavMeshAgent _agent;
         private readonly EnemyConditions _conditions;
-        private readonly GameObject _target;
+        private readonly Transform _target;
 
-        public ChaseComponent(NavMeshAgent agent, EnemyConditions conditions, GameObject target)
+        public ChaseComponent(EnemyConditions conditions, Player target, NavMeshAgent enemy)
         {
-            _agent = agent;
             _conditions = conditions;
-            _target = target;
+            _agent = enemy;
+            _target = target.GetTransform();
         }
 
         public void Chase()
@@ -23,7 +24,7 @@ namespace Gameplay
             _conditions.IsPatroling = false;
             _conditions.IsChasing = true;
 
-            _agent.SetDestination(_target.transform.position);
+            _agent.SetDestination(_target.position);
             _agent.speed = 8;
         }
     }
