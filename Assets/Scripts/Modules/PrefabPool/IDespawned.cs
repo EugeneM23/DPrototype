@@ -7,6 +7,6 @@ namespace Modules.PrefabPool
     {
         public event Action<GameObject> DeSpawn;
         
-        public void Destroy();
+        public void Destroy(GameObject gameObject);
     }
 }

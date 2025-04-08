@@ -21,10 +21,10 @@ namespace Gameplay
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent(out IDamagable damageable)) 
+            if (other.gameObject.TryGetComponent(out IDamagable damageable))
                 damageable.TakeDamage(_damage);
-            
-            Destroy();
+
+            Destroy(this.gameObject);
         }
 
         public void Construct(int damage, PhysicsLayer physicsLayer, float speed)
@@ -44,7 +44,7 @@ namespace Gameplay
             _moveDirection = moveDirection;
         }
 
-        public void Destroy()
+        public void Destroy(GameObject gameObject)
         {
             DeSpawn?.Invoke(gameObject);
         }

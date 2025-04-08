@@ -9,6 +9,7 @@ namespace Gameplay
     public class Enemy : MonoBehaviour, IDespawned
     {
         public event Action<GameObject> DeSpawn;
+        
 
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private float _chaseRange;
@@ -40,24 +41,21 @@ namespace Gameplay
             _animationController = new EnemyAnimationController(GetComponent<Animator>(), _conditions);
         }
 
-        public void SetTarget(GameObject target) => _target = target;
-
         private void Update()
         {
             if (_conditions.GetPatrolCondition())
-            {
-                Debug.Log("Patrol");
                 _patrolState.Patrol();
-            }
 
             if (_conditions.GetChaseCondition())
                 _chaseComponent.Chase();
 
             if (_conditions.GetAttackCondition())
                 _attackState.Attack();
-            
+
             _animationController.Tick();
         }
+
+        public void SetTarget(GameObject target) => _target = target;
 
         public void FinishAttackAnimation() => _conditions.IsAttaking = false;
 
@@ -65,8 +63,9 @@ namespace Gameplay
         public void SetSpawnPoints(Transform[] patrolPoints) => _patrolPointManager.SetPatrolPoints(patrolPoints);
         public void Despawn(GameObject obj) => DeSpawn?.Invoke(gameObject);
 
-        public void Destroy()
+        public void Destroy(GameObject obj)
         {
+            DeSpawn?.Invoke(gameObject);
         }
     }
 }

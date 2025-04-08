@@ -7,7 +7,11 @@ namespace Gameplay.Common
     public class HealthComponent : MonoBehaviour, IDamagable, IDespawned
     {
         public event Action<GameObject> DeSpawn;
-        
+        public void Destroy(GameObject gameObject)
+        {
+            
+        }
+
         [SerializeField] private int _health;
 
         public void TakeDamage(int damage)
@@ -16,12 +20,7 @@ namespace Gameplay.Common
             if (_health <= 0)
             {
                 DeSpawn?.Invoke(gameObject);
-                Destroy();
             }
-        }
-
-        public void Destroy()
-        {
         }
     }
 }
