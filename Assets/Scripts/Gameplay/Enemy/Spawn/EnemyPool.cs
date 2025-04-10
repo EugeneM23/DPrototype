@@ -13,9 +13,9 @@ namespace Gameplay
 
         public Enemy Create()
         {
-            var asd = Spawn();
-            _manager.AddEnemy(asd.gameObject);
-            return asd;
+            Enemy enemy = Spawn();
+            _manager.AddEnemy(enemy.gameObject);
+            return enemy;
         }
 
         protected override void OnSpawned(Enemy enemy)

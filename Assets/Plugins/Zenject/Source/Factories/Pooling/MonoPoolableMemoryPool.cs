@@ -117,10 +117,10 @@ namespace Zenject
             }
         }
 
-        protected override void Reinitialize(TParam1 p1, TParam2 p2, TValue item)
+        protected override void Reinitialize(TParam1 position, TParam2 rotation, TValue bullet)
         {
-            item.gameObject.SetActive(true);
-            item.OnSpawned(p1, p2);
+            bullet.gameObject.SetActive(true);
+            bullet.OnSpawned(position, rotation);
         }
     }
 

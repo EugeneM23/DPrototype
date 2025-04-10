@@ -7,20 +7,24 @@ namespace Gameplay
 {
     public class Bullet : MonoBehaviour
     {
-        public event Action<GameObject> DeSpawn;
+        public event Action<Bullet> OnDispose;
 
         [SerializeField] private BulletMoveComponent _bulletMoveComponent;
 
         private bool _collisionEnable = true;
         private Vector3 _moveDirection;
-        
-        
-        
+
         private int _damage;
 
-        private void OnEnable() => _collisionEnable = true;
+        private void OnEnable()
+        {
+            _collisionEnable = true;
+        }
 
-        private void Update() => _bulletMoveComponent.Move(_moveDirection);
+        private void Update()
+        {
+            _bulletMoveComponent.Move(_moveDirection);
+        }
 
         private void OnCollisionEnter(Collision other)
         {
@@ -30,31 +34,23 @@ namespace Gameplay
             Destroy(this.gameObject);
         }
 
-        public void Construct(int damage, PhysicsLayer physicsLayer, float speed)
+        public void Construct(int damage, PhysicsLayer physicsLayer, float speed, Vector3 moveDirection)
         {
+            _moveDirection = moveDirection;
             _damage = damage;
             gameObject.layer = (int)physicsLayer;
             _bulletMoveComponent.SetSpeed(speed);
         }
 
-        public void SetPosition(Vector3 position)
-        {
-            transform.position = position;
-        }
-
-        public void SetMoveDirection(Vector3 moveDirection)
-        {
-            _moveDirection = moveDirection;
-        }
-
         public void Destroy(GameObject gameObject)
         {
-            DeSpawn?.Invoke(gameObject);
+            OnDispose?.Invoke(this);
         }
-    }
 
-    internal interface IDamageable
-    {
-        void TakeDamage(int damage);
+        public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+        {
+            transform.position = position;
+            transform.rotation = rotation;
+        }
     }
 }

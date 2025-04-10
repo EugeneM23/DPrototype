@@ -1,3 +1,5 @@
+using Gameplay.Common;
+using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +10,7 @@ namespace Gameplay
         [SerializeField] private WeaponData _data;
         [SerializeField] private Transform _firePoint;
 
-        [Inject] private Bulletmanager _bulletmanager;
+        [Inject] private IBulletSpawner _bulletSpawner;
         private bool _readyToFire;
         private float lastTimeShoot = 0;
 
@@ -22,7 +24,9 @@ namespace Gameplay
             if (_readyToFire)
             {
                 _readyToFire = false;
-                _bulletmanager.SpawnBullet(_data._bulletInfo, _firePoint.position, _firePoint.forward);
+                Quaternion bulletRotation = Quaternion.LookRotation(_firePoint.forward);
+                Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
+                bullet.Construct(_data._bulletInfo.Damage, PhysicsLayer.PLAYER_BULLET, _data._bulletInfo.BulletSpeed, _firePoint.forward);
                 lastTimeShoot = _data.FireRate;
             }
         }

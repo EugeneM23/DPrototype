@@ -42,9 +42,9 @@ namespace Zenject
             enemy.OnDespawned();
         }
 
-        protected override void Reinitialize(TParam1 p1, TParam2 p2, TValue item)
+        protected override void Reinitialize(TParam1 position, TParam2 rotation, TValue bullet)
         {
-            item.OnSpawned(p1, p2);
+            bullet.OnSpawned(position, rotation);
         }
     }
 

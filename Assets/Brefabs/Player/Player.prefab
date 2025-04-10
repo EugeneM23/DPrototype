@@ -134,8 +134,10 @@ GameObject:
   - component: {fileID: 1466741285134427873}
   - component: {fileID: 6589561612575995146}
   - component: {fileID: 8870688725735466221}
+  - component: {fileID: 267876534132214956}
+  - component: {fileID: 396516747314583365}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,6 +246,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: fb5b9a1852c1f4bb5bbac147575802f8, type: 2}
   _firePoint: {fileID: 3441723672525919247}
+--- !u!114 &267876534132214956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322624359450700603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 396516747314583365}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &396516747314583365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322624359450700603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50b2423c9f34dedbdb352a4cd81d4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 1261796654251825122, guid: 359b510f70579483ca41166e2c611d1a, type: 3}
 --- !u!1 &4046978493161824905
 GameObject:
   m_ObjectHideFlags: 0
