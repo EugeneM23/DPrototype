@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    internal class PlayerRotationOnMove
+    internal class PlayerRotationOnMoveComponent
     {
         private readonly Player _player;
         private readonly float _speed;
 
-        public PlayerRotationOnMove(Player player, float speed)
+        public PlayerRotationOnMoveComponent(Player player, float speed)
         {
             _player = player;
             _speed = speed;

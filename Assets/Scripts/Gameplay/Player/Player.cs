@@ -8,9 +8,9 @@ namespace Gameplay
         [SerializeField] private Weapon _weapon;
         [SerializeField] private Animator _animator;
 
-        private PlayerMove _playerMove;
-        private PlayerRotationOnMove _playerRotor;
-        private PlayerLookAt _lookAt;
+        private PlayerMoveComponent _playerMoveComponent;
+        private PlayerRotationOnMoveComponent _playerRotor;
+        private PlayerLookAtComponent _lookAtComponent;
         private CharacterController _characterController;
         private GameObject _target;
         private Transform _playerTransform => gameObject.transform;
@@ -19,11 +19,11 @@ namespace Gameplay
         public Animator Animator => _animator;
 
         [Inject]
-        private void Construct(PlayerMove move, PlayerRotationOnMove rotation, PlayerLookAt lookAt)
+        private void Construct(PlayerMoveComponent moveComponent, PlayerRotationOnMoveComponent rotation, PlayerLookAtComponent lookAtComponent)
         {
-            _playerMove = move;
+            _playerMoveComponent = moveComponent;
             _playerRotor = rotation;
-            _lookAt = lookAt;
+            _lookAtComponent = lookAtComponent;
             _characterController = GetComponent<CharacterController>();
         }
 
@@ -31,13 +31,13 @@ namespace Gameplay
         {
             if (IsMoving || _target == null) return;
 
-            if (_lookAt.LookAtAndCheck(_target.transform.position))
+            if (_lookAtComponent.LookAtAndCheck(_target.transform.position))
                 _weapon.Shoot(_target.transform);
         }
 
         public void Move(Vector3 direction)
         {
-            _playerMove.Move(direction);
+            _playerMoveComponent.Move(direction);
             _playerRotor.Ratation(direction);
         }
 

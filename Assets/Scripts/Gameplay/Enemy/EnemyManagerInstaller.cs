@@ -6,7 +6,10 @@ namespace Gameplay
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle().NonLazy();
+            Container
+                .BindInterfacesAndSelfTo<EnemyManager>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

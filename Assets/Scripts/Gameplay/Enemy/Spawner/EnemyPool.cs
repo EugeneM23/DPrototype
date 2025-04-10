@@ -16,9 +16,9 @@ namespace Gameplay
         protected override void OnSpawned(Enemy enemy)
         {
             base.OnSpawned(enemy);
-            
+
             _manager.AddEnemy(enemy.gameObject);
-            
+
             enemy.gameObject.SetActive(true);
             enemy.DeSpawn += this.Despawn;
         }
@@ -26,9 +26,9 @@ namespace Gameplay
         protected override void OnDespawned(Enemy enemy)
         {
             base.OnDespawned(enemy);
-            
+
             enemy.gameObject.SetActive(false);
-            
+
             _manager.RemoveEnemy(enemy.gameObject);
             enemy.DeSpawn -= this.Despawn;
         }

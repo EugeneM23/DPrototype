@@ -3,7 +3,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerLean : ITickable
+    public class PlayerLeanComponent : ITickable
     {
         private readonly Player _player;
         private float leanAmount = 20f;
@@ -12,7 +12,7 @@ namespace Gameplay
         private Vector3 lastForward;
         private float currentLean = 0f;
 
-        public PlayerLean(Player player)
+        public PlayerLeanComponent(Player player)
         {
             _player = player;
         }
