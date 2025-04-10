@@ -7,55 +7,44 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class Enemy : ITickable, IDespawned
+    public class Enemy : MonoBehaviour
     {
-        public event Action<GameObject> DeSpawn;
+        public event Action<Enemy> DeSpawn;
 
-        private readonly Transform _enemyTransform;
-        private readonly EnemyBehaviour _behaviour;
-        private readonly EnemyConditions _conditions;
-        private readonly NavMeshAgent _agent;
+        private EnemyConditions _conditions;
+        private NavMeshAgent _agent;
 
-        private readonly float _chaseRange;
-        private readonly float _attckrange;
-        public float ChaseRange => _chaseRange;
-        public float AttckRange => _attckrange;
+        private PatrolComponent _patrolState;
+        private AttackComponent _attackState;
+        private ChaseComponent _chaseState;
 
-        public Enemy(Transform enemyTransform, EnemyBehaviour behaviour, float chaseRange, float attckrange,
-            EnemyConditions conditions)
+        [Inject]
+        public void Construct(EnemyConditions conditions, NavMeshAgent agent, PatrolComponent patrolState,
+            AttackComponent attackState, ChaseComponent chaseState)
         {
-            _agent = enemyTransform.GetComponent<NavMeshAgent>();
-            _enemyTransform = enemyTransform;
-            _behaviour = behaviour;
             _conditions = conditions;
+            _agent = agent;
 
-            _chaseRange = chaseRange;
-            _attckrange = attckrange;
-
-            enemyTransform.GetComponent<AttackAnimationProvider>().SetCondition(_conditions);
+            _patrolState = patrolState;
+            _attackState = attackState;
+            _chaseState = chaseState;
         }
 
-        public void Tick()
+        private void Update()
         {
             if (_conditions.GetPatrolCondition())
-                _behaviour.Patrol();
+                _patrolState.Patrol();
 
             if (_conditions.GetChaseCondition())
-                _behaviour.Chase();
+                _chaseState.Chase();
 
             if (_conditions.GetAttackCondition())
-                _behaviour.Attack();
-            
-            Debug.Log(_enemyTransform.position);
+                _attackState.Attack();
         }
 
-
-
-        public void Destroy(GameObject obj) => DeSpawn?.Invoke(_enemyTransform.gameObject);
-
-        public NavMeshAgent GetAgent()
+        public void Destroy(GameObject obj)
         {
-            return _agent;
+            DeSpawn?.Invoke(this);
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Gameplay
 {
     public class AttackAnimationProvider : MonoBehaviour
     {
+        [Inject]
         private EnemyConditions _conditions;
 
         public void FinishAttackAnimation() => _conditions.IsAttaking = false;

@@ -15,7 +15,6 @@ namespace Gameplay
         {
             _agent = enemy;
             _agent.enabled = true;
-
             _conditions = conditions;
             _patrolPointManager = patrolPointManager;
         }

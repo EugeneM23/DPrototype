@@ -1,20 +1,14 @@
 using System.Collections.Generic;
-using Gameplay.Common;
-using Modules.PrefabPool;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
     public class EnemyManager
     {
-        private readonly PrefabPool _prefabPool;
-
         private List<GameObject> _activeEnemies = new List<GameObject>();
 
-        public EnemyManager(PrefabPool prefabPool)
-        {
-            _prefabPool = prefabPool;
-        }
+        public int Count => _activeEnemies.Count;
 
         public bool TryGetTarget(float fireRange, out GameObject target, Transform player)
         {
@@ -43,21 +37,8 @@ namespace Gameplay
             return closestEnemy;
         }
 
-        public GameObject SpawnEnemy(GameObject enemyPrefab, Vector3 transformPosition)
-        {
-            HealthComponent enemy = _prefabPool.Spawn<HealthComponent>(enemyPrefab);
-            enemy.DeSpawn += RemoveEnemy;
-            enemy.transform.position = transformPosition;
-            AddEnemy(enemy.gameObject);
+        public void AddEnemy(GameObject enemy) => _activeEnemies.Add(enemy);
 
-            return enemy.gameObject;
-        }
-
-        private void AddEnemy(GameObject enemy) => _activeEnemies.Add(enemy);
-
-        private void RemoveEnemy(GameObject enemy)
-        {
-            _activeEnemies.Remove(enemy);
-        }
+        public void RemoveEnemy(GameObject enemy) => _activeEnemies.Remove(enemy);
     }
 }

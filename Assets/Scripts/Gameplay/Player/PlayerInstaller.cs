@@ -19,7 +19,7 @@ namespace Gameplay
                 .NonLazy();
             Container.Bind<PlayerLookAt>().AsSingle().WithArguments(_parameters.AimingSpeed).NonLazy();
 
-            Container.Bind<PrefabPool>().AsSingle().NonLazy();
+            //Container.Bind<PrefabPool>().AsSingle().NonLazy();
             Container.Bind<Bulletmanager>().AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<PlayerAnimationController>().AsSingle().NonLazy();

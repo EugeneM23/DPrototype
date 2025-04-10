@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class Bullet : MonoBehaviour, IDespawned
+    public class Bullet : MonoBehaviour
     {
         public event Action<GameObject> DeSpawn;
 
@@ -13,6 +13,9 @@ namespace Gameplay
 
         private bool _collisionEnable = true;
         private Vector3 _moveDirection;
+        
+        
+        
         private int _damage;
 
         private void OnEnable() => _collisionEnable = true;

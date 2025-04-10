@@ -5,18 +5,16 @@ namespace Gameplay
 {
     public class EnemySpawner : IInitializable
     {
-        private readonly Transform _enemyTransfrom;
-        private readonly EnemyManager _manager;
+        private readonly IEnemySpawner _spawner;
 
-        public EnemySpawner(EnemyManager manager, Transform enemyTransfrom)
+        public EnemySpawner(IEnemySpawner spawner)
         {
-            _manager = manager;
-            _enemyTransfrom = enemyTransfrom;
+            _spawner = spawner;
         }
 
         public void Initialize()
         {
-            //GameObject enemy = _manager.SpawnEnemy(_enemyTransfrom.gameObject, Vector3.zero);
+            _spawner.Create();
         }
     }
 }

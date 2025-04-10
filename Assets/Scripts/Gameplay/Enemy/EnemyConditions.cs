@@ -12,8 +12,8 @@ namespace Gameplay.BehComponents
 
         private readonly Player _player;
         private readonly Transform _enemyTransform;
-        private float _chaseRange;
-        private float _attckRange;
+        private readonly float _chaseRange;
+        private readonly float _attckRange;
 
         public EnemyConditions(Player player, Transform enemyTransform, float chaseRange, float attckRange)
         {

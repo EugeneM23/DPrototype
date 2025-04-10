@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay.Common
 {
-    public class HealthComponent : MonoBehaviour, IDamagable, IDespawned
+    public class HealthComponent : MonoBehaviour, IDamagable
     {
         public event Action<GameObject> DeSpawn;
         public void Destroy(GameObject gameObject)
