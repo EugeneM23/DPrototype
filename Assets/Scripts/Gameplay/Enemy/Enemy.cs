@@ -1,9 +1,6 @@
 using System;
 using Gameplay.BehComponents;
-using Gameplay.Common;
-using Modules.PrefabPool;
 using UnityEngine;
-using UnityEngine.AI;
 using Zenject;
 
 namespace Gameplay
@@ -19,11 +16,9 @@ namespace Gameplay
         private AttackComponent _attackState;
         private ChaseComponent _chaseState;
 
-     
+        private void OnEnable() => _healthComponent.OnDeath += Despawn;
 
-        private void OnEnable() => _healthComponent.OnDeath += Destroy;
-
-        private void OnDisable() => _healthComponent.OnDeath -= Destroy;
+        private void OnDisable() => _healthComponent.OnDeath -= Despawn;
 
         [Inject]
         public void Construct(EnemyConditions conditions, PatrolComponent patrolState,
@@ -48,15 +43,8 @@ namespace Gameplay
                 _attackState.Attack();
         }
 
-        private void Destroy()
-        {
-            Debug.Log("asdasd");
-            DeSpawn?.Invoke(this);
-        }
+        private void Despawn() => DeSpawn?.Invoke(this);
 
-        public void SetPosition(Vector3 p1)
-        {
-            transform.position = p1;
-        }
+        public void SetPosition(Vector3 position) => transform.position = position;
     }
 }

@@ -1,6 +1,4 @@
-using System.Collections;
 using Gameplay.BehComponents;
-using Gameplay.Common;
 using UnityEngine;
 using Zenject;
 
@@ -20,7 +18,5 @@ namespace Gameplay
             Container.Bind<RotationToTarget>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EnemyAnimationController>().AsSingle().NonLazy();
         }
-
-        
     }
 }

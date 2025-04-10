@@ -29,9 +29,4 @@ namespace Gameplay
             bullet.OnDispose -= Despawn;
         }
     }
-
-    public interface IBulletSpawner
-    {
-        public Bullet Create(Vector3 position, Quaternion rotation);
-    }
 }

@@ -2,7 +2,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyManagerInstaller : MonoInstaller
+    public class EnemyManagerInstaller : Installer<EnemyManagerInstaller>
     {
         public override void InstallBindings()
         {

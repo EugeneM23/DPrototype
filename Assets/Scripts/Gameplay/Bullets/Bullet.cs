@@ -1,6 +1,4 @@
 using System;
-using Gameplay.Common;
-using Modules.PrefabPool;
 using UnityEngine;
 
 namespace Gameplay
@@ -11,20 +9,10 @@ namespace Gameplay
 
         [SerializeField] private BulletMoveComponent _bulletMoveComponent;
 
-        private bool _collisionEnable = true;
         private Vector3 _moveDirection;
-
         private int _damage;
 
-        private void OnEnable()
-        {
-            _collisionEnable = true;
-        }
-
-        private void Update()
-        {
-            _bulletMoveComponent.Move(_moveDirection);
-        }
+        private void Update() => _bulletMoveComponent.Move(_moveDirection);
 
         private void OnCollisionEnter(Collision other)
         {
@@ -42,15 +30,12 @@ namespace Gameplay
             _bulletMoveComponent.SetSpeed(speed);
         }
 
-        public void Destroy(GameObject gameObject)
-        {
-            OnDispose?.Invoke(this);
-        }
-
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
             transform.position = position;
             transform.rotation = rotation;
         }
+
+        public void Destroy(GameObject gameObject) => OnDispose?.Invoke(this);
     }
 }

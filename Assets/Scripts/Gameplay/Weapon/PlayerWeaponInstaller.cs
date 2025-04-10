@@ -16,7 +16,7 @@ namespace Gameplay
                 .BindMemoryPool<Bullet, BulletPool>()
                 .FromComponentInNewPrefab(_enemyPrefab)
                 .UnderTransform(go.transform).AsSingle();
-            
+
             Container.Bind<IBulletSpawner>().To<BulletPool>().FromResolve();
         }
     }

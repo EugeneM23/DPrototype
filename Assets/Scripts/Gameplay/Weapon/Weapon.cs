@@ -1,5 +1,3 @@
-using Gameplay.Common;
-using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +19,8 @@ namespace Gameplay
 
         public void Shoot(Transform targer)
         {
+            Debug.Log("sadas");
+
             if (_readyToFire)
             {
                 _readyToFire = false;

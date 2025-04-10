@@ -1,4 +1,4 @@
-namespace Gameplay.Common
+namespace Gameplay
 {
     public enum PhysicsLayer
     {

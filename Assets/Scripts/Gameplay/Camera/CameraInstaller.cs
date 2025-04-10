@@ -2,7 +2,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class CameraInstaller : MonoInstaller
+    public class CameraInstaller : Installer<CameraInstaller>
     {
         public override void InstallBindings()
         {

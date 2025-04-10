@@ -1,12 +1,12 @@
 using UnityEngine;
 using Zenject;
 
-public class UIInstaller : MonoInstaller
+public class UIInstaller : Installer<GameObject, UIInstaller>
 {
-    [SerializeField] private GameObject _HUD;
+    [Inject] private GameObject _HUD;
 
     public override void InstallBindings()
     {
-        Instantiate(_HUD);
+        Container.InstantiatePrefab(_HUD);
     }
 }

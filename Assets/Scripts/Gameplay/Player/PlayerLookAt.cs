@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 namespace Gameplay
@@ -22,12 +23,13 @@ namespace Gameplay
                 return true;
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            
+
             _player.transform.rotation = Quaternion.RotateTowards(_player.transform.rotation, targetRotation,
                 _aimingSpeed * Time.deltaTime);
 
             float angle = Quaternion.Angle(_player.transform.rotation, targetRotation);
-            return angle < 1f;
+            bool asd = angle < 1f;
+            return asd;
         }
     }
 }

@@ -10,10 +10,10 @@ namespace Gameplay
 
         public override void InstallBindings()
         {
-            Container.BindMemoryPool<Enemy, EnemyPool>().FromComponentInNewPrefab(_enemyPrefab).AsSingle().Lazy();
             Container.Bind<IEnemySpawner>().To<EnemyPool>().FromResolve();
             Container.BindInterfacesAndSelfTo<EnemySpawner>().AsSingle().NonLazy();
             Container.Bind<EnemyPatrolPointManager>().AsSingle().WithArguments(_patrolPoints).NonLazy();
+            Container.BindMemoryPool<Enemy, EnemyPool>().FromComponentInNewPrefab(_enemyPrefab).AsSingle().Lazy();
         }
     }
 }

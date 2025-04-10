@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_01
   m_EditorClassIdentifier: 
   <FireRate>k__BackingField: 0.2
-  <FireRange>k__BackingField: 50
+  <FireRange>k__BackingField: 5000000
   <_bulletInfo>k__BackingField:
     <Damage>k__BackingField: 5
     <PhysicsLayer>k__BackingField: 14

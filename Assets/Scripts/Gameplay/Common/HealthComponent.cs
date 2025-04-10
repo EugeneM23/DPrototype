@@ -2,23 +2,20 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Common
+namespace Gameplay
 {
     public class HealthComponent : MonoBehaviour, IDamagable
     {
-        [SerializeField] private int _health;
-        
         public event Action OnDeath;
 
+        [SerializeField] private int _health;
 
         public void TakeDamage(int damage)
         {
-            Debug.Log(_health);
             _health -= damage;
+
             if (_health <= 0)
-            {
                 OnDeath?.Invoke();
-            }
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TesShoot : MonoBehaviour
+public class ParabalaShoot : MonoBehaviour
 {
     public Transform pointA;
     public Transform pointB;

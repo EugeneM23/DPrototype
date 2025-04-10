@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -18,23 +19,12 @@ namespace Gameplay
 
         private GameObject GetClosestEnemyInRange(float range, Transform player)
         {
-            GameObject closestEnemy = null;
-            float minDistanceSqr = range * range;
+            float rangeSqr = range * range;
 
-            foreach (GameObject enemy in _activeEnemies)
-            {
-                if (enemy == null)
-                    return null;
-
-                float distanceSqr = (player.position - enemy.transform.position).sqrMagnitude;
-                if (distanceSqr <= minDistanceSqr)
-                {
-                    minDistanceSqr = distanceSqr;
-                    closestEnemy = enemy;
-                }
-            }
-
-            return closestEnemy;
+            return _activeEnemies
+                .Where(enemy => (player.position - enemy.transform.position).sqrMagnitude <= rangeSqr)
+                .OrderBy(enemy => (player.position - enemy.transform.position).sqrMagnitude)
+                .FirstOrDefault();
         }
 
         public void AddEnemy(GameObject enemy) => _activeEnemies.Add(enemy);
