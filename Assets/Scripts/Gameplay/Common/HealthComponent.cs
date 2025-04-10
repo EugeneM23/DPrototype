@@ -1,25 +1,23 @@
 using System;
-using Modules.PrefabPool;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay.Common
 {
     public class HealthComponent : MonoBehaviour, IDamagable
     {
-        public event Action<GameObject> DeSpawn;
-        public void Destroy(GameObject gameObject)
-        {
-            
-        }
-
         [SerializeField] private int _health;
+        
+        public event Action OnDeath;
+
 
         public void TakeDamage(int damage)
         {
+            Debug.Log(_health);
             _health -= damage;
             if (_health <= 0)
             {
-                DeSpawn?.Invoke(gameObject);
+                OnDeath?.Invoke();
             }
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using Gameplay.BehComponents;
+using Gameplay.Common;
 using Modules.PrefabPool;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,19 +13,24 @@ namespace Gameplay
         public event Action<Enemy> DeSpawn;
 
         private EnemyConditions _conditions;
-        private NavMeshAgent _agent;
 
+        private HealthComponent _healthComponent;
         private PatrolComponent _patrolState;
         private AttackComponent _attackState;
         private ChaseComponent _chaseState;
 
+     
+
+        private void OnEnable() => _healthComponent.OnDeath += Destroy;
+
+        private void OnDisable() => _healthComponent.OnDeath -= Destroy;
+
         [Inject]
-        public void Construct(EnemyConditions conditions, NavMeshAgent agent, PatrolComponent patrolState,
-            AttackComponent attackState, ChaseComponent chaseState)
+        public void Construct(EnemyConditions conditions, PatrolComponent patrolState,
+            AttackComponent attackState, ChaseComponent chaseState, HealthComponent healthComponent)
         {
             _conditions = conditions;
-            _agent = agent;
-
+            _healthComponent = healthComponent;
             _patrolState = patrolState;
             _attackState = attackState;
             _chaseState = chaseState;
@@ -42,9 +48,15 @@ namespace Gameplay
                 _attackState.Attack();
         }
 
-        public void Destroy(GameObject obj)
+        private void Destroy()
         {
+            Debug.Log("asdasd");
             DeSpawn?.Invoke(this);
+        }
+
+        public void SetPosition(Vector3 p1)
+        {
+            transform.position = p1;
         }
     }
 }
