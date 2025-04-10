@@ -9,24 +9,24 @@ namespace Gameplay
         [SerializeField] private Transform _firePoint;
 
         [Inject] private IBulletSpawner _bulletSpawner;
+        [Inject] private CameraShakeComponent _cameraShake;
+
         private bool _readyToFire;
         private float lastTimeShoot = 0;
 
-        private void Update()
-        {
-            CoolDown();
-        }
+        private void Update() => CoolDown();
 
         public void Shoot(Transform targer)
         {
-            Debug.Log("sadas");
+            _cameraShake.CameraShake(0.1f, 0.2f);
 
             if (_readyToFire)
             {
                 _readyToFire = false;
                 Quaternion bulletRotation = Quaternion.LookRotation(_firePoint.forward);
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
-                bullet.Construct(_data._bulletInfo.Damage, PhysicsLayer.PLAYER_BULLET, _data._bulletInfo.BulletSpeed, _firePoint.forward);
+                bullet.Construct(_data._bulletInfo.Damage, PhysicsLayer.PLAYER_BULLET, _data._bulletInfo.BulletSpeed,
+                    _firePoint.forward);
                 lastTimeShoot = _data.FireRate;
             }
         }

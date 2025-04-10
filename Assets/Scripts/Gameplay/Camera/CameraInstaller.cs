@@ -11,6 +11,11 @@ namespace Gameplay
                 .AsSingle()
                 .WithArguments(UnityEngine.Camera.main.gameObject.transform)
                 .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<CameraShakeComponent>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

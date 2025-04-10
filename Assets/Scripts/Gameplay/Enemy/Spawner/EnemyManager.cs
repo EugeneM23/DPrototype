@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyManager
+    public class EnemyManager : ITickable
     {
         private List<GameObject> _activeEnemies = new List<GameObject>();
 
@@ -30,5 +30,9 @@ namespace Gameplay
         public void AddEnemy(GameObject enemy) => _activeEnemies.Add(enemy);
 
         public void RemoveEnemy(GameObject enemy) => _activeEnemies.Remove(enemy);
+        public void Tick()
+        {
+            Debug.Log(_activeEnemies.Count);
+        }
     }
 }
