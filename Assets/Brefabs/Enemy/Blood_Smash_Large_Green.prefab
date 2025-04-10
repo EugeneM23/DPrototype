@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8819058152711578959}
-  - component: {fileID: 8856402354929571700}
   - component: {fileID: 2860523708243561996}
   - component: {fileID: 1565098476869801009}
-  - component: {fileID: 8335275384665241627}
   m_Layer: 0
   m_Name: Blood_Smash_Large_Green
   m_TagString: Untagged
@@ -40,123 +38,6 @@ Transform:
   - {fileID: 2591257942047258531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8856402354929571700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498826708997124647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14fe9984834882c43b827e4197192a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed_custom: 1
-  colorChangeList:
-  - Name: Erosion
-    colored_ParticleSystem:
-    - {fileID: 7484207464727888561}
-    - {fileID: 6893352569460164623}
-    - {fileID: 6578962611098716856}
-    Gradient_custom:
-      serializedVersion: 2
-      key0: {r: 0, g: 0.8014706, b: 0.10502039, a: 0.91184574}
-      key1: {r: 0, g: 0.6397059, b: 0.004411729, a: 0.6117647}
-      key2: {r: 0, g: 0, b: 0, a: 0.5058824}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 7041
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 1805
-      atime1: 38815
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-  - Name: DropletParticles
-    colored_ParticleSystem:
-    - {fileID: 6247493833365425162}
-    Gradient_custom:
-      serializedVersion: 2
-      key0: {r: 0, g: 0.7794118, b: 0.037626844, a: 1}
-      key1: {r: 0, g: 0.7794118, b: 0.10212992, a: 0.91184574}
-      key2: {r: 0, g: 0, b: 0, a: 0.5058824}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-  - Name: RadialGradient
-    colored_ParticleSystem:
-    - {fileID: 405073755398685214}
-    Gradient_custom:
-      serializedVersion: 2
-      key0: {r: 0, g: 0.63235295, b: 0.08286013, a: 0}
-      key1: {r: 0, g: 0.63235295, b: 0.08286013, a: 0.45882353}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 9388
-      atime2: 65535
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
-  applyChanges: 0
-  Keep_applyChanges: 0
 --- !u!199 &2860523708243561996
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5036,19 +4917,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &8335275384665241627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498826708997124647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a895231490da6545890b1e1794f8704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathtimer: 5
 --- !u!1 &1073009062727727145
 GameObject:
   m_ObjectHideFlags: 0
