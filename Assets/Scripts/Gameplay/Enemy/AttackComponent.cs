@@ -15,6 +15,7 @@ namespace Gameplay
         private readonly RotationToTarget _rotator;
         private readonly Transform _target;
 
+        public Transform Target => _target;
         public AttackComponent(EnemyConditions conditions, RotationToTarget rotator, Player player, NavMeshAgent enemy)
         {
             _conditions = conditions;

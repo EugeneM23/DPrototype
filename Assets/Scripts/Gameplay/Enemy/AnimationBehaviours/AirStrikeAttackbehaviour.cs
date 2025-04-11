@@ -1,25 +1,19 @@
 using UnityEngine;
-using Zenject;
 
 public class AirStrikeAttackbehaviour : StateMachineBehaviour
 {
-    [Inject] private readonly BossAirStrikeAttack _strike;
-
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _strike.gameObject.SetActive(true);
+        animator.GetComponent<AirStrikeSpawner>().Spawn();
     }
 
-    
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
         
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _strike.gameObject.SetActive(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

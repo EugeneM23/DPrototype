@@ -4,8 +4,12 @@ using Zenject;
 
 public class JumpAttackBehaviour : StateMachineBehaviour
 {
-    [Inject] private readonly Player _player;
+    private Transform _player;
 
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        _player = animator.GetComponent<Enemy>().GetTarget;
+    }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float stopThreshold = 0.5f;

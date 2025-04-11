@@ -32,7 +32,7 @@ namespace Gameplay
             if (_spwnTime <= 0)
             {
                 _spawner.Create(_spawnerTransform.position);
-                _spwnTime = 3;
+                _spwnTime = 1;
             }
         }
     }

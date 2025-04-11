@@ -7,7 +7,7 @@ namespace Gameplay.BehComponents
         public bool IsChasing;
         public bool IsPatroling;
         public bool IsAidling;
-        public bool IsAttaking = false;
+        public bool IsAttaking;
         public bool IsOnAnimation;
 
         private readonly Player _player;

@@ -12,9 +12,10 @@ namespace Gameplay
         private EnemyConditions _conditions;
 
         private HealthComponent _healthComponent;
-        private PatrolComponent _patrolState;
-        private AttackComponent _attackState;
-        private ChaseComponent _chaseState;
+        private PatrolComponent _patrolComponent;
+        private AttackComponent _attackComponent;
+        private ChaseComponent _chaseComponent;
+        public Transform GetTarget => _attackComponent.Target;
 
         private void OnEnable() => _healthComponent.OnDeath += Despawn;
 
@@ -26,21 +27,21 @@ namespace Gameplay
         {
             _conditions = conditions;
             _healthComponent = healthComponent;
-            _patrolState = patrolState;
-            _attackState = attackState;
-            _chaseState = chaseState;
+            _patrolComponent = patrolState;
+            _attackComponent = attackState;
+            _chaseComponent = chaseState;
         }
 
         private void Update()
         {
             if (_conditions.GetPatrolCondition())
-                _patrolState.Patrol();
+                _patrolComponent.Patrol();
 
             if (_conditions.GetChaseCondition())
-                _chaseState.Chase();
+                _chaseComponent.Chase();
 
             if (_conditions.GetAttackCondition())
-                _attackState.Attack();
+                _attackComponent.Attack();
         }
 
         private void Despawn() => DeSpawn?.Invoke(this);

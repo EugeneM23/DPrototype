@@ -1,5 +1,7 @@
 using System;
+using Gameplay.BehComponents;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -7,8 +9,9 @@ namespace Gameplay
     {
         public event Action OnDeath;
         [SerializeField] private GameObject _deathEffect;
-
         [SerializeField] private int _health;
+
+        [Inject] private readonly EnemyConditions _conditions;
 
         public void TakeDamage(int damage)
         {
@@ -19,6 +22,11 @@ namespace Gameplay
                 GameObject go = Instantiate(_deathEffect);
                 go.transform.position = transform.position + new Vector3(0, 1, 0);
                 OnDeath?.Invoke();
+                _conditions.IsAttaking = false;
+                _conditions.IsOnAnimation = false;
+                _conditions.IsAidling = false;
+                _conditions.IsChasing = false;
+                _conditions.IsPatroling = false;
             }
         }
     }

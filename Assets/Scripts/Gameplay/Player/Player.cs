@@ -19,7 +19,8 @@ namespace Gameplay
         public Animator Animator => _animator;
 
         [Inject]
-        private void Construct(PlayerMoveComponent moveComponent, PlayerRotationOnMoveComponent rotation, PlayerLookAtComponent lookAtComponent)
+        private void Construct(PlayerMoveComponent moveComponent, PlayerRotationOnMoveComponent rotation,
+            PlayerLookAtComponent lookAtComponent)
         {
             _playerMoveComponent = moveComponent;
             _playerRotor = rotation;
@@ -32,7 +33,9 @@ namespace Gameplay
             if (IsMoving || _target == null) return;
 
             if (_lookAtComponent.LookAtAndCheck(_target.transform.position))
+            {
                 _weapon.Shoot(_target.transform);
+            }
         }
 
         public void Move(Vector3 direction)
@@ -47,7 +50,5 @@ namespace Gameplay
         public Weapon GetWeapon() => _weapon;
 
         public Transform GetTransform() => _playerTransform;
-
-        
     }
 }
