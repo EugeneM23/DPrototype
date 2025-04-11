@@ -10,6 +10,7 @@ namespace Gameplay
 
         [Inject] private IBulletSpawner _bulletSpawner;
         [Inject] private CameraShakeComponent _cameraShake;
+        [Inject] private PlayerAnimationController _animationController;
 
         private bool _readyToFire;
         private float lastTimeShoot = 0;
@@ -18,12 +19,12 @@ namespace Gameplay
 
         public void Shoot(Transform targer)
         {
-            _cameraShake.CameraShake(0.1f, 0.2f);
-
             if (_readyToFire)
             {
+                _cameraShake.CameraShake(0.1f, 0.2f);
+                _animationController.Shoot();
+
                 _readyToFire = false;
-                Quaternion bulletRotation = Quaternion.LookRotation(_firePoint.forward);
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
                 bullet.Construct(_data._bulletInfo.Damage, PhysicsLayer.PLAYER_BULLET, _data._bulletInfo.BulletSpeed,
                     _firePoint.forward);
@@ -36,7 +37,10 @@ namespace Gameplay
             lastTimeShoot -= Time.deltaTime;
 
             if (lastTimeShoot <= 0)
+            {
+                _animationController.StopShoot();
                 _readyToFire = true;
+            }
         }
 
         public float GetFireRange()
