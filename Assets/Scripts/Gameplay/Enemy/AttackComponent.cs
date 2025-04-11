@@ -1,3 +1,4 @@
+using System;
 using Gameplay.BehComponents;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace Gameplay
 {
     public class AttackComponent
     {
+        public event Action OnAttacked;
+        
         private readonly EnemyConditions _conditions;
         private readonly NavMeshAgent _agent;
         private readonly RotationToTarget _rotator;
@@ -24,9 +27,11 @@ namespace Gameplay
         {
             _conditions.IsPatroling = false;
             _conditions.IsChasing = false;
-            _conditions.IsAttaking = true;
             _agent.isStopped = true;
+            
+            OnAttacked?.Invoke();
 
+            Debug.Log("rotation");
             _rotator.Rotation(_agent.transform, _target);
         }
     }

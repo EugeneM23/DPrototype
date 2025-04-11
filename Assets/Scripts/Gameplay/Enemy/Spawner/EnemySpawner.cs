@@ -17,10 +17,7 @@ namespace Gameplay
 
         public void Initialize()
         {
-            for (int i = 0; i < 50; i++)
-            {
-                _spawner.Create(_spawnerTransform.position);
-            }
+            _spawner.Create(_spawnerTransform.position);
         }
 
         public void Tick()
