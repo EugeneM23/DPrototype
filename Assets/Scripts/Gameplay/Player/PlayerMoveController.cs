@@ -1,3 +1,4 @@
+using UnityEngine;
 using Zenject;
 
 namespace Gameplay
@@ -6,6 +7,9 @@ namespace Gameplay
     {
         private readonly Player _player;
         private readonly PlayerInput _playerInput;
+        private Vector3 pushDirection;
+        private float pushForce = 5;
+        private bool swipe;
 
         public PlayerMoveController(Player player, PlayerInput playerInput)
         {
@@ -15,7 +19,25 @@ namespace Gameplay
 
         public void Tick()
         {
-            _player.Move(_playerInput.Axis.normalized);
+            Vector3 move = new Vector3(0, 0, 0);
+            if (!swipe)
+                move = _playerInput.Axis.normalized;
+
+            _player.Move(move + pushDirection);
+
+            if (pushDirection.sqrMagnitude < 1)
+            {
+                pushDirection = Vector3.zero;
+                swipe = false;
+            }
+
+            pushDirection = Vector3.Lerp(pushDirection, Vector3.zero, Time.deltaTime * 6);
+        }
+
+        public void ApplyImpulse(Vector3 direction)
+        {
+            swipe = true;
+            pushDirection = direction * pushForce;
         }
     }
 }

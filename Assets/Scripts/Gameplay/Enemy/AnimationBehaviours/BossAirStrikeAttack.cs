@@ -6,7 +6,7 @@ internal class BossAirStrikeAttack : MonoBehaviour
 {
     [SerializeField] private GameObject[] objectsToPlace;
     [Inject] private readonly Player _player;
-    public float radius = 15f;
+    public float radius = 10;
 
     private void OnEnable()
     {

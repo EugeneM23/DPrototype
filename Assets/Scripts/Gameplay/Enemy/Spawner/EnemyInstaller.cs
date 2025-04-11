@@ -8,6 +8,7 @@ namespace Gameplay
     {
         [SerializeField] private float _chaseRange = 10;
         [SerializeField] private float _attckRange = 3;
+        [SerializeField] private int _chaseSpeend;
         [SerializeField] private string[] _attackAnimations;
 
         public override void InstallBindings()
@@ -26,7 +27,7 @@ namespace Gameplay
 
             Container
                 .Bind<ChaseComponent>()
-                .AsSingle()
+                .AsSingle().WithArguments(_chaseSpeend)
                 .NonLazy();
 
             Container

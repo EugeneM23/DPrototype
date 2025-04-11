@@ -47,5 +47,7 @@ namespace Gameplay
         public Weapon GetWeapon() => _weapon;
 
         public Transform GetTransform() => _playerTransform;
+
+        
     }
 }

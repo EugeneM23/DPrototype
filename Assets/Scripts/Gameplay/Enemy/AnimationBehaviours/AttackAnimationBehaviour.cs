@@ -4,7 +4,7 @@ using Zenject;
 
 public class AttackAnimationBehaviour : StateMachineBehaviour
 {
-    [InjectLocal] private readonly AttackAnimationProvider _animationProvider;
+    [Inject] private readonly AttackAnimationProvider _animationProvider;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

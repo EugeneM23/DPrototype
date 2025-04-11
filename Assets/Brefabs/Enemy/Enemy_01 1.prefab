@@ -2416,8 +2416,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1475b98c912499e8a50660180e8e331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chaseRange: 20
+  _chaseRange: 30
   _attckRange: 3
+  _chaseSpeend: 6
   _attackAnimations:
   - Attack_01
 --- !u!1 &5585570460900715633

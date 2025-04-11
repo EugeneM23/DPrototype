@@ -7,12 +7,13 @@ namespace Gameplay
     {
         [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private Transform[] _patrolPoints;
+        [SerializeField] private bool _IsCyclebl;
 
         public override void InstallBindings()
         {
             Container
                 .BindInterfacesAndSelfTo<EnemySpawner>()
-                .AsSingle()
+                .AsSingle().WithArguments(_IsCyclebl)
                 .NonLazy();
             
             Container

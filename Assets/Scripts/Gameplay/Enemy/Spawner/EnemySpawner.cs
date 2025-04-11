@@ -9,10 +9,13 @@ namespace Gameplay
         private readonly IEnemySpawner _spawner;
         private float _spwnTime = 1;
 
-        public EnemySpawner(IEnemySpawner spawner, Transform spawnerTransform)
+        private readonly bool _isCyclebl;
+
+        public EnemySpawner(IEnemySpawner spawner, Transform spawnerTransform, bool isCyclebl)
         {
             _spawner = spawner;
             _spawnerTransform = spawnerTransform;
+            _isCyclebl = isCyclebl;
         }
 
         public void Initialize()
@@ -22,13 +25,15 @@ namespace Gameplay
 
         public void Tick()
         {
-            /*_spwnTime -= Time.deltaTime;
+            if (!_isCyclebl) return;
+            
+            _spwnTime -= Time.deltaTime;
 
             if (_spwnTime <= 0)
             {
                 _spawner.Create(_spawnerTransform.position);
-                _spwnTime = 1;
-            }*/
+                _spwnTime = 3;
+            }
         }
     }
 }
