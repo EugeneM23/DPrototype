@@ -8,13 +8,11 @@ public class JumpAttackBehaviour : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log(stateInfo.normalizedTime);
-        float stopThreshold = 0.43f;
-
+        float stopThreshold = 0.5f;
         if (stateInfo.normalizedTime < stopThreshold)
         {
             Vector3 direction = (_player.transform.position - animator.transform.position).normalized;
-            float moveSpeed = 5.5f;
+            float moveSpeed = 6.5f;
 
             animator.transform.position += direction * moveSpeed * Time.deltaTime;
         }

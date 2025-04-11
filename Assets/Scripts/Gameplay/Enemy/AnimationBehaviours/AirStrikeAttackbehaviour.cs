@@ -3,7 +3,7 @@ using Zenject;
 
 public class AirStrikeAttackbehaviour : StateMachineBehaviour
 {
-    [InjectLocal] private readonly BossAirStrikeAttack _strike;
+    [Inject] private readonly BossAirStrikeAttack _strike;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
