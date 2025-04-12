@@ -13,7 +13,7 @@ namespace Gameplay
 
         public override void InstallBindings()
         {
-            Container.Bind<BossAirStrikeAttack>().FromComponentsInNewPrefabResource("Prefabs/BossAirStrike").AsSingle();
+            //Container.Bind<BossAirStrikeAttack>().FromComponentsInNewPrefabResource("Prefabs/BossAirStrike").AsSingle();
 
             Container
                 .Bind<PatrolComponent>()

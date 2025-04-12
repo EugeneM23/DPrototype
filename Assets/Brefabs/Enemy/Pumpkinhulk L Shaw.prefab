@@ -248,11 +248,7 @@ MonoBehaviour:
   _attckRange: 6
   _chaseSpeend: 10
   _attackAnimations:
-  - Attack_01
   - Roar
-  - JumpAttack
-  - Attack_01
-  - Attack_01
 --- !u!195 &6730446996327901776
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -314,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a494f755374412ea1047d013f8415a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _airStrikePrefab: {fileID: 5146755178700089498, guid: 5e41a2c7a41eb4362b528d87a134d2d9, type: 3}
 --- !u!136 &5926093673362120151
 CapsuleCollider:
   m_ObjectHideFlags: 0

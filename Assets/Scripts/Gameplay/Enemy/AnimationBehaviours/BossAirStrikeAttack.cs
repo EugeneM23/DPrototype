@@ -6,26 +6,39 @@ using Zenject;
 internal class BossAirStrikeAttack : MonoBehaviour
 {
     [SerializeField] private GameObject[] objectsToPlace;
-    [Inject] private readonly Player _player;
     public float radius = 10;
 
     private void OnEnable()
     {
-        StartCoroutine(ASD());
-        transform.SetParent(null);
-        transform.position = _player.transform.position;
+        StartCoroutine(AttackRoutine());
+        StartCoroutine(LifeRoutine());
 
         foreach (GameObject obj in objectsToPlace)
         {
             Vector2 randomCircle = Random.insideUnitCircle * radius;
             Vector3 randomPosition = new Vector3(randomCircle.x, 0, randomCircle.y);
-            obj.transform.position = _player.transform.position + randomPosition;
+            obj.transform.position = randomPosition;
         }
     }
 
-    private IEnumerator ASD()
+    private IEnumerator AttackRoutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        while (true)
+        {
+            foreach (GameObject obj in objectsToPlace)
+            {
+                Debug.Log("sadasdsa");
+                yield return new WaitForSeconds(0.1f);
+                obj.GetComponent<Animation>().Play("strike");
+            }
+        }
+    }
+
+    private IEnumerator LifeRoutine()
     {
         yield return new WaitForSeconds(3);
-        gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }
