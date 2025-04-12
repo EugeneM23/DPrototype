@@ -381,11 +381,11 @@ MonoBehaviour:
   _attckRange: 6
   _chaseSpeend: 7
   _attackAnimations:
+  - Attack_01
   - Roar
+  - Attack_01
+  - Attack_01
   - JumpAttack
-  - Attack_01
-  - Attack_01
-  - Attack_01
 --- !u!195 &6730446996327901776
 NavMeshAgent:
   m_ObjectHideFlags: 0

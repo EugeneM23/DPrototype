@@ -5,11 +5,15 @@ using Zenject;
 public class JumpAttackBehaviour : StateMachineBehaviour
 {
     private Transform _player;
+    [Inject] private CameraShakeComponent _cameraShake;
+    private bool _isShaked;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _player = animator.GetComponent<Enemy>().GetTarget;
+        _isShaked = false;
     }
+
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         float stopThreshold = 0.5f;
@@ -19,6 +23,16 @@ public class JumpAttackBehaviour : StateMachineBehaviour
             float moveSpeed = 6.5f;
 
             animator.transform.position += direction * moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            if (!_isShaked)
+            {
+                Instantiate(Resources.Load<GameObject>("Prefabs/Spikes attack"), animator.transform.position,
+                    Quaternion.identity);
+                _isShaked = true;
+                _cameraShake.CameraShake(0.4f, 0.5f);
+            }
         }
     }
 }
