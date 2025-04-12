@@ -2293,7 +2293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa892b442694ee4958325ebd0e901f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathEffect: {fileID: 6279832600075728625, guid: a673ebbea191749ef8433e995fa8239b, type: 3}
+  _ragdollPartOne: {fileID: 4478416663782328807, guid: c9171d1309e5d48828c25131361ea64b, type: 3}
+  _deathEffect: {fileID: 498826708997124647, guid: 464646fdb9bc544d4944a8b0c2ce30fc, type: 3}
   _health: 10
 --- !u!114 &-1811297344115943003
 MonoBehaviour:
