@@ -10,6 +10,8 @@ public class AirStrikeSpawner : MonoBehaviour
     public void Spawn()
     {
         var go = Instantiate(_airStrikePrefab);
-        go.transform.position = _player.transform.position;
+        var position = _player.transform.position;
+        position.y = 0;
+        go.transform.position = position;
     }
 }
