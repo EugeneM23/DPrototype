@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 6171873636531490322}
   - component: {fileID: 7751753858405598863}
   - component: {fileID: 2969352506155360990}
+  - component: {fileID: 9092267400862873666}
   - component: {fileID: -2130394055949794446}
   - component: {fileID: -5283566979441765820}
   m_Layer: 0
@@ -246,6 +247,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletMoveComponent: {fileID: -2130394055949794446}
+  _ricochetComponent: {fileID: 9092267400862873666}
+--- !u!114 &9092267400862873666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546721366558294015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143fc1a938434701b994e8d3f5033bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxRicochets: 3
 --- !u!114 &-2130394055949794446
 MonoBehaviour:
   m_ObjectHideFlags: 0

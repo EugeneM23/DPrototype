@@ -8,6 +8,7 @@ namespace Gameplay
         public event Action<Bullet> OnDispose;
 
         [SerializeField] private BulletMoveComponent _bulletMoveComponent;
+        [SerializeField] private BulletRicochetComponent _ricochetComponent;
 
         private Vector3 _moveDirection;
         private int _damage;
@@ -19,7 +20,13 @@ namespace Gameplay
             if (other.gameObject.TryGetComponent(out IDamagable damageable))
                 damageable.TakeDamage(_damage);
 
-            Destroy(this.gameObject);
+            if (_ricochetComponent.CanRicochet)
+            {
+                _moveDirection = _ricochetComponent.CalculateRicochetDirection(other, _moveDirection);
+                return;
+            }
+
+            Dispose();
         }
 
         public void Construct(int damage, PhysicsLayer physicsLayer, float speed, Vector3 moveDirection)
@@ -36,6 +43,6 @@ namespace Gameplay
             transform.rotation = rotation;
         }
 
-        public void Destroy(GameObject gameObject) => OnDispose?.Invoke(this);
+        public void Dispose() => OnDispose?.Invoke(this);
     }
 }

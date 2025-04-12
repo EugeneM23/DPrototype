@@ -108,10 +108,10 @@ PrefabInstance:
       addedObject: {fileID: 8472363719799057058}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2337161642428171323}
+      addedObject: {fileID: -6250423258351272156}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -6250423258351272156}
+      addedObject: {fileID: 5926093673362120151}
   m_SourcePrefab: {fileID: 100100000, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
 --- !u!95 &2763333955661359649 stripped
 Animator:
@@ -251,8 +251,8 @@ MonoBehaviour:
   - Attack_01
   - Roar
   - JumpAttack
-  - Roar
-  - Roar
+  - Attack_01
+  - Attack_01
 --- !u!195 &6730446996327901776
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -302,8 +302,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &2337161642428171323
-BoxCollider:
+--- !u!114 &-6250423258351272156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931387857561840353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a494f755374412ea1047d013f8415a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &5926093673362120151
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -320,18 +332,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4973205, y: 1.8876207, z: 0.38486132}
-  m_Center: {x: 0.007110119, y: 0.97241163, z: -0.015482029}
---- !u!114 &-6250423258351272156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931387857561840353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a494f755374412ea1047d013f8415a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Height: 1.8649399
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0231035, z: 0}
