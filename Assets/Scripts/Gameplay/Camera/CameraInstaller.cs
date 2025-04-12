@@ -7,7 +7,7 @@ namespace Gameplay
         public override void InstallBindings()
         {
             Container
-                .BindInterfacesAndSelfTo<CameraFolower>()
+                .BindInterfacesAndSelfTo<CameraFollower>()
                 .AsSingle()
                 .WithArguments(UnityEngine.Camera.main.gameObject.transform)
                 .NonLazy();

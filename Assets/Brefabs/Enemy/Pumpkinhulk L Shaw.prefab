@@ -131,15 +131,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6af23e5f1d9644a1840b5213766d1b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -378,8 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chaseRange: 100
-  _attckRange: 6
-  _chaseSpeend: 7
+  _attckRange: 5
+  _chaseSpeend: 10
   _attackAnimations:
   - Attack_01
   - Roar

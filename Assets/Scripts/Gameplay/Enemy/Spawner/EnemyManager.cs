@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +9,6 @@ namespace Gameplay
     public class EnemyManager
     {
         private List<GameObject> _activeEnemies = new List<GameObject>();
-
         public int Count => _activeEnemies.Count;
 
         public bool TryGetTarget(float fireRange, out GameObject target, Transform player)
@@ -30,5 +30,10 @@ namespace Gameplay
         public void AddEnemy(GameObject enemy) => _activeEnemies.Add(enemy);
 
         public void RemoveEnemy(GameObject enemy) => _activeEnemies.Remove(enemy);
+
+        public List<GameObject> GetAllEnemies()
+        {
+            return _activeEnemies;
+        }
     }
 }
