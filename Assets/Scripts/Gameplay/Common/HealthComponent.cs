@@ -12,7 +12,9 @@ namespace Gameplay
     {
         public event Action OnDeath;
 
-        [SerializeField] private GameObject _ragdollPartOne;
+        [SerializeField] private GameObject _ragdollPart;
+        [SerializeField] private GameObject _headPart;
+
         [SerializeField] private GameObject _deathEffect;
         [SerializeField] private int _health;
 
@@ -21,7 +23,7 @@ namespace Gameplay
 
         private void OnEnable()
         {
-            _health = 10;
+            //_health = 10;
         }
 
         public void TakeDamage(int damage)
@@ -32,13 +34,17 @@ namespace Gameplay
             {
                 GameObject go = Instantiate(_deathEffect);
                 Quaternion qwe = transform.rotation;
+                go.transform.position = transform.position + new Vector3(0, 1, 0);
 
-                GameObject rag1 = Instantiate(_ragdollPartOne, transform.position, qwe);
+                GameObject rag1 = Instantiate(_ragdollPart, transform.position, qwe);
                 Vector3 pos = Random.insideUnitCircle / 2;
-
                 ApplyRagdollImpulse(-transform.forward + pos, rag1);
 
-                go.transform.position = transform.position + new Vector3(0, 1, 0);
+
+                GameObject head = Instantiate(_headPart, transform.position + new Vector3(0, 4, 0), qwe);
+                head.GetComponent<Rigidbody>().AddForce(-transform.forward * 20, ForceMode.Impulse);
+                head.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * 10);
+
                 OnDeath?.Invoke();
 
                 _conditions.IsAttaking = false;
@@ -57,7 +63,7 @@ namespace Gameplay
                 if (rb != null)
                 {
                     rb.AddForce(direction * impulseForce, ForceMode.Impulse);
-                    rb.AddTorque(direction * impulseForce * 10, ForceMode.Impulse);
+                    rb.AddTorque(direction * impulseForce * 200, ForceMode.Impulse);
                 }
             }
         }

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 143fc1a938434701b994e8d3f5033bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxRicochets: 1
+  _maxRicochets: 0
 --- !u!1 &7476521981910808092
 GameObject:
   m_ObjectHideFlags: 0
