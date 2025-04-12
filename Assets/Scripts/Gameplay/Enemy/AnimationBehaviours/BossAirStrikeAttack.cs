@@ -29,7 +29,6 @@ internal class BossAirStrikeAttack : MonoBehaviour
         {
             foreach (GameObject obj in objectsToPlace)
             {
-                Debug.Log("sadasdsa");
                 yield return new WaitForSeconds(0.1f);
                 obj.GetComponent<Animation>().Play("strike");
             }
