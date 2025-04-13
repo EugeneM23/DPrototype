@@ -1,48 +1,57 @@
 using UnityEngine;
 
-public class ParabalaShoot : MonoBehaviour
+public class ParabolaShoot : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;
-    public Transform pointC;
-    public float speed = 5f;
-    public float heightFactor = 0.25f; // Чем выше значение, тем выше парабола
+    [SerializeField] private GameObject _explosionPrefab;
 
-    private float journeyLength;
+    private Vector3 _startPosition;
+    private Vector3 _endPosition;
+    private float speed = 14f; // Настраиваемая скорость движения
+    private float height = 7f; // Настраиваемая высота параболы
+
     private float startTime;
-
-    void Start()
-    {
-        startTime = Time.time;
-        journeyLength = Vector3.Distance(pointA.position, pointB.position);
-    }
+    private float totalDistance;
+    private bool isMoving = false;
 
     void Update()
     {
-        // вычисляем расстояние между точками
-        float distance = Vector3.Distance(pointA.position, pointB.position);
+        float timePassed = (Time.time - startTime);
+        float distanceCovered = timePassed * speed;
 
-        // вычисляем сколько времени нужно, чтобы пройти это расстояние с заданной скоростью
-        float duration = distance / speed;
+        float t = distanceCovered / totalDistance;
 
-        // t — параметр от 0 до 1, двигается туда-обратно равномерно
-        float t = Mathf.PingPong((Time.time - startTime) / duration, 1f);
+        if (t >= 1f)
+        {
+            Instantiate(_explosionPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+            transform.position = _endPosition;
+            return;
+        }
 
-        // позиция объекта по параболе
-        Vector3 currentPos = GetParabolaPoint(pointA.position, pointB.position, t);
-        pointC.position = currentPos;
+        Vector3 currentPos = GetParabolaPoint(_startPosition, _endPosition, t);
+        transform.position = currentPos;
     }
 
-    Vector3 GetParabolaPoint(Vector3 start, Vector3 end, float t)
+    public void Construct(Vector3 start, Vector3 end)
     {
-        Vector3 mid = Vector3.Lerp(start, end, t);
+        _startPosition = start;
+        _endPosition = end;
+        transform.position = start;
 
-        float distance = Vector3.Distance(start, end);
-        float height = distance * heightFactor;
+        totalDistance = Vector3.Distance(_startPosition, _endPosition);
+        startTime = Time.time;
+        isMoving = true;
+    }
 
-        float parabola = 4 * height * t * (1 - t);
-        mid.y += parabola;
+    private Vector3 GetParabolaPoint(Vector3 start, Vector3 end, float t)
+    {
+        // Линейная интерполяция между началом и концом
+        Vector3 point = Vector3.Lerp(start, end, t);
 
-        return mid;
+        // Добавление параболической высоты (только по Y)
+        float parabolicHeight = height * t * (1 - t);
+        point.y += parabolicHeight;
+
+        return point;
     }
 }
