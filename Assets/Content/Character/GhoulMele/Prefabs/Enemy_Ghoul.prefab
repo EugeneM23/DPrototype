@@ -2398,7 +2398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chaseRange: 30
   _attckRange: 3
-  _chaseSpeend: 11
+  _chaseSpeend: 6
   _attackAnimations:
   - Attack_01
 --- !u!136 &2483082337731817145

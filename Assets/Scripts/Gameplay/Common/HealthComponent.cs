@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Gameplay.BehComponents;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -20,11 +19,6 @@ namespace Gameplay
 
         [Inject] private readonly EnemyConditions _conditions;
         private float impulseForce = 50;
-
-        /*private void OnEnable()
-        {
-            _health = 20;
-        }*/
 
         public void TakeDamage(int damage)
         {
