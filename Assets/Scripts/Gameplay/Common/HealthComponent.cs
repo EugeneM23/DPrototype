@@ -21,10 +21,10 @@ namespace Gameplay
         [Inject] private readonly EnemyConditions _conditions;
         private float impulseForce = 50;
 
-        private void OnEnable()
+        /*private void OnEnable()
         {
-            //_health = 10;
-        }
+            _health = 20;
+        }*/
 
         public void TakeDamage(int damage)
         {
@@ -36,14 +36,19 @@ namespace Gameplay
                 Quaternion qwe = transform.rotation;
                 go.transform.position = transform.position + new Vector3(0, 1, 0);
 
-                GameObject rag1 = Instantiate(_ragdollPart, transform.position, qwe);
-                Vector3 pos = Random.insideUnitCircle / 2;
-                ApplyRagdollImpulse(-transform.forward + pos, rag1);
+                if (_ragdollPart != null)
+                {
+                    GameObject rag1 = Instantiate(_ragdollPart, transform.position, qwe);
+                    Vector3 pos = Random.insideUnitCircle / 2;
+                    ApplyRagdollImpulse(-transform.forward + pos, rag1);
+                }
 
-
-                GameObject head = Instantiate(_headPart, transform.position + new Vector3(0, 4, 0), qwe);
-                head.GetComponent<Rigidbody>().AddForce(-transform.forward * 20, ForceMode.Impulse);
-                head.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * 10);
+                if (_headPart != null)
+                {
+                    GameObject head = Instantiate(_headPart, transform.position + new Vector3(0, 4, 0), qwe);
+                    head.GetComponent<Rigidbody>().AddForce(-transform.forward * 20, ForceMode.Impulse);
+                    head.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * 10);
+                }
 
                 OnDeath?.Invoke();
 

@@ -30,6 +30,8 @@ namespace Gameplay
         {
             if (_conditions.IsAttaking) return;
 
+            if (_attackTnimations.Length == 0) return;
+
             int rand = Random.Range(0, _attackTnimations.Length);
             _animator.Play(_attackTnimations[rand]);
         }

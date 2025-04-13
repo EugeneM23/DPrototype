@@ -2296,7 +2296,7 @@ MonoBehaviour:
   _ragdollPart: {fileID: 4478416663782328807, guid: c9171d1309e5d48828c25131361ea64b, type: 3}
   _headPart: {fileID: 6968592730146804771, guid: e785cb81955a24d548a22eb8b778a13f, type: 3}
   _deathEffect: {fileID: 498826708997124647, guid: 464646fdb9bc544d4944a8b0c2ce30fc, type: 3}
-  _health: 10
+  _health: 1
 --- !u!114 &-1811297344115943003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2398,7 +2398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chaseRange: 30
   _attckRange: 3
-  _chaseSpeend: 6
+  _chaseSpeend: 11
   _attackAnimations:
   - Attack_01
 --- !u!136 &2483082337731817145
