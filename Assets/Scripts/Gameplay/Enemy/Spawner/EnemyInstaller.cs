@@ -6,6 +6,7 @@ namespace Gameplay
 {
     public class EnemyInstaller : MonoInstaller
     {
+        [SerializeField] private int _damage;
         [SerializeField] private float _chaseRange = 10;
         [SerializeField] private float _attckRange = 3;
         [SerializeField] private int _chaseSpeend;
@@ -13,7 +14,10 @@ namespace Gameplay
 
         public override void InstallBindings()
         {
-            //Container.Bind<BossAirStrikeAttack>().FromComponentsInNewPrefabResource("Prefabs/BossAirStrike").AsSingle();
+            Container
+                .Bind<EnemyDamage>()
+                .AsSingle()
+                .WithArguments(_damage);
 
             Container
                 .Bind<PatrolComponent>()
@@ -47,5 +51,12 @@ namespace Gameplay
                 .WithArguments(_attackAnimations)
                 .NonLazy();
         }
+    }
+
+    public class EnemyDamage
+    {
+        public int Damage { get; }
+
+        public EnemyDamage(int damage) => Damage = damage;
     }
 }

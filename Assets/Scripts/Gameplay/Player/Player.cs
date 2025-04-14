@@ -7,12 +7,14 @@ namespace Gameplay
     {
         [SerializeField] private Weapon _weapon;
         [SerializeField] private Animator _animator;
-
+        [SerializeField] private PlayerHealthComponent _playerHealth;
+        
         private PlayerMoveComponent _playerMoveComponent;
         private PlayerRotationOnMoveComponent _playerRotor;
         private PlayerLookAtComponent _lookAtComponent;
         private CharacterController _characterController;
         private GameObject _target;
+
         private Transform _playerTransform => gameObject.transform;
 
         private bool IsMoving => GetVelocity() != Vector3.zero;
@@ -50,5 +52,10 @@ namespace Gameplay
         public Weapon GetWeapon() => _weapon;
 
         public Transform GetTransform() => _playerTransform;
+
+        public void TakeDamage(int damageDamage)
+        {
+            _playerHealth.TakeDamage(damageDamage);
+        }
     }
 }
