@@ -1,25 +1,31 @@
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
-    internal class BulletRicochetComponent : MonoBehaviour
+    public class BulletRicochetComponent
     {
-        [SerializeField] private int _maxRicochets = 2;
-        private int _currentRicochetCount;
+        private readonly int _maxRicochets;
+        private readonly Transform _transform;
+
+        private int _currentRicochetCount = 0;
 
         public bool CanRicochet => _currentRicochetCount < _maxRicochets;
 
-        private void OnEnable()
+        public BulletRicochetComponent(int maxRicochets, Transform transform)
         {
-            _currentRicochetCount = 0;
+            _maxRicochets = maxRicochets;
+            _transform = transform;
         }
 
-        public Vector3 CalculateRicochetDirection(Collision collision, Vector3 currentDirection)
-        {
-            _currentRicochetCount++;
-            Vector3 newDirection = Vector3.Reflect(currentDirection, collision.contacts[0].normal).normalized;
+        public void Reset() => _currentRicochetCount = 0;
 
-            transform.forward = newDirection;
+        public Vector3 Ricochet(Collision collision)
+        {
+            Vector3 newDirection = Vector3.Reflect(_transform.forward, collision.contacts[0].normal).normalized;
+            _transform.forward = newDirection;
+
+            _currentRicochetCount++;
 
             return newDirection;
         }

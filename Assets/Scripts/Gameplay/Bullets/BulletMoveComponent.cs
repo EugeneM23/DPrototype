@@ -4,22 +4,19 @@ namespace Gameplay
 {
     public class BulletMoveComponent
     {
-        private readonly Transform _bullet;
+        private readonly Transform _bulletTransform;
         private float _speed;
+        private Vector3 _direction;
 
-        public BulletMoveComponent(Transform bullet)
+        public BulletMoveComponent(Transform bulletTransform)
         {
-            _bullet = bullet;
-        }
-        public void Move(Vector3 moveDirection)
-        {
-            _bullet.position += moveDirection * Time.deltaTime * _speed;
+            _bulletTransform = bulletTransform;
         }
 
-        public void SetSpeed(float speed)
-        {
+        public void Move() => _bulletTransform.position += _direction * Time.deltaTime * _speed;
 
-            _speed = speed;
-        }
+        public void SetSpeed(float speed) => _speed = speed;
+
+        public void SetDirection(Vector3 direction) => _direction = direction;
     }
 }

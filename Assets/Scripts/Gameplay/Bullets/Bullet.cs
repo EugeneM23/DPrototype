@@ -8,36 +8,22 @@ namespace Gameplay
     {
         public event Action<Bullet> OnDispose;
 
-        [SerializeField] private BulletRicochetComponent _ricochetComponent;
-
-        private BulletMoveComponent _bulletMoveComponent;
-
-        private Vector3 _moveDirection;
-        private int _damage;
+        private BulletRicochetComponent _bulletRicochet;
+        private BulletMoveComponent _bulletMove;
+        private BulletDamageComponent _bulletDamage;
 
         [Inject]
-        public void Construct(BulletMoveComponent moveComponent)
+        public void Construct(BulletMoveComponent moveComponent, BulletRicochetComponent ricochetComponent,
+            BulletDamageComponent bulletDamage)
         {
-            _bulletMoveComponent = moveComponent;
+            _bulletMove = moveComponent;
+            _bulletRicochet = ricochetComponent;
+            _bulletDamage = bulletDamage;
         }
 
         private void Update()
         {
-            _bulletMoveComponent.Move(_moveDirection);
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.TryGetComponent(out IDamagable damageable))
-                damageable.TakeDamage(_damage);
-
-            if (_ricochetComponent.CanRicochet)
-            {
-                _moveDirection = _ricochetComponent.CalculateRicochetDirection(other, _moveDirection);
-                return;
-            }
-
-            Dispose();
+            _bulletMove.Move();
         }
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
@@ -46,13 +32,27 @@ namespace Gameplay
             transform.rotation = rotation;
         }
 
-        public void Dispose() => OnDispose?.Invoke(this);
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.TryGetComponent(out IDamagable damageable))
+                damageable.TakeDamage(_bulletDamage.Damage);
+
+            if (_bulletRicochet.CanRicochet)
+            {
+                var direction = _bulletRicochet.Ricochet(other);
+                _bulletMove.SetDirection(direction);
+                return;
+            }
+
+            OnDispose?.Invoke(this);
+        }
 
         public void Setup(int damage, float bulletSpeed, Vector3 direction)
         {
-            _damage = damage;
-            _moveDirection = direction;
-            _bulletMoveComponent.SetSpeed(bulletSpeed);
+            _bulletDamage.SetDamage(damage);
+            _bulletMove.SetSpeed(bulletSpeed);
+            _bulletMove.SetDirection(direction);
+            _bulletRicochet.Reset();
         }
     }
 }
