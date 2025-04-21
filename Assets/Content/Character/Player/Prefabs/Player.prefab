@@ -5028,7 +5028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3f6a5920d440618ba34e10833269ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: fb5b9a1852c1f4bb5bbac147575802f8, type: 2}
   _firePoint: {fileID: 3441723672525919247}
   _shellPoint: {fileID: 7580791219548776918}
 --- !u!114 &267876534132214956
@@ -5061,8 +5060,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50b2423c9f34dedbdb352a4cd81d4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8781848009549982126, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
-  _shellPrefab: {fileID: 3533949224818665328, guid: 9dfd5938602c743d7a99fd415e128341, type: 3}
+  _setings:
+    <FireRate>k__BackingField: 0.1
+    <FireRange>k__BackingField: 20
+    <Damage>k__BackingField: 1
+    <BulletSpeed>k__BackingField: 50
+    <BulletPrefab>k__BackingField: {fileID: 8781848009549982126, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
+    <ShellPrefab>k__BackingField: {fileID: 3533949224818665328, guid: 9dfd5938602c743d7a99fd415e128341, type: 3}
 --- !u!1 &4046978493161824905
 GameObject:
   m_ObjectHideFlags: 0

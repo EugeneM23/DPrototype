@@ -5,10 +5,10 @@ namespace Gameplay
 {
     public class Weapon : MonoBehaviour, IWeapon
     {
-        [SerializeField] private WeaponData _data;
         [SerializeField] private Transform _firePoint;
         [SerializeField] private Transform _shellPoint;
 
+        [Inject] private WeaponSetings _data;
         [Inject] private IBulletSpawner _bulletSpawner;
         [Inject] private IShellSpawner _shellSpawner;
         [Inject] private CameraShakeComponent _cameraShake;
@@ -33,7 +33,7 @@ namespace Gameplay
                 _readyToFire = false;
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
 
-                bullet.Setup(_data._bulletInfo.Damage, _data._bulletInfo.BulletSpeed, _firePoint.forward);
+                bullet.Setup(_data.Damage, _data.BulletSpeed, _firePoint.forward);
 
                 lastTimeShoot = _data.FireRate;
             }
