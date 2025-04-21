@@ -1,0 +1,32 @@
+using System;
+using Zenject;
+
+namespace Gameplay
+{
+    public class WeaponFireController : IInitializable, IDisposable
+    {
+        private readonly Weapon _weapon;
+        private readonly PlayerAnimationController _animationController;
+        private readonly CameraShakeComponent _cameraShake;
+
+        public WeaponFireController(Weapon weapon, PlayerAnimationController animationController,
+            CameraShakeComponent cameraShake)
+        {
+            _weapon = weapon;
+            _animationController = animationController;
+            _cameraShake = cameraShake;
+        }
+
+        public void Initialize()
+        {
+            _weapon.OnFire += _cameraShake.CameraShake;
+            _weapon.OnFire += _animationController.Shoot;
+        }
+
+        public void Dispose()
+        {
+            _weapon.OnFire -= _cameraShake.CameraShake;
+            _weapon.OnFire -= _animationController.Shoot;
+        }
+    }
+}

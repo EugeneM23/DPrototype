@@ -4918,6 +4918,7 @@ GameObject:
   - component: {fileID: 8870688725735466221}
   - component: {fileID: 267876534132214956}
   - component: {fileID: 396516747314583365}
+  - component: {fileID: 6303697892393527487}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -5067,6 +5068,24 @@ MonoBehaviour:
     <BulletSpeed>k__BackingField: 50
     <BulletPrefab>k__BackingField: {fileID: 8781848009549982126, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
     <ShellPrefab>k__BackingField: {fileID: 3533949224818665328, guid: 9dfd5938602c743d7a99fd415e128341, type: 3}
+--- !u!114 &6303697892393527487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322624359450700603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8870688725735466221}
+  _identifier: 
+  _useSceneContext: 0
+  _context: {fileID: 267876534132214956}
+  _bindType: 0
 --- !u!1 &4046978493161824905
 GameObject:
   m_ObjectHideFlags: 0

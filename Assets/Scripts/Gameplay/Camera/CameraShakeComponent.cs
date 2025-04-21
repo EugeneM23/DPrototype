@@ -6,17 +6,17 @@ namespace Gameplay
     public class CameraShakeComponent : ITickable, IInitializable
     {
         private float _shakeMagnitude = 0.1f;
-        private float _shakeDuration;
+        private float _shakeDuration = 0.2f;
 
         private Quaternion _originalRotation;
         private bool _isReturning;
 
         public void Initialize() => _originalRotation = Camera.main.transform.localRotation;
 
-        public void CameraShake(float shakeDuration, float shakeMagnitude)
+        public void CameraShake()
         {
-            _shakeDuration = shakeDuration;
-            _shakeMagnitude = shakeMagnitude;
+            _shakeDuration = 0.1f;
+            _shakeMagnitude = 0.2f;
         }
 
         public void Tick()

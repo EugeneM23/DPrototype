@@ -36,6 +36,8 @@ namespace Gameplay
                 .Bind<IShellSpawner>()
                 .To<ShellPool>()
                 .FromResolve();
+
+            Container.Bind<WeaponFireController>().AsSingle().NonLazy();
         }
     }
 }
