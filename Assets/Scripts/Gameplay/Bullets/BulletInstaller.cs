@@ -5,6 +5,7 @@ using Zenject;
 public class BulletInstaller : MonoInstaller
 {
     [SerializeField] private int _maxRicochets = 2;
+    [SerializeField] private int _damage;
 
     public override void InstallBindings()
     {
@@ -12,6 +13,12 @@ public class BulletInstaller : MonoInstaller
             .Bind<BulletMoveComponent>()
             .AsSingle()
             .WithArguments(this.transform)
+            .NonLazy();
+
+        Container
+            .Bind<BulletDamageComponent>()
+            .AsSingle()
+            .WithArguments(this._damage)
             .NonLazy();
 
         Container

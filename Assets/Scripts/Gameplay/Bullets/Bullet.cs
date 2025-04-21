@@ -21,10 +21,7 @@ namespace Gameplay
             _bulletDamage = bulletDamage;
         }
 
-        private void Update()
-        {
-            _bulletMove.Move();
-        }
+        private void Update() => _bulletMove.Move();
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {

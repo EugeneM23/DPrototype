@@ -8,9 +8,9 @@ namespace Gameplay
         [SerializeField] private WeaponData _data;
         [SerializeField] private Transform _firePoint;
         [SerializeField] private Transform _shellPoint;
-        [SerializeField] private ShellSpawner _shellSpawner;
 
         [Inject] private IBulletSpawner _bulletSpawner;
+        [Inject] private IShellSpawner _shellSpawner;
         [Inject] private CameraShakeComponent _cameraShake;
         [Inject] private PlayerAnimationController _animationController;
 
@@ -25,7 +25,10 @@ namespace Gameplay
             {
                 _cameraShake.CameraShake(0.1f, 0.2f);
                 _animationController.Shoot();
-                _shellSpawner.Spawn(_shellPoint);
+
+                Shell shell = _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation);
+                Debug.Log(shell == null);
+                shell.SetVelocity(_shellPoint.up + _shellPoint.right);
 
                 _readyToFire = false;
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
