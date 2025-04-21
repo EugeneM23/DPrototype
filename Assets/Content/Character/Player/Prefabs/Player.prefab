@@ -4921,6 +4921,8 @@ GameObject:
   - component: {fileID: 1703512521625262174}
   - component: {fileID: -3092696866831824943}
   - component: {fileID: 2911782859483534384}
+  - component: {fileID: 1221843676562879461}
+  - component: {fileID: 8745442265348053451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5113,6 +5115,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 190173164689368134}
+--- !u!114 &1221843676562879461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969062347157005148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461fd198c62d4c3f9a5952578fa99b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8745442265348053451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4969062347157005148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c52040e0d356884a866f616474f7057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSwipeCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSwipe:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1221843676562879461}
+        m_TargetAssemblyTypeName: SwipeTest, Game
+        m_MethodName: ASD
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _sensetivity: 2
+  _continuousDetection: 0
+  _swipeDetectionMode: 3
 --- !u!1001 &3911827078995512297
 PrefabInstance:
   m_ObjectHideFlags: 0

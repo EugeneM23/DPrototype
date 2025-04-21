@@ -26,7 +26,50 @@ namespace Gameplay
 
             Container
                 .BindInterfacesAndSelfTo<PlayerWeponController>().AsSingle().WithArguments(_weapon).NonLazy();
-            
+
+            Container
+                .Bind<PlayerMoveComponent>()
+                .AsSingle()
+                .WithArguments(10f)
+                .NonLazy();
+
+            Container
+                .Bind<PlayerInput>()
+                .AsSingle()
+                .NonLazy();
+
+
+            Container
+                .Bind<PlayerRotationOnMoveComponent>()
+                .AsSingle()
+                .WithArguments(20f)
+                .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<PlayerLeanComponent>()
+                .AsSingle()
+                .NonLazy();
+
+            Container
+                .Bind<PlayerLookAtComponent>()
+                .AsSingle()
+                .WithArguments(600f)
+                .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<PlayerMoveController>()
+                .AsSingle()
+                .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<PlayerTargetController>()
+                .AsSingle()
+                .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<PlayerAnimationController>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

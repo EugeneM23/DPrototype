@@ -52,7 +52,6 @@ namespace Gameplay
 
         public void SetWeapon(Weapon weapon)
         {
-            Debug.Log("Asdasdasd");
             _weapon = weapon;
         }
 
