@@ -13,12 +13,12 @@ namespace Gameplay
         {
             _player = player;
             _enemyManager = enemyManager;
-            _weapon = player.GetWeapon();
+            //_weapon = player.GetWeapon();
         }
 
         public void Tick()
         {
-            if (_enemyManager.TryGetTarget(_weapon.GetFireRange(), out GameObject target, _player.transform))
+            if (_enemyManager.TryGetTarget(20, out GameObject target, _player.transform))
                 _player.SetTarget(target);
             else
                 _player.SetTarget(null);

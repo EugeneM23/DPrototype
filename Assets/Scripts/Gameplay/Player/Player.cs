@@ -5,10 +5,10 @@ namespace Gameplay
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private Weapon _weapon;
+        private Weapon _weapon;
         [SerializeField] private Animator _animator;
         [SerializeField] private PlayerHealthComponent _playerHealth;
-        
+
         private PlayerMoveComponent _playerMoveComponent;
         private PlayerRotationOnMoveComponent _playerRotor;
         private PlayerLookAtComponent _lookAtComponent;
@@ -32,6 +32,7 @@ namespace Gameplay
 
         private void Update()
         {
+
             if (IsMoving || _target == null) return;
 
             if (_lookAtComponent.LookAtAndCheck(_target.transform.position))
@@ -48,6 +49,12 @@ namespace Gameplay
 
         public void SetTarget(GameObject target) => _target = target;
         public Vector3 GetVelocity() => _characterController.velocity;
+
+        public void SetWeapon(Weapon weapon)
+        {
+            Debug.Log("Asdasdasd");
+            _weapon = weapon;
+        }
 
         public Weapon GetWeapon() => _weapon;
 

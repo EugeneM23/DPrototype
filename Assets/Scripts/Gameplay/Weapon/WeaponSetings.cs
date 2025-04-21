@@ -10,7 +10,5 @@ namespace Gameplay
         [field: SerializeField] public float FireRange { get; private set; }
         [field: SerializeField] public int Damage { get; private set; }
         [field: SerializeField] public float BulletSpeed { get; private set; }
-        [field: SerializeField] public Bullet BulletPrefab { get; private set; }
-        [field: SerializeField] public Shell ShellPrefab { get; private set; }
     }
 }

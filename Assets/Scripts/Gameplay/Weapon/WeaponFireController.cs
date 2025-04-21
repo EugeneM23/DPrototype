@@ -1,11 +1,12 @@
 using System;
+using UnityEngine;
 using Zenject;
 
 namespace Gameplay
 {
     public class WeaponFireController : IInitializable, IDisposable
     {
-        private readonly Weapon _weapon;
+        private Weapon _weapon;
         private readonly PlayerAnimationController _animationController;
         private readonly CameraShakeComponent _cameraShake;
 

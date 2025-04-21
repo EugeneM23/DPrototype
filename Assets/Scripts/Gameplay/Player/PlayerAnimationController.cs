@@ -27,6 +27,7 @@ namespace Gameplay
 
         public void Shoot()
         {
+            _animator.SetTrigger("Shoot");
             _animator.SetBool("IsIdling", false);
 
             _animator.SetBool("IsFiring", true);
@@ -35,7 +36,6 @@ namespace Gameplay
         public void StopShoot()
         {
             _animator.SetBool("IsFiring", false);
-
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Gameplay
     public class PlayerGameObjectInstaller : MonoInstaller
     {
         [SerializeField] private PlayerHealthView _playerHealthView;
+        [SerializeField] private Weapon _weapon;
 
         public override void InstallBindings()
         {
@@ -22,6 +23,10 @@ namespace Gameplay
                 .NonLazy();
 
             Container.BindInterfacesAndSelfTo<PlayerDeathObserver>().AsSingle().NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<PlayerWeponController>().AsSingle().WithArguments(_weapon).NonLazy();
+            
         }
     }
 }

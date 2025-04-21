@@ -15,6 +15,7 @@ namespace Gameplay
 
         public void CameraShake()
         {
+            Debug.Log("CameraShake");
             _shakeDuration = 0.1f;
             _shakeMagnitude = 0.2f;
         }

@@ -2944,8 +2944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca064aedb644411a15dd45ca9b65be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maximumFPS: 100
   _playerPrefab: {fileID: 1712641277135367723, guid: 0e83c4c10ed864312a667b583565a8b9, type: 3}
+  _weapon: {fileID: 4987170329088819174, guid: 58bfaaefdb0b84f7ab7e3b91e3a0a956, type: 3}
+  _maximumFPS: 100
   _parameters:
     <Speed>k__BackingField: 10
     <AimingDistance>k__BackingField: 10

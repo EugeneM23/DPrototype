@@ -10,17 +10,23 @@ namespace Gameplay
 
         [SerializeField] private Transform _firePoint;
         [SerializeField] private Transform _shellPoint;
+        [SerializeField] private WeaponSetings _setings;
 
-        [Inject] private WeaponSetings _setings;
-        [Inject] private IBulletSpawner _bulletSpawner;
-        [Inject] private IShellSpawner _shellSpawner;
-        [Inject] private CameraShakeComponent _cameraShake;
-        [Inject] private PlayerAnimationController _animationController;
+        private IBulletSpawner _bulletSpawner;
+        private IShellSpawner _shellSpawner;
 
         private bool _readyToFire;
         private float lastTimeShoot = 0;
 
         private void Update() => CoolDown();
+
+        [Inject]
+        public void Construct(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner,
+            CameraShakeComponent cameraShake, PlayerAnimationController animationController)
+        {
+            _bulletSpawner = bulletSpawner;
+            _shellSpawner = shellSpawner;
+        }
 
         public void Shoot(Transform targer)
         {
@@ -45,7 +51,7 @@ namespace Gameplay
 
             if (lastTimeShoot <= 0)
             {
-                _animationController.StopShoot();
+                //_animationController.StopShoot();
                 _readyToFire = true;
             }
         }
