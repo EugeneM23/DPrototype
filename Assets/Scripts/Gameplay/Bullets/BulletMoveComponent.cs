@@ -2,12 +2,24 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    internal class BulletMoveComponent : MonoBehaviour
+    public class BulletMoveComponent
     {
+        private readonly Transform _bullet;
         private float _speed;
 
-        public void SetSpeed(float speed) => _speed = speed;
+        public BulletMoveComponent(Transform bullet)
+        {
+            _bullet = bullet;
+        }
+        public void Move(Vector3 moveDirection)
+        {
+            _bullet.position += moveDirection * Time.deltaTime * _speed;
+        }
 
-        public void Move(Vector3 moveDirection) => transform.position += moveDirection * Time.deltaTime * _speed;
+        public void SetSpeed(float speed)
+        {
+
+            _speed = speed;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
@@ -7,13 +8,23 @@ namespace Gameplay
     {
         public event Action<Bullet> OnDispose;
 
-        [SerializeField] private BulletMoveComponent _bulletMoveComponent;
         [SerializeField] private BulletRicochetComponent _ricochetComponent;
+
+        private BulletMoveComponent _bulletMoveComponent;
 
         private Vector3 _moveDirection;
         private int _damage;
 
-        private void Update() => _bulletMoveComponent.Move(_moveDirection);
+        [Inject]
+        public void Construct(BulletMoveComponent moveComponent)
+        {
+            _bulletMoveComponent = moveComponent;
+        }
+
+        private void Update()
+        {
+            _bulletMoveComponent.Move(_moveDirection);
+        }
 
         private void OnCollisionEnter(Collision other)
         {
@@ -29,14 +40,6 @@ namespace Gameplay
             Dispose();
         }
 
-        public void Construct(int damage, PhysicsLayer physicsLayer, float speed, Vector3 moveDirection)
-        {
-            _moveDirection = moveDirection;
-            _damage = damage;
-            gameObject.layer = (int)physicsLayer;
-            _bulletMoveComponent.SetSpeed(speed);
-        }
-
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
             transform.position = position;
@@ -44,5 +47,12 @@ namespace Gameplay
         }
 
         public void Dispose() => OnDispose?.Invoke(this);
+
+        public void Setup(int damage, float bulletSpeed, Vector3 direction)
+        {
+            _damage = damage;
+            _moveDirection = direction;
+            _bulletMoveComponent.SetSpeed(bulletSpeed);
+        }
     }
 }

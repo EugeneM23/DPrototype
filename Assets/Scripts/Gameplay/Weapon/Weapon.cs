@@ -29,8 +29,9 @@ namespace Gameplay
 
                 _readyToFire = false;
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
-                bullet.Construct(_data._bulletInfo.Damage, PhysicsLayer.PLAYER_BULLET, _data._bulletInfo.BulletSpeed,
-                    _firePoint.forward);
+
+                bullet.Setup(_data._bulletInfo.Damage, _data._bulletInfo.BulletSpeed, _firePoint.forward);
+
                 lastTimeShoot = _data.FireRate;
             }
         }

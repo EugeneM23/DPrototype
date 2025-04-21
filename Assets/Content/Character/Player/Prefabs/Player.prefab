@@ -5063,7 +5063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50b2423c9f34dedbdb352a4cd81d4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 1261796654251825122, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
+  _bulletPrefab: {fileID: 1261796654251825122, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
 --- !u!114 &5472328019548394815
 MonoBehaviour:
   m_ObjectHideFlags: 0
