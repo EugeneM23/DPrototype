@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -20,13 +21,16 @@ namespace Gameplay
 
         public void Initialize()
         {
-            _spawner.Create(_spawnerTransform.position);
+            for (int i = 0; i < 1; i++)
+            {
+                _spawner.Create(_spawnerTransform.position);
+            }
         }
 
         public void Tick()
         {
             if (!_isCyclebl) return;
-            
+
             _spwnTime -= Time.deltaTime;
 
             if (_spwnTime <= 0)
