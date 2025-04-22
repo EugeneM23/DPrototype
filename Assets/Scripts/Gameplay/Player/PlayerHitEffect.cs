@@ -1,10 +1,11 @@
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerHitEffect : MonoBehaviour
+    public class PlayerHitEffect
     {
-        [SerializeField] private ParticleSystem _particleSystem;
+        [Inject] private ParticleSystem _particleSystem;
 
         public void Hit() => _particleSystem.Play();
     }

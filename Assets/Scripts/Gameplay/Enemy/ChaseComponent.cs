@@ -1,5 +1,4 @@
 using Gameplay.BehComponents;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,12 +11,13 @@ namespace Gameplay
         private readonly Transform _target;
         private readonly int _speed;
 
-        public ChaseComponent(EnemyConditions conditions, Player target, NavMeshAgent enemy, int speed)
+        public ChaseComponent(EnemyConditions conditions, Transform target, NavMeshAgent enemy, int speed)
         {
             _conditions = conditions;
             _agent = enemy;
             _speed = speed;
-            _target = target.GetTransform();
+            _target = target;
+            Debug.Log(_target.name + " is chasing target");
         }
 
         public void Chase()

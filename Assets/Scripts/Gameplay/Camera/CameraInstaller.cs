@@ -7,21 +7,20 @@ namespace Gameplay
     {
         [Inject] private float _smoothTime;
         [Inject] private Camera _camera;
+        [Inject] private PlayerTransform _target;
 
         public override void InstallBindings()
         {
-            Transform cameraTransfrom = _camera.gameObject.transform;
-
             Container
                 .BindInterfacesAndSelfTo<CameraFollower>()
                 .AsSingle()
-                .WithArguments(cameraTransfrom, _smoothTime)
+                .WithArguments(_camera, _target, _smoothTime)
                 .NonLazy();
 
             Container
                 .BindInterfacesAndSelfTo<CameraShakeComponent>()
                 .AsSingle()
-                .WithArguments(cameraTransfrom)
+                .WithArguments(_camera)
                 .NonLazy();
         }
     }

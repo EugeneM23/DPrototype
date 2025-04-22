@@ -4,7 +4,7 @@ namespace Gameplay
 {
     public class RotationToTarget
     {
-        public void Rotation(Transform objToRotation, Transform target)
+        public void Rotation(Transform objToRotation, PlayerTransform target)
         {
             Vector3 direction = target.transform.position - objToRotation.position;
             direction.y = 0;

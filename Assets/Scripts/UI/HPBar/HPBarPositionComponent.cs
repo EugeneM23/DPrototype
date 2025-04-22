@@ -4,13 +4,13 @@ using Zenject;
 
 public class HPBarPositionComponent : MonoBehaviour
 {
-    [Inject] private Player _target;
+    [Inject] private PlayerTransform _target;
     [SerializeField] private RectTransform _healthBar;
     private Vector3 _offset;
 
     private void Start()
     {
-        _offset = _healthBar.position - _target.transform.position + -_target.transform.forward * 2;
+        _offset = _healthBar.position - _target.Player.position + -_target.Player.forward * 2;
     }
 
     void Update()

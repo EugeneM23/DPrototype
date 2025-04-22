@@ -6,17 +6,17 @@ namespace Gameplay
     public class PlayerAnimationController : ITickable
     {
         private readonly Animator _animator;
-        private readonly Player _player;
+        private readonly CharacterController _characterController;
 
-        public PlayerAnimationController(Player player)
+        public PlayerAnimationController(Animator animator, CharacterController characterController)
         {
-            _player = player;
-            _animator = _player.Animator;
+            _animator = animator;
+            _characterController = characterController;
         }
 
         public void Tick()
         {
-            if (_player.GetVelocity() != Vector3.zero)
+            if (_characterController.velocity != Vector3.zero)
                 _animator.SetBool("IsRuning", true);
             else
             {

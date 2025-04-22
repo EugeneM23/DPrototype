@@ -33,7 +33,6 @@ namespace Gameplay
                 .FromResolve();
 
             Container.BindInterfacesAndSelfTo<WeaponFireController>().AsSingle().NonLazy();
-           
         }
     }
 }

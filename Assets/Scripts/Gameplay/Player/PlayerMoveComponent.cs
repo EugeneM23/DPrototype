@@ -2,15 +2,15 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    internal class PlayerMoveComponent
+    public class PlayerMoveComponent
     {
         private readonly CharacterController _characterController;
         private readonly float _speed;
 
-        public PlayerMoveComponent(Player player, float speed)
+        public PlayerMoveComponent(float speed, CharacterController characterController)
         {
             _speed = speed;
-            _characterController = player.GetComponent<CharacterController>();
+            _characterController = characterController;
         }
 
         public void Move(Vector3 direction)

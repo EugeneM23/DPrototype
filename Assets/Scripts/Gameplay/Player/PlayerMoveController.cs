@@ -11,7 +11,7 @@ namespace Gameplay
         private float pushForce = 5;
         private bool swipe;
 
-        public PlayerMoveController(Player player, PlayerInput playerInput)
+        public PlayerMoveController(PlayerInput playerInput, Player player)
         {
             _player = player;
             _playerInput = playerInput;

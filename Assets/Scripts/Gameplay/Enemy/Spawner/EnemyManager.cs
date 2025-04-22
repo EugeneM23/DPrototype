@@ -11,19 +11,19 @@ namespace Gameplay
         private List<GameObject> _activeEnemies = new List<GameObject>();
         public int Count => _activeEnemies.Count;
 
-        public bool TryGetTarget(float fireRange, out GameObject target, Transform player)
+        public bool TryGetTarget(float fireRange, out GameObject target, PlayerTransform player)
         {
             target = GetClosestEnemyInRange(fireRange, player);
             return target != null;
         }
 
-        private GameObject GetClosestEnemyInRange(float range, Transform player)
+        private GameObject GetClosestEnemyInRange(float range, PlayerTransform player)
         {
             float rangeSqr = range * range;
 
             return _activeEnemies
-                .Where(enemy => (player.position - enemy.transform.position).sqrMagnitude <= rangeSqr)
-                .OrderBy(enemy => (player.position - enemy.transform.position).sqrMagnitude)
+                .Where(enemy => (player.Player.position - enemy.transform.position).sqrMagnitude <= rangeSqr)
+                .OrderBy(enemy => (player.Player.position - enemy.transform.position).sqrMagnitude)
                 .FirstOrDefault();
         }
 

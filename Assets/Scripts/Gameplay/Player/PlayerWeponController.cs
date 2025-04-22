@@ -5,10 +5,9 @@ namespace Gameplay
 {
     public class PlayerWeponController : IInitializable
     {
-        private Player _player;
         private Weapon _weapon;
-
         private DiContainer _container;
+        private Player _player;
 
         public PlayerWeponController(Player player, Weapon weapon, DiContainer container)
         {

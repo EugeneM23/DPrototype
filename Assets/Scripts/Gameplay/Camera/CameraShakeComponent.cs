@@ -14,9 +14,9 @@ namespace Gameplay
         private Quaternion _originalRotation;
         private bool _isReturning;
 
-        public CameraShakeComponent(Transform camera)
+        public CameraShakeComponent(Camera camera)
         {
-            _camera = camera;
+            _camera = camera.transform;
         }
 
         public void Initialize()

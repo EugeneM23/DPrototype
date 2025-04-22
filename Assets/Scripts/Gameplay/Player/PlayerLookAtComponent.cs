@@ -1,14 +1,13 @@
-
 using UnityEngine;
 
 namespace Gameplay
 {
-    internal class PlayerLookAtComponent
+    public class PlayerLookAtComponent
     {
-        private readonly Player _player;
+        private readonly PlayerTransform _player;
         private readonly float _aimingSpeed;
 
-        public PlayerLookAtComponent(Player player, float aimingSpeed)
+        public PlayerLookAtComponent(PlayerTransform player, float aimingSpeed)
         {
             _player = player;
             _aimingSpeed = aimingSpeed;
@@ -16,7 +15,7 @@ namespace Gameplay
 
         public bool LookAtAndCheck(Vector3 targetPosition)
         {
-            Vector3 direction = targetPosition - _player.transform.position;
+            Vector3 direction = targetPosition - _player.Player.position;
             direction.y = 0f;
 
             if (direction == Vector3.zero)
@@ -24,12 +23,12 @@ namespace Gameplay
 
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-            _player.transform.rotation = Quaternion.RotateTowards(_player.transform.rotation, targetRotation,
+            _player.Player.rotation = Quaternion.RotateTowards(_player.Player.rotation, targetRotation,
                 _aimingSpeed * Time.deltaTime);
 
-            float angle = Quaternion.Angle(_player.transform.rotation, targetRotation);
+            float angle = Quaternion.Angle(_player.Player.rotation, targetRotation);
             bool asd = angle < 1f;
-            
+
             return asd;
         }
     }

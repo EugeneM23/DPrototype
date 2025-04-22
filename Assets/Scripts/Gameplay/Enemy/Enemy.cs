@@ -15,7 +15,7 @@ namespace Gameplay
         private PatrolComponent _patrolComponent;
         private AttackComponent _attackComponent;
         private ChaseComponent _chaseComponent;
-        public Transform GetTarget => _attackComponent.Target;
+        //public PlayerTransform GetTarget => _attackComponent.Target;
 
         private void OnEnable() => _healthComponent.OnDeath += Despawn;
 

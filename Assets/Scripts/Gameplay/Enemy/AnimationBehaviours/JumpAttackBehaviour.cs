@@ -5,13 +5,11 @@ using Zenject;
 public class JumpAttackBehaviour : StateMachineBehaviour
 {
     [Inject] private CameraShakeComponent _cameraShake;
-
-    private Transform _player;
+    [Inject] private PlayerTransform _player;
     private bool _isShaked;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _player = animator.GetComponent<Enemy>().GetTarget;
         _isShaked = false;
     }
 

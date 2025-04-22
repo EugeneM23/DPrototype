@@ -5,23 +5,26 @@ namespace Gameplay
 {
     public class PlayerLeanComponent : ITickable
     {
-        private readonly Player _player;
+        private readonly PlayerTransform _player;
         private float leanAmount = 20f;
         private float leanSpeed = 7f;
 
         private Vector3 lastForward;
         private float currentLean = 0f;
 
-        public PlayerLeanComponent(Player player)
+        public PlayerLeanComponent(PlayerTransform player)
         {
             _player = player;
         }
 
-        public void Tick() => Lean();
+        public void Tick()
+        {
+            Lean();
+        }
 
         private void Lean()
         {
-            Vector3 currentForward = _player.transform.forward;
+            Vector3 currentForward = _player.Player.forward;
             Vector3 cross = Vector3.Cross(lastForward, currentForward);
             float angle = Vector3.SignedAngle(lastForward, currentForward, Vector3.up);
             float angularSpeed = angle / Time.deltaTime;
@@ -32,7 +35,7 @@ namespace Gameplay
             currentLean = Mathf.Lerp(currentLean, targetLean, Time.deltaTime * leanSpeed);
 
             Quaternion leanRotation = Quaternion.Euler(0f, 0f, currentLean);
-            _player.transform.localRotation = Quaternion.Euler(0f, _player.transform.eulerAngles.y, 0f) * leanRotation;
+            _player.Player.localRotation = Quaternion.Euler(0f, _player.Player.eulerAngles.y, 0f) * leanRotation;
 
             lastForward = currentForward;
         }
