@@ -3,16 +3,19 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class CameraInstaller : Installer<CameraInstaller>
+    public class CameraInstaller : Installer<float, Camera, CameraInstaller>
     {
+        [Inject] private float _smoothTime;
+        [Inject] private Camera _camera;
+
         public override void InstallBindings()
         {
-            Transform cameraTransfrom = UnityEngine.Camera.main.gameObject.transform;
+            Transform cameraTransfrom = _camera.gameObject.transform;
 
             Container
                 .BindInterfacesAndSelfTo<CameraFollower>()
                 .AsSingle()
-                .WithArguments(cameraTransfrom)
+                .WithArguments(cameraTransfrom, _smoothTime)
                 .NonLazy();
 
             Container

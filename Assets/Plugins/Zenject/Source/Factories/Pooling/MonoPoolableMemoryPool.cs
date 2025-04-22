@@ -199,10 +199,10 @@ namespace Zenject
             }
         }
 
-        protected override void Reinitialize(TParam1 p1, TParam2 p2, TParam3 p3, TParam4 p4, TValue item)
+        protected override void Reinitialize(TParam1 p1, TParam2 p2, TParam3 impulseVector, TParam4 p4, TValue item)
         {
             item.gameObject.SetActive(true);
-            item.OnSpawned(p1, p2, p3, p4);
+            item.OnSpawned(p1, p2, impulseVector, p4);
         }
     }
 

@@ -2,10 +2,9 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerInstaller : Installer<Player, PlayerParameters, PlayerInstaller>
+    public class PlayerInstaller : Installer<Player, PlayerInstaller>
     {
         [Inject] private Player _player;
-        [Inject] private PlayerParameters _parameters;
 
         public override void InstallBindings()
         {
@@ -13,8 +12,6 @@ namespace Gameplay
                 .FromComponentInNewPrefab(_player)
                 .AsSingle()
                 .NonLazy();
-
-         
         }
     }
 }

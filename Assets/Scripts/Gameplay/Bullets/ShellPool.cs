@@ -5,16 +5,16 @@ namespace Gameplay
 {
     public class ShellPool : MemoryPool<Vector3, Quaternion, Vector3, float, Shell>, IShellSpawner
     {
-        public Shell Create(Vector3 position, Quaternion rotation, Vector3 shellImpulse, float power)
+        public Shell Create(Vector3 position, Quaternion rotation, Vector3 impulseVector, float power)
         {
-            return Spawn(position, rotation, shellImpulse, power);
+            return Spawn(position, rotation, impulseVector, power);
         }
 
-        protected override void Reinitialize(Vector3 position, Quaternion rotation, Vector3 shellImpulse, float power,
+        protected override void Reinitialize(Vector3 position, Quaternion rotation, Vector3 impulseVector, float power,
             Shell shell)
         {
             shell.SetPositionAndRotation(position, rotation);
-            shell.SetImpulse(shellImpulse, power);
+            shell.SetImpulse(impulseVector, power);
         }
 
         protected override void OnSpawned(Shell shell)

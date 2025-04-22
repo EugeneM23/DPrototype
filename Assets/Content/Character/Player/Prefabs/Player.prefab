@@ -5039,6 +5039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1230073186054927667}
   _playerHealth: {fileID: 1703512521625262174}
+  _characterController: {fileID: 5696128465114512940}
 --- !u!114 &2092574877954839100
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,14 +5,14 @@ namespace Gameplay
 {
     public class Player : MonoBehaviour
     {
-        private Weapon _weapon;
         [SerializeField] private Animator _animator;
         [SerializeField] private PlayerHealthComponent _playerHealth;
+        [SerializeField] private CharacterController _characterController;
 
+        private Weapon _weapon;
         private PlayerMoveComponent _playerMoveComponent;
         private PlayerRotationOnMoveComponent _playerRotor;
         private PlayerLookAtComponent _lookAtComponent;
-        private CharacterController _characterController;
         private GameObject _target;
 
         private Transform _playerTransform => gameObject.transform;
@@ -27,15 +27,13 @@ namespace Gameplay
             _playerMoveComponent = moveComponent;
             _playerRotor = rotation;
             _lookAtComponent = lookAtComponent;
-            _characterController = GetComponent<CharacterController>();
         }
 
         private void Update()
         {
-
             if (IsMoving || _target == null) return;
 
-            if (_lookAtComponent.LookAtAndCheck(_target.transform.position)) 
+            if (_lookAtComponent.LookAtAndCheck(_target.transform.position))
                 _weapon.Shoot();
         }
 
@@ -49,7 +47,7 @@ namespace Gameplay
         public Vector3 GetVelocity() => _characterController.velocity;
 
         public void SetWeapon(Weapon weapon) => _weapon = weapon;
-        
+
         public Transform GetTransform() => _playerTransform;
 
         public void TakeDamage(int damageDamage)

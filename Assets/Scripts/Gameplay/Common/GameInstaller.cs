@@ -7,17 +7,18 @@ namespace Gameplay
     {
         [SerializeField] private Player _playerPrefab;
         [SerializeField] private int _maximumFPS = 100;
-        [SerializeField] private PlayerParameters _parameters;
         [SerializeField] private GameObject _HUD;
+        [SerializeField] private float _cameraSmoothTime;
+        [SerializeField] private Camera _camera;
 
         public override void InstallBindings()
         {
             Application.targetFrameRate = _maximumFPS;
-            
+
             UIInstaller.Install(Container, _HUD);
-            PlayerInstaller.Install(Container, _playerPrefab, _parameters);
+            PlayerInstaller.Install(Container, _playerPrefab);
             EnemyManagerInstaller.Install(Container);
-            CameraInstaller.Install(Container);
+            CameraInstaller.Install(Container, _cameraSmoothTime, _camera);
         }
     }
 }
