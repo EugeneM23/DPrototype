@@ -8,9 +8,9 @@ namespace Gameplay
     {
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private float _impuls;
+        [SerializeField] private int _lifeTime = 2;
 
         public event Action<Shell> OnDispose;
-        private readonly int _lifeTime = 2;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
         {
@@ -28,6 +28,7 @@ namespace Gameplay
 
         public void SetVelocity(Vector3 direction)
         {
+            _rb.linearVelocity = Vector3.zero;
             _rb.AddForce((direction + Vector3.up) * _impuls, ForceMode.Impulse);
             _rb.AddTorque(direction * 40, ForceMode.Impulse);
         }

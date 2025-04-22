@@ -35,10 +35,8 @@ namespace Gameplay
 
             if (IsMoving || _target == null) return;
 
-            if (_lookAtComponent.LookAtAndCheck(_target.transform.position))
-            {
-                _weapon.Shoot(_target.transform);
-            }
+            if (_lookAtComponent.LookAtAndCheck(_target.transform.position)) 
+                _weapon.Shoot();
         }
 
         public void Move(Vector3 direction)
@@ -50,13 +48,8 @@ namespace Gameplay
         public void SetTarget(GameObject target) => _target = target;
         public Vector3 GetVelocity() => _characterController.velocity;
 
-        public void SetWeapon(Weapon weapon)
-        {
-            _weapon = weapon;
-        }
-
-        public Weapon GetWeapon() => _weapon;
-
+        public void SetWeapon(Weapon weapon) => _weapon = weapon;
+        
         public Transform GetTransform() => _playerTransform;
 
         public void TakeDamage(int damageDamage)

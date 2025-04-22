@@ -29,6 +29,7 @@ namespace Gameplay
 
             float angle = Quaternion.Angle(_player.transform.rotation, targetRotation);
             bool asd = angle < 1f;
+            
             return asd;
         }
     }

@@ -12,12 +12,12 @@ namespace Gameplay
 
         public override void InstallBindings()
         {
+            Application.targetFrameRate = _maximumFPS;
+            
             UIInstaller.Install(Container, _HUD);
             PlayerInstaller.Install(Container, _playerPrefab, _parameters);
             EnemyManagerInstaller.Install(Container);
             CameraInstaller.Install(Container);
-
-            Application.targetFrameRate = _maximumFPS;
         }
     }
 }

@@ -17,15 +17,12 @@ namespace Gameplay
             _container = container;
         }
 
+        public void Initialize() => SetWeapon();
+
         public void SetWeapon()
         {
             Weapon weapon = _container.InstantiatePrefab(_weapon).GetComponent<Weapon>();
             _player.SetWeapon(weapon);
-        }
-
-        public void Initialize()
-        {
-            SetWeapon();
         }
     }
 }

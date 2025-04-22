@@ -21,14 +21,13 @@ namespace Gameplay
         private void Update() => CoolDown();
 
         [Inject]
-        public void Construct(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner,
-            CameraShakeComponent cameraShake, PlayerAnimationController animationController)
+        public void Construct(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner)
         {
             _bulletSpawner = bulletSpawner;
             _shellSpawner = shellSpawner;
         }
 
-        public void Shoot(Transform targer)
+        public void Shoot()
         {
             if (_readyToFire)
             {

@@ -9,8 +9,6 @@ public class SwipeTest : MonoBehaviour
 
     public void ASD(string id)
     {
-        Debug.Log(id);
-
         switch (id)
         {
             case DirectionId.ID_UP:
