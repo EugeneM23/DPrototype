@@ -12,6 +12,9 @@ namespace Gameplay
         [SerializeField] private Transform _shellPoint;
         [SerializeField] private WeaponSetings _setings;
 
+        public float ShakeDuration => _setings.ShakeDuration;
+        public float ShakeMagnitude => _setings.ShakeMagnitude;
+        
         private IBulletSpawner _bulletSpawner;
         private IShellSpawner _shellSpawner;
 
@@ -34,8 +37,7 @@ namespace Gameplay
                 _readyToFire = false;
                 OnFire?.Invoke();
 
-                Shell shell = _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation);
-                shell.SetVelocity(_shellPoint.up + _shellPoint.right);
+                Shell shell = _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse, _setings.ImpulsePower);
 
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
                 bullet.Setup(_setings.Damage, _setings.BulletSpeed, _firePoint.forward);

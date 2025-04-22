@@ -152,5 +152,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 3052386722777691490}
-  _impuls: 3
   _lifeTime: 2

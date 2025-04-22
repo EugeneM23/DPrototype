@@ -1,23 +1,33 @@
+using System;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
     public class CameraShakeComponent : ITickable, IInitializable
     {
+        private readonly Transform _camera;
         private float _shakeMagnitude = 0.1f;
         private float _shakeDuration = 0.2f;
 
         private Quaternion _originalRotation;
         private bool _isReturning;
 
-        public void Initialize() => _originalRotation = Camera.main.transform.localRotation;
-
-        public void CameraShake()
+        public CameraShakeComponent(Transform camera)
         {
-            Debug.Log("CameraShake");
-            _shakeDuration = 0.1f;
-            _shakeMagnitude = 0.2f;
+            _camera = camera;
+        }
+
+        public void Initialize()
+        {
+            _originalRotation = _camera.localRotation;
+        }
+
+        public void CameraShake(float shakeMagnitude, float shakeDuration)
+        {
+            _shakeDuration = shakeDuration;
+            _shakeMagnitude = shakeMagnitude;
         }
 
         public void Tick()
@@ -30,7 +40,7 @@ namespace Gameplay
 
                 Quaternion shakeRotation = Quaternion.Euler(angleX, angleY, angleZ);
 
-                Camera.main.transform.localRotation = _originalRotation * shakeRotation;
+                _camera.localRotation = _originalRotation * shakeRotation;
 
                 _shakeDuration -= Time.deltaTime;
 
@@ -42,13 +52,13 @@ namespace Gameplay
             else if (_isReturning)
             {
                 // Плавное возвращение к оригинальному повороту
-                Camera.main.transform.localRotation = Quaternion.Lerp(Camera.main.transform.localRotation,
+                _camera.localRotation = Quaternion.Lerp(_camera.localRotation,
                     _originalRotation, Time.deltaTime * 0.3f);
 
                 // Когда достаточно близко — зафиксировать
-                if (Quaternion.Angle(Camera.main.transform.localRotation, _originalRotation) < 0.01f)
+                if (Quaternion.Angle(_camera.localRotation, _originalRotation) < 0.01f)
                 {
-                    Camera.main.transform.localRotation = _originalRotation;
+                    _camera.localRotation = _originalRotation;
                     _isReturning = false;
                 }
             }

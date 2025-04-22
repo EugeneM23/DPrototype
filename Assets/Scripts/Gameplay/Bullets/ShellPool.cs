@@ -3,16 +3,18 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class ShellPool : MemoryPool<Vector3, Quaternion, Shell>, IShellSpawner
+    public class ShellPool : MemoryPool<Vector3, Quaternion, Vector3, float, Shell>, IShellSpawner
     {
-        public Shell Create(Vector3 position, Quaternion rotation)
+        public Shell Create(Vector3 position, Quaternion rotation, Vector3 shellImpulse, float power)
         {
-            return Spawn(position, rotation);
+            return Spawn(position, rotation, shellImpulse, power);
         }
 
-        protected override void Reinitialize(Vector3 position, Quaternion rotation, Shell shell)
+        protected override void Reinitialize(Vector3 position, Quaternion rotation, Vector3 shellImpulse, float power,
+            Shell shell)
         {
             shell.SetPositionAndRotation(position, rotation);
+            shell.SetImpulse(shellImpulse, power);
         }
 
         protected override void OnSpawned(Shell shell)

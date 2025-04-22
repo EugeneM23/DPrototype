@@ -4,8 +4,9 @@ using Zenject;
 
 public class JumpAttackBehaviour : StateMachineBehaviour
 {
-    private Transform _player;
     [Inject] private CameraShakeComponent _cameraShake;
+
+    private Transform _player;
     private bool _isShaked;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -31,7 +32,7 @@ public class JumpAttackBehaviour : StateMachineBehaviour
                 Instantiate(Resources.Load<GameObject>("Prefabs/Spikes attack"), animator.transform.position,
                     Quaternion.identity);
                 _isShaked = true;
-                _cameraShake.CameraShake();
+                _cameraShake.CameraShake(1, 1);
             }
         }
     }

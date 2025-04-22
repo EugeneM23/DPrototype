@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
     public class Shell : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rb;
-        [SerializeField] private float _impuls;
         [SerializeField] private int _lifeTime = 2;
 
+        private Vector3 _impulseVector3;
         public event Action<Shell> OnDispose;
 
         public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
@@ -26,11 +28,14 @@ namespace Gameplay
             OnDispose?.Invoke(this);
         }
 
-        public void SetVelocity(Vector3 direction)
+        public void SetImpulse(Vector3 impulseVecctor, float power)
         {
             _rb.linearVelocity = Vector3.zero;
-            _rb.AddForce((direction + Vector3.up) * _impuls, ForceMode.Impulse);
-            _rb.AddTorque(direction * 40, ForceMode.Impulse);
+
+            Vector3 worldImpulse = transform.TransformDirection(impulseVecctor);
+
+            _rb.AddForce(worldImpulse * power, ForceMode.Impulse);
+            _rb.AddTorque(transform.position * 40, ForceMode.Impulse);
         }
     }
 }

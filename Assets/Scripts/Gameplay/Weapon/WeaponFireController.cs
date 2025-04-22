@@ -20,13 +20,16 @@ namespace Gameplay
 
         public void Initialize()
         {
-            _weapon.OnFire += _cameraShake.CameraShake;
+            _weapon.OnFire += () => _cameraShake.CameraShake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
             _weapon.OnFire += _animationController.Shoot;
+        }
+
+        private void CameraShake(float shakeMagnitude, float shakeDuration)
+        {
         }
 
         public void Dispose()
         {
-            _weapon.OnFire -= _cameraShake.CameraShake;
             _weapon.OnFire -= _animationController.Shoot;
         }
     }
