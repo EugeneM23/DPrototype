@@ -10,13 +10,14 @@ namespace Gameplay.BehComponents
         public bool IsAttaking;
         public bool IsOnAnimation;
 
-        private readonly Transform _player;
+        private readonly PlayerTransform _player;
         private readonly Transform _enemyTransform;
         private readonly float _chaseRange;
         private readonly float _attckRange;
 
-        public EnemyConditions(Transform player, Transform enemyTransform, float chaseRange, float attckRange)
+        public EnemyConditions(PlayerTransform player, Transform enemyTransform, float chaseRange, float attckRange)
         {
+            Debug.Log(enemyTransform.name);
             _player = player;
             _enemyTransform = enemyTransform;
             _chaseRange = chaseRange;
@@ -48,9 +49,9 @@ namespace Gameplay.BehComponents
         }
 
         private bool PlayerInChaseRange() =>
-            Vector3.Distance(_enemyTransform.transform.position, _player.position) <= _chaseRange;
+            Vector3.Distance(_enemyTransform.transform.position, _player.Player.position) <= _chaseRange;
 
         private bool PlayerInAttackRange() =>
-            Vector3.Distance(_enemyTransform.position, _player.position) <= _attckRange;
+            Vector3.Distance(_enemyTransform.position, _player.Player.position) <= _attckRange;
     }
 }

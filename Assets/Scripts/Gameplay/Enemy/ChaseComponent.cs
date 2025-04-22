@@ -8,16 +8,15 @@ namespace Gameplay
     {
         private readonly NavMeshAgent _agent;
         private readonly EnemyConditions _conditions;
-        private readonly Transform _target;
+        private readonly PlayerTransform _target;
         private readonly int _speed;
 
-        public ChaseComponent(EnemyConditions conditions, Transform target, NavMeshAgent enemy, int speed)
+        public ChaseComponent(EnemyConditions conditions, PlayerTransform target, NavMeshAgent enemy, int speed)
         {
             _conditions = conditions;
             _agent = enemy;
             _speed = speed;
             _target = target;
-            Debug.Log(_target.name + " is chasing target");
         }
 
         public void Chase()
@@ -26,7 +25,7 @@ namespace Gameplay
             _conditions.IsPatroling = false;
             _conditions.IsChasing = true;
 
-            _agent.SetDestination(_target.position);
+            _agent.SetDestination(_target.Player.position);
             _agent.speed = _speed;
         }
     }

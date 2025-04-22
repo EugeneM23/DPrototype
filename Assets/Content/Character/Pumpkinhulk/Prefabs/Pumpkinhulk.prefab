@@ -730,8 +730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
-  _chaseRange: 100
-  _attckRange: 5
+  _chaseRange: 15
+  _attckRange: 3
   _chaseSpeend: 10
   _attackAnimations:
   - Attack_01

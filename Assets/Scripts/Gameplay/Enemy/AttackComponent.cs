@@ -23,6 +23,8 @@ namespace Gameplay
             _target = player;
         }
 
+        public PlayerTransform Target => _target;
+
         public void Attack()
         {
             Debug.Log(_target.Player.position);
