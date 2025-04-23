@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &32317476396721216
 Transform:
   m_ObjectHideFlags: 0
@@ -4918,8 +4918,6 @@ GameObject:
   - component: {fileID: 8851841367444768159}
   - component: {fileID: 1703512521625262174}
   - component: {fileID: -3092696866831824943}
-  - component: {fileID: 1221843676562879461}
-  - component: {fileID: 8745442265348053451}
   - component: {fileID: 3769910673327603445}
   m_Layer: 0
   m_Name: Player
@@ -5008,9 +5006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3bd490f16b44d3b1fe06af411a0479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealthView: {fileID: -227575839315736592, guid: 6c1cc8cef5f3b4b5ab6d7ae21d931f97, type: 3}
+  _hpBar: {fileID: -227575839315736592, guid: 6c1cc8cef5f3b4b5ab6d7ae21d931f97, type: 3}
   _weapon: {fileID: 4938901112661854419, guid: 58bfaaefdb0b84f7ab7e3b91e3a0a956, type: 3}
-  _hitEffect: {fileID: 198656289721292014, guid: 49bd457a31629488c81470e97f80dcc1, type: 3}
+  _hitEffect: {fileID: 190173164689368134}
   _playerSetings:
     <RunSpeed>k__BackingField: 10
     <RotationSpeed>k__BackingField: 20
@@ -5051,51 +5049,6 @@ MonoBehaviour:
   _useSceneContext: 0
   _context: {fileID: 2092574877954839100}
   _bindType: 0
---- !u!114 &1221843676562879461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4969062347157005148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2461fd198c62d4c3f9a5952578fa99b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8745442265348053451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4969062347157005148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c52040e0d356884a866f616474f7057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnSwipeCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSwipe:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1221843676562879461}
-        m_TargetAssemblyTypeName: SwipeTest, Game
-        m_MethodName: ASD
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _sensetivity: 2
-  _continuousDetection: 0
-  _swipeDetectionMode: 3
 --- !u!114 &3769910673327603445
 MonoBehaviour:
   m_ObjectHideFlags: 0

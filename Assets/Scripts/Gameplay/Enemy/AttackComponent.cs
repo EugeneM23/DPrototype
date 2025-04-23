@@ -27,7 +27,6 @@ namespace Gameplay
 
         public void Attack()
         {
-            Debug.Log(_target.Transform.position);
             _conditions.IsPatroling = false;
             _conditions.IsChasing = false;
             _agent.isStopped = true;

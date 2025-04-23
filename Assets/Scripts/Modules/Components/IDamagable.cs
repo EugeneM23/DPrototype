@@ -1,4 +1,4 @@
-namespace Gameplay
+namespace Modules
 {
     public interface IDamagable
     {

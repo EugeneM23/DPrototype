@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay
+namespace Modules
 {
     public class HealthComponent : MonoBehaviour, IDamagable
     {
@@ -12,7 +12,10 @@ namespace Gameplay
         private int _currentHealth = 100;
         private int _healthMax = 100;
 
-        private void Start() => _currentHealth = _healthMax;
+        private void Start()
+        {
+            _currentHealth = _healthMax;
+        }
 
         public void TakeDamage(int damage)
         {

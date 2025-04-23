@@ -2309,7 +2309,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 196820791376172826, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 463040813565491346, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
       propertyPath: m_IsActive
@@ -2385,7 +2385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2129063768204428019, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2469567829678849814, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
       propertyPath: m_IsActive
@@ -2410,6 +2410,10 @@ PrefabInstance:
     - target: {fileID: 3839586420459916995, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011072038030705117, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
+      propertyPath: _IsCyclebl
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5176037744156914177, guid: 4f4d68a0697894520ab049304cfd39b7, type: 3}
       propertyPath: m_IsActive

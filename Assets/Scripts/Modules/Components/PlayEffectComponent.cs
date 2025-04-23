@@ -1,7 +1,6 @@
 using UnityEngine;
-using Zenject;
 
-namespace Gameplay
+namespace Modules
 {
     public class PlayEffectComponent
     {
@@ -9,6 +8,10 @@ namespace Gameplay
 
         public PlayEffectComponent(ParticleSystem particleSystem) => _particleSystem = particleSystem;
 
-        public void Play() => _particleSystem.Play();
+        public void Play()
+        {
+            _particleSystem.gameObject.SetActive(true);
+            _particleSystem.Play();
+        }
     }
 }
