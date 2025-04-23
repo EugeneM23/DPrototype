@@ -11,9 +11,9 @@ namespace Gameplay
 
         public void TakeDamage()
         {
-            if (_attackDistance >= Vector3.Distance(transform.position, _playerTransform.Player.position))
+            if (_attackDistance >= Vector3.Distance(transform.position, _playerTransform.Transform.position))
             {
-                _playerTransform.GetComponent<PlayerHealthComponent>().TakeDamage(_damage.Damage);
+                _playerTransform.GetComponent<HealthComponent>().TakeDamage(_damage.Damage);
             }
         }
     }

@@ -12,9 +12,14 @@ namespace Gameplay
         public override void InstallBindings()
         {
             Container
-                .BindInterfacesAndSelfTo<CameraFollower>()
+                .BindInterfacesAndSelfTo<PlayerCamera>()
                 .AsSingle()
-                .WithArguments(_camera, _target, _smoothTime)
+                .NonLazy();
+            
+            Container
+                .Bind<ObjectFollowComponent>()
+                .AsSingle()
+                .WithArguments(_camera.transform, _target.Transform, _smoothTime)
                 .NonLazy();
 
             Container

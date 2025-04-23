@@ -5,16 +5,16 @@ namespace Gameplay
 {
     public class PlayerDeathObserver : IInitializable
     {
-        private readonly PlayerHealthComponent _playerHealth;
+        private readonly HealthComponent _health;
 
-        public PlayerDeathObserver(PlayerHealthComponent playerHealth)
+        public PlayerDeathObserver(HealthComponent health)
         {
-            _playerHealth = playerHealth;
+            _health = health;
         }
 
         public void Initialize()
         {
-            _playerHealth.OnDeath += Death;
+            _health.OnDeath += Death;
         }
 
         private void Death()

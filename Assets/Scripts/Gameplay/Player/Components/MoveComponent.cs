@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PlayerMoveComponent
+    public class MoveComponent
     {
         private readonly CharacterController _characterController;
         private readonly float _speed;
 
-        public PlayerMoveComponent(float speed, CharacterController characterController)
+        public MoveComponent(float speed, CharacterController characterController)
         {
             _speed = speed;
             _characterController = characterController;

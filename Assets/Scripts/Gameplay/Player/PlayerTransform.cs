@@ -4,6 +4,6 @@ namespace Gameplay
 {
     public class PlayerTransform : MonoBehaviour
     {
-        public Transform Player => gameObject.transform;
+        public Transform Transform => gameObject.transform;
     }
 }

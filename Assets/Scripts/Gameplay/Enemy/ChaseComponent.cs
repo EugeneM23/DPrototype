@@ -25,7 +25,7 @@ namespace Gameplay
             _conditions.IsPatroling = false;
             _conditions.IsChasing = true;
 
-            _agent.SetDestination(_target.Player.position);
+            _agent.SetDestination(_target.Transform.position);
             _agent.speed = _speed;
         }
     }

@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PlayerRotationOnMoveComponent
+    public class RotationComponent
     {
-        private readonly PlayerTransform _player;
+        private readonly Transform _target;
         private readonly float _speed;
 
-        public PlayerRotationOnMoveComponent(PlayerTransform player, float speed)
+        public RotationComponent(Transform target, float speed)
         {
-            _player = player;
+            _target = target;
             _speed = speed;
         }
 
@@ -21,8 +21,8 @@ namespace Gameplay
 
                 Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
 
-                _player.Player.rotation =
-                    Quaternion.Slerp(_player.Player.rotation, targetRotation, _speed * Time.deltaTime);
+                _target.rotation =
+                    Quaternion.Slerp(_target.rotation, targetRotation, _speed * Time.deltaTime);
             }
         }
     }

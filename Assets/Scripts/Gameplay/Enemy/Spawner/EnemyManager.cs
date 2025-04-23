@@ -22,8 +22,8 @@ namespace Gameplay
             float rangeSqr = range * range;
 
             return _activeEnemies
-                .Where(enemy => (player.Player.position - enemy.transform.position).sqrMagnitude <= rangeSqr)
-                .OrderBy(enemy => (player.Player.position - enemy.transform.position).sqrMagnitude)
+                .Where(enemy => (player.Transform.position - enemy.transform.position).sqrMagnitude <= rangeSqr)
+                .OrderBy(enemy => (player.Transform.position - enemy.transform.position).sqrMagnitude)
                 .FirstOrDefault();
         }
 

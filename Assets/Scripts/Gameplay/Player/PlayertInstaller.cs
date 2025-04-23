@@ -11,10 +11,12 @@ namespace Gameplay
         [SerializeField] private ParticleSystem _hitEffect;
         [SerializeField] private PlayerSetings _playerSetings;
 
+        [Inject] private PlayerTransform _player;
+
         public override void InstallBindings()
         {
             Container
-                .Bind<PlayerMoveComponent>()
+                .Bind<MoveComponent>()
                 .AsSingle()
                 .WithArguments(10f)
                 .NonLazy();
@@ -25,8 +27,9 @@ namespace Gameplay
                 .NonLazy();
 
             Container
-                .BindInterfacesAndSelfTo<PlayerLeanComponent>()
+                .Bind<LeanComponent>()
                 .AsSingle()
+                .WithArguments(_player.Transform)
                 .NonLazy();
 
             Container
@@ -54,16 +57,16 @@ namespace Gameplay
 
 
             Container
-                .Bind<PlayerRotationOnMoveComponent>()
+                .Bind<RotationComponent>()
                 .AsSingle()
-                .WithArguments(20f)
+                .WithArguments(_player.Transform, _playerSetings.RotationSpeed)
                 .NonLazy();
 
 
             Container
-                .Bind<PlayerLookAtComponent>()
+                .Bind<LookAtComponent>()
                 .AsSingle()
-                .WithArguments(600f)
+                .WithArguments(_player.Transform, _playerSetings.LookAtSpeed)
                 .NonLazy();
 
             Container
@@ -81,7 +84,7 @@ namespace Gameplay
                 .AsSingle()
                 .NonLazy();
 
-            Container.Bind<PlayerHitEffect>().AsSingle().WithArguments(_hitEffect).NonLazy();
+            Container.Bind<PlayEffectComponent>().AsSingle().WithArguments(_hitEffect).NonLazy();
         }
 
         [Serializable]
@@ -89,6 +92,7 @@ namespace Gameplay
         {
             [field: SerializeField] public float RunSpeed { get; private set; }
             [field: SerializeField] public float RotationSpeed { get; private set; }
+            [field: SerializeField] public float LookAtSpeed { get; set; }
             [field: SerializeField] public float StrafeSpeed { get; private set; }
             [field: SerializeField] public float StrafePower { get; private set; }
             [field: SerializeField] public int MaxHealth { get; private set; }

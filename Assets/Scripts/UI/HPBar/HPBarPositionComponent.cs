@@ -10,7 +10,7 @@ public class HPBarPositionComponent : MonoBehaviour
 
     private void Start()
     {
-        _offset = _healthBar.position - _target.Player.position + -_target.Player.forward * 2;
+        _offset = _healthBar.position - _target.Transform.position + -_target.Transform.forward * 2;
     }
 
     void Update()

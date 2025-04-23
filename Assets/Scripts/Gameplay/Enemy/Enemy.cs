@@ -11,22 +11,22 @@ namespace Gameplay
 
         private EnemyConditions _conditions;
 
-        private HealthComponent _healthComponent;
+        private EnemyHealthComponent _enemyHealthComponent;
         private PatrolComponent _patrolComponent;
         private AttackComponent _attackComponent;
         private ChaseComponent _chaseComponent;
         public PlayerTransform GetTarget => _attackComponent.Target;
 
-        private void OnEnable() => _healthComponent.OnDeath += Despawn;
+        private void OnEnable() => _enemyHealthComponent.OnDeath += Despawn;
 
-        private void OnDisable() => _healthComponent.OnDeath -= Despawn;
+        private void OnDisable() => _enemyHealthComponent.OnDeath -= Despawn;
 
         [Inject]
         public void Construct(EnemyConditions conditions, PatrolComponent patrolState,
-            AttackComponent attackState, ChaseComponent chaseState, HealthComponent healthComponent)
+            AttackComponent attackState, ChaseComponent chaseState, EnemyHealthComponent enemyHealthComponent)
         {
             _conditions = conditions;
-            _healthComponent = healthComponent;
+            _enemyHealthComponent = enemyHealthComponent;
             _patrolComponent = patrolState;
             _attackComponent = attackState;
             _chaseComponent = chaseState;

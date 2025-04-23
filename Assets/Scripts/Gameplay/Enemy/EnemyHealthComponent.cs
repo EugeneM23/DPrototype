@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class HealthComponent : MonoBehaviour, IDamagable
+    public class EnemyHealthComponent : MonoBehaviour, IDamagable
     {
         public event Action OnDeath;
 

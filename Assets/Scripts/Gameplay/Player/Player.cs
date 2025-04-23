@@ -5,37 +5,32 @@ namespace Gameplay
 {
     public class Player : ITickable
     {
-        private readonly PlayerTransform _playerTransform;
-        private readonly Animator _animator;
-        private readonly PlayerHealthComponent _playerHealth;
         private readonly CharacterController _characterController;
 
-        private readonly PlayerMoveComponent _playerMoveComponent;
-        private readonly PlayerRotationOnMoveComponent _playerRotor;
-        private readonly PlayerLookAtComponent _lookAtComponent;
+        private readonly MoveComponent _moveComponent;
+        private readonly RotationComponent _rotationComponent;
+        private readonly LookAtComponent _lookAtComponent;
+        private readonly LeanComponent _leanComponent;
 
         private Weapon _weapon;
-
         private GameObject _target;
 
         private bool IsMoving => GetVelocity() != Vector3.zero;
-        public Animator Animator => _animator;
 
-        public Player(PlayerTransform playerTransform, Animator animator, PlayerHealthComponent playerHealth,
-            CharacterController characterController, PlayerMoveComponent playerMoveComponent,
-            PlayerRotationOnMoveComponent playerRotor, PlayerLookAtComponent lookAtComponent)
+        public Player(CharacterController characterController, MoveComponent moveComponent,
+            RotationComponent rotationComponent, LookAtComponent lookAtComponent, LeanComponent leanComponent)
         {
-            _playerTransform = playerTransform;
-            _animator = animator;
-            _playerHealth = playerHealth;
             _characterController = characterController;
-            _playerMoveComponent = playerMoveComponent;
-            _playerRotor = playerRotor;
+            _moveComponent = moveComponent;
+            _rotationComponent = rotationComponent;
             _lookAtComponent = lookAtComponent;
+            _leanComponent = leanComponent;
         }
 
         public void Tick()
         {
+            _leanComponent.Lean();
+
             if (IsMoving || _target == null) return;
 
             if (_lookAtComponent.LookAtAndCheck(_target.transform.position))
@@ -44,8 +39,8 @@ namespace Gameplay
 
         public void Move(Vector3 direction)
         {
-            _playerMoveComponent.Move(direction);
-            _playerRotor.Ratation(direction);
+            _moveComponent.Move(direction);
+            _rotationComponent.Ratation(direction);
         }
 
         public void SetTarget(GameObject target) => _target = target;
@@ -53,10 +48,5 @@ namespace Gameplay
         public Vector3 GetVelocity() => _characterController.velocity;
 
         public void SetWeapon(Weapon weapon) => _weapon = weapon;
-
-        public void TakeDamage(int damageDamage)
-        {
-            _playerHealth.TakeDamage(damageDamage);
-        }
     }
 }

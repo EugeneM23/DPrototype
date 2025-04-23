@@ -49,9 +49,9 @@ namespace Gameplay.BehComponents
         }
 
         private bool PlayerInChaseRange() =>
-            Vector3.Distance(_enemyTransform.transform.position, _player.Player.position) <= _chaseRange;
+            Vector3.Distance(_enemyTransform.transform.position, _player.Transform.position) <= _chaseRange;
 
         private bool PlayerInAttackRange() =>
-            Vector3.Distance(_enemyTransform.position, _player.Player.position) <= _attckRange;
+            Vector3.Distance(_enemyTransform.position, _player.Transform.position) <= _attckRange;
     }
 }

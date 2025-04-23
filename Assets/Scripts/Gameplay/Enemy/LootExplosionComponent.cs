@@ -9,11 +9,11 @@ namespace Gameplay
     {
         [SerializeField] private GameObject[] _loot;
 
-        [Inject] private readonly HealthComponent _healthComponent;
+        [Inject] private readonly EnemyHealthComponent _enemyHealthComponent;
 
-        private void OnEnable() => _healthComponent.OnDeath += SpawnLoot;
+        private void OnEnable() => _enemyHealthComponent.OnDeath += SpawnLoot;
 
-        private void OnDisable() => _healthComponent.OnDeath -= SpawnLoot;
+        private void OnDisable() => _enemyHealthComponent.OnDeath -= SpawnLoot;
 
         public void SpawnLoot()
         {

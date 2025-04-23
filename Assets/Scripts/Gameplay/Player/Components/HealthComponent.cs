@@ -3,18 +3,16 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PlayerHealthComponent : MonoBehaviour, IDamagable
+    public class HealthComponent : MonoBehaviour, IDamagable
     {
+        public event Action<int> OnHealthChanged;
         public event Action OnDeath;
         public event Action OnHit;
-        public event Action<int> OnHealthChanged;
+
         private int _currentHealth = 100;
         private int _healthMax = 100;
 
-        private void Start()
-        {
-            _currentHealth = _healthMax;
-        }
+        private void Start() => _currentHealth = _healthMax;
 
         public void TakeDamage(int damage)
         {
@@ -23,9 +21,7 @@ namespace Gameplay
             OnHit?.Invoke();
 
             if (_currentHealth <= 0)
-            {
                 OnDeath?.Invoke();
-            }
         }
     }
 }
