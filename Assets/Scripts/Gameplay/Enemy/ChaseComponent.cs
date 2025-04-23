@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace Gameplay
 {
-    public class ChaseComponent
+    /*public class ChaseComponent
     {
         private readonly NavMeshAgent _agent;
         private readonly EnemyConditions _conditions;
@@ -28,5 +28,5 @@ namespace Gameplay
             _agent.SetDestination(_target.Transform.position);
             _agent.speed = _speed;
         }
-    }
+    }*/
 }

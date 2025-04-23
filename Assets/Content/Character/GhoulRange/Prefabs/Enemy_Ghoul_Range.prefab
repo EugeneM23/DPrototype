@@ -2185,7 +2185,6 @@ GameObject:
   - component: {fileID: 8136789233410780891}
   - component: {fileID: 3196630611226905001}
   - component: {fileID: 5053622383324445560}
-  - component: {fileID: -8002550861440520748}
   - component: {fileID: 4174912901918546833}
   - component: {fileID: -1811297344115943003}
   - component: {fileID: -9054151061208681733}
@@ -2271,18 +2270,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8002550861440520748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5481907973978787791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521a5cd3b16941e28275ba0e0fdadcef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4174912901918546833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2399,6 +2386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1475b98c912499e8a50660180e8e331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 0
   _chaseRange: 30
   _attckRange: 15
   _chaseSpeend: 5

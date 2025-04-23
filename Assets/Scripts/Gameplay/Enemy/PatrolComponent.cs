@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace Gameplay
 {
-    public class PatrolComponent
+    /*public class PatrolComponent
     {
         private readonly NavMeshAgent _agent;
         private readonly EnemyConditions _conditions;
@@ -35,5 +35,5 @@ namespace Gameplay
                 _agent.SetDestination(destination);
             }
         }
-    }
+    }*/
 }

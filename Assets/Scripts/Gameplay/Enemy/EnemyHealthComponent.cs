@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Gameplay.BehComponents;
-using Modules;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class EnemyHealthComponent : MonoBehaviour, IDamagable
+    /*public class EnemyHealthComponent : MonoBehaviour, IDamagable
     {
         public event Action OnDeath;
 
@@ -67,5 +66,5 @@ namespace Gameplay
                 }
             }
         }
-    }
+    }*/
 }

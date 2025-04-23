@@ -2,7 +2,7 @@ using Gameplay;
 using UnityEngine;
 using Zenject;
 
-public class AttackAnimationBehaviour : StateMachineBehaviour
+/*public class AttackAnimationBehaviour : StateMachineBehaviour
 {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -13,4 +13,4 @@ public class AttackAnimationBehaviour : StateMachineBehaviour
     {
         animator.GetComponent<AttackAnimationProvider>().FinishAttackAnimation();
     }
-}
+}*/

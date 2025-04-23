@@ -3,34 +3,39 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyPool : MemoryPool<Vector3, Enemy>, IEnemySpawner
+    /*public class EnemyPool : MemoryPool<Vector3, HealthComponent>, IEnemySpawner
     {
         private EnemyManager _manager;
 
-        public EnemyPool(EnemyManager manager) => _manager = manager;
+        public EnemyPool(EnemyManager manager)
+        {
+            _manager = manager;
+        }
 
-        protected override void Reinitialize(Vector3 position, Enemy enemy) => enemy.SetPosition(position);
+        protected override void Reinitialize(Vector3 position, HealthComponent enemy)
+        {
+        }
 
-        public Enemy Create(Vector3 position) => Spawn(position);
+        public HealthComponent Create(Vector3 position) => Spawn(position);
 
-        protected override void OnSpawned(Enemy enemy)
+        protected override void OnSpawned(HealthComponent enemy)
         {
             base.OnSpawned(enemy);
 
-            _manager.AddEnemy(enemy.gameObject);
+            _manager.AddEnemy(enemy);
 
             enemy.gameObject.SetActive(true);
-            enemy.DeSpawn += this.Despawn;
+            enemy.OnDeath += this.Despawn;
         }
 
-        protected override void OnDespawned(Enemy enemy)
+        protected override void OnDespawned(HealthComponent enemy)
         {
             base.OnDespawned(enemy);
 
             enemy.gameObject.SetActive(false);
 
-            _manager.RemoveEnemy(enemy.gameObject);
-            enemy.DeSpawn -= this.Despawn;
+            _manager.RemoveEnemy(enemy);
+            enemy.OnDeath -= this.Despawn;
         }
-    }
+    }*/
 }

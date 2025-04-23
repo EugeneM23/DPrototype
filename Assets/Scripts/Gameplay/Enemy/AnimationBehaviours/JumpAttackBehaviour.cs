@@ -4,7 +4,7 @@ using Zenject;
 
 public class JumpAttackBehaviour : StateMachineBehaviour
 {
-    [Inject] private CameraShakeComponent _cameraShake;
+    /*[Inject] private CameraShakeComponent _cameraShake;
     [Inject] private PlayerTransform _player;
     private bool _isShaked;
 
@@ -32,6 +32,5 @@ public class JumpAttackBehaviour : StateMachineBehaviour
                 _isShaked = true;
                 _cameraShake.CameraShake(1, 1);
             }
-        }
-    }
+        }*/
 }

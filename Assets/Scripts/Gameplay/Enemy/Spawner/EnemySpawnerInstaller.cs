@@ -3,9 +3,9 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemySpawnerInstaller : MonoInstaller
+    /*public class EnemySpawnerInstaller : MonoInstaller
     {
-        [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private HealthComponent _enemyPrefab;
         [SerializeField] private Transform[] _patrolPoints;
         [SerializeField] private bool _IsCyclebl;
 
@@ -15,23 +15,24 @@ namespace Gameplay
                 .BindInterfacesAndSelfTo<EnemySpawner>()
                 .AsSingle().WithArguments(_IsCyclebl)
                 .NonLazy();
-            
+
             Container
                 .Bind<IEnemySpawner>()
                 .To<EnemyPool>()
                 .FromResolve();
+
+
+            Container
+                .BindMemoryPool<HealthComponent, EnemyPool>()
+                .FromComponentInNewPrefab(_enemyPrefab)
+                .AsSingle()
+                .Lazy();
 
             Container
                 .Bind<EnemyPatrolPointManager>()
                 .AsSingle()
                 .WithArguments(_patrolPoints)
                 .NonLazy();
-
-            Container
-                .BindMemoryPool<Enemy, EnemyPool>()
-                .FromComponentInNewPrefab(_enemyPrefab)
-                .AsSingle()
-                .Lazy();
         }
-    }
+    }*/
 }

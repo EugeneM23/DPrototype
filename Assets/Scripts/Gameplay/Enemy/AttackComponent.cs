@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Gameplay
 {
-    public class AttackComponent
+    /*public class AttackComponent
     {
         public event Action OnAttacked;
 
@@ -13,17 +13,17 @@ namespace Gameplay
         private readonly NavMeshAgent _agent;
         private readonly RotationToTarget _rotator;
         private readonly PlayerTransform _target;
+        private readonly EnemyTransform _enemy;
 
         public AttackComponent(EnemyConditions conditions, RotationToTarget rotator, PlayerTransform player,
-            NavMeshAgent enemy)
+            NavMeshAgent agent, EnemyTransform enemy)
         {
             _conditions = conditions;
             _rotator = rotator;
-            _agent = enemy;
+            _agent = agent;
+            _enemy = enemy;
             _target = player;
         }
-
-        public PlayerTransform Target => _target;
 
         public void Attack()
         {
@@ -33,7 +33,7 @@ namespace Gameplay
 
             OnAttacked?.Invoke();
 
-            _rotator.Rotation(_agent.transform, _target);
+            _rotator.Rotation(_enemy.Transform, _target);
         }
-    }
+    }*/
 }

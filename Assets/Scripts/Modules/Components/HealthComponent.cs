@@ -6,7 +6,7 @@ namespace Modules
     public class HealthComponent : MonoBehaviour, IDamagable
     {
         public event Action<int> OnHealthChanged;
-        public event Action OnDeath;
+        public event Action<HealthComponent> OnDeath;
         public event Action OnHit;
 
         private int _currentHealth = 100;
@@ -24,7 +24,13 @@ namespace Modules
             OnHit?.Invoke();
 
             if (_currentHealth <= 0)
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(this);
+        }
+
+        public void Reset()
+        {
+            _currentHealth = _healthMax;
+            OnHealthChanged?.Invoke(_currentHealth);
         }
     }
 }

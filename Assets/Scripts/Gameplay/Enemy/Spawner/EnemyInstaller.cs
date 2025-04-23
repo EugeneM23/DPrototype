@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyInstaller : MonoInstaller
+    /*public class EnemyInstaller : MonoInstaller
     {
         [SerializeField] private int _damage;
         [SerializeField] private float _chaseRange = 10;
@@ -14,6 +14,10 @@ namespace Gameplay
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<Enemy>().AsSingle().NonLazy();
+
+            Container.BindInterfacesAndSelfTo<EnemyDeathObserver>().AsSingle().NonLazy();
+
             Container
                 .Bind<EnemyDamage>()
                 .AsSingle()
@@ -22,6 +26,12 @@ namespace Gameplay
             Container
                 .Bind<PatrolComponent>()
                 .AsSingle()
+                .NonLazy();
+
+            Container
+                .Bind<EnemyConditions>()
+                .AsSingle()
+                .WithArguments(_chaseRange, _attckRange)
                 .NonLazy();
 
             Container
@@ -34,11 +44,6 @@ namespace Gameplay
                 .AsSingle().WithArguments(_chaseSpeend)
                 .NonLazy();
 
-            Container
-                .Bind<EnemyConditions>()
-                .AsSingle()
-                .WithArguments(_chaseRange, _attckRange)
-                .NonLazy();
 
             Container
                 .Bind<RotationToTarget>()
@@ -58,5 +63,5 @@ namespace Gameplay
         public int Damage { get; }
 
         public EnemyDamage(int damage) => Damage = damage;
-    }
+    }*/
 }

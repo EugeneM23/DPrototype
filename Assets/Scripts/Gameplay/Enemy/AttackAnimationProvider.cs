@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class AttackAnimationProvider : MonoBehaviour
+    /*public class AttackAnimationProvider : MonoBehaviour
     {
         [Inject]
         private EnemyConditions _conditions;
@@ -17,5 +17,5 @@ namespace Gameplay
         {
             _conditions = conditions;
         }
-    }
+    }*/
 }

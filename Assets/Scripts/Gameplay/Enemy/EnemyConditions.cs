@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay.BehComponents
 {
-    public class EnemyConditions
+    /*public class EnemyConditions
     {
         public bool IsChasing;
         public bool IsPatroling;
@@ -11,15 +11,14 @@ namespace Gameplay.BehComponents
         public bool IsOnAnimation;
 
         private readonly PlayerTransform _player;
-        private readonly Transform _enemyTransform;
+        private readonly HealthComponent _enemy;
         private readonly float _chaseRange;
         private readonly float _attckRange;
 
-        public EnemyConditions(PlayerTransform player, Transform enemyTransform, float chaseRange, float attckRange)
+        public EnemyConditions(PlayerTransform player, HealthComponent enemy, float chaseRange, float attckRange)
         {
-            Debug.Log(enemyTransform.name);
             _player = player;
-            _enemyTransform = enemyTransform;
+            _enemy = enemy;
             _chaseRange = chaseRange;
             _attckRange = attckRange;
         }
@@ -49,9 +48,9 @@ namespace Gameplay.BehComponents
         }
 
         private bool PlayerInChaseRange() =>
-            Vector3.Distance(_enemyTransform.transform.position, _player.Transform.position) <= _chaseRange;
+            Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _chaseRange;
 
         private bool PlayerInAttackRange() =>
-            Vector3.Distance(_enemyTransform.position, _player.Transform.position) <= _attckRange;
-    }
+            Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _attckRange;
+    }*/
 }

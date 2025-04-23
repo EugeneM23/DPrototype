@@ -57,7 +57,7 @@ namespace Zenject
             return item;
         }
 
-        protected virtual void Reinitialize(TParam1 position, TValue item)
+        protected virtual void Reinitialize(TParam1 p1, TValue item)
         {
             // Optional
         }
@@ -92,7 +92,7 @@ namespace Zenject
             return item;
         }
 
-        protected virtual void Reinitialize(TParam1 position, TParam2 rotation, TValue bullet)
+        protected virtual void Reinitialize(TParam1 p1, TParam2 p2, TValue item)
         {
             // Optional
         }
@@ -160,7 +160,7 @@ namespace Zenject
             return item;
         }
 
-        protected virtual void Reinitialize(TParam1 p1, TParam2 p2, TParam3 impulseVector, TParam4 p4, TValue item)
+        protected virtual void Reinitialize(TParam1 p1, TParam2 p2, TParam3 p3, TParam4 p4, TValue item)
         {
             // Optional
         }

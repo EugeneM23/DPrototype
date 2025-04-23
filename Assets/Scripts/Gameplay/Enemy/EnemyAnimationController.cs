@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemyAnimationController : ITickable, IInitializable
+    /*public class EnemyAnimationController : ITickable, IInitializable
     {
         private readonly Animator _animator;
         private readonly EnemyConditions _conditions;
@@ -39,5 +39,5 @@ namespace Gameplay
         public void Initialize()
         {
         }
-    }
+    }*/
 }

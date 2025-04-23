@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Gameplay
 {
-    public class LootExplosionComponent : MonoBehaviour
+    /*public class LootExplosionComponent : MonoBehaviour
     {
         [SerializeField] private GameObject[] _loot;
 
@@ -25,5 +25,5 @@ namespace Gameplay
                 asd.GetComponent<Rigidbody>().angularVelocity = (Vector3.up + pos) * Random.Range(1f, 10f);
             }
         }
-    }
+    }*/
 }

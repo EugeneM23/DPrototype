@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Gameplay;
 using UnityEngine;
 
-public class KamikadzeAttackBehavior : StateMachineBehaviour
+/*public class KamikadzeAttackBehavior : StateMachineBehaviour
 {
     private List<GameObject> _kamikadzeParts = new();
 
@@ -15,9 +15,9 @@ public class KamikadzeAttackBehavior : StateMachineBehaviour
         float stopThreshold = 0.2f;
         if (stateInfo.normalizedTime > stopThreshold)
         {
-            animator.GetComponent<Enemy>().Kill();
+            /*animator.GetComponent<Enemy>().Kill();
             Instantiate(Resources.Load<GameObject>("Prefabs/Spikes attack"), animator.transform.position,
-                Quaternion.identity);
+                Quaternion.identity);#1#
 
             _kamikadzeParts.Add(Instantiate(Resources.Load<GameObject>("Prefabs/BodyParts01"),
                 animator.transform.position + new Vector3(0, 1, 0), Quaternion.identity));
@@ -40,4 +40,4 @@ public class KamikadzeAttackBehavior : StateMachineBehaviour
 
         animator.GetComponent<AttackAnimationProvider>().FinishAttackAnimation();
     }
-}
+}*/

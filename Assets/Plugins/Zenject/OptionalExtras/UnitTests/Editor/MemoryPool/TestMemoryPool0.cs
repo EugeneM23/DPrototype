@@ -342,9 +342,9 @@ namespace Zenject.Tests.Bindings
 
             public class Pool : MemoryPool<Foo>
             {
-                protected override void OnSpawned(Foo enemy)
+                protected override void OnSpawned(Foo foo)
                 {
-                    enemy.ResetCount++;
+                    foo.ResetCount++;
                 }
             }
         }

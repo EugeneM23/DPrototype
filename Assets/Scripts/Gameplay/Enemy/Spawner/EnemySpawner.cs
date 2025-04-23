@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class EnemySpawner : IInitializable, ITickable
+    /*public class EnemySpawner : IInitializable, ITickable
     {
         private readonly Transform _spawnerTransform;
         private readonly IEnemySpawner _spawner;
@@ -39,5 +39,5 @@ namespace Gameplay
                 _spwnTime = 1;
             }
         }
-    }
+    }*/
 }

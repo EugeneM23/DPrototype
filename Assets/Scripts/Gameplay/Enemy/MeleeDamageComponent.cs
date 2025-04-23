@@ -1,10 +1,9 @@
-using Modules;
 using UnityEngine;
 using Zenject;
 
 namespace Gameplay
 {
-    public class MeleeDamageComponent : MonoBehaviour
+    /*public class MeleeDamageComponent : MonoBehaviour
     {
         [Inject] private readonly EnemyDamage _damage;
         [Inject] private readonly PlayerTransform _playerTransform;
@@ -17,5 +16,5 @@ namespace Gameplay
                 _playerTransform.GetComponent<HealthComponent>().TakeDamage(_damage.Damage);
             }
         }
-    }
+    }*/
 }

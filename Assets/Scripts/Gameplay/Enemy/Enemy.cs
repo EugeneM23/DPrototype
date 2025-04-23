@@ -1,38 +1,27 @@
-using System;
 using Gameplay.BehComponents;
 using UnityEngine;
 using Zenject;
 
 namespace Gameplay
 {
-    public class Enemy : MonoBehaviour
+    /*public class Enemy : ITickable
     {
-        public event Action<Enemy> DeSpawn;
-
         private EnemyConditions _conditions;
 
-        private EnemyHealthComponent _enemyHealthComponent;
         private PatrolComponent _patrolComponent;
         private AttackComponent _attackComponent;
         private ChaseComponent _chaseComponent;
-        public PlayerTransform GetTarget => _attackComponent.Target;
 
-        private void OnEnable() => _enemyHealthComponent.OnDeath += Despawn;
-
-        private void OnDisable() => _enemyHealthComponent.OnDeath -= Despawn;
-
-        [Inject]
-        public void Construct(EnemyConditions conditions, PatrolComponent patrolState,
-            AttackComponent attackState, ChaseComponent chaseState, EnemyHealthComponent enemyHealthComponent)
+        public Enemy(EnemyConditions conditions, PatrolComponent patrolComponent, AttackComponent attackComponent,
+            ChaseComponent chaseComponent)
         {
             _conditions = conditions;
-            _enemyHealthComponent = enemyHealthComponent;
-            _patrolComponent = patrolState;
-            _attackComponent = attackState;
-            _chaseComponent = chaseState;
+            _patrolComponent = patrolComponent;
+            _attackComponent = attackComponent;
+            _chaseComponent = chaseComponent;
         }
 
-        private void Update()
+        public void Tick()
         {
             if (_conditions.GetPatrolCondition())
                 _patrolComponent.Patrol();
@@ -43,11 +32,5 @@ namespace Gameplay
             if (_conditions.GetAttackCondition())
                 _attackComponent.Attack();
         }
-
-        private void Despawn() => DeSpawn?.Invoke(this);
-
-        public void SetPosition(Vector3 position) => transform.position = position;
-
-        public void Kill() => Despawn();
-    }
+    }*/
 }

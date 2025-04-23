@@ -1,24 +1,15 @@
 using Modules;
 using UnityEngine.SceneManagement;
-using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerDeathObserver : IInitializable
+    public class PlayerDeathObserver : DeathObserver
     {
-        private readonly HealthComponent _health;
-
-        public PlayerDeathObserver(HealthComponent health)
+        public PlayerDeathObserver(HealthComponent health) : base(health)
         {
-            _health = health;
         }
 
-        public void Initialize()
-        {
-            _health.OnDeath += Death;
-        }
-
-        private void Death()
+        public override void Death(HealthComponent obj)
         {
             SceneManager.LoadScene("L_Base");
         }
