@@ -125,9 +125,9 @@ MonoBehaviour:
   _firePoint: {fileID: 8695446290354880722}
   _shellPoint: {fileID: 4493319564535823627}
   _setings:
-    <FireRate>k__BackingField: 0.2
-    <FireRange>k__BackingField: 20
-    <Damage>k__BackingField: 100
+    <FireRate>k__BackingField: 0.5
+    <FireRange>k__BackingField: 0
+    <Damage>k__BackingField: 10
     <BulletSpeed>k__BackingField: 100
     <ShakeDuration>k__BackingField: 0.2
     <ShakeMagnitude>k__BackingField: 0.4

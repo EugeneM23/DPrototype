@@ -32,7 +32,7 @@ namespace Gameplay
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent(out IDamagable damageable))
+            if (other.gameObject.TryGetComponent(out IDamageable damageable))
                 damageable.TakeDamage(_bulletDamage.Damage);
 
             if (_bulletRicochet.CanRicochet)

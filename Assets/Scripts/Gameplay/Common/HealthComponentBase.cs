@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay.Common
 {
-    public  class HealthComponentBase : MonoBehaviour, IDamagable
+    public  class HealthComponentBase : MonoBehaviour, IDamageable
     {
         public event Action<int> OnHealthChanged;
         public event Action<HealthComponentBase> OnDespawn;

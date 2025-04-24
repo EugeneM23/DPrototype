@@ -1,6 +1,6 @@
 namespace Modules
 {
-    public interface IDamagable
+    public interface IDamageable
     {
      public void TakeDamage(int damage);   
     }
