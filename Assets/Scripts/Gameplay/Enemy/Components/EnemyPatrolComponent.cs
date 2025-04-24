@@ -3,13 +3,13 @@ using UnityEngine.AI;
 
 namespace Gameplay
 {
-    public class PatrolComponent
+    public class EnemyPatrolComponent
     {
         private readonly NavMeshAgent _agent;
         private readonly EnemyPatrolPointManager _patrolPointManager;
         private float _patrolSpeed;
 
-        public PatrolComponent(EnemyPatrolPointManager patrolPointManager,
+        public EnemyPatrolComponent(EnemyPatrolPointManager patrolPointManager,
             NavMeshAgent enemy, float patrolSpeed)
         {
             _agent = enemy;

@@ -1,3 +1,4 @@
+using Modules;
 using UnityEngine;
 using Zenject;
 
@@ -5,33 +6,35 @@ namespace Gameplay
 {
     public class Enemy : ITickable
     {
-        private readonly EnemyStateObserver _stateObserver;
+        private readonly EnemyStateManager _stateManager;
 
-        private readonly PatrolComponent _patrolComponent;
-        private readonly AttackComponent _attackComponent;
-        private readonly ChaseComponent _chaseComponent;
+        private readonly EnemyPatrolComponent _enemyPatrolComponent;
+        private readonly EnemyAttackComponent _enemyAttackComponent;
+        private readonly EnemyChaseComponent _enemyChaseComponent;
 
-        public Enemy(EnemyStateObserver stateObserver, PatrolComponent patrolComponent, ChaseComponent chaseComponent,
-            AttackComponent attackComponent)
+        public Enemy(EnemyStateManager stateManager,
+            EnemyPatrolComponent enemyPatrolComponent,
+            EnemyChaseComponent enemyChaseComponent,
+            EnemyAttackComponent enemyAttackComponent)
         {
-            _stateObserver = stateObserver;
-            _patrolComponent = patrolComponent;
-            _chaseComponent = chaseComponent;
-            _attackComponent = attackComponent;
+            _stateManager = stateManager;
+            _enemyPatrolComponent = enemyPatrolComponent;
+            _enemyChaseComponent = enemyChaseComponent;
+            _enemyAttackComponent = enemyAttackComponent;
         }
 
         public void Tick()
         {
-            if (_stateObserver.IsBusy) return;
+            if (_stateManager.IsBusy) return;
 
-            if (_stateObserver.GetPatrolCondition())
-                _patrolComponent.Patrol();
+            if (_stateManager.GetPatrolCondition())
+                _enemyPatrolComponent.Patrol();
 
-            if (_stateObserver.GetChaseCondition())
-                _chaseComponent.Chase();
+            if (_stateManager.GetChaseCondition())
+                _enemyChaseComponent.Chase();
 
-            if (_stateObserver.GetAttackCondition())
-                _attackComponent.Attack();
+            if (_stateManager.GetAttackCondition())
+                _enemyAttackComponent.Attack();
         }
     }
 }

@@ -1,23 +1,24 @@
 using System;
+using Modules;
 using UnityEngine;
 
-namespace Modules
+namespace Gameplay.Common
 {
-    public class PlayerHealthComponent : MonoBehaviour, IDamagable
+    public  class HealthComponentBase : MonoBehaviour, IDamagable
     {
         public event Action<int> OnHealthChanged;
-        public event Action<PlayerHealthComponent> OnDespawn;
+        public event Action<HealthComponentBase> OnDespawn;
         public event Action OnHit;
 
-        private int _currentHealth = 100;
-        private int _healthMax = 100;
+        [SerializeField] protected int _healthMax = 100;
+        protected int _currentHealth;
 
-        private void Start()
+        protected virtual void Start()
         {
             _currentHealth = _healthMax;
         }
 
-        public void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage)
         {
             _currentHealth -= damage;
             OnHealthChanged?.Invoke(_currentHealth);
@@ -29,7 +30,7 @@ namespace Modules
             }
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             _currentHealth = _healthMax;
             OnHealthChanged?.Invoke(_currentHealth);

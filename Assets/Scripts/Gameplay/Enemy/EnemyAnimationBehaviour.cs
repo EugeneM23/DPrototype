@@ -6,9 +6,9 @@ namespace Gameplay
     public class EnemyAnimationBehaviour : ITickable
     {
         private readonly Animator _animator;
-        private readonly EnemyStateObserver _conditions;
+        private readonly EnemyStateManager _conditions;
 
-        public EnemyAnimationBehaviour(Animator animator, EnemyStateObserver conditions)
+        public EnemyAnimationBehaviour(Animator animator, EnemyStateManager conditions)
         {
             _animator = animator;
             _conditions = conditions;

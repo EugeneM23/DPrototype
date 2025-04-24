@@ -1,60 +1,37 @@
 using Gameplay;
+using Modules;
 using UnityEngine;
 using Zenject;
 
-public class EnemyInstaller : MonoInstaller
+namespace Gameplay
 {
-    [SerializeField] private float _chaseRange = 10;
-    [SerializeField] private float _attckRange = 3;
-    [SerializeField] private float _cahaseSpeed = 5;
-    [SerializeField] private float _patrolSpeed = 2;
-
-    public override void InstallBindings()
+    public class EnemyInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<Enemy>()
-            .AsSingle()
-            .NonLazy();
+        [SerializeField] private EnemySetings _enemySetings;
+        [Inject] private readonly Transform _enemyTransform;
+        [Inject] private readonly PlayerTransform _playerTransform;
 
-        Container
-            .Bind<EnemyPatrolPointManager>()
-            .AsSingle()
-            .NonLazy();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<Enemy>()
+                .AsSingle()
+                .NonLazy();
 
-        Container
-            .Bind<EnemyStateObserver>()
-            .AsSingle()
-            .WithArguments(_chaseRange, _attckRange)
-            .NonLazy();
+            Container
+                .Bind<EnemyPatrolPointManager>()
+                .AsSingle()
+                .NonLazy();
 
-        Container
-            .Bind<PatrolComponent>()
-            .AsSingle()
-            .WithArguments(_patrolSpeed)
-            .NonLazy();
+            Container
+                .Bind<EnemyAttackAssistComponent>()
+                .AsSingle().WithArguments(_enemyTransform, _playerTransform.Transform, _enemySetings.AttakRotationSpeed)
+                .NonLazy();
 
-        Container
-            .Bind<ChaseComponent>()
-            .AsSingle()
-            .WithArguments(_cahaseSpeed)
-            .NonLazy();
 
-        Container
-            .Bind<AttackComponent>()
-            .AsSingle()
-            .NonLazy();
-
-        Container
-            .Bind<RotationToTarget>()
-            .AsSingle()
-            .NonLazy();
-
-        Container
-            .BindInterfacesAndSelfTo<EnemyDeathObserver>()
-            .AsSingle()
-            .NonLazy();
-
-        Container.BindInterfacesAndSelfTo<EnemyAnimationBehaviour>().AsSingle().NonLazy();
-        Container.BindInterfacesAndSelfTo<EnemyAttackAnimationController>().AsSingle().NonLazy();
+            EnemyHealthInstaller.Install(Container);
+            EnemyStateInstaller.Install(Container, _enemySetings);
+            EnemyAnimationInstaller.Install(Container);
+        }
     }
 }

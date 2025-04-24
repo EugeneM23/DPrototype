@@ -9,7 +9,7 @@ namespace Gameplay
         public override void InstallBindings()
         {
             Container
-                .BindInterfacesAndSelfTo<PlayerDeathObserver>()
+                .BindInterfacesAndSelfTo<PlayerDeathController>()
                 .AsSingle()
                 .NonLazy();
 

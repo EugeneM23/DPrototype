@@ -2,7 +2,7 @@ using Gameplay;
 using UnityEngine;
 using Zenject;
 
-public class RangeAttackComponent : MonoBehaviour
+public class EnemyRangeAttackComponent : MonoBehaviour
 {
     [SerializeField] private ParabolaShoot _projectilePrefab;
     [SerializeField] private Transform _firePoint;

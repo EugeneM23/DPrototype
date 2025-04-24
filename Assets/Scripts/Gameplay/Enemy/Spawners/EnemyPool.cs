@@ -1,11 +1,12 @@
 using Gameplay;
+using Gameplay.Common;
 using Modules;
 using UnityEngine;
 using Zenject;
 
 namespace NewEnemy
 {
-    public class EnemyPool : MemoryPool<Vector3, EnemyHealthComponent>, IEnemySpawner
+    public class EnemyPool : MemoryPool<Vector3, HealthComponentBase>, IEnemySpawner
     {
         private readonly EnemyManager _manager;
 
@@ -14,17 +15,17 @@ namespace NewEnemy
             _manager = manager;
         }
 
-        public EnemyHealthComponent Create(Vector3 position)
+        public HealthComponentBase Create(Vector3 position)
         {
             return Spawn(position);
         }
 
-        protected override void Reinitialize(Vector3 position, EnemyHealthComponent enemy)
+        protected override void Reinitialize(Vector3 position, HealthComponentBase enemy)
         {
             enemy.gameObject.transform.position = position;
         }
 
-        protected override void OnSpawned(EnemyHealthComponent enemy)
+        protected override void OnSpawned(HealthComponentBase enemy)
         {
             base.OnSpawned(enemy);
             enemy.gameObject.SetActive(true);
@@ -34,7 +35,7 @@ namespace NewEnemy
             _manager.AddEnemy(enemy);
         }
 
-        protected override void OnDespawned(EnemyHealthComponent enemy)
+        protected override void OnDespawned(HealthComponentBase enemy)
         {
             base.OnDespawned(enemy);
             enemy.gameObject.SetActive(false);
@@ -45,6 +46,6 @@ namespace NewEnemy
 
     public interface IEnemySpawner
     {
-        public EnemyHealthComponent Create(Vector3 position);
+        public HealthComponentBase Create(Vector3 position);
     }
 }

@@ -3,13 +3,12 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class AttackAnimationProvider : MonoBehaviour
+    public class EnemyStateProvider : MonoBehaviour
     {
-        [Inject] private EnemyStateObserver _conditions;
+        [Inject] private EnemyStateManager _conditions;
 
         public void FinishAttack()
         {
-            Debug.Log("finishAttack");
             _conditions.IsBusy = false;
         }
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public class PatrolPoints : MonoBehaviour
+    public class EnemyPatrolPoints : MonoBehaviour
     {
         [SerializeField] private Transform[] _patrolPoints;
 

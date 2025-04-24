@@ -1,9 +1,9 @@
-using Modules;
+using Gameplay.Common;
 using UnityEngine;
 
 namespace Gameplay
 {
-    public class EnemyStateObserver
+    public class EnemyStateManager
     {
         public bool IsAttacking { get; private set; }
         public bool IsPatroling { get; private set; }
@@ -12,11 +12,11 @@ namespace Gameplay
         public bool IsBusy;
 
         private readonly PlayerTransform _player;
-        private readonly EnemyHealthComponent _enemy;
+        private readonly HealthComponentBase _enemy;
         private readonly float _chaseRange;
         private readonly float _attckRange;
 
-        public EnemyStateObserver(PlayerTransform player, EnemyHealthComponent enemy, float chaseRange, float attckRange)
+        public EnemyStateManager(PlayerTransform player, HealthComponentBase enemy, float chaseRange, float attckRange)
         {
             _player = player;
             _enemy = enemy;
@@ -28,7 +28,7 @@ namespace Gameplay
         {
             if (!PlayerInChaseRange() && !PlayerInAttackRange())
             {
-                SetState(AIState.Patrol);
+                SetState(EnemyState.Patrol);
                 return true;
             }
 
@@ -39,7 +39,7 @@ namespace Gameplay
         {
             if (PlayerInChaseRange() && !PlayerInAttackRange())
             {
-                SetState(AIState.Chase);
+                SetState(EnemyState.Chase);
                 return true;
             }
 
@@ -50,18 +50,18 @@ namespace Gameplay
         {
             if (PlayerInAttackRange())
             {
-                SetState(AIState.Attack);
+                SetState(EnemyState.Attack);
                 return true;
             }
 
             return false;
         }
         
-        private void SetState(AIState state)
+        private void SetState(EnemyState state)
         {
-            IsPatroling = state == AIState.Patrol;
-            IsChasing = state == AIState.Chase;
-            IsAttacking = state == AIState.Attack;
+            IsPatroling = state == EnemyState.Patrol;
+            IsChasing = state == EnemyState.Chase;
+            IsAttacking = state == EnemyState.Attack;
         }
 
         private bool PlayerInChaseRange() =>
@@ -71,7 +71,7 @@ namespace Gameplay
             Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _attckRange;
     }
 
-    public enum AIState
+    public enum EnemyState
     {
         Patrol,
         Chase,

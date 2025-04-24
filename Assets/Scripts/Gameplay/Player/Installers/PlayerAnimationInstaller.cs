@@ -7,7 +7,7 @@ namespace Gameplay
         public override void InstallBindings()
         {
             Container
-                .BindInterfacesAndSelfTo<PlayerAnimationController>()
+                .BindInterfacesAndSelfTo<PlayerAnimationBehaviour>()
                 .AsSingle()
                 .NonLazy();
         }

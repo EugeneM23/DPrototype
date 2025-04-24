@@ -1,4 +1,5 @@
 using Gameplay;
+using Gameplay.Common;
 using UnityEngine;
 using Zenject;
 
@@ -6,12 +7,12 @@ namespace NewEnemy
 {
     public class EnemySpawnerInstaller : MonoInstaller
     {
-        [SerializeField] private EnemyHealthComponent _enemyPrefab;
+        [SerializeField] private HealthComponentBase _enemyPrefab;
 
         public override void InstallBindings()
         {
             Container
-                .BindMemoryPool<EnemyHealthComponent, EnemyPool>()
+                .BindMemoryPool<HealthComponentBase, EnemyPool>()
                 .FromComponentInNewPrefab(_enemyPrefab);
 
             Container

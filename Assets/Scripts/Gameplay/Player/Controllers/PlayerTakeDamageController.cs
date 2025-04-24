@@ -1,3 +1,4 @@
+using Gameplay.Common;
 using Modules;
 using UnityEngine;
 using Zenject;
@@ -6,11 +7,11 @@ namespace Gameplay
 {
     public class PlayerTakeDamageController : IInitializable
     {
-        private readonly PlayerHealthComponent _playerHealth;
+        private readonly HealthComponentBase _playerHealth;
         private HPBar _hpBar;
         private PlayEffectComponent _playEffectComponentSpawner;
 
-        public PlayerTakeDamageController(PlayerHealthComponent playerHealth, HPBar hpBar,
+        public PlayerTakeDamageController(HealthComponentBase playerHealth, HPBar hpBar,
             PlayEffectComponent playEffectComponentSpawner)
         {
             _playerHealth = playerHealth;

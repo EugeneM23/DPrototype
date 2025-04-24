@@ -1,3 +1,4 @@
+using Gameplay.Common;
 using Modules;
 using UnityEngine;
 using Zenject;
@@ -14,7 +15,7 @@ namespace Gameplay
         private readonly LeanComponent _leanComponent;
 
         private Weapon _weapon;
-        private EnemyHealthComponent _target;
+        private HealthComponentBase _target;
 
         private bool IsMoving => GetVelocity() != Vector3.zero;
 
@@ -45,7 +46,7 @@ namespace Gameplay
         }
 
         public void SetWeapon(Weapon weapon) => _weapon = weapon;
-        public void SetTarget(EnemyHealthComponent target) => _target = target;
+        public void SetTarget(HealthComponentBase target) => _target = target;
         public Vector3 GetVelocity() => _characterController.velocity;
     }
 }

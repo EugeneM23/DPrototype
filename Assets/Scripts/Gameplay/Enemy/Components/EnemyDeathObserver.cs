@@ -1,17 +1,16 @@
-using Modules;
-using UnityEngine;
+using Gameplay.Common;
 using Zenject;
 
 namespace Gameplay
 {
     public class EnemyDeathObserver : IInitializable
     {
-        private readonly EnemyStateObserver _stateObserver;
-        private readonly EnemyHealthComponent _enemyHealthComponent;
+        private readonly EnemyStateManager _stateManager;
+        private readonly HealthComponentBase _enemyHealthComponent;
 
-        public EnemyDeathObserver(EnemyStateObserver stateObserver, EnemyHealthComponent enemyHealthComponent)
+        public EnemyDeathObserver(EnemyStateManager stateManager, HealthComponentBase enemyHealthComponent)
         {
-            _stateObserver = stateObserver;
+            _stateManager = stateManager;
             _enemyHealthComponent = enemyHealthComponent;
         }
 
@@ -20,10 +19,9 @@ namespace Gameplay
             _enemyHealthComponent.OnDespawn += Despawn;
         }
 
-        private void Despawn(EnemyHealthComponent obj)
+        private void Despawn(HealthComponentBase obj)
         {
-            Debug.Log("Death");
-            _stateObserver.IsBusy = false;
+            _stateManager.IsBusy = false;
         }
     }
 }

@@ -1,14 +1,15 @@
+using Gameplay.Common;
 using Modules;
 using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerDeathObserver : IInitializable
+    public class PlayerDeathController : IInitializable
     {
-        private readonly PlayerHealthComponent _playerHealthComponent;
+        private readonly HealthComponentBase _playerHealthComponent;
 
-        public PlayerDeathObserver(PlayerHealthComponent playerHealthComponent)
+        public PlayerDeathController(HealthComponentBase playerHealthComponent)
         {
             _playerHealthComponent = playerHealthComponent;
         }
@@ -18,7 +19,7 @@ namespace Gameplay
             _playerHealthComponent.OnDespawn += Despaw;
         }
 
-        private void Despaw(PlayerHealthComponent obj)
+        private void Despaw(HealthComponentBase obj)
         {
             SceneManager.LoadScene("L_Base");
         }

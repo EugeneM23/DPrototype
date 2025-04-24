@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Gameplay.Common;
 using Modules;
 using UnityEngine;
 using Zenject;
@@ -29,7 +30,7 @@ namespace Gameplay
         {
             if (_enemyManager == null) return;
 
-            if (_enemyManager.TryGetTarget(20, out EnemyHealthComponent target, _playerTransform))
+            if (_enemyManager.TryGetTarget(20, out HealthComponentBase target, _playerTransform))
                 _player.SetTarget(target);
             else
                 _player.SetTarget(null);

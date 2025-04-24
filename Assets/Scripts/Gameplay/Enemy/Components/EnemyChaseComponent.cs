@@ -2,13 +2,13 @@ using UnityEngine.AI;
 
 namespace Gameplay
 {
-    public class ChaseComponent
+    public class EnemyChaseComponent
     {
         private readonly NavMeshAgent _agent;
         private readonly PlayerTransform _target;
         private readonly float _speed;
 
-        public ChaseComponent(PlayerTransform target, NavMeshAgent enemy, float speed)
+        public EnemyChaseComponent(PlayerTransform target, NavMeshAgent enemy, float speed)
         {
             _agent = enemy;
             _speed = speed;

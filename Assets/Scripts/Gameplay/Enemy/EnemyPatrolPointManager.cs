@@ -5,17 +5,17 @@ namespace Gameplay
 {
     public class EnemyPatrolPointManager
     {
-        private PatrolPoints _patrolPoints;
+        private EnemyPatrolPoints _enemyPatrolPoints;
 
-        public EnemyPatrolPointManager(PatrolPoints patrolPoints)
+        public EnemyPatrolPointManager(EnemyPatrolPoints enemyPatrolPoints)
         {
-            _patrolPoints = patrolPoints;
+            _enemyPatrolPoints = enemyPatrolPoints;
         }
 
         public Vector3 GetNext()
         {
-            int randomIndex = Random.Range(0, _patrolPoints.Points.Length);
-            return _patrolPoints.Points[randomIndex].position;
+            int randomIndex = Random.Range(0, _enemyPatrolPoints.Points.Length);
+            return _enemyPatrolPoints.Points[randomIndex].position;
         }
     }
 }

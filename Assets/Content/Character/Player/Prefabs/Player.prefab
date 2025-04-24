@@ -4918,7 +4918,7 @@ GameObject:
   - component: {fileID: -3092696866831824943}
   - component: {fileID: 2092574877954839100}
   - component: {fileID: 8851841367444768159}
-  - component: {fileID: 341184801476625423}
+  - component: {fileID: 962201619078096505}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 341184801476625423}
+  - {fileID: 962201619078096505}
   - {fileID: 5696128465114512940}
   - {fileID: 1230073186054927667}
   _identifier: 
@@ -5049,7 +5049,7 @@ MonoBehaviour:
     <StrafePower>k__BackingField: 5
     <MaxHealth>k__BackingField: 100
   _healtBarOffset: {x: 0, y: 2, z: -2.5}
---- !u!114 &341184801476625423
+--- !u!114 &962201619078096505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5058,9 +5058,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4969062347157005148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a67e264c4244db8b19bf8bd00b5000, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ddeab9da0e044fc8e670fc2ed72c9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthMax: 100
 --- !u!1001 &3911827078995512297
 PrefabInstance:
   m_ObjectHideFlags: 0

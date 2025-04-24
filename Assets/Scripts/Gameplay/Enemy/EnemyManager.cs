@@ -1,20 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
+using Gameplay.Common;
 using Modules;
 
 namespace Gameplay
 {
     public class EnemyManager
     {
-        private List<EnemyHealthComponent> _activeEnemies = new List<EnemyHealthComponent>();
+        private List<HealthComponentBase> _activeEnemies = new List<HealthComponentBase>();
 
-        public bool TryGetTarget(float fireRange, out EnemyHealthComponent target, PlayerTransform player)
+        public bool TryGetTarget(float fireRange, out HealthComponentBase target, PlayerTransform player)
         {
             target = GetClosestEnemyInRange(fireRange, player);
             return target != null;
         }
 
-        private EnemyHealthComponent GetClosestEnemyInRange(float range, PlayerTransform player)
+        private HealthComponentBase GetClosestEnemyInRange(float range, PlayerTransform player)
         {
             float rangeSqr = range * range;
 
@@ -25,8 +26,8 @@ namespace Gameplay
                 .FirstOrDefault();
         }
 
-        public void AddEnemy(EnemyHealthComponent enemy) => _activeEnemies.Add(enemy);
+        public void AddEnemy(HealthComponentBase enemy) => _activeEnemies.Add(enemy);
 
-        public void RemoveEnemy(EnemyHealthComponent enemy) => _activeEnemies.Remove(enemy);
+        public void RemoveEnemy(HealthComponentBase enemy) => _activeEnemies.Remove(enemy);
     }
 }

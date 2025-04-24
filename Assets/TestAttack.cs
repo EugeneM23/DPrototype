@@ -6,6 +6,6 @@ public class TestAttack : StateMachineBehaviour
 {
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<AttackAnimationProvider>().FinishAttack();
+        animator.GetComponent<EnemyStateProvider>().FinishAttack();
     }
 }

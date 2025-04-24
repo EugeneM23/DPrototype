@@ -3,12 +3,12 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerAnimationController : ITickable
+    public class PlayerAnimationBehaviour : ITickable
     {
         private readonly Animator _animator;
         private readonly CharacterController _characterController;
 
-        public PlayerAnimationController(Animator animator, CharacterController characterController)
+        public PlayerAnimationBehaviour(Animator animator, CharacterController characterController)
         {
             _animator = animator;
             _characterController = characterController;

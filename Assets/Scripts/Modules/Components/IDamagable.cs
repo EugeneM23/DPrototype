@@ -4,6 +4,4 @@ namespace Modules
     {
      public void TakeDamage(int damage);   
     }
-    
-    
 }
