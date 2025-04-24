@@ -14,7 +14,7 @@ namespace Gameplay
 
         public float ShakeDuration => _setings.ShakeDuration;
         public float ShakeMagnitude => _setings.ShakeMagnitude;
-        
+
         private IBulletSpawner _bulletSpawner;
         private IShellSpawner _shellSpawner;
 
@@ -37,7 +37,8 @@ namespace Gameplay
                 _readyToFire = false;
                 OnFire?.Invoke();
 
-                Shell shell = _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse, _setings.ImpulsePower);
+                _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse,
+                    _setings.ImpulsePower);
 
                 Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
                 bullet.Setup(_setings.Damage, _setings.BulletSpeed, _firePoint.forward);
@@ -51,10 +52,7 @@ namespace Gameplay
             lastTimeShoot -= Time.deltaTime;
 
             if (lastTimeShoot <= 0)
-            {
-                //_animationController.StopShoot();
                 _readyToFire = true;
-            }
         }
 
         public float GetFireRange()
