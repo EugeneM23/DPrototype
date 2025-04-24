@@ -27,11 +27,11 @@ namespace Gameplay
                 .WithArguments(_player.Transform, _playerSetings.RotationSpeed)
                 .NonLazy();
 
-            Container
+            /*Container
                 .Bind<LeanComponent>()
                 .AsSingle()
                 .WithArguments(_player.Transform)
-                .NonLazy();
+                .NonLazy();*/
 
 
             Container

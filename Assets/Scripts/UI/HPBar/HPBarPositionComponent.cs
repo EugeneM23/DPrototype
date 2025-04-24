@@ -2,21 +2,34 @@ using Gameplay;
 using UnityEngine;
 using Zenject;
 
-public class HPBarPositionComponent : MonoBehaviour
+public class HPBarPositionComponent : ITickable, IInitializable
 {
-    [SerializeField] private RectTransform _healthBar;
+    private readonly HPBar _healthBar;
+    private readonly Transform _parent;
+    private readonly Vector3 _offset;
+    private Camera _camera;
 
-    private Transform _target => transform.parent;
-    private Vector3 _offset;
-
-    private void Start()
+    public HPBarPositionComponent(HPBar healthBar, Vector3 offset, Transform parent)
     {
-        _offset = _healthBar.position - _target.position + -_target.forward * 2;
+        _healthBar = healthBar;
+        _offset = offset;
+        _parent = parent;
+        _camera = Camera.main;
     }
 
-    void Update()
+    public void Tick()
     {
-        transform.position = _offset + _target.transform.position;
-        transform.LookAt(transform.position + Camera.main.transform.forward);
+        Vector3 directionToCamera = _camera.transform.position - _healthBar.transform.position;
+
+        directionToCamera.x = 0f;
+
+        Quaternion targetRotation = Quaternion.LookRotation(directionToCamera);
+        _healthBar.transform.rotation = targetRotation;
+        _healthBar.transform.position = _parent.transform.position + _offset;
+    }
+
+    public void Initialize()
+    {
+        //_healthBar.transform.SetParent(null);
     }
 }

@@ -2,9 +2,8 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class PlayerHealthInstaller : Installer<HPBar, PlayerHealthInstaller>
+    public class PlayerHealthInstaller : Installer< PlayerHealthInstaller>
     {
-        [Inject] private HPBar _hpBar;
         [Inject] PlayerTransform _player;
 
         public override void InstallBindings()
@@ -14,13 +13,6 @@ namespace Gameplay
                 .AsSingle()
                 .NonLazy();
 
-
-            Container
-                .Bind<HPBar>()
-                .FromComponentInNewPrefab(_hpBar)
-                .UnderTransform(_player.Transform)
-                .AsSingle()
-                .NonLazy();
 
             Container
                 .BindInterfacesAndSelfTo<PlayerTakeDamageController>()

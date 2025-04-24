@@ -2354,6 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpBar: {fileID: -227575839315736592, guid: 9c15c61eea2ad45babe3ef2a820cb33d, type: 3}
+  _hpBarOffset: {x: 0, y: 4, z: 0}
 --- !u!114 &5618135351587943864
 MonoBehaviour:
   m_ObjectHideFlags: 0

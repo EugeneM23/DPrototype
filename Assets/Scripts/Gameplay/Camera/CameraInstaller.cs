@@ -16,7 +16,7 @@ namespace Gameplay
                 .BindInterfacesAndSelfTo<PlayerCamera>()
                 .AsSingle()
                 .NonLazy();
-            
+
             Container
                 .Bind<ObjectFollowComponent>()
                 .AsSingle()

@@ -30,6 +30,7 @@ namespace NewEnemy
             enemy.gameObject.SetActive(true);
             enemy.OnDeath += Despawn;
             enemy.Reset();
+            
             _manager.AddEnemy(enemy);
         }
 
