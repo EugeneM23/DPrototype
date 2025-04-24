@@ -11,6 +11,8 @@ namespace Gameplay
         private readonly PlayerTransform _target;
         private readonly Transform _enemy;
 
+        public event Action OnAttacked;
+
         public AttackComponent(RotationToTarget rotator, PlayerTransform player,
             NavMeshAgent agent, Transform enemy)
         {

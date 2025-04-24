@@ -5,7 +5,9 @@ namespace Gameplay
 {
     public class EnemyStateObserver
     {
-        public bool IsAttaking;
+        public bool IsAttaking { private set; get; }
+        public bool IsPatroling { private set; get; }
+        public bool IsChasing { private set; get; }
 
         private readonly PlayerTransform _player;
         private readonly HealthComponent _enemy;
@@ -22,16 +24,22 @@ namespace Gameplay
 
         public bool GetPatrolCondition()
         {
-            if (!PlayerInChaseRange() && !PlayerInAttackRange() && !IsAttaking)
+            if (!PlayerInChaseRange() && !PlayerInAttackRange())
+            {
+                SetState(AIState.Patrol);
                 return true;
+            }
 
             return false;
         }
 
         public bool GetChaseCondition()
         {
-            if (PlayerInChaseRange() && !PlayerInAttackRange() && !IsAttaking)
+            if (PlayerInChaseRange() && !PlayerInAttackRange())
+            {
+                SetState(AIState.Chase);
                 return true;
+            }
 
             return false;
         }
@@ -39,9 +47,19 @@ namespace Gameplay
         public bool GetAttackCondition()
         {
             if (PlayerInAttackRange())
+            {
+                SetState(AIState.Attack);
                 return true;
+            }
 
             return false;
+        }
+
+        private void SetState(AIState state)
+        {
+            IsPatroling = (state == AIState.Patrol);
+            IsChasing = (state == AIState.Chase);
+            IsAttaking = (state == AIState.Attack);
         }
 
         private bool PlayerInChaseRange() =>
@@ -49,5 +67,12 @@ namespace Gameplay
 
         private bool PlayerInAttackRange() =>
             Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _attckRange;
+    }
+
+    public enum AIState
+    {
+        Patrol,
+        Chase,
+        Attack
     }
 }

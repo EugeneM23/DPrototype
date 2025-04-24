@@ -6,24 +6,21 @@ namespace Gameplay
     public class PatrolComponent
     {
         private readonly NavMeshAgent _agent;
-        private readonly EnemyStateObserver _stateObserver;
         private readonly EnemyPatrolPointManager _patrolPointManager;
         private float _patrolSpeed;
 
-        public PatrolComponent(EnemyStateObserver stateObserver, EnemyPatrolPointManager patrolPointManager,
+        public PatrolComponent(EnemyPatrolPointManager patrolPointManager,
             NavMeshAgent enemy, float patrolSpeed)
         {
             _agent = enemy;
             _patrolSpeed = patrolSpeed;
             _agent.enabled = true;
-            _stateObserver = stateObserver;
             _patrolPointManager = patrolPointManager;
         }
 
         public void Patrol()
         {
             _agent.isStopped = false;
-            _stateObserver.IsAttaking = false;
 
             _agent.speed = _patrolSpeed;
 

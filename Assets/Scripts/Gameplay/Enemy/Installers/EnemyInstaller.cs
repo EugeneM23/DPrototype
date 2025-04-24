@@ -17,6 +17,11 @@ public class EnemyInstaller : MonoInstaller
             .NonLazy();
 
         Container
+            .Bind<EnemyPatrolPointManager>()
+            .AsSingle()
+            .NonLazy();
+
+        Container
             .Bind<EnemyStateObserver>()
             .AsSingle()
             .WithArguments(_chaseRange, _attckRange)
@@ -33,19 +38,17 @@ public class EnemyInstaller : MonoInstaller
             .AsSingle()
             .WithArguments(_cahaseSpeed)
             .NonLazy();
-        
+
         Container
             .Bind<AttackComponent>()
             .AsSingle()
             .NonLazy();
+
         Container
             .Bind<RotationToTarget>()
             .AsSingle()
             .NonLazy();
 
-        Container
-            .Bind<EnemyPatrolPointManager>()
-            .AsSingle()
-            .NonLazy();
+        Container.BindInterfacesAndSelfTo<EnemyAnimationController>().AsSingle().NonLazy();
     }
 }
