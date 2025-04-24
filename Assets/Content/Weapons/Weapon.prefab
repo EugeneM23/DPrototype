@@ -127,7 +127,7 @@ MonoBehaviour:
   _setings:
     <FireRate>k__BackingField: 0.2
     <FireRange>k__BackingField: 20
-    <Damage>k__BackingField: 10
+    <Damage>k__BackingField: 100
     <BulletSpeed>k__BackingField: 100
     <ShakeDuration>k__BackingField: 0.2
     <ShakeMagnitude>k__BackingField: 0.4

@@ -49,6 +49,12 @@ public class EnemyInstaller : MonoInstaller
             .AsSingle()
             .NonLazy();
 
-        Container.BindInterfacesAndSelfTo<EnemyAnimationController>().AsSingle().NonLazy();
+        Container
+            .BindInterfacesAndSelfTo<EnemyDeathObserver>()
+            .AsSingle()
+            .NonLazy();
+
+        Container.BindInterfacesAndSelfTo<EnemyAnimationBehaviour>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<EnemyAttackAnimationController>().AsSingle().NonLazy();
     }
 }

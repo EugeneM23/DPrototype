@@ -22,6 +22,8 @@ namespace Gameplay
 
         public void Tick()
         {
+            if (_stateObserver.IsBusy) return;
+
             if (_stateObserver.GetPatrolCondition())
                 _patrolComponent.Patrol();
 

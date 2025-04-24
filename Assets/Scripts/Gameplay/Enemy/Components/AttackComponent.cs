@@ -24,6 +24,7 @@ namespace Gameplay
 
         public void Attack()
         {
+            OnAttacked?.Invoke();
             _agent.isStopped = true;
             _rotator.Rotation(_enemy, _target);
         }

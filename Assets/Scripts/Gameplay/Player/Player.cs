@@ -14,7 +14,7 @@ namespace Gameplay
         private readonly LeanComponent _leanComponent;
 
         private Weapon _weapon;
-        private HealthComponent _target;
+        private EnemyHealthComponent _target;
 
         private bool IsMoving => GetVelocity() != Vector3.zero;
 
@@ -45,7 +45,7 @@ namespace Gameplay
         }
 
         public void SetWeapon(Weapon weapon) => _weapon = weapon;
-        public void SetTarget(HealthComponent target) => _target = target;
+        public void SetTarget(EnemyHealthComponent target) => _target = target;
         public Vector3 GetVelocity() => _characterController.velocity;
     }
 }

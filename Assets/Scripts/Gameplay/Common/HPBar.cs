@@ -17,7 +17,7 @@ namespace Gameplay
             _healthSlider.value = _currentHealth;
         }
 
-        public void UpdateHealth(int health)
+        public void UpdatePlayerHealth(int health)
         {
             _healthSlider.value = health;
         }

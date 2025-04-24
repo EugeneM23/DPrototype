@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Modules
 {
-    public class HealthComponent : MonoBehaviour, IDamagable
+    public class PlayerHealthComponent : MonoBehaviour, IDamagable
     {
         public event Action<int> OnHealthChanged;
-        public event Action<HealthComponent> OnDeath;
+        public event Action<PlayerHealthComponent> OnDespawn;
         public event Action OnHit;
 
         private int _currentHealth = 100;
@@ -24,7 +24,9 @@ namespace Modules
             OnHit?.Invoke();
 
             if (_currentHealth <= 0)
-                OnDeath?.Invoke(this);
+            {
+                OnDespawn?.Invoke(this);
+            }
         }
 
         public void Reset()

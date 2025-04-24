@@ -5,16 +5,18 @@ namespace Gameplay
 {
     public class EnemyStateObserver
     {
-        public bool IsAttaking { private set; get; }
-        public bool IsPatroling { private set; get; }
-        public bool IsChasing { private set; get; }
+        public bool IsAttacking { get; private set; }
+        public bool IsPatroling { get; private set; }
+        public bool IsChasing { get; private set; }
+
+        public bool IsBusy;
 
         private readonly PlayerTransform _player;
-        private readonly HealthComponent _enemy;
+        private readonly EnemyHealthComponent _enemy;
         private readonly float _chaseRange;
         private readonly float _attckRange;
 
-        public EnemyStateObserver(PlayerTransform player, HealthComponent enemy, float chaseRange, float attckRange)
+        public EnemyStateObserver(PlayerTransform player, EnemyHealthComponent enemy, float chaseRange, float attckRange)
         {
             _player = player;
             _enemy = enemy;
@@ -54,12 +56,12 @@ namespace Gameplay
 
             return false;
         }
-
+        
         private void SetState(AIState state)
         {
-            IsPatroling = (state == AIState.Patrol);
-            IsChasing = (state == AIState.Chase);
-            IsAttaking = (state == AIState.Attack);
+            IsPatroling = state == AIState.Patrol;
+            IsChasing = state == AIState.Chase;
+            IsAttacking = state == AIState.Attack;
         }
 
         private bool PlayerInChaseRange() =>
