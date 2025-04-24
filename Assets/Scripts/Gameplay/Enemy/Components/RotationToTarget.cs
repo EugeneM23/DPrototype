@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    /*public class RotationToTarget
+    public class RotationToTarget
     {
         public void Rotation(Transform objToRotation, PlayerTransform target)
         {
@@ -16,5 +16,5 @@ namespace Gameplay
             objToRotation.rotation =
                 Quaternion.Slerp(objToRotation.rotation, targetRotation, Time.deltaTime * 10f);
         }
-    }*/
+    }
 }

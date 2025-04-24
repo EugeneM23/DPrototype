@@ -1,4 +1,3 @@
-using Gameplay.BehComponents;
 using UnityEngine;
 using Zenject;
 

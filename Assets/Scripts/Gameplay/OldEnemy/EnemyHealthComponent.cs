@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Gameplay.BehComponents;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;

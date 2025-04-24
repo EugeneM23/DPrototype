@@ -1,21 +1,18 @@
+using Modules;
 using UnityEngine;
 
-namespace Gameplay.BehComponents
+namespace Gameplay
 {
-    /*public class EnemyConditions
+    public class EnemyStateObserver
     {
-        public bool IsChasing;
-        public bool IsPatroling;
-        public bool IsAidling;
         public bool IsAttaking;
-        public bool IsOnAnimation;
 
         private readonly PlayerTransform _player;
         private readonly HealthComponent _enemy;
         private readonly float _chaseRange;
         private readonly float _attckRange;
 
-        public EnemyConditions(PlayerTransform player, HealthComponent enemy, float chaseRange, float attckRange)
+        public EnemyStateObserver(PlayerTransform player, HealthComponent enemy, float chaseRange, float attckRange)
         {
             _player = player;
             _enemy = enemy;
@@ -52,5 +49,5 @@ namespace Gameplay.BehComponents
 
         private bool PlayerInAttackRange() =>
             Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _attckRange;
-    }*/
+    }
 }

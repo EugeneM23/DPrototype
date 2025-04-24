@@ -1,36 +1,35 @@
-using Gameplay.BehComponents;
 using UnityEngine;
 using Zenject;
 
 namespace Gameplay
 {
-    /*public class Enemy : ITickable
+    public class Enemy : ITickable
     {
-        private EnemyConditions _conditions;
+        private readonly EnemyStateObserver _stateObserver;
 
-        private PatrolComponent _patrolComponent;
-        private AttackComponent _attackComponent;
-        private ChaseComponent _chaseComponent;
+        private readonly PatrolComponent _patrolComponent;
+        private readonly AttackComponent _attackComponent;
+        private readonly ChaseComponent _chaseComponent;
 
-        public Enemy(EnemyConditions conditions, PatrolComponent patrolComponent, AttackComponent attackComponent,
-            ChaseComponent chaseComponent)
+        public Enemy(EnemyStateObserver stateObserver, PatrolComponent patrolComponent, ChaseComponent chaseComponent,
+            AttackComponent attackComponent)
         {
-            _conditions = conditions;
+            _stateObserver = stateObserver;
             _patrolComponent = patrolComponent;
-            _attackComponent = attackComponent;
             _chaseComponent = chaseComponent;
+            _attackComponent = attackComponent;
         }
 
         public void Tick()
         {
-            if (_conditions.GetPatrolCondition())
+            if (_stateObserver.GetPatrolCondition())
                 _patrolComponent.Patrol();
 
-            if (_conditions.GetChaseCondition())
+            if (_stateObserver.GetChaseCondition())
                 _chaseComponent.Chase();
 
-            if (_conditions.GetAttackCondition())
+            if (_stateObserver.GetAttackCondition())
                 _attackComponent.Attack();
         }
-    }*/
+    }
 }

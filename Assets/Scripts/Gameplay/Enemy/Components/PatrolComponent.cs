@@ -1,33 +1,31 @@
-using Gameplay.BehComponents;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Gameplay
 {
-    /*public class PatrolComponent
+    public class PatrolComponent
     {
         private readonly NavMeshAgent _agent;
-        private readonly EnemyConditions _conditions;
+        private readonly EnemyStateObserver _stateObserver;
         private readonly EnemyPatrolPointManager _patrolPointManager;
+        private float _patrolSpeed;
 
-        public PatrolComponent(EnemyConditions conditions, EnemyPatrolPointManager patrolPointManager,
-            NavMeshAgent enemy)
+        public PatrolComponent(EnemyStateObserver stateObserver, EnemyPatrolPointManager patrolPointManager,
+            NavMeshAgent enemy, float patrolSpeed)
         {
             _agent = enemy;
+            _patrolSpeed = patrolSpeed;
             _agent.enabled = true;
-            _conditions = conditions;
+            _stateObserver = stateObserver;
             _patrolPointManager = patrolPointManager;
         }
 
         public void Patrol()
         {
             _agent.isStopped = false;
+            _stateObserver.IsAttaking = false;
 
-            _conditions.IsPatroling = true;
-            _conditions.IsChasing = false;
-            _conditions.IsAttaking = false;
-
-            _agent.speed = 2.5f;
+            _agent.speed = _patrolSpeed;
 
             if (_agent.remainingDistance <= 1)
             {
@@ -35,5 +33,5 @@ namespace Gameplay
                 _agent.SetDestination(destination);
             }
         }
-    }*/
+    }
 }
