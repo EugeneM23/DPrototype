@@ -12,20 +12,15 @@ namespace Gameplay
         [Header("Damage Settings")] public int damageAmount = 10;
         public LayerMask layerMask;
 
-        private bool castCompleted = false;
-
         void Update()
         {
             // Проверяем, если каст активен и не завершён, то выполняем
-            if (shouldCast && !castCompleted && sourceObject != null)
+            if (shouldCast && sourceObject != null)
             {
                 if (DoSingleSphereHit(sourceObject.position))
                 {
-                    castCompleted = true;
                     shouldCast = false;
                 }
-
-                ResetCast();
             }
         }
 
@@ -54,16 +49,11 @@ namespace Gameplay
         {
             if (sourceObject == null) return;
 
-            if (shouldCast && !castCompleted)
+            if (shouldCast)
             {
                 Gizmos.color = Color.green;
                 Gizmos.DrawWireSphere(sourceObject.position, radius);
             }
-        }
-
-        public void ResetCast()
-        {
-            castCompleted = false;
         }
     }
 }
