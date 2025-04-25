@@ -1,10 +1,8 @@
-using System;
 using System.Linq;
-using Modules;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayerTargetFinder : MonoBehaviour
     {
@@ -34,7 +32,7 @@ namespace Gameplay
                 _shouldCast = true;
                 _lastRefreshTime = _refreshRate;
                 DoSingleSphereHit(transform.position);
-                
+
                 _player.SetTarget(_target);
             }
         }

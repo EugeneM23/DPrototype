@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayerTransform : MonoBehaviour
     {

@@ -1,8 +1,9 @@
 using Gameplay.Modules;
 using Modules;
+using Player;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayerTakeDamageController : IInitializable
     {

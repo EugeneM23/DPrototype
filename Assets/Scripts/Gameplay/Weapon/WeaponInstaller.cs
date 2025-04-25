@@ -1,7 +1,9 @@
+using Game;
+using Gameplay;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class WeaponInstaller : MonoInstaller
     {
@@ -11,14 +13,13 @@ namespace Gameplay
 
         [Inject] private ShellPrefabhandler _shellPrefabhandler;
         [Inject] private BulletPrefabHandler _bulletPrefabHandler;
-        [Inject] private Transform _player;
 
         public override void InstallBindings()
         {
             GameObject go = new GameObject("BulletPool");
 
             Container
-                .BindInterfacesTo<Weapon>()
+                .BindInterfacesAndSelfTo<Weapon>()
                 .AsSingle().WithArguments(_firePoint, _shellPoint, _setings)
                 .NonLazy();
 
@@ -41,6 +42,8 @@ namespace Gameplay
                 .Bind<IShellSpawner>()
                 .To<ShellPool>()
                 .FromResolve();
+
+            Container.BindInterfacesAndSelfTo<WeaponFireController>().AsSingle().NonLazy();
         }
     }
 }

@@ -1,16 +1,17 @@
+using Game;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace DPrototype.Game
 {
-    public class PlayerSpawnInstaller : Installer<Transform, PlayerSpawnInstaller>
+    public class PlayerSpawnInstaller : Installer<PlayerTransform, PlayerSpawnInstaller>
     {
-        [Inject] private Transform _player;
+        [Inject] private PlayerTransform _player;
 
         public override void InstallBindings()
         {
             Container
-                .Bind<Transform>()
+                .Bind<PlayerTransform>()
                 .FromComponentInNewPrefab(_player).AsSingle().NonLazy();
         }
     }

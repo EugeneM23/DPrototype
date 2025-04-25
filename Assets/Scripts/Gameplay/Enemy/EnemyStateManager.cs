@@ -1,3 +1,4 @@
+using Game;
 using Gameplay.Modules;
 using UnityEngine;
 
@@ -11,12 +12,12 @@ namespace Gameplay
 
         public bool IsBusy;
 
-        private readonly Transform _player;
+        private readonly PlayerTransform _player;
         private readonly HealthComponentBase _enemy;
         private readonly float _chaseRange;
         private readonly float _attckRange;
 
-        public EnemyStateManager(Transform player, HealthComponentBase enemy, float chaseRange, float attckRange)
+        public EnemyStateManager(PlayerTransform player, HealthComponentBase enemy, float chaseRange, float attckRange)
         {
             _player = player;
             _enemy = enemy;
@@ -56,7 +57,7 @@ namespace Gameplay
 
             return false;
         }
-        
+
         private void SetState(EnemyState state)
         {
             IsPatroling = state == EnemyState.Patrol;
@@ -65,10 +66,10 @@ namespace Gameplay
         }
 
         private bool PlayerInChaseRange() =>
-            Vector3.Distance(_enemy.transform.position, _player.position) <= _chaseRange;
+            Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _chaseRange;
 
         private bool PlayerInAttackRange() =>
-            Vector3.Distance(_enemy.transform.position, _player.position) <= _attckRange;
+            Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _attckRange;
     }
 
     public enum EnemyState

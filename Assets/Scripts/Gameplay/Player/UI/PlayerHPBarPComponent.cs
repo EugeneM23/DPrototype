@@ -1,35 +1,33 @@
-using Gameplay;
+using Player;
 using UnityEngine;
 using Zenject;
 
-public class PlayerHPBarPComponent : ITickable, IInitializable
+namespace Game
 {
-    private readonly HPBar _healthBar;
-    private readonly Transform _parent;
-    private readonly Vector3 _offset;
-    private Camera _camera;
-
-    public PlayerHPBarPComponent(HPBar healthBar, Vector3 offset, Transform parent)
+    public class PlayerHPBarPComponent : ITickable
     {
-        _healthBar = healthBar;
-        _offset = offset;
-        _parent = parent;
-        _camera = Camera.main;
-    }
+        private readonly HPBar _healthBar;
+        private readonly Transform _parent;
+        private readonly Vector3 _offset;
+        private Camera _camera;
 
-    public void Tick()
-    {
-        Vector3 directionToCamera = _camera.transform.position - _healthBar.transform.position;
+        public PlayerHPBarPComponent(HPBar healthBar, Vector3 offset, Transform parent)
+        {
+            _healthBar = healthBar;
+            _offset = offset;
+            _parent = parent;
+            _camera = Camera.main;
+        }
 
-        directionToCamera.x = 0f;
+        public void Tick()
+        {
+            Vector3 directionToCamera = _camera.transform.position - _healthBar.transform.position;
 
-        Quaternion targetRotation = Quaternion.LookRotation(directionToCamera);
-        _healthBar.transform.rotation = targetRotation;
-        _healthBar.transform.position = _parent.transform.position + _offset;
-    }
+            directionToCamera.x = 0f;
 
-    public void Initialize()
-    {
-        //_healthBar.transform.SetParent(null);
+            Quaternion targetRotation = Quaternion.LookRotation(directionToCamera);
+            _healthBar.transform.rotation = targetRotation;
+            _healthBar.transform.position = _parent.transform.position + _offset;
+        }
     }
 }

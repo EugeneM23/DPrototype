@@ -1,3 +1,4 @@
+using Game;
 using Gameplay;
 using Modules;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Gameplay
     {
         [SerializeField] private EnemySetings _enemySetings;
         [Inject] private readonly Transform _enemyTransform;
-        [Inject] private readonly Transform _playerTransform;
+        [Inject] private readonly PlayerTransform _playerTransform;
 
         public override void InstallBindings()
         {
@@ -25,7 +26,7 @@ namespace Gameplay
 
             Container
                 .Bind<EnemyAttackAssistComponent>()
-                .AsSingle().WithArguments(_enemyTransform, _playerTransform, _enemySetings.AttakRotationSpeed)
+                .AsSingle().WithArguments(_enemyTransform, _playerTransform.Transform, _enemySetings.AttakRotationSpeed)
                 .NonLazy();
 
             Container

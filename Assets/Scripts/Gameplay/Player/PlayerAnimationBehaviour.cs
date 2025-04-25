@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayerAnimationBehaviour : ITickable
     {

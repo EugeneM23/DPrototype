@@ -1,7 +1,7 @@
 using Modules;
 using Zenject;
 
-namespace Gameplay
+namespace DPrototype.Game
 {
     public class PlayerCamera : ILateTickable
     {

@@ -1,7 +1,8 @@
 using Modules;
+using Player;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayerMovementInstaller : Installer<PlayerSetings, PlayerMovementInstaller>
     {

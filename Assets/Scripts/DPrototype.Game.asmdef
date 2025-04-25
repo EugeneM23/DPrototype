@@ -1,12 +1,12 @@
 {
-    "name": "Game",
+    "name": "DPrototype.Game",
     "rootNamespace": "",
     "references": [
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:97ed55e29de56d949952fd77c47a4695",
-        "GUID:16a35b22bcb3d68408bec3de04e2d6ca",
-        "GUID:40503b64d264641f4bdaf988ec425d29",
-        "GUID:4a7bbc29a27d4c05866db5077c657160"
+        "GUID:4a7bbc29a27d4c05866db5077c657160",
+        "GUID:d69ec3dbd83e4f6ea279eb3ec76b28d2",
+        "GUID:59c31972c8a88404eb10fdc6615790e8",
+        "GUID:16a35b22bcb3d68408bec3de04e2d6ca"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

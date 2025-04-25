@@ -1,36 +1,33 @@
+using System;
 using Modules;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
-    public class Player : ITickable, IInitializable
+    public class Player : ITickable
     {
+        public event Action OnShoot;
+
         private readonly CharacterController _characterController;
         private readonly MoveComponent _moveComponent;
         private readonly RotationComponent _rotationComponent;
         private readonly LookAtComponent _lookAtComponent;
         private readonly LeanComponent _leanComponent;
-        private readonly PlayerWeponController _playerWeponController;
 
-        private Weapon _weapon;
         private Transform _target;
 
         public bool IsMoving => GetVelocity() != Vector3.zero;
 
         public Player(CharacterController characterController, MoveComponent moveComponent,
-            RotationComponent rotationComponent, LookAtComponent lookAtComponent, LeanComponent leanComponent,
-            PlayerWeponController playerWeponController)
+            RotationComponent rotationComponent, LookAtComponent lookAtComponent, LeanComponent leanComponent)
         {
             _characterController = characterController;
             _moveComponent = moveComponent;
             _rotationComponent = rotationComponent;
             _lookAtComponent = lookAtComponent;
             _leanComponent = leanComponent;
-            _playerWeponController = playerWeponController;
         }
-
-        public void Initialize() => _playerWeponController.SetPlayer(this);
 
         public void Tick()
         {
@@ -39,7 +36,7 @@ namespace Gameplay
             if (IsMoving || _target == null) return;
 
             if (_lookAtComponent.LookAtAndCheck(_target.position))
-                _weapon?.Shoot();
+                OnShoot?.Invoke();
         }
 
         public void Move(Vector3 direction)
@@ -47,8 +44,6 @@ namespace Gameplay
             _moveComponent.Move(direction);
             _rotationComponent.Ratation(direction);
         }
-
-        public void SetWeapon(Weapon weapon) => _weapon = weapon;
 
         public void SetTarget(Transform target) => _target = target;
 

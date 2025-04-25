@@ -8,7 +8,6 @@ namespace Gameplay
     public class MeleeDamageCaster : MonoBehaviour
     {
         [Inject] private readonly EnemyDamageComponent _damageComponent;
-
         [Header("Cast Settings")] [SerializeField]
         private Transform sourceObject;
 
@@ -41,7 +40,6 @@ namespace Gameplay
                     var damageable = hitCollider[0].GetComponentInParent<IDamageable>();
                     if (damageable != null)
                     {
-                        Debug.Log("asdasdsadad");
                         damageable.TakeDamage(_damageComponent.Damage);
                         return true;
                     }

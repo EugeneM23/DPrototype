@@ -1,7 +1,9 @@
+using System.ComponentModel;
+using Player;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class HPBarInstaller : Installer<Vector3, Transform, HPBar, HPBarInstaller>
     {

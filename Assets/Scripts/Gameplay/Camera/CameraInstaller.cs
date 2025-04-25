@@ -1,14 +1,15 @@
+using Game;
 using Modules;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace DPrototype.Game
 {
     public class CameraInstaller : Installer<float, Camera, CameraInstaller>
     {
         [Inject] private float _smoothTime;
         [Inject] private Camera _camera;
-        [Inject] private Transform _target;
+        [Inject] private PlayerTransform _target;
 
         public override void InstallBindings()
         {

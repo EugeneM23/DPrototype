@@ -3,7 +3,7 @@ using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Gameplay
+namespace DPrototype.Game
 {
     public class CameraShakeComponent : ITickable, IInitializable
     {

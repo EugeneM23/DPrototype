@@ -1,17 +1,17 @@
 using System;
+using Gameplay;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
-    public class Weapon : ITickable, IInitializable, IWeapon
+    public class Weapon : ITickable
     {
         public event Action OnFire;
 
         private Transform _firePoint;
         private Transform _shellPoint;
         private WeaponSetings _setings;
-        private PlayerWeponController _playerWeponController;
         public float ShakeDuration => _setings.ShakeDuration;
         public float ShakeMagnitude => _setings.ShakeMagnitude;
 
@@ -20,25 +20,22 @@ namespace Gameplay
 
         private bool _readyToFire;
 
+        private float lastTimeShoot = 0;
+
         public Weapon(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner, WeaponSetings setings,
-            Transform firePoint, Transform shellPoint, PlayerWeponController playerWeponController)
+            Transform firePoint, Transform shellPoint)
         {
             _bulletSpawner = bulletSpawner;
             _shellSpawner = shellSpawner;
             _setings = setings;
             _shellPoint = shellPoint;
-            _playerWeponController = playerWeponController;
             _firePoint = firePoint;
         }
 
-        public void Initialize()
+        public void Tick()
         {
-            _playerWeponController.SetWeapon(this);
+            CoolDown();
         }
-
-        private float lastTimeShoot = 0;
-
-        public void Tick() => CoolDown();
 
         public void Shoot()
         {

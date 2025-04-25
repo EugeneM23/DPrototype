@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayerAnimationInstaller : Installer<PlayerAnimationInstaller>
     {

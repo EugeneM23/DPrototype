@@ -1,7 +1,8 @@
+using Player;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay
+namespace Game
 {
     public class PlayertInstaller : MonoInstaller
     {
@@ -24,6 +25,9 @@ namespace Gameplay
             PlayerAnimationInstaller.Install(Container);
             PlayerEffectsInstaller.Install(Container, _hitEffect);
             HPBarInstaller.Install(Container, _healtBarOffset, gameObject.transform, _hpBar);
+
+            Container.Bind<PlayerWeaponManager>().AsSingle().WithArguments(Container, _weaponPrefab)
+                .NonLazy();
         }
     }
 }

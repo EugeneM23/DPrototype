@@ -1,17 +1,18 @@
+using Game;
 using UnityEngine;
 
 namespace Modules
 {
     public class ObjectFollowComponent
     {
-        private readonly Transform _target;
+        private readonly PlayerTransform _target;
         private readonly Transform _main;
         private readonly Vector3 _offset;
         private readonly float _smoothTime;
 
         private Vector3 _velocity = Vector3.zero;
 
-        public ObjectFollowComponent(Transform main, Transform target, float smoothTime)
+        public ObjectFollowComponent(Transform main, PlayerTransform target, float smoothTime)
         {
             _smoothTime = smoothTime;
             _target = target;
