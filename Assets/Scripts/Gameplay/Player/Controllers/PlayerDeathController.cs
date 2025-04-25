@@ -1,5 +1,4 @@
-using Gameplay.Common;
-using Modules;
+using Gameplay.Modules;
 using UnityEngine.SceneManagement;
 using Zenject;
 

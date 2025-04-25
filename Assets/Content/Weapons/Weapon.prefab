@@ -42,8 +42,9 @@ GameObject:
   - component: {fileID: 8885742295727768754}
   - component: {fileID: 5451681675831763825}
   - component: {fileID: 6113824976840661105}
-  - component: {fileID: 5976187388065432472}
-  - component: {fileID: 4938901112661854419}
+  - component: {fileID: -8701876110790033558}
+  - component: {fileID: -257800873209721964}
+  - component: {fileID: -2363735851243821034}
   - component: {fileID: -6552701922616283323}
   m_Layer: 0
   m_Name: Weapon
@@ -92,11 +93,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 5976187388065432472}
+  - {fileID: -8701876110790033558}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &5976187388065432472
+--- !u!114 &-8701876110790033558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,9 +109,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50b2423c9f34dedbdb352a4cd81d4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8781848009549982126, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
-  _shellPrefab: {fileID: 3533949224818665328, guid: 9dfd5938602c743d7a99fd415e128341, type: 3}
---- !u!114 &4938901112661854419
+  _firePoint: {fileID: 8695446290354880722}
+  _shellPoint: {fileID: 4493319564535823627}
+  _setings:
+    <FireRate>k__BackingField: 0.2
+    <FireRange>k__BackingField: 10
+    <Damage>k__BackingField: 10
+    <BulletSpeed>k__BackingField: 50
+    <ShakeDuration>k__BackingField: 1
+    <ShakeMagnitude>k__BackingField: 1
+    <ShellImpulse>k__BackingField: {x: 0, y: 2, z: -2}
+    <ImpulsePower>k__BackingField: 0
+--- !u!114 &-257800873209721964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,20 +129,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4987170329088819174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3f6a5920d440618ba34e10833269ec, type: 3}
+  m_Script: {fileID: 11500000, guid: ab4bcb5c6b6894c55a0be5f58f325a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firePoint: {fileID: 8695446290354880722}
-  _shellPoint: {fileID: 4493319564535823627}
-  _setings:
-    <FireRate>k__BackingField: 0.2
-    <FireRange>k__BackingField: 0
-    <Damage>k__BackingField: 10
-    <BulletSpeed>k__BackingField: 100
-    <ShakeDuration>k__BackingField: 0.2
-    <ShakeMagnitude>k__BackingField: 0.4
-    <ShellImpulse>k__BackingField: {x: 2, y: 5, z: 0}
-    <ImpulsePower>k__BackingField: 2
+  _shellPrefab: {fileID: 3533949224818665328, guid: 9dfd5938602c743d7a99fd415e128341, type: 3}
+--- !u!114 &-2363735851243821034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987170329088819174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de6b784bf228457dbb2fb9d245bca56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 8781848009549982126, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
 --- !u!114 &-6552701922616283323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 4938901112661854419}
+  - {fileID: -257800873209721964}
+  - {fileID: -2363735851243821034}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 6113824976840661105}
@@ -199,7 +213,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5620345868981579702}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace Gameplay
 {
-    internal interface IWeapon
+    public interface IWeapon
     {
         public void Shoot();
+        event Action OnFire;
     }
 }

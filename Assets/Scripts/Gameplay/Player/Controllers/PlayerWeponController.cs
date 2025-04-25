@@ -1,27 +1,23 @@
-using UnityEngine;
-using Zenject;
-
 namespace Gameplay
 {
-    public class PlayerWeponController : IInitializable
+    public class PlayerWeponController
     {
         private Weapon _weapon;
-        private DiContainer _container;
         private Player _player;
 
-        public PlayerWeponController(Player player, Weapon weapon, DiContainer container)
+        public void SetWeaponToPlayer()
         {
-            _player = player;
-            _weapon = weapon;
-            _container = container;
+            _player.SetWeapon(_weapon);
         }
 
-        public void Initialize() => SetWeapon();
-
-        public void SetWeapon()
+        public void SetPlayer(Player player)
         {
-            Weapon weapon = _container.InstantiatePrefab(_weapon).GetComponent<Weapon>();
-            _player.SetWeapon(weapon);
+            _player = player;
+        }
+
+        public void SetWeapon(Weapon weapon)
+        {
+            _weapon = weapon;
         }
     }
 }

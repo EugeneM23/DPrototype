@@ -1544,10 +1544,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maximumFPS: 100
-  _playerPrefab: {fileID: 3769910673327603445, guid: 0e83c4c10ed864312a667b583565a8b9, type: 3}
+  _playerPrefab: {fileID: 1762296803827268729, guid: 0e83c4c10ed864312a667b583565a8b9, type: 3}
   _HUD: {fileID: 5683781169268484242, guid: 25a96dc1b87c0401ca54e7b82e166d13, type: 3}
   _cameraSmoothTime: 0.15
   _camera: {fileID: 330585545}
+  _weaponPrefab: {fileID: 4987170329088819174, guid: 58bfaaefdb0b84f7ab7e3b91e3a0a956, type: 3}
 --- !u!1 &971238214
 GameObject:
   m_ObjectHideFlags: 0

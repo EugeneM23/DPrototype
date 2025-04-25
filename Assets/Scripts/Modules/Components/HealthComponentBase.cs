@@ -2,9 +2,9 @@ using System;
 using Modules;
 using UnityEngine;
 
-namespace Gameplay.Common
+namespace Gameplay.Modules
 {
-    public  class HealthComponentBase : MonoBehaviour, IDamageable
+    public class HealthComponentBase : MonoBehaviour, IDamageable
     {
         public event Action<int> OnHealthChanged;
         public event Action<HealthComponentBase> OnDespawn;

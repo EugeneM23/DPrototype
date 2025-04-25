@@ -2,6 +2,7 @@ using System;
 using Modules;
 using UnityEngine;
 using Zenject;
+using Transform = log4net.Util.Transform;
 
 namespace Gameplay
 {
@@ -9,7 +10,6 @@ namespace Gameplay
     {
         [Inject] private readonly EnemyStateManager _stateManager;
         [Inject] private readonly EnemyAttackAssistComponent _rotationComponent;
-        [Inject] private PlayerTransform _playerTransform;
 
         private void Update()
         {

@@ -1,5 +1,5 @@
 using Gameplay;
-using Gameplay.Common;
+using Gameplay.Modules;
 using UnityEngine;
 using Zenject;
 

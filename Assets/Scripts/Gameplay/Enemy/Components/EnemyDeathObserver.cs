@@ -1,4 +1,4 @@
-using Gameplay.Common;
+using Gameplay.Modules;
 using Zenject;
 
 namespace Gameplay

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Gameplay;
-using Gameplay.Common;
+using Gameplay.Modules;
 using UnityEngine;
 
 public class KamikadzeAttackBehavior : StateMachineBehaviour

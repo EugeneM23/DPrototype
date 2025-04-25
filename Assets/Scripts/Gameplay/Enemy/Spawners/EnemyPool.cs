@@ -1,6 +1,4 @@
-using Gameplay;
-using Gameplay.Common;
-using Modules;
+using Gameplay.Modules;
 using UnityEngine;
 using Zenject;
 
@@ -8,13 +6,6 @@ namespace NewEnemy
 {
     public class EnemyPool : MemoryPool<Vector3, HealthComponentBase>, IEnemySpawner
     {
-        private readonly EnemyManager _manager;
-
-        public EnemyPool(EnemyManager manager)
-        {
-            _manager = manager;
-        }
-
         public HealthComponentBase Create(Vector3 position)
         {
             return Spawn(position);
@@ -32,7 +23,6 @@ namespace NewEnemy
             enemy.OnDespawn += Despawn;
             enemy.Reset();
             
-            _manager.AddEnemy(enemy);
         }
 
         protected override void OnDespawned(HealthComponentBase enemy)
@@ -40,7 +30,6 @@ namespace NewEnemy
             base.OnDespawned(enemy);
             enemy.gameObject.SetActive(false);
             enemy.OnDespawn -= Despawn;
-            _manager.RemoveEnemy(enemy);
         }
     }
 

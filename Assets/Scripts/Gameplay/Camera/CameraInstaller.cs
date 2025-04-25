@@ -8,7 +8,7 @@ namespace Gameplay
     {
         [Inject] private float _smoothTime;
         [Inject] private Camera _camera;
-        [Inject] private PlayerTransform _target;
+        [Inject] private Transform _target;
 
         public override void InstallBindings()
         {
@@ -20,7 +20,7 @@ namespace Gameplay
             Container
                 .Bind<ObjectFollowComponent>()
                 .AsSingle()
-                .WithArguments(_camera.transform, _target.Transform, _smoothTime)
+                .WithArguments(_camera.transform, _target, _smoothTime)
                 .NonLazy();
 
             Container

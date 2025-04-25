@@ -4,14 +4,14 @@ using Zenject;
 
 namespace Gameplay
 {
-    public class Weapon : MonoBehaviour, IWeapon
+    public class Weapon : ITickable, IInitializable, IWeapon
     {
         public event Action OnFire;
 
-        [SerializeField] private Transform _firePoint;
-        [SerializeField] private Transform _shellPoint;
-        [SerializeField] private WeaponSetings _setings;
-
+        private Transform _firePoint;
+        private Transform _shellPoint;
+        private WeaponSetings _setings;
+        private PlayerWeponController _playerWeponController;
         public float ShakeDuration => _setings.ShakeDuration;
         public float ShakeMagnitude => _setings.ShakeMagnitude;
 
@@ -19,16 +19,26 @@ namespace Gameplay
         private IShellSpawner _shellSpawner;
 
         private bool _readyToFire;
-        private float lastTimeShoot = 0;
 
-        private void Update() => CoolDown();
-
-        [Inject]
-        public void Construct(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner)
+        public Weapon(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner, WeaponSetings setings,
+            Transform firePoint, Transform shellPoint, PlayerWeponController playerWeponController)
         {
             _bulletSpawner = bulletSpawner;
             _shellSpawner = shellSpawner;
+            _setings = setings;
+            _shellPoint = shellPoint;
+            _playerWeponController = playerWeponController;
+            _firePoint = firePoint;
         }
+
+        public void Initialize()
+        {
+            _playerWeponController.SetWeapon(this);
+        }
+
+        private float lastTimeShoot = 0;
+
+        public void Tick() => CoolDown();
 
         public void Shoot()
         {

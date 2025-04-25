@@ -2,14 +2,14 @@ using Gameplay;
 using UnityEngine;
 using Zenject;
 
-public class HPBarPositionComponent : ITickable, IInitializable
+public class PlayerHPBarPComponent : ITickable, IInitializable
 {
     private readonly HPBar _healthBar;
     private readonly Transform _parent;
     private readonly Vector3 _offset;
     private Camera _camera;
 
-    public HPBarPositionComponent(HPBar healthBar, Vector3 offset, Transform parent)
+    public PlayerHPBarPComponent(HPBar healthBar, Vector3 offset, Transform parent)
     {
         _healthBar = healthBar;
         _offset = offset;

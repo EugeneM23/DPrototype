@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Gameplay
@@ -5,10 +6,10 @@ namespace Gameplay
     public class EnemyChaseComponent
     {
         private readonly NavMeshAgent _agent;
-        private readonly PlayerTransform _target;
+        private readonly Transform _target;
         private readonly float _speed;
 
-        public EnemyChaseComponent(PlayerTransform target, NavMeshAgent enemy, float speed)
+        public EnemyChaseComponent(Transform target, NavMeshAgent enemy, float speed)
         {
             _agent = enemy;
             _speed = speed;
@@ -19,7 +20,7 @@ namespace Gameplay
         {
             _agent.isStopped = false;
 
-            _agent.SetDestination(_target.Transform.position);
+            _agent.SetDestination(_target.position);
             _agent.speed = _speed;
         }
     }

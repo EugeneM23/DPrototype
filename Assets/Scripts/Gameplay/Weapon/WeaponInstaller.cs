@@ -5,16 +5,26 @@ namespace Gameplay
 {
     public class WeaponInstaller : MonoInstaller
     {
-        [SerializeField] private Bullet _bulletPrefab;
-        [SerializeField] private Shell _shellPrefab;
+        [SerializeField] private Transform _firePoint;
+        [SerializeField] private Transform _shellPoint;
+        [SerializeField] private WeaponSetings _setings;
+
+        [Inject] private ShellPrefabhandler _shellPrefabhandler;
+        [Inject] private BulletPrefabHandler _bulletPrefabHandler;
+        [Inject] private Transform _player;
 
         public override void InstallBindings()
         {
             GameObject go = new GameObject("BulletPool");
 
             Container
+                .BindInterfacesTo<Weapon>()
+                .AsSingle().WithArguments(_firePoint, _shellPoint, _setings)
+                .NonLazy();
+
+            Container
                 .BindMemoryPool<Bullet, BulletPool>()
-                .FromComponentInNewPrefab(_bulletPrefab)
+                .FromComponentInNewPrefab(_bulletPrefabHandler.BulletPrefab)
                 .UnderTransform(go.transform);
 
             Container
@@ -24,15 +34,13 @@ namespace Gameplay
 
             Container
                 .BindMemoryPool<Shell, ShellPool>()
-                .FromComponentInNewPrefab(_shellPrefab)
+                .FromComponentInNewPrefab(_shellPrefabhandler.ShellPrefab)
                 .UnderTransform(go.transform);
 
             Container
                 .Bind<IShellSpawner>()
                 .To<ShellPool>()
                 .FromResolve();
-
-            Container.BindInterfacesAndSelfTo<WeaponFireController>().AsSingle().NonLazy();
         }
     }
 }
