@@ -5044,7 +5044,7 @@ MonoBehaviour:
   _playerSetings:
     <RunSpeed>k__BackingField: 10
     <RotationSpeed>k__BackingField: 20
-    <LookAtSpeed>k__BackingField: 400
+    <LookAtSpeed>k__BackingField: 800
     <StrafeSpeed>k__BackingField: 3
     <StrafePower>k__BackingField: 5
     <MaxHealth>k__BackingField: 100

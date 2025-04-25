@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using Zenject;
 
 namespace Gameplay
@@ -22,10 +21,6 @@ namespace Gameplay
         {
             _weapon.OnFire += () => _cameraShake.CameraShake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
             _weapon.OnFire += _animationBehaviour.Shoot;
-        }
-
-        private void CameraShake(float shakeMagnitude, float shakeDuration)
-        {
         }
 
         public void Dispose()

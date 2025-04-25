@@ -28,6 +28,12 @@ namespace Gameplay
                 .AsSingle().WithArguments(_enemyTransform, _playerTransform.Transform, _enemySetings.AttakRotationSpeed)
                 .NonLazy();
 
+            Container
+                .Bind<EnemyDamageComponent>()
+                .AsSingle()
+                .WithArguments(_enemySetings.Damage)
+                .NonLazy();
+
 
             EnemyHealthInstaller.Install(Container);
             EnemyStateInstaller.Install(Container, _enemySetings);

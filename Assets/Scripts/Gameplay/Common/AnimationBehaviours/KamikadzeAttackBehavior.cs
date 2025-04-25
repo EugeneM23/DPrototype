@@ -1,24 +1,33 @@
 using System.Collections.Generic;
 using Gameplay;
+using Gameplay.Common;
 using UnityEngine;
 
-/*public class KamikadzeAttackBehavior : StateMachineBehaviour
+public class KamikadzeAttackBehavior : StateMachineBehaviour
 {
     private List<GameObject> _kamikadzeParts = new();
+    private bool _shouldCast = true;
+
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+    }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetComponent<EnemyStateProvider>().FinishAttack();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        float stopThreshold = 0.2f;
+        float stopThreshold = 0.3f;
+        if (stateInfo.normalizedTime > 0.2f && _shouldCast)
+        {
+            animator.GetComponent<MeleeDamageCaster>().EnebleDamageCast(1);
+            _shouldCast = false;
+        }
+
         if (stateInfo.normalizedTime > stopThreshold)
         {
-            /*animator.GetComponent<Enemy>().Kill();
-            Instantiate(Resources.Load<GameObject>("Prefabs/Spikes attack"), animator.transform.position,
-                Quaternion.identity);#1#
-
             _kamikadzeParts.Add(Instantiate(Resources.Load<GameObject>("Prefabs/BodyParts01"),
                 animator.transform.position + new Vector3(0, 1, 0), Quaternion.identity));
 
@@ -36,8 +45,8 @@ using UnityEngine;
                 kamikadzePart.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * 50f, ForceMode.Impulse);
                 kamikadzePart.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * 50f, ForceMode.Impulse);
             }
-        }
 
-        animator.GetComponent<AttackAnimationProvider>().FinishAttackAnimation();
+            animator.GetComponent<HealthComponentBase>().TakeDamage(1000);
+        }
     }
-}*/
+}

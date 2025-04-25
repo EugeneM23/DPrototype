@@ -2378,10 +2378,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySetings:
     <ChaseRange>k__BackingField: 10
-    <AttckRange>k__BackingField: 2
+    <AttckRange>k__BackingField: 1.5
     <CahaseSpeed>k__BackingField: 7
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 10
+    <Damage>k__BackingField: 30
 --- !u!114 &5618135351587943864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2452,10 +2453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38e0d85a16b40b08b2b82311fc32f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldCast: 0
   sourceObject: {fileID: 2199219673647584743}
-  radius: 0.5
-  damageAmount: 30
+  radius: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 2048

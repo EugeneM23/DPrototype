@@ -5,8 +5,8 @@ namespace Gameplay
 {
     public class GameInstaller : MonoInstaller
     {
-        [SerializeField] private PlayerTransform _playerPrefab;
         [SerializeField] private int _maximumFPS = 100;
+        [SerializeField] private PlayerTransform _playerPrefab;
         [SerializeField] private GameObject _HUD;
         [SerializeField] private float _cameraSmoothTime;
         [SerializeField] private Camera _camera;
