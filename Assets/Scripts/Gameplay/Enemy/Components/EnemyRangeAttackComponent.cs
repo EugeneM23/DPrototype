@@ -21,6 +21,7 @@ namespace Game
 
         private Vector3 CalculatePredictedPosition()
         {
+            return _playerTransform.transform.position;
             Vector3 playerPosition = _playerTransform.transform.position;
             Vector3 playerVelocity = _playerTransform.GetVelocity();
 
