@@ -5076,11 +5076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0575f59ee41f4035adc6bd6d563e6fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _refreshRate: 1
+  _refreshRate: 0.3
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
-  _radius: 10
+  _radius: 20
   _shouldCast: 1
 --- !u!1001 &3911827078995512297
 PrefabInstance:

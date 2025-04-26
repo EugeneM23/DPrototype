@@ -20,7 +20,6 @@ namespace Modules
             float angle = Vector3.SignedAngle(lastForward, currentForward, Vector3.up);
             float angularSpeed = angle / Time.deltaTime;
 
-            // Определяем, в какую сторону поворачиваем и насколько сильно
             float targetLean = Mathf.Clamp(-angularSpeed / 200f * leanAmount, -leanAmount, leanAmount);
 
             currentLean = Mathf.Lerp(currentLean, targetLean, Time.deltaTime * leanSpeed);

@@ -17,8 +17,8 @@ namespace Game
         {
             Application.targetFrameRate = _maximumFPS;
             UIInstaller.Install(Container, _HUD);
-            PlayerSpawnInstaller.Install(Container, _playerPrefab);
             CameraInstaller.Install(Container, _cameraSmoothTime, _camera);
+            PlayerSpawnInstaller.Install(Container, _playerPrefab);
         }
     }
 }

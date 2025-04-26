@@ -47,6 +47,8 @@ namespace Game
 
         public void SetTarget(Transform target) => _target = target;
 
+        public Transform GetTarget() => _target;
+
         public Vector3 GetVelocity() => _characterController.velocity;
     }
 }

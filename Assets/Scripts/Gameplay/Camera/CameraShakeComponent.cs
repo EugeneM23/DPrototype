@@ -44,18 +44,14 @@ namespace DPrototype.Game
 
                 _shakeDuration -= Time.deltaTime;
 
-                if (_shakeDuration <= 0f)
-                {
+                if (_shakeDuration <= 0f) 
                     _isReturning = true;
-                }
             }
             else if (_isReturning)
             {
-                // Плавное возвращение к оригинальному повороту
                 _camera.localRotation = Quaternion.Lerp(_camera.localRotation,
                     _originalRotation, Time.deltaTime * 0.3f);
 
-                // Когда достаточно близко — зафиксировать
                 if (Quaternion.Angle(_camera.localRotation, _originalRotation) < 0.01f)
                 {
                     _camera.localRotation = _originalRotation;

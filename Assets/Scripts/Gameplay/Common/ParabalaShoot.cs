@@ -6,8 +6,8 @@ public class ParabolaShoot : MonoBehaviour
 
     private Vector3 _startPosition;
     private Vector3 _endPosition;
-    private float speed = 14f; // Настраиваемая скорость движения
-    private float height = 7f; // Настраиваемая высота параболы
+    private float speed = 14f;
+    private float height = 7f;
 
     private float startTime;
     private float totalDistance;
@@ -45,10 +45,8 @@ public class ParabolaShoot : MonoBehaviour
 
     private Vector3 GetParabolaPoint(Vector3 start, Vector3 end, float t)
     {
-        // Линейная интерполяция между началом и концом
         Vector3 point = Vector3.Lerp(start, end, t);
 
-        // Добавление параболической высоты (только по Y)
         float parabolicHeight = height * t * (1 - t);
         point.y += parabolicHeight;
 

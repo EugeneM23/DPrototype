@@ -1,3 +1,4 @@
+using Modules;
 using Player;
 using UnityEngine;
 using Zenject;
@@ -28,6 +29,8 @@ namespace Game
 
             Container.Bind<PlayerWeaponManager>().AsSingle().WithArguments(Container, _weaponPrefab)
                 .NonLazy();
+
+            Container.Bind<PlayerCameraController>().AsSingle().NonLazy();
         }
     }
 }

@@ -9,7 +9,6 @@ namespace DPrototype.Game
     {
         [Inject] private float _smoothTime;
         [Inject] private Camera _camera;
-        [Inject] private PlayerTransform _target;
 
         public override void InstallBindings()
         {
@@ -21,7 +20,7 @@ namespace DPrototype.Game
             Container
                 .Bind<ObjectFollowComponent>()
                 .AsSingle()
-                .WithArguments(_camera.transform, _target, _smoothTime)
+                .WithArguments(_camera.transform, _smoothTime)
                 .NonLazy();
 
             Container

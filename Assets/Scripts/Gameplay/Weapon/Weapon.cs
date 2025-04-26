@@ -2,6 +2,7 @@ using System;
 using Gameplay;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -9,9 +10,10 @@ namespace Game
     {
         public event Action OnFire;
 
-        private Transform _firePoint;
-        private Transform _shellPoint;
-        private WeaponSetings _setings;
+        private readonly Transform _firePoint;
+        private readonly Transform _shellPoint;
+        private readonly WeaponSetings _setings;
+        private readonly Player _player;
         public float ShakeDuration => _setings.ShakeDuration;
         public float ShakeMagnitude => _setings.ShakeMagnitude;
 
@@ -23,12 +25,13 @@ namespace Game
         private float lastTimeShoot = 0;
 
         public Weapon(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner, WeaponSetings setings,
-            Transform firePoint, Transform shellPoint)
+            Transform firePoint, Transform shellPoint, Player player)
         {
             _bulletSpawner = bulletSpawner;
             _shellSpawner = shellSpawner;
             _setings = setings;
             _shellPoint = shellPoint;
+            _player = player;
             _firePoint = firePoint;
         }
 
@@ -47,8 +50,10 @@ namespace Game
                 _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse,
                     _setings.ImpulsePower);
 
-                Bullet bullet = _bulletSpawner.Create(_firePoint.position, _firePoint.rotation);
-                bullet.Setup(_setings.Damage, _setings.BulletSpeed, _firePoint.forward);
+                Quaternion rotation = CalculatRotation();
+
+                Bullet bullet = _bulletSpawner.Create(_firePoint.position, rotation);
+                bullet.Setup(_setings.Damage, _setings.BulletSpeed, bullet.transform.forward);
 
                 lastTimeShoot = _setings.FireRate;
             }
@@ -62,9 +67,17 @@ namespace Game
                 _readyToFire = true;
         }
 
-        public float GetFireRange()
+        private Quaternion CalculatRotation()
         {
-            return _setings.FireRange;
+            Vector3 targetPosition = _player.GetTarget().position + Vector3.up * 1.5f;
+
+            Vector3 directionToTarget = (targetPosition - _firePoint.position).normalized;
+
+            Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+            float randomY = Random.Range(-_setings.Scatter, _setings.Scatter);
+            Quaternion scatterRotation = Quaternion.Euler(0f, randomY, 0f);
+            Quaternion finalRotation = scatterRotation * lookRotation;
+            return finalRotation;
         }
     }
 }
