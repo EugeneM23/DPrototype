@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class ParabolaShoot : MonoBehaviour
+public class ArcMover : MonoBehaviour
 {
     [SerializeField] private GameObject _explosionPrefab;
+    [SerializeField] private float speed = 14f;
+    [SerializeField] private float height = 7f;
 
     private Vector3 _startPosition;
     private Vector3 _endPosition;
-    private float speed = 14f;
-    private float height = 7f;
 
     private float startTime;
     private float totalDistance;

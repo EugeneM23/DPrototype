@@ -55,8 +55,29 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8607143
-        functionName: FinishAttackAnimation
+      - time: 0.028947975
+        functionName: AimAssistOn
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.48205456
+        functionName: EnebleDamageCast
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.59365994
+        functionName: EnebleDamageCast
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5548387
+        functionName: AimAssistOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

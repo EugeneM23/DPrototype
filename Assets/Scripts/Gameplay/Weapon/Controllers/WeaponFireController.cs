@@ -7,19 +7,19 @@ namespace Game
     {
         private readonly Player _player;
         private readonly Weapon _weapon;
-        private readonly PlayerCamera _camera;
+        private readonly DPrototype.Game.CameraController _cameraController;
 
-        public WeaponFireController(Player player, Weapon weapon, PlayerCamera camera)
+        public WeaponFireController(Player player, Weapon weapon, DPrototype.Game.CameraController cameraController)
         {
             _player = player;
             _weapon = weapon;
-            _camera = camera;
+            _cameraController = cameraController;
         }
 
         public void Initialize()
         {
             _player.OnShoot += _weapon.Shoot;
-            _player.OnShoot += () => _camera.Shake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
+            _player.OnShoot += () => _cameraController.Shake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
         }
     }
 }

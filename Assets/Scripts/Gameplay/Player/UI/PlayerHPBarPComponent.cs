@@ -6,12 +6,12 @@ namespace Game
 {
     public class PlayerHPBarPComponent : ITickable
     {
-        private readonly HPBar _healthBar;
+        private readonly PlayerHealtBar _healthBar;
         private readonly Transform _parent;
         private readonly Vector3 _offset;
         private Camera _camera;
 
-        public PlayerHPBarPComponent(HPBar healthBar, Vector3 offset, Transform parent)
+        public PlayerHPBarPComponent(PlayerHealtBar healthBar, Vector3 offset, Transform parent)
         {
             _healthBar = healthBar;
             _offset = offset;

@@ -4,15 +4,15 @@ namespace Game
 {
     public class PlayerCameraController
     {
-        private readonly PlayerCamera _camera;
+        private readonly DPrototype.Game.CameraController _cameraController;
         private readonly PlayerTransform _playerTransform;
 
-        public PlayerCameraController(PlayerCamera camera, PlayerTransform playerTransform)
+        public PlayerCameraController(DPrototype.Game.CameraController cameraController, PlayerTransform playerTransform)
         {
-            _camera = camera;
+            _cameraController = cameraController;
             _playerTransform = playerTransform;
 
-            _camera.SetTarget(_playerTransform.transform);
+            _cameraController.SetTarget(_playerTransform.transform);
         }
     }
 }

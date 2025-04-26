@@ -8,20 +8,20 @@ namespace Game
     public class PlayerTakeDamageController : IInitializable
     {
         private readonly HealthComponentBase _playerHealth;
-        private HPBar _hpBar;
+        private PlayerHealtBar _playerHealtBar;
         private PlayEffectComponent _playEffectComponentSpawner;
 
-        public PlayerTakeDamageController(HealthComponentBase playerHealth, HPBar hpBar,
+        public PlayerTakeDamageController(HealthComponentBase playerHealth, PlayerHealtBar playerHealtBar,
             PlayEffectComponent playEffectComponentSpawner)
         {
             _playerHealth = playerHealth;
-            _hpBar = hpBar;
+            _playerHealtBar = playerHealtBar;
             _playEffectComponentSpawner = playEffectComponentSpawner;
         }
 
         public void Initialize()
         {
-            _playerHealth.OnHealthChanged += _hpBar.UpdatePlayerHealth;
+            _playerHealth.OnHealthChanged += _playerHealtBar.UpdatePlayerHealth;
             _playerHealth.OnHit += _playEffectComponentSpawner.Play;
         }
     }

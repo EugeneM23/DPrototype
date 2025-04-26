@@ -5,12 +5,12 @@ using Zenject;
 
 namespace DPrototype.Game
 {
-    public class PlayerCamera : ILateTickable
+    public class CameraController : ILateTickable
     {
         private readonly ObjectFollowComponent _followComponent;
         private readonly CameraShakeComponent _shakeComponent;
 
-        public PlayerCamera(ObjectFollowComponent followComponent, CameraShakeComponent shakeComponent)
+        public CameraController(ObjectFollowComponent followComponent, CameraShakeComponent shakeComponent)
         {
             _followComponent = followComponent;
             _shakeComponent = shakeComponent;
@@ -25,7 +25,7 @@ namespace DPrototype.Game
 
         public void Shake(float shakeMagnitude, float shakeDuration)
         {
-            _shakeComponent.CameraShake(0.3f, 0.1f);
+            _shakeComponent.CameraShake(shakeMagnitude, shakeDuration);
         }
     }
 }

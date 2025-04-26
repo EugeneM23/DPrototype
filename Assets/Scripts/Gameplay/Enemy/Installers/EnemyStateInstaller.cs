@@ -9,7 +9,7 @@ public class EnemyStateInstaller : Installer<EnemySetings, EnemyStateInstaller>
     {
         Container
             .Bind<EnemyAttackComponent>()
-            .AsSingle()
+            .AsSingle().WithArguments(_setings.AttckAnimations)
             .NonLazy();
 
         Container

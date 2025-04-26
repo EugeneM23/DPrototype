@@ -2402,6 +2402,8 @@ MonoBehaviour:
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 400
     <Damage>k__BackingField: 10
+    <AttckAnimations>k__BackingField:
+    - Attack_01
 --- !u!114 &-7776074291255282540
 MonoBehaviour:
   m_ObjectHideFlags: 0

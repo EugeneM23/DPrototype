@@ -13,7 +13,7 @@ namespace DPrototype.Game
         public override void InstallBindings()
         {
             Container
-                .BindInterfacesAndSelfTo<PlayerCamera>()
+                .BindInterfacesAndSelfTo<CameraController>()
                 .AsSingle()
                 .NonLazy();
 
