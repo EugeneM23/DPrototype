@@ -43,7 +43,10 @@ namespace Game
                 .To<ShellPool>()
                 .FromResolve();
 
-            Container.BindInterfacesAndSelfTo<WeaponFireController>().AsSingle().NonLazy();
+            Container
+                .BindInterfacesAndSelfTo<WeaponFireController>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

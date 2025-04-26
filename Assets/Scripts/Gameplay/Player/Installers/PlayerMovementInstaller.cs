@@ -14,7 +14,7 @@ namespace Game
             Container
                 .Bind<MoveComponent>()
                 .AsSingle()
-                .WithArguments(10f)
+                .WithArguments(_playerSetings.RunSpeed)
                 .NonLazy();
 
             Container

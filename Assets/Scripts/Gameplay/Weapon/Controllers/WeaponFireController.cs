@@ -1,4 +1,5 @@
 using DPrototype.Game;
+using UnityEngine;
 using Zenject;
 
 namespace Game
@@ -7,9 +8,9 @@ namespace Game
     {
         private readonly Player _player;
         private readonly Weapon _weapon;
-        private readonly DPrototype.Game.CameraController _cameraController;
+        private readonly CameraController _cameraController;
 
-        public WeaponFireController(Player player, Weapon weapon, DPrototype.Game.CameraController cameraController)
+        public WeaponFireController(Player player, Weapon weapon, CameraController cameraController)
         {
             _player = player;
             _weapon = weapon;

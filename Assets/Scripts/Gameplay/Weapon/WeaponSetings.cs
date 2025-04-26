@@ -15,5 +15,6 @@ namespace Gameplay
         [field: SerializeField] public float ShakeMagnitude { get; private set; }
         [field: SerializeField] public Vector3 ShellImpulse { get; private set; }
         [field: SerializeField] public float ImpulsePower { get; private set; }
+        [field: SerializeField] public int ProjectileCount { get; set; }
     }
 }

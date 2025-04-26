@@ -2341,6 +2341,7 @@ MonoBehaviour:
   - {fileID: -9054151061208681733}
   - {fileID: -7605386629672461705}
   - {fileID: -7776074291255282540}
+  - {fileID: 5053622383324445560}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: -6075899849557144983}
@@ -2396,8 +2397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySetings:
-    <ChaseRange>k__BackingField: 15
-    <AttckRange>k__BackingField: 10
+    <ChaseRange>k__BackingField: 20
+    <AttckRange>k__BackingField: 13
     <CahaseSpeed>k__BackingField: 5
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 400

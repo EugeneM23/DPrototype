@@ -1,19 +1,48 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game
 {
     public class PlayerTransform : MonoBehaviour
     {
-        [Inject] private CharacterController _character;
+        public Transform Transform => gameObject.transform;
+        public float Speed { get; private set; }
+
         private float _timer;
         private Vector3 originPosition;
-        public Vector3 Velocity;
-        public Transform Transform => gameObject.transform;
+        private Vector3 lastPosition;
+        private Quaternion lastRotation;
 
-        public Vector3 GetVelocity() => _character.velocity;
-        
-        
+        void Start()
+        {
+            lastPosition = transform.position;
+            lastRotation = transform.rotation;
+        }
+
+        void Update()
+        {
+            Speed = GetCharacterSpeed();
+        }
+
+        private float GetCharacterSpeed()
+        {
+            Vector3 deltaPosition = transform.position - lastPosition;
+            float linearSpeed = deltaPosition.magnitude / Time.deltaTime;
+
+            Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
+
+            deltaRotation.ToAngleAxis(out float angleInDegrees, out Vector3 rotationAxis);
+            if (angleInDegrees > 180f)
+                angleInDegrees -= 360f;
+
+            float angularSpeed = Mathf.Abs(angleInDegrees) / Time.deltaTime;
+
+            lastPosition = transform.position;
+            lastRotation = transform.rotation;
+
+            return Math.Max(0, linearSpeed - angularSpeed * 0.1f);
+        }
     }
 }

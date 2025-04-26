@@ -4989,7 +4989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdd05c217224f27a33b8f67381d0f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &-3092696866831824943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5044,7 +5043,7 @@ MonoBehaviour:
   playerHealtBar: {fileID: -227575839315736592, guid: 6c1cc8cef5f3b4b5ab6d7ae21d931f97, type: 3}
   _hitEffect: {fileID: 190173164689368134}
   _playerSetings:
-    <RunSpeed>k__BackingField: 10
+    <RunSpeed>k__BackingField: 20
     <RotationSpeed>k__BackingField: 20
     <LookAtSpeed>k__BackingField: 800
     <StrafeSpeed>k__BackingField: 3

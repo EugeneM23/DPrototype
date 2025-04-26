@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: -2363735851243821034}
   - component: {fileID: -6552701922616283323}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Weapon_SHG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,15 +112,16 @@ MonoBehaviour:
   _firePoint: {fileID: 8695446290354880722}
   _shellPoint: {fileID: 4493319564535823627}
   _setings:
-    <FireRate>k__BackingField: 0.1
-    <Scatter>k__BackingField: 10
+    <FireRate>k__BackingField: 1
+    <Scatter>k__BackingField: 30
     <FireRange>k__BackingField: 10
-    <Damage>k__BackingField: 30
+    <Damage>k__BackingField: 1
     <BulletSpeed>k__BackingField: 50
     <ShakeDuration>k__BackingField: 0.1
     <ShakeMagnitude>k__BackingField: 0.1
     <ShellImpulse>k__BackingField: {x: 4, y: 6, z: 0}
     <ImpulsePower>k__BackingField: 1
+    <ProjectileCount>k__BackingField: 6
 --- !u!114 &-257800873209721964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de6b784bf228457dbb2fb9d245bca56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8781848009549982126, guid: 6ab5ae5c0cf164047ac58cf63c71cf9a, type: 3}
+  _bulletPrefab: {fileID: 8781848009549982126, guid: 001ecc5d6fc4e4661b73f60653191ad6, type: 3}
 --- !u!114 &-6552701922616283323
 MonoBehaviour:
   m_ObjectHideFlags: 0

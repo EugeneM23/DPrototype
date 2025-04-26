@@ -50,10 +50,13 @@ namespace Game
                 _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse,
                     _setings.ImpulsePower);
 
-                Quaternion rotation = CalculatRotation();
+                for (int i = 0; i < _setings.ProjectileCount; i++)
+                {
+                    Quaternion rotation = CalculatRotation();
 
-                Bullet bullet = _bulletSpawner.Create(_firePoint.position, rotation);
-                bullet.Setup(_setings.Damage, _setings.BulletSpeed, bullet.transform.forward);
+                    Bullet bullet = _bulletSpawner.Create(_firePoint.position, rotation);
+                    bullet.Setup(_setings.Damage, _setings.BulletSpeed, bullet.transform.forward);
+                }
 
                 lastTimeShoot = _setings.FireRate;
             }

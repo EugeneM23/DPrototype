@@ -6,6 +6,7 @@ public class BulletInstaller : MonoInstaller
 {
     [SerializeField] private int _maxRicochets = 2;
     [SerializeField] private int _damage;
+    [SerializeField] private float _impulse;
 
     public override void InstallBindings()
     {
@@ -18,7 +19,7 @@ public class BulletInstaller : MonoInstaller
         Container
             .Bind<BulletDamageComponent>()
             .AsSingle()
-            .WithArguments(this._damage)
+            .WithArguments(this._damage, this._impulse)
             .NonLazy();
 
         Container

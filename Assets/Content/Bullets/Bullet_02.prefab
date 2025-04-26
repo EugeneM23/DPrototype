@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1220255866714693891}
   - component: {fileID: 8781848009549982126}
   m_Layer: 8
-  m_Name: Bullet_03
+  m_Name: Bullet_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,8 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4234ed4764c32439da48669c3d79fc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxRicochets: 2
+  _maxRicochets: 0
   _damage: 0
+  _impulse: 0
 --- !u!114 &8781848009549982126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0, g: 1, b: 0.024961472, a: 1}
+  m_Color: {r: 1, g: 0.8301325, b: 0, a: 1}
   m_Intensity: 6
   m_Range: 30
   m_SpotAngle: 30
