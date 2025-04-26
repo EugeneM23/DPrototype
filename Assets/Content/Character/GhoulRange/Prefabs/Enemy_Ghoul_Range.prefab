@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySetings:
     <ChaseRange>k__BackingField: 15
-    <AttckRange>k__BackingField: 20
+    <AttckRange>k__BackingField: 10
     <CahaseSpeed>k__BackingField: 5
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 400

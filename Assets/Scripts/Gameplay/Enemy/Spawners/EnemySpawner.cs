@@ -24,12 +24,12 @@ namespace NewEnemy
 
         public void Tick()
         {
-            /*_spawnTime -= Time.deltaTime;
+            _spawnTime -= Time.deltaTime;
             if (_spawnTime <= 0)
             {
                 _spawner.Create(_spawnPosition);
                 _spawnTime = 3;
-            }*/
+            }
         }
     }
 }
