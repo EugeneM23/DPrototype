@@ -196,7 +196,7 @@ MonoBehaviour:
     <Health>k__BackingField: 0
     <AttckAnimations>k__BackingField:
     - Attack_01
-    <IsPushable>k__BackingField: 1
+    <IsPushable>k__BackingField: 0
 --- !u!114 &8579666310587775506
 MonoBehaviour:
   m_ObjectHideFlags: 0
