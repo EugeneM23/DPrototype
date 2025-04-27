@@ -2434,6 +2434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddeab9da0e044fc8e670fc2ed72c9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathEffectPrefab:
+  - {fileID: 2700031667390519270, guid: 6202591cd210144068a9b4d5348f970c, type: 3}
+  - {fileID: 1890696208852678844, guid: 9be670202d44d40d194e51f5d1117585, type: 3}
+  - {fileID: 7325492475399192643, guid: d30f728c3d17d478189442147d8c0e1f, type: 3}
 --- !u!114 &7998608272700366205
 MonoBehaviour:
   m_ObjectHideFlags: 0

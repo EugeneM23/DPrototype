@@ -197,16 +197,16 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     fromNumber: 10
     toNumber: 100
-  durationFadeIn: 0.25
-  enableOffsetFadeIn: 1
+  durationFadeIn: 0.2
+  enableOffsetFadeIn: 0
   offsetFadeIn: {x: 0.5, y: 0}
   enableScaleFadeIn: 1
-  scaleFadeIn: {x: 2, y: 0.5}
+  scaleFadeIn: {x: 1, y: 2}
   enableCrossScaleFadeIn: 0
   crossScaleFadeIn: {x: 1, y: 1.5}
   enableShakeFadeIn: 1
-  shakeOffsetFadeIn: {x: 1.5, y: 0}
-  shakeFrequencyFadeIn: 8
+  shakeOffsetFadeIn: {x: 0, y: 1.5}
+  shakeFrequencyFadeIn: 2
   durationFadeOut: 0.2
   enableOffsetFadeOut: 0
   offsetFadeOut: {x: 0.5, y: 0}
@@ -220,12 +220,12 @@ MonoBehaviour:
   enableLerp: 1
   lerpSettings:
     speed: 5
-    minX: -0.4
-    maxX: 0.4
-    minY: 0.5
-    maxY: 1
+    minX: -0.1
+    maxX: 0.1
+    minY: 0.3
+    maxY: 0.5
     randomFlip: 0
-  enableVelocity: 1
+  enableVelocity: 0
   velocitySettings:
     minX: -1
     maxX: 1
@@ -235,9 +235,9 @@ MonoBehaviour:
     dragX: 0.1
     dragY: 1
     gravity: 3
-  enableShaking: 1
+  enableShaking: 0
   shakeSettings:
-    offset: {x: 0.002, y: 0.005}
+    offset: {x: 0.005, y: 0.005}
     frequency: 50
   enableFollowing: 0
   followedTarget: {fileID: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
     fromNumber: 0
     toNumber: 1000
     fromScale: 1
-    toScale: 1.2
+    toScale: 1.25
   enableScaleOverTime: 0
   scaleOverTime:
     serializedVersion: 2
@@ -330,12 +330,12 @@ MonoBehaviour:
   maxOrthographicSize: 1.5
   orthographicCamera: {fileID: 0}
   spamGroup: 290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044290442904429044
-  enableCombination: 0
+  enableCombination: 1
   combinationSettings:
     method: 1
     maxDistance: 10
-    spawnDelay: 0.25
-    absorbDuration: 0.35
+    spawnDelay: 0.3
+    absorbDuration: 0.25
     scaleCurve:
       serializedVersion: 2
       m_Curve:
@@ -349,17 +349,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.7
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -382,15 +373,6 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
         time: 1
         value: 0
         inSlope: 0
@@ -402,13 +384,13 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    moveToAbsorber: 1
+    moveToAbsorber: 0
     teleportToAbsorber: 0
-    absorberScaleFactor: 1.5
+    absorberScaleFactor: 1
     absorberScaleFade: 15
-    instantGain: 0
+    instantGain: 1
     bonusLifetime: 1
-  enableDestruction: 1
+  enableDestruction: 0
   destructionSettings:
     maxDistance: 2
     spawnDelay: 0.2
@@ -591,7 +573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1259023134845127203
 RectTransform:
   m_ObjectHideFlags: 0
@@ -686,7 +668,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.8, b: 0.5, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:

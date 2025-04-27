@@ -2,11 +2,13 @@ using System;
 using Modules;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Gameplay.Modules
 {
     public class HealthComponentBase : MonoBehaviour, IDamageable
     {
+        [SerializeField] private GameObject[] _deathEffectPrefab;
         public event Action<int> OnHealthChanged;
         public event Action<HealthComponentBase> OnDespawn;
         public event Action OnHit;
@@ -30,6 +32,16 @@ namespace Gameplay.Modules
 
             if (_currentHealth <= 0)
             {
+                if (_deathEffectPrefab != null)
+                {
+                    int randomIndex = Random.Range(0, _deathEffectPrefab.Length);
+                    Vector3 forward = transform.forward;
+                    forward.y = 0; // Убираем наклон по вертикали, если надо
+                    var rotation = Quaternion.LookRotation(forward);
+                    Instantiate(_deathEffectPrefab[randomIndex], transform.position + new Vector3(0, 3, 0),
+                        rotation * Quaternion.Euler(0, -90, 0));
+                }
+
                 OnDespawn?.Invoke(this);
             }
         }
