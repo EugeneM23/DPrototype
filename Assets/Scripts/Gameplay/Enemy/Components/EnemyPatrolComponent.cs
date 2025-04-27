@@ -7,7 +7,7 @@ namespace Gameplay
     {
         private readonly NavMeshAgent _agent;
         private readonly EnemyPatrolPointManager _patrolPointManager;
-        private float _patrolSpeed;
+        private readonly float _patrolSpeed;
 
         public EnemyPatrolComponent(EnemyPatrolPointManager patrolPointManager,
             NavMeshAgent enemy, float patrolSpeed)

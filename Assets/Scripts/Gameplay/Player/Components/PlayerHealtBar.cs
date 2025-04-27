@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-namespace Player
+namespace Gameplay
 {
     public class PlayerHealtBar : MonoBehaviour
     {
         [SerializeField] private Slider _healthSlider;
+        [Inject] private readonly int _maxHealth;
 
-        private int _maxHealth = 100;
         private int _currentHealth;
 
         private void Start()

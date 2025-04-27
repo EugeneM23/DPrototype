@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -8,8 +7,8 @@ namespace DPrototype.Game
     public class CameraShakeComponent : ITickable, IInitializable
     {
         private readonly Transform _camera;
-        private float _shakeMagnitude = 0.1f;
-        private float _shakeDuration = 0.2f;
+        private float _shakeMagnitude;
+        private float _shakeDuration;
 
         private Quaternion _originalRotation;
         private bool _isReturning;
@@ -44,7 +43,7 @@ namespace DPrototype.Game
 
                 _shakeDuration -= Time.deltaTime;
 
-                if (_shakeDuration <= 0f) 
+                if (_shakeDuration <= 0f)
                     _isReturning = true;
             }
             else if (_isReturning)

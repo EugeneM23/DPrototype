@@ -1,4 +1,3 @@
-using Game;
 using Modules;
 using UnityEngine;
 using Zenject;
@@ -13,12 +12,7 @@ namespace DPrototype.Game
         public override void InstallBindings()
         {
             Container
-                .BindInterfacesAndSelfTo<CameraController>()
-                .AsSingle()
-                .NonLazy();
-
-            Container
-                .Bind<ObjectFollowComponent>()
+                .BindInterfacesAndSelfTo<ObjectFollowComponent>()
                 .AsSingle()
                 .WithArguments(_camera.transform, _smoothTime)
                 .NonLazy();

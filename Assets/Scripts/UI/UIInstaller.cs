@@ -1,12 +1,15 @@
 using UnityEngine;
 using Zenject;
 
-public class UIInstaller : Installer<GameObject, UIInstaller>
+namespace Gameplay
 {
-    [Inject] private GameObject _HUD;
-
-    public override void InstallBindings()
+    public class UIInstaller : Installer<GameObject, UIInstaller>
     {
-        Container.InstantiatePrefab(_HUD);
+        [Inject] private GameObject _HUD;
+
+        public override void InstallBindings()
+        {
+            Container.InstantiatePrefab(_HUD);
+        }
     }
 }

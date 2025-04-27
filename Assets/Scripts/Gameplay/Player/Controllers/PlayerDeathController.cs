@@ -2,7 +2,7 @@ using Gameplay.Modules;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class PlayerDeathController : IInitializable
     {

@@ -1,9 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class PlayerTransform : MonoBehaviour
     {

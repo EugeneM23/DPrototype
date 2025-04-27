@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 namespace Modules
 {
-    public class ObjectFollowComponent
+    public class ObjectFollowComponent : ITickable
     {
         private readonly Transform _folowObject;
         private readonly float _smoothTime;

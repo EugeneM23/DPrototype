@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Game
+namespace Gameplay
 {
     [Serializable]
     public class PlayerSetings

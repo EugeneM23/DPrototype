@@ -2383,8 +2383,10 @@ MonoBehaviour:
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 10
     <Damage>k__BackingField: 30
+    <Health>k__BackingField: 30
     <AttckAnimations>k__BackingField:
     - Attack_01
+    <IsPushable>k__BackingField: 1
 --- !u!114 &5618135351587943864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,7 +2433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddeab9da0e044fc8e670fc2ed72c9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthMax: 30
 --- !u!114 &7998608272700366205
 MonoBehaviour:
   m_ObjectHideFlags: 0

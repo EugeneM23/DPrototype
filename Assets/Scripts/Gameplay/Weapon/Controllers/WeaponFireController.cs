@@ -1,26 +1,25 @@
 using DPrototype.Game;
-using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class WeaponFireController : IInitializable
     {
         private readonly Player _player;
         private readonly Weapon _weapon;
-        private readonly CameraController _cameraController;
+        private readonly CameraShakeComponent _cameraShakeComponent;
 
-        public WeaponFireController(Player player, Weapon weapon, CameraController cameraController)
+        public WeaponFireController(Player player, Weapon weapon, CameraShakeComponent cameraShakeComponent)
         {
             _player = player;
             _weapon = weapon;
-            _cameraController = cameraController;
+            _cameraShakeComponent = cameraShakeComponent;
         }
 
         public void Initialize()
         {
             _player.OnShoot += _weapon.Shoot;
-            _player.OnShoot += () => _cameraController.Shake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
+            _player.OnShoot += () => _cameraShakeComponent.CameraShake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
         }
     }
 }

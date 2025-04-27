@@ -1,13 +1,13 @@
-using DPrototype.Game;
+using Modules;
 
-namespace Game
+namespace Gameplay
 {
     public class PlayerCameraController
     {
-        private readonly DPrototype.Game.CameraController _cameraController;
+        private readonly ObjectFollowComponent _cameraController;
         private readonly PlayerTransform _playerTransform;
 
-        public PlayerCameraController(DPrototype.Game.CameraController cameraController, PlayerTransform playerTransform)
+        public PlayerCameraController(ObjectFollowComponent cameraController, PlayerTransform playerTransform)
         {
             _cameraController = cameraController;
             _playerTransform = playerTransform;

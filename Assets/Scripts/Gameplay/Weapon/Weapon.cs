@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Game
+namespace Gameplay
 {
     public class Weapon : ITickable
     {

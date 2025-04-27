@@ -1,11 +1,11 @@
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class EnemyRangeAttackComponent : MonoBehaviour
     {
-        [SerializeField] private ArcMover _projectilePrefab;
+        [SerializeField] private ProjectileArcMover _projectilePrefab;
         [SerializeField] private Transform _firePoint;
         [SerializeField] private float _projectileSpeed = 10f; // Скорость снаряда
 
@@ -14,7 +14,7 @@ namespace Game
         public void Fire()
         {
             Vector3 targetPosition = CalculatePredictedPosition();
-            ArcMover projectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
+            ProjectileArcMover projectile = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
             projectile.Construct(_firePoint.position, targetPosition);
         }
 

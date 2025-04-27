@@ -1,15 +1,17 @@
+using Gameplay.Modules;
 using Player;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
-    public class PlayerHealthInstaller : Installer<Vector3, Transform, PlayerHealtBar, PlayerHealthInstaller>
+    public class PlayerHealthInstaller : Installer<int, Vector3, Transform, PlayerHealtBar, PlayerHealthInstaller>
     {
         [Inject] PlayerTransform _player;
         [Inject] private PlayerHealtBar _playerHealtBar;
         [Inject] private Transform _parent;
         [Inject] private Vector3 _hpBarOffset;
+        [Inject] private int _maxHealth;
 
         public override void InstallBindings()
         {
@@ -28,6 +30,14 @@ namespace Game
                 .FromComponentInNewPrefab(_playerHealtBar)
                 .UnderTransform(_parent)
                 .AsSingle()
+                .WithArguments(_maxHealth)
+                .NonLazy();
+
+            Container
+                .Bind<IHealth>()
+                .To<Health>()
+                .AsSingle()
+                .WithArguments(_maxHealth)
                 .NonLazy();
 
             Container

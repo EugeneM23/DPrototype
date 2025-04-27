@@ -1,33 +1,36 @@
 using Gameplay;
 using Zenject;
 
-public class EnemyStateInstaller : Installer<EnemySetings, EnemyStateInstaller>
+namespace Gameplay
 {
-    [Inject] private EnemySetings _setings;
-
-    public override void InstallBindings()
+    public class EnemyStateInstaller : Installer<EnemySetings, EnemyStateInstaller>
     {
-        Container
-            .Bind<EnemyAttackComponent>()
-            .AsSingle().WithArguments(_setings.AttckAnimations)
-            .NonLazy();
+        [Inject] private EnemySetings _setings;
 
-        Container
-            .Bind<EnemyChaseComponent>()
-            .AsSingle()
-            .WithArguments(_setings.CahaseSpeed)
-            .NonLazy();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<EnemyAttackComponent>()
+                .AsSingle().WithArguments(_setings.AttckAnimations)
+                .NonLazy();
 
-        Container
-            .Bind<EnemyPatrolComponent>()
-            .AsSingle()
-            .WithArguments(_setings.PatrolSpeed)
-            .NonLazy();
+            Container
+                .Bind<EnemyChaseComponent>()
+                .AsSingle()
+                .WithArguments(_setings.CahaseSpeed)
+                .NonLazy();
 
-        Container
-            .Bind<EnemyStateManager>()
-            .AsSingle()
-            .WithArguments(_setings.ChaseRange, _setings.AttckRange)
-            .NonLazy();
+            Container
+                .Bind<EnemyPatrolComponent>()
+                .AsSingle()
+                .WithArguments(_setings.PatrolSpeed)
+                .NonLazy();
+
+            Container
+                .Bind<EnemyStateManager>()
+                .AsSingle()
+                .WithArguments(_setings.ChaseRange, _setings.AttckRange)
+                .NonLazy();
+        }
     }
 }

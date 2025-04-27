@@ -2,7 +2,7 @@ using Player;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class PlayerHPBarPComponent : ITickable
     {

@@ -5043,14 +5043,14 @@ MonoBehaviour:
   playerHealtBar: {fileID: -227575839315736592, guid: 6c1cc8cef5f3b4b5ab6d7ae21d931f97, type: 3}
   _hitEffect: {fileID: 190173164689368134}
   _playerSetings:
-    <RunSpeed>k__BackingField: 20
+    <RunSpeed>k__BackingField: 10
     <RotationSpeed>k__BackingField: 20
     <LookAtSpeed>k__BackingField: 800
     <StrafeSpeed>k__BackingField: 3
     <StrafePower>k__BackingField: 5
-    <MaxHealth>k__BackingField: 100
+    <MaxHealth>k__BackingField: 1000
   _healtBarOffset: {x: 0, y: 2, z: -2.5}
-  _weaponPrefab: {fileID: 4987170329088819174, guid: 58bfaaefdb0b84f7ab7e3b91e3a0a956, type: 3}
+  _weaponPrefab: {fileID: 4987170329088819174, guid: a86d18cc267e147439e4a962b5e4a54c, type: 3}
 --- !u!114 &962201619078096505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5063,7 +5063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddeab9da0e044fc8e670fc2ed72c9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthMax: 100
 --- !u!114 &-1200308631884723926
 MonoBehaviour:
   m_ObjectHideFlags: 0

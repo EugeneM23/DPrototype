@@ -1,9 +1,10 @@
 using Gameplay;
 using Gameplay.Modules;
+using NewEnemy;
 using UnityEngine;
 using Zenject;
 
-namespace NewEnemy
+namespace Gameplay
 {
     public class EnemySpawnerInstaller : MonoInstaller
     {

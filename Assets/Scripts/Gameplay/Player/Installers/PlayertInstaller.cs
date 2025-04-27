@@ -1,10 +1,12 @@
+using Game;
+using Gameplay;
 using Modules;
 using Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class PlayertInstaller : MonoInstaller
     {
@@ -23,7 +25,8 @@ namespace Game
 
             PlayerInputInstaller.Install(Container);
             PlayerMovementInstaller.Install(Container, _playerSetings);
-            PlayerHealthInstaller.Install(Container, _healtBarOffset, gameObject.transform, playerHealtBar);
+            PlayerHealthInstaller.Install(Container, _playerSetings.MaxHealth, _healtBarOffset, gameObject.transform,
+                playerHealtBar);
             PlayerAnimationInstaller.Install(Container);
             PlayerEffectsInstaller.Install(Container, _hitEffect);
 

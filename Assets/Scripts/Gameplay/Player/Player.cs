@@ -3,7 +3,7 @@ using Modules;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class Player : ITickable
     {

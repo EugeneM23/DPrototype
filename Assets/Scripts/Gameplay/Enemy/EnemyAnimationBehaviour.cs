@@ -8,6 +8,10 @@ namespace Gameplay
         private readonly Animator _animator;
         private readonly EnemyStateManager _conditions;
 
+        private static readonly int IsWalkingHash = Animator.StringToHash("IsWalking");
+        private static readonly int IsRunningHash = Animator.StringToHash("IsRunning");
+        private static readonly int IsAttackingHash = Animator.StringToHash("IsAttaking");
+
         public EnemyAnimationBehaviour(Animator animator, EnemyStateManager conditions)
         {
             _animator = animator;
@@ -17,10 +21,10 @@ namespace Gameplay
         public void Tick()
         {
             if (_conditions.IsBusy) return;
-
-            _animator.SetBool("IsWalking", _conditions.IsPatroling);
-            _animator.SetBool("IsRunning", _conditions.IsChasing);
-            _animator.SetBool("IsAttaking", _conditions.IsAttacking);
+            
+            _animator.SetBool(IsWalkingHash, _conditions.IsPatroling);
+            _animator.SetBool(IsRunningHash, _conditions.IsChasing);
+            _animator.SetBool(IsAttackingHash, _conditions.IsAttacking);
         }
     }
 }

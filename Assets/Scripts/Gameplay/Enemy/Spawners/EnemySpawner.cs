@@ -1,9 +1,8 @@
-using Gameplay;
-using Modules;
+using NewEnemy;
 using UnityEngine;
 using Zenject;
 
-namespace NewEnemy
+namespace Gameplay
 {
     public class EnemySpawner : IInitializable, ITickable
     {
