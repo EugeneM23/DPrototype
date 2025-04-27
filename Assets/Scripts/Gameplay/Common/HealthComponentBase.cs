@@ -10,6 +10,7 @@ namespace Gameplay.Modules
         public event Action<int> OnHealthChanged;
         public event Action<HealthComponentBase> OnDespawn;
         public event Action OnHit;
+        public event Action<int> OnTakeDamaged;
 
         [Inject] private IHealth _health;
 
@@ -25,6 +26,7 @@ namespace Gameplay.Modules
             _currentHealth -= damage;
             OnHealthChanged?.Invoke(_currentHealth);
             OnHit?.Invoke();
+            OnTakeDamaged?.Invoke(damage);
 
             if (_currentHealth <= 0)
             {

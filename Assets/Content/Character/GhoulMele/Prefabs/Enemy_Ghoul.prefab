@@ -2225,6 +2225,7 @@ GameObject:
   - component: {fileID: 7516690853631126249}
   - component: {fileID: 7998608272700366205}
   - component: {fileID: 1430953631813445804}
+  - component: {fileID: 7736683337220559816}
   m_Layer: 7
   m_Name: Enemy_Ghoul
   m_TagString: Untagged
@@ -2462,6 +2463,20 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &7736683337220559816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481907973978787791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb86b7056a14eb0ac9925ee6c2bf661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefab: {fileID: 1259023133563206875, guid: 7b8c01b1d7077754fbbd8454e3cbab63, type: 3}
+  target: {fileID: 8136789233410780891}
 --- !u!1 &5585570460900715633
 GameObject:
   m_ObjectHideFlags: 0
