@@ -17,6 +17,7 @@ namespace Gameplay
         private ParticleSystem _muzzleFlash;
         public float ShakeDuration => _setings.CameraShakeDuration;
         public float ShakeMagnitude => _setings.CameraShakeMagnitude;
+        public float FireRate => _setings.FireRate;
 
         private IBulletSpawner _bulletSpawner;
         private IShellSpawner _shellSpawner;
@@ -40,7 +41,9 @@ namespace Gameplay
         public void Tick()
         {
             if (_player.IsMoving)
+            {
                 _muzzleFlash.gameObject.SetActive(false);
+            }
 
             CoolDown();
         }
@@ -49,12 +52,11 @@ namespace Gameplay
         {
             if (_readyToFire)
             {
-                _muzzleFlash.gameObject.SetActive(true);
-                _muzzleFlash.Play();
-
-                _readyToFire = false;
                 OnFire?.Invoke();
 
+                _muzzleFlash.gameObject.SetActive(true);
+                _muzzleFlash.Play();
+                _readyToFire = false;
 
                 _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse,
                     _setings.ImpulsePower);
