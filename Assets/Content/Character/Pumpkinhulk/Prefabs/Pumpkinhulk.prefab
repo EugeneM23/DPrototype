@@ -693,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c2965295df442bda0f885660d3da43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popupPrefab: {fileID: 1259023133563206875, guid: aea097f0b68cc4868a93469220296bdf, type: 3}
   _enemySetings:
     <ChaseRange>k__BackingField: 15
     <AttckRange>k__BackingField: 3
@@ -705,6 +706,7 @@ MonoBehaviour:
     - Attack_01
     - JumpAttack
     - Roar
+    <IsPushable>k__BackingField: 0
 --- !u!114 &3967326580297108189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +736,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddeab9da0e044fc8e670fc2ed72c9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathEffectPrefab:
+  - {fileID: 682907527993760888, guid: 4d2682e99c0d54957b8fa6b40b6f6c94, type: 3}
+  - {fileID: 2700031667390519270, guid: 6202591cd210144068a9b4d5348f970c, type: 3}
+  - {fileID: 1890696208852678844, guid: 9be670202d44d40d194e51f5d1117585, type: 3}
+  - {fileID: 7325492475399192643, guid: d30f728c3d17d478189442147d8c0e1f, type: 3}
+  - {fileID: 2360933683143488451, guid: 8363210a2821f487ba74f7c704159e5d, type: 3}
+  - {fileID: 5016170632959171363, guid: 8aac63a67d70843399687c41957a9705, type: 3}
+  - {fileID: 8859926575668995837, guid: 6e4449c3ed27b4a09893d0760724314f, type: 3}
+  - {fileID: 5936082179827903908, guid: c2454618cf83749a8b9377d2f83b703c, type: 3}
+  - {fileID: 5494213943435191861, guid: 0d93dfab5f2ca4df4b02ca908706baff, type: 3}
+  - {fileID: 5371219466416337994, guid: 58e79888014bd42e185861ebccdb73a0, type: 3}
 --- !u!114 &-5309578566457741656
 MonoBehaviour:
   m_ObjectHideFlags: 0
