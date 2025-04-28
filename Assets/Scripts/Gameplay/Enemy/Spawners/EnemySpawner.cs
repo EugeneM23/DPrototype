@@ -8,12 +8,16 @@ namespace Gameplay
     {
         private IEnemySpawner _spawner;
         private Vector3 _spawnPosition;
-        private float _spawnTime = 3;
+        
+        private float _spawnTime;
+        private bool IsCycle;
 
-        public EnemySpawner(IEnemySpawner spawner, Vector3 spawnPosition)
+        public EnemySpawner(IEnemySpawner spawner, Vector3 spawnPosition, bool isCycle, float spawnTime)
         {
             _spawner = spawner;
             _spawnPosition = spawnPosition;
+            IsCycle = isCycle;
+            _spawnTime = spawnTime;
         }
 
         public void Initialize()
@@ -23,11 +27,14 @@ namespace Gameplay
 
         public void Tick()
         {
-            _spawnTime -= Time.deltaTime;
-            if (_spawnTime <= 0)
+            if (IsCycle)
             {
-                _spawner.Create(_spawnPosition);
-                _spawnTime = 3;
+                _spawnTime -= Time.deltaTime;
+                if (_spawnTime <= 0)
+                {
+                    _spawner.Create(_spawnPosition);
+                    _spawnTime = 3;
+                }
             }
         }
     }

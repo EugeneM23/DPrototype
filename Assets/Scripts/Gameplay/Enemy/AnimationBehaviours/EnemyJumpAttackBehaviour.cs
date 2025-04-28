@@ -32,7 +32,7 @@ public class EnemyJumpAttackBehaviour : StateMachineBehaviour
                 Instantiate(Resources.Load<GameObject>("Prefabs/Spikes attack"), animator.transform.position,
                     Quaternion.identity);
                 _isShaked = true;
-                _cameraShake.CameraShake(1, 1);
+                _cameraShake.CameraShake(0.3f, 1);
             }
         }
     }

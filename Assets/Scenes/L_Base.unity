@@ -524,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &250389412
 Transform:
   m_ObjectHideFlags: 0
@@ -588,6 +588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &250389416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,7 +1057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &591707721
 Transform:
   m_ObjectHideFlags: 0
@@ -1119,6 +1121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &591707725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1934,7 +1938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &971238215
 Transform:
   m_ObjectHideFlags: 0
@@ -1998,6 +2002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 8907686812872450070, guid: 4637fb6f0558c4f5f9594974bc2ca26f, type: 3}
+  IsCycle: 0
+  _spawnTime: 0
 --- !u!114 &971238219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2411,7 +2417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1029731364
 Transform:
   m_ObjectHideFlags: 0
@@ -2475,6 +2481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &1029731368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,6 +2551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &1034023470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,6 +2687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: -7776074291255282540, guid: 6909a2a448fa448b4a51c021ea8ccf45, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &1176875071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3056,6 +3068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 440409809092466216, guid: 405dd809342ba4e1d887f4cf0b43f990, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &1538354622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,7 +3107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1601614405
 Transform:
   m_ObjectHideFlags: 0
@@ -3157,6 +3171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &1601614409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3225,7 +3241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1742723737
 Transform:
   m_ObjectHideFlags: 0
@@ -3289,6 +3305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
+  IsCycle: 1
+  _spawnTime: 3
 --- !u!114 &1742723741
 MonoBehaviour:
   m_ObjectHideFlags: 0
