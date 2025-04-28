@@ -15,15 +15,15 @@ namespace Gameplay
         private readonly WeaponSetings _setings;
         private readonly Player _player;
         private ParticleSystem _muzzleFlash;
-        public float ShakeDuration => _setings.ShakeDuration;
-        public float ShakeMagnitude => _setings.ShakeMagnitude;
+        public float ShakeDuration => _setings.CameraShakeDuration;
+        public float ShakeMagnitude => _setings.CameraShakeMagnitude;
 
         private IBulletSpawner _bulletSpawner;
         private IShellSpawner _shellSpawner;
 
         private bool _readyToFire;
 
-        private float lastTimeShoot = 0;
+        private float lastTimeShoot;
 
         public Weapon(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner, WeaponSetings setings,
             Transform firePoint, Transform shellPoint, Player player, ParticleSystem muzzleFlash)
@@ -40,9 +40,7 @@ namespace Gameplay
         public void Tick()
         {
             if (_player.IsMoving)
-            {
                 _muzzleFlash.gameObject.SetActive(false);
-            }
 
             CoolDown();
         }

@@ -21,7 +21,7 @@ namespace Gameplay
         {
             _agent.isStopped = false;
 
-            _agent.SetDestination(_target.Transform.position);
+            _agent.SetDestination(_target.transform.position);
             _agent.speed = _speed;
         }
     }

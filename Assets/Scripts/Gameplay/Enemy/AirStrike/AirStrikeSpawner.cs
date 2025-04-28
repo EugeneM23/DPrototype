@@ -11,7 +11,7 @@ namespace Gameplay
         public void Spawn()
         {
             var go = Instantiate(_airStrikePrefab);
-            var position = _player.position;
+            Vector3 position = _player.position;
             position.y = 0;
             go.transform.position = position;
         }

@@ -7,8 +7,7 @@ namespace Gameplay
     {
         private readonly int _maxRicochets;
         private readonly Transform _transform;
-
-        private int _currentRicochetCount = 0;
+        private int _currentRicochetCount;
 
         public bool CanRicochet => _currentRicochetCount < _maxRicochets;
 

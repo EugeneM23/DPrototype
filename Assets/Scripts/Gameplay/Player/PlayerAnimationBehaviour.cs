@@ -8,6 +8,11 @@ namespace Gameplay
         private readonly Animator _animator;
         private readonly CharacterController _characterController;
 
+        private static readonly int
+            IsRunning = Animator.StringToHash("IsRunning");
+
+        private static readonly int IsIdling = Animator.StringToHash("IsIdling");
+
         public PlayerAnimationBehaviour(Animator animator, CharacterController characterController)
         {
             _animator = animator;
@@ -17,25 +22,15 @@ namespace Gameplay
         public void Tick()
         {
             if (_characterController.velocity != Vector3.zero)
-                _animator.SetBool("IsRuning", true);
+            {
+                _animator.SetBool(IsRunning, true);
+                _animator.SetBool(IsIdling, false);
+            }
             else
             {
-                _animator.SetBool("IsIdling", true);
-                _animator.SetBool("IsRuning", false);
+                _animator.SetBool(IsIdling, true);
+                _animator.SetBool(IsRunning, false);
             }
-        }
-
-        public void Shoot()
-        {
-            _animator.SetTrigger("Shoot");
-            _animator.SetBool("IsIdling", false);
-
-            _animator.SetBool("IsFiring", true);
-        }
-
-        public void StopShoot()
-        {
-            _animator.SetBool("IsFiring", false);
         }
     }
 }

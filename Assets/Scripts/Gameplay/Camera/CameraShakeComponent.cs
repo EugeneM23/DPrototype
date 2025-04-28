@@ -12,16 +12,11 @@ namespace DPrototype.Game
 
         private Quaternion _originalRotation;
         private bool _isReturning;
+        private float maxAngle = 2;
 
-        public CameraShakeComponent(Camera camera)
-        {
-            _camera = camera.transform;
-        }
+        public CameraShakeComponent(Camera camera) => _camera = camera.transform;
 
-        public void Initialize()
-        {
-            _originalRotation = _camera.localRotation;
-        }
+        public void Initialize() => _originalRotation = _camera.localRotation;
 
         public void CameraShake(float shakeMagnitude, float shakeDuration)
         {
@@ -33,9 +28,9 @@ namespace DPrototype.Game
         {
             if (_shakeDuration > 0)
             {
-                float angleX = Random.Range(-1f, 1f) * _shakeMagnitude;
-                float angleY = Random.Range(-1f, 1f) * _shakeMagnitude;
-                float angleZ = Random.Range(-1f, 1f) * _shakeMagnitude;
+                float angleX = Random.Range(-maxAngle, maxAngle) * _shakeMagnitude;
+                float angleY = Random.Range(-maxAngle, maxAngle) * _shakeMagnitude;
+                float angleZ = Random.Range(-maxAngle, maxAngle) * _shakeMagnitude;
 
                 Quaternion shakeRotation = Quaternion.Euler(angleX, angleY, angleZ);
 

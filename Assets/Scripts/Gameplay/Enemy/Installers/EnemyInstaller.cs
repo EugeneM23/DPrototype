@@ -35,7 +35,7 @@ namespace Gameplay
 
             Container
                 .Bind<EnemyAttackAssistComponent>()
-                .AsSingle().WithArguments(_enemyTransform, _playerTransform.Transform, _enemySetings.AttakRotationSpeed)
+                .AsSingle().WithArguments(_enemyTransform, _playerTransform.transform, _enemySetings.AttakRotationSpeed)
                 .NonLazy();
 
             Container

@@ -6,7 +6,6 @@ namespace Gameplay
     public class DamageNumberSpawner
     {
         private DamageNumber _popupPrefab;
-
         private Transform _target;
 
         public DamageNumberSpawner(DamageNumber popupPrefab, Transform target)

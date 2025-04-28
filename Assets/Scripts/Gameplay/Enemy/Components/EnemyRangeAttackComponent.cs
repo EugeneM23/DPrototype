@@ -7,10 +7,11 @@ namespace Gameplay
     {
         [SerializeField] private ProjectileArcMover _projectilePrefab;
         [SerializeField] private Transform _firePoint;
-        [SerializeField] private float _projectileSpeed = 10f; // Скорость снаряда
+        [SerializeField] private float _projectileSpeed;
 
         [Inject] private readonly PlayerTransform _player;
 
+        //Called by an event in animation
         public void Fire()
         {
             Vector3 targetPosition = CalculatePredictedPosition();

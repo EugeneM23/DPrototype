@@ -6,14 +6,8 @@ namespace Gameplay
     {
         [SerializeField] private ParticleSystem _particleSystem;
 
-        private void OnEnable()
-        {
-            _particleSystem.Stop();
-        }
+        private void OnEnable() => _particleSystem.Stop();
 
-        public void Explode()
-        {
-            _particleSystem.Play();
-        }
+        public void Explode() => _particleSystem.Play();
     }
 }

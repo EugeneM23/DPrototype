@@ -19,6 +19,7 @@ public class EnemyKamikadzeAttackBehavior : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //for
         float stopThreshold = 0.3f;
         if (stateInfo.normalizedTime > 0.2f && _shouldCast)
         {
@@ -28,6 +29,8 @@ public class EnemyKamikadzeAttackBehavior : StateMachineBehaviour
 
         if (stateInfo.normalizedTime > stopThreshold)
         {
+            //This is just for testing  😂😂😂😂😂😂😂😂
+
             _kamikadzeParts.Add(Instantiate(Resources.Load<GameObject>("Prefabs/BodyParts01"),
                 animator.transform.position + new Vector3(0, 1, 0), Quaternion.identity));
 

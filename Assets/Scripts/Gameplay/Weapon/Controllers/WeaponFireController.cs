@@ -1,9 +1,10 @@
+using System;
 using DPrototype.Game;
 using Zenject;
 
 namespace Gameplay
 {
-    public class WeaponFireController : IInitializable
+    public class WeaponFireController : IInitializable, IDisposable
     {
         private readonly Player _player;
         private readonly Weapon _weapon;
@@ -19,7 +20,13 @@ namespace Gameplay
         public void Initialize()
         {
             _player.OnShoot += _weapon.Shoot;
-            _player.OnShoot += () => _cameraShakeComponent.CameraShake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
+            _weapon.OnFire += () => _cameraShakeComponent.CameraShake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
+        }
+
+        public void Dispose()
+        {
+            _player.OnShoot += _weapon.Shoot;
+            _weapon.OnFire -= () => _cameraShakeComponent.CameraShake(_weapon.ShakeMagnitude, _weapon.ShakeDuration);
         }
     }
 }

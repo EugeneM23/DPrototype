@@ -3,15 +3,14 @@ using UnityEngine;
 public class ProjectileArcMover : MonoBehaviour
 {
     [SerializeField] private GameObject _explosionPrefab;
-    [SerializeField] private float speed = 14f;
-    [SerializeField] private float height = 7f;
+    [SerializeField] private float speed;
+    [SerializeField] private float height;
 
     private Vector3 _startPosition;
     private Vector3 _endPosition;
-
     private float startTime;
     private float totalDistance;
-    private bool isMoving = false;
+    private bool isMoving;
 
     void Update()
     {

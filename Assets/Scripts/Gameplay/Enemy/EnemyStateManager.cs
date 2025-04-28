@@ -65,16 +65,9 @@ namespace Gameplay
         }
 
         private bool PlayerInChaseRange() =>
-            Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _chaseRange;
+            Vector3.Distance(_enemy.transform.position, _player.transform.position) <= _chaseRange;
 
         private bool PlayerInAttackRange() =>
-            Vector3.Distance(_enemy.transform.position, _player.Transform.position) <= _attckRange;
-    }
-
-    public enum EnemyState
-    {
-        Patrol,
-        Chase,
-        Attack
+            Vector3.Distance(_enemy.transform.position, _player.transform.position) <= _attckRange;
     }
 }

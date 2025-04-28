@@ -25,20 +25,20 @@ namespace Gameplay
             Container
                 .Bind<RotationComponent>()
                 .AsSingle()
-                .WithArguments(_player.Transform, _playerSetings.RotationSpeed)
+                .WithArguments(_player.transform, _playerSetings.RotationSpeed)
                 .NonLazy();
 
             Container
                 .Bind<LeanComponent>()
                 .AsSingle()
-                .WithArguments(_player.Transform)
+                .WithArguments(_player.transform)
                 .NonLazy();
 
 
             Container
                 .Bind<LookAtComponent>()
                 .AsSingle()
-                .WithArguments(_player.Transform, _playerSetings.LookAtSpeed)
+                .WithArguments(_player.transform, _playerSetings.LookAtSpeed)
                 .NonLazy();
         }
     }

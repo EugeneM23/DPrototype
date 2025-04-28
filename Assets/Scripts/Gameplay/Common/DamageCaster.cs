@@ -8,20 +8,13 @@ namespace Gameplay
     {
         [Inject] private readonly DamageComponent _damageComponent;
 
-        [Header("Cast Settings")] [SerializeField]
-        private Transform sourceObject;
+        [SerializeField] private Transform sourceObject;
+        [SerializeField] private float radius;
+        [SerializeField] private LayerMask layerMask;
 
-        [SerializeField] private float radius = 1f;
+        private bool _shouldCast;
 
-        [Header("Damage Settings")] [SerializeField]
-        private LayerMask layerMask;
-
-        private bool _shouldCast = false;
-
-        private void OnEnable()
-        {
-            _shouldCast = false;
-        }
+        private void OnEnable() => _shouldCast = false;
 
         void Update()
         {

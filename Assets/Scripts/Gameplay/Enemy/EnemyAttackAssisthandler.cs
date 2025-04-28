@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Zenject;
 
@@ -15,8 +14,10 @@ namespace Gameplay
             _isAssistEnable = false;
         }
 
+        //Called by an event in animation
         private void AimAssistOn() => _isAssistEnable = true;
-
+        
+        //Called by an event in animation
         private void AimAssistOff() => _isAssistEnable = false;
 
         private void Update()

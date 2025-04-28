@@ -6,10 +6,7 @@ namespace NewEnemy
 {
     public class EnemyPool : MemoryPool<Vector3, HealthComponentBase>, IEnemySpawner
     {
-        public HealthComponentBase Create(Vector3 position)
-        {
-            return Spawn(position);
-        }
+        public HealthComponentBase Create(Vector3 position) => Spawn(position);
 
         protected override void Reinitialize(Vector3 position, HealthComponentBase enemy)
         {
@@ -31,10 +28,5 @@ namespace NewEnemy
             enemy.gameObject.SetActive(false);
             enemy.OnDespawn -= Despawn;
         }
-    }
-
-    public interface IEnemySpawner
-    {
-        public HealthComponentBase Create(Vector3 position);
     }
 }

@@ -5,7 +5,6 @@ namespace Gameplay
 {
     public class PlayerTransform : MonoBehaviour
     {
-        public Transform Transform => gameObject.transform;
         public float Speed { get; private set; }
 
         private float _timer;
@@ -19,10 +18,7 @@ namespace Gameplay
             lastRotation = transform.rotation;
         }
 
-        void Update()
-        {
-            Speed = GetCharacterSpeed();
-        }
+        void Update() => Speed = GetCharacterSpeed();
 
         private float GetCharacterSpeed()
         {

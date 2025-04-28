@@ -6,7 +6,7 @@ namespace Gameplay
     internal class AirStrikeAttack : MonoBehaviour
     {
         [SerializeField] private GameObject[] objectsToPlace;
-        public float radius = 10;
+        [SerializeField] private float radius;
 
         private void OnEnable()
         {
