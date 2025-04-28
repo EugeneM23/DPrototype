@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 106979
   packageName: Stylized Projectile Pack 1
   packageVersion: 1.62
-  assetPath: Assets/AssetStoreContent/EffectCore/materials/generic/default_additive.mat
+  assetPath: Assets/EffectCore/materials/generic/default_additive.mat
   uploadId: 414036

@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 106979
   packageName: Stylized Projectile Pack 1
   packageVersion: 1.62
-  assetPath: Assets/AssetStoreContent/EffectCore/packs/WebDemoAssets/animators/CameraAC_Master.controller
+  assetPath: Assets/EffectCore/packs/WebDemoAssets/animators/CameraAC_Master.controller
   uploadId: 414036

@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 106979
   packageName: Stylized Projectile Pack 1
   packageVersion: 1.62
-  assetPath: Assets/AssetStoreContent/EffectCore/packs/WebDemoAssets/example_scene_environment/sphere.mat
+  assetPath: Assets/EffectCore/packs/WebDemoAssets/example_scene_environment/sphere.mat
   uploadId: 414036

@@ -16,5 +16,5 @@ AssetOrigin:
   productId: 106979
   packageName: Stylized Projectile Pack 1
   packageVersion: 1.62
-  assetPath: Assets/AssetStoreContent/EffectCore/packs/WebDemoAssets/scripts/ECCameraShakeProjectile.cs
+  assetPath: Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShakeProjectile.cs
   uploadId: 414036

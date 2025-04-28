@@ -110,5 +110,5 @@ AssetOrigin:
   productId: 106979
   packageName: Stylized Projectile Pack 1
   packageVersion: 1.62
-  assetPath: Assets/AssetStoreContent/EffectCore/textures/generic/Light.psd
+  assetPath: Assets/EffectCore/textures/generic/Light.psd
   uploadId: 414036

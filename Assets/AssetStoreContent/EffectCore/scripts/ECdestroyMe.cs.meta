@@ -15,5 +15,5 @@ AssetOrigin:
   productId: 106979
   packageName: Stylized Projectile Pack 1
   packageVersion: 1.62
-  assetPath: Assets/AssetStoreContent/EffectCore/scripts/ECdestroyMe.cs
+  assetPath: Assets/EffectCore/scripts/ECdestroyMe.cs
   uploadId: 414036
