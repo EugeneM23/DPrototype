@@ -7,6 +7,7 @@ public class ECdestroyMe : MonoBehaviour{
     public float deathtimer = 10;
 
 
+	// Use this for initialization
 	void Start () {
 	
 	}

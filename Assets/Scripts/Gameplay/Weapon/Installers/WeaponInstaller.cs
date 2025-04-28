@@ -10,6 +10,7 @@ namespace Game
         [SerializeField] private Transform _firePoint;
         [SerializeField] private Transform _shellPoint;
         [SerializeField] private WeaponSetings _setings;
+        [SerializeField] private ParticleSystem _muzzleFlash;
 
         [Inject] private ShellPrefabhandler _shellPrefabhandler;
         [Inject] private BulletPrefabHandler _bulletPrefabHandler;
@@ -20,7 +21,7 @@ namespace Game
 
             Container
                 .BindInterfacesAndSelfTo<Weapon>()
-                .AsSingle().WithArguments(_firePoint, _shellPoint, _setings)
+                .AsSingle().WithArguments(_firePoint, _shellPoint, _setings, _muzzleFlash)
                 .NonLazy();
 
             Container

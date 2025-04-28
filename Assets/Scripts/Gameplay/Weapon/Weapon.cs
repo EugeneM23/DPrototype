@@ -14,6 +14,7 @@ namespace Gameplay
         private readonly Transform _shellPoint;
         private readonly WeaponSetings _setings;
         private readonly Player _player;
+        private ParticleSystem _muzzleFlash;
         public float ShakeDuration => _setings.ShakeDuration;
         public float ShakeMagnitude => _setings.ShakeMagnitude;
 
@@ -25,18 +26,23 @@ namespace Gameplay
         private float lastTimeShoot = 0;
 
         public Weapon(IBulletSpawner bulletSpawner, IShellSpawner shellSpawner, WeaponSetings setings,
-            Transform firePoint, Transform shellPoint, Player player)
+            Transform firePoint, Transform shellPoint, Player player, ParticleSystem muzzleFlash)
         {
             _bulletSpawner = bulletSpawner;
             _shellSpawner = shellSpawner;
             _setings = setings;
             _shellPoint = shellPoint;
             _player = player;
+            _muzzleFlash = muzzleFlash;
             _firePoint = firePoint;
         }
 
         public void Tick()
         {
+            if (_player.IsMoving)
+            {
+                _muzzleFlash.gameObject.SetActive(false);
+            }
             CoolDown();
         }
 
@@ -44,8 +50,12 @@ namespace Gameplay
         {
             if (_readyToFire)
             {
+                _muzzleFlash.gameObject.SetActive(true);
+
                 _readyToFire = false;
                 OnFire?.Invoke();
+                
+                _muzzleFlash.Play();
 
                 _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse,
                     _setings.ImpulsePower);
@@ -56,10 +66,13 @@ namespace Gameplay
 
                     Bullet bullet = _bulletSpawner.Create(_firePoint.position, rotation);
                     bullet.Setup(_setings.Damage, _setings.BulletSpeed, bullet.transform.forward);
+
+                    _muzzleFlash.gameObject.transform.rotation = rotation;
                 }
 
                 lastTimeShoot = _setings.FireRate;
             }
+            
         }
 
         private void CoolDown()
