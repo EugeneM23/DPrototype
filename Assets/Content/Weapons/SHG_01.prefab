@@ -115,7 +115,7 @@ MonoBehaviour:
     <FireRate>k__BackingField: 0.37
     <Scatter>k__BackingField: 30
     <FireRange>k__BackingField: 1
-    <Damage>k__BackingField: 5
+    <Damage>k__BackingField: 1
     <BulletSpeed>k__BackingField: 100
     <ShakeDuration>k__BackingField: 0.1
     <ShakeMagnitude>k__BackingField: 0.1
@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 8018336267692209748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 0, z: 1.445}
+  m_LocalPosition: {x: -3.5, y: 0, z: 0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

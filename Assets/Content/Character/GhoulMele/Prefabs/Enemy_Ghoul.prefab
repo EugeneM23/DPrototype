@@ -2225,6 +2225,7 @@ GameObject:
   - component: {fileID: 7516690853631126249}
   - component: {fileID: 7998608272700366205}
   - component: {fileID: 1430953631813445804}
+  - component: {fileID: -439591907279018038}
   m_Layer: 7
   m_Name: Enemy_Ghoul
   m_TagString: Untagged
@@ -2379,7 +2380,7 @@ MonoBehaviour:
   _popupPrefab: {fileID: 1259023133563206875, guid: aea097f0b68cc4868a93469220296bdf, type: 3}
   _enemySetings:
     <ChaseRange>k__BackingField: 15
-    <AttckRange>k__BackingField: 2
+    <AttckRange>k__BackingField: 3
     <CahaseSpeed>k__BackingField: 7
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 10
@@ -2473,6 +2474,18 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &-439591907279018038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481907973978787791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712ed282096347ba817c957f766e6fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5585570460900715633
 GameObject:
   m_ObjectHideFlags: 0

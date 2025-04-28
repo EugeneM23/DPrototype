@@ -17,6 +17,12 @@ namespace Gameplay.Modules
         [Inject] private IHealth _health;
 
         protected int _currentHealth;
+        private bool _isDaied;
+
+        private void OnEnable()
+        {
+            _isDaied = false;
+        }
 
         protected virtual void Start()
         {
@@ -32,11 +38,12 @@ namespace Gameplay.Modules
 
             if (_currentHealth <= 0)
             {
-                if (_deathEffectPrefab != null)
+                if (_deathEffectPrefab != null && !_isDaied)
                 {
+                    _isDaied = true;
                     int randomIndex = Random.Range(0, _deathEffectPrefab.Length);
                     Vector3 forward = transform.forward;
-                    forward.y = 0; 
+                    forward.y = 0;
                     var rotation = Quaternion.LookRotation(forward);
                     Instantiate(_deathEffectPrefab[randomIndex], transform.position + new Vector3(0, 3, 0),
                         rotation * Quaternion.Euler(0, 90, 0));

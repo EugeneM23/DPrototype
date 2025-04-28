@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using Modules;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay
@@ -10,50 +8,36 @@ namespace Gameplay
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private bool _isPushableBullet;
-        [SerializeField] private float _impulsPower;
-        [SerializeField] private float _impulsTime;
+        [SerializeField] private float _impulsePower;
+        [SerializeField] private float _lostImpulseOverTime;
+        [SerializeField] private float _maxImpulseForce;
+        [SerializeField] private float _impulseDuration;
 
         public event Action<Bullet> OnDispose;
 
         private BulletRicochetComponent _bulletRicochet;
         private BulletMoveComponent _bulletMove;
         private BulletDamageComponent _bulletDamage;
+        private float _lifeTime;
 
         [Inject]
         public void Construct(BulletMoveComponent moveComponent, BulletRicochetComponent ricochetComponent,
-            BulletDamageComponent bulletDamage)
+            BulletDamageComponent damageComponent)
         {
             _bulletMove = moveComponent;
             _bulletRicochet = ricochetComponent;
-            _bulletDamage = bulletDamage;
+            _bulletDamage = damageComponent;
         }
 
-        private void Update() => _bulletMove.Move();
-
-        public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+        private void OnEnable()
         {
-            transform.position = position;
-            transform.rotation = rotation;
+            _lifeTime = 0.01f;
         }
 
-        private void OnCollisionEnter(Collision target)
+        private void Update()
         {
-            if (target.gameObject.TryGetComponent(out IDamageable damageable))
-                damageable.TakeDamage(_bulletDamage.Damage);
-
-            if (target.gameObject.TryGetComponent(out PushableObject pushable) && _isPushableBullet)
-            {
-                pushable.SetImpulse(transform.forward, _impulsPower, _impulsTime);
-            }
-
-            if (_bulletRicochet.CanRicochet)
-            {
-                var direction = _bulletRicochet.Ricochet(target);
-                _bulletMove.SetDirection(direction);
-                return;
-            }
-
-            OnDispose?.Invoke(this);
+            _lifeTime += Time.deltaTime * _lostImpulseOverTime;
+            _bulletMove.Move();
         }
 
         public void Setup(int damage, float bulletSpeed, Vector3 direction)
@@ -62,6 +46,58 @@ namespace Gameplay
             _bulletMove.SetSpeed(bulletSpeed);
             _bulletMove.SetDirection(direction);
             _bulletRicochet.Reset();
+        }
+
+        public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+        {
+            transform.SetPositionAndRotation(position, rotation);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            HandleDamage(collision);
+            HandlePush(collision);
+
+            if (HandleRicochet(collision))
+                return;
+
+            Dispose();
+        }
+
+        private void HandleDamage(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<IDamageable>(out var damageable))
+            {
+                damageable.TakeDamage(_bulletDamage.Damage);
+            }
+        }
+
+        private void HandlePush(Collision collision)
+        {
+            if (!_isPushableBullet)
+                return;
+
+            if (collision.gameObject.TryGetComponent<PushableObject>(out var pushable))
+            {
+                float rawImpulseForce = _impulsePower / _lifeTime;
+                float clampedImpulseForce = Mathf.Min(rawImpulseForce, _maxImpulseForce); // Ограничение силы
+                pushable.SetImpulse(transform.forward, clampedImpulseForce, _impulseDuration);
+            }
+        }
+
+        private bool HandleRicochet(Collision collision)
+        {
+            if (!_bulletRicochet.CanRicochet)
+                return false;
+
+            Vector3 newDirection = _bulletRicochet.Ricochet(collision);
+            _bulletMove.SetDirection(newDirection);
+            return true;
+        }
+
+        private void Dispose()
+        {
+            OnDispose?.Invoke(this);
         }
     }
 }
