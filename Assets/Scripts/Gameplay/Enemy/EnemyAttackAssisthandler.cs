@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -7,15 +8,20 @@ namespace Gameplay
     {
         [Inject] private readonly EnemyAttackAssistComponent _rotationComponent;
 
-        private bool IsAssistEnable;
+        private bool _isAssistEnable;
 
-        private void AimAssistOn() => IsAssistEnable = true;
+        private void OnEnable()
+        {
+            _isAssistEnable = false;
+        }
 
-        private void AimAssistOff() => IsAssistEnable = false;
+        private void AimAssistOn() => _isAssistEnable = true;
+
+        private void AimAssistOff() => _isAssistEnable = false;
 
         private void Update()
         {
-            if (IsAssistEnable)
+            if (_isAssistEnable)
                 _rotationComponent.RotateToTarget();
         }
     }

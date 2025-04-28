@@ -5050,7 +5050,7 @@ MonoBehaviour:
     <StrafePower>k__BackingField: 5
     <MaxHealth>k__BackingField: 1000
   _healtBarOffset: {x: 0, y: 2, z: -2.5}
-  _weaponPrefab: {fileID: 4987170329088819174, guid: 58bfaaefdb0b84f7ab7e3b91e3a0a956, type: 3}
+  _weaponPrefab: {fileID: 4987170329088819174, guid: a86d18cc267e147439e4a962b5e4a54c, type: 3}
 --- !u!114 &962201619078096505
 MonoBehaviour:
   m_ObjectHideFlags: 0
