@@ -4920,7 +4920,6 @@ GameObject:
   - component: {fileID: 8851841367444768159}
   - component: {fileID: 962201619078096505}
   - component: {fileID: -1200308631884723926}
-  - component: {fileID: 318442644264258096}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -5051,7 +5050,7 @@ MonoBehaviour:
     <StrafePower>k__BackingField: 5
     <MaxHealth>k__BackingField: 1000
   _healtBarOffset: {x: 0, y: 2, z: -2.5}
-  _weaponPrefab: {fileID: 4987170329088819174, guid: 58bfaaefdb0b84f7ab7e3b91e3a0a956, type: 3}
+  _weaponPrefab: {fileID: 4987170329088819174, guid: a86d18cc267e147439e4a962b5e4a54c, type: 3}
 --- !u!114 &962201619078096505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5083,20 +5082,6 @@ MonoBehaviour:
     m_Bits: 128
   _radius: 20
   _shouldCast: 1
---- !u!114 &318442644264258096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4969062347157005148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb86b7056a14eb0ac9925ee6c2bf661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupPrefab: {fileID: 1259023133563206875, guid: 34e2f19a6839c40f997513c4d4381296, type: 3}
-  target: {fileID: 1762296803827268729}
 --- !u!1001 &3911827078995512297
 PrefabInstance:
   m_ObjectHideFlags: 0

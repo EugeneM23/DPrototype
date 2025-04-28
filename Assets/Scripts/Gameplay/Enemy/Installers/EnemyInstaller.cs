@@ -1,3 +1,4 @@
+using DamageNumbersPro;
 using Game;
 using Gameplay.Modules;
 using Player;
@@ -8,6 +9,7 @@ namespace Gameplay
 {
     public class EnemyInstaller : MonoInstaller
     {
+        [SerializeField] private DamageNumber _popupPrefab;
         [SerializeField] private EnemySetings _enemySetings;
         [Inject] private readonly Transform _enemyTransform;
         [Inject] private readonly PlayerTransform _playerTransform;
@@ -52,10 +54,7 @@ namespace Gameplay
                 .AsSingle()
                 .NonLazy();
 
-            Container
-                .BindInterfacesAndSelfTo<EnemyImpulseComponent>()
-                .AsSingle().WithArguments(_enemySetings.IsPushable)
-                .NonLazy();
+            Container.Bind<DamageNumberSpawner>().AsSingle().WithArguments(_popupPrefab, _enemyTransform).NonLazy();
         }
     }
 }

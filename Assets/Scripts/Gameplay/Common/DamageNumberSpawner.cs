@@ -1,28 +1,23 @@
-using Gameplay.Modules;
 using UnityEngine;
 using DamageNumbersPro;
 
-namespace Gameplay.Common
+namespace Gameplay
 {
-    public class DamageNumberSpawner : MonoBehaviour
+    public class DamageNumberSpawner
     {
-        public DamageNumber popupPrefab;
+        private DamageNumber _popupPrefab;
 
-        public Transform target;
+        private Transform _target;
 
-        private void OnEnable()
+        public DamageNumberSpawner(DamageNumber popupPrefab, Transform target)
         {
-            GetComponent<HealthComponentBase>().OnTakeDamaged += SpawnPopup;
-        }
-
-        private void OnDisable()
-        {
-            GetComponent<HealthComponentBase>().OnTakeDamaged -= SpawnPopup;
+            _popupPrefab = popupPrefab;
+            _target = target;
         }
 
         public void SpawnPopup(int damage)
         {
-            DamageNumber newPopup = popupPrefab.Spawn(target.position + new Vector3(0, 3, 0), damage);
+            _popupPrefab.Spawn(_target.position + new Vector3(0, 3, 0), damage);
         }
     }
 }

@@ -1,3 +1,4 @@
+using DamageNumbersPro;
 using Gameplay.Modules;
 using Zenject;
 
@@ -5,18 +6,19 @@ namespace Gameplay
 {
     public class EnemyTakeDamageController : IInitializable
     {
-        private readonly EnemyImpulseComponent _impulseComponent;
         private readonly HealthComponentBase _healthComponent;
+        private readonly DamageNumberSpawner _damageNumber;
 
-        public EnemyTakeDamageController(EnemyImpulseComponent impulseComponent, HealthComponentBase healthComponent)
+        public EnemyTakeDamageController(HealthComponentBase healthComponent,
+            DamageNumberSpawner damageNumber)
         {
-            _impulseComponent = impulseComponent;
             _healthComponent = healthComponent;
+            _damageNumber = damageNumber;
         }
 
         public void Initialize()
         {
-            _healthComponent.OnHit += () => _impulseComponent.SetImpulse();
+            _healthComponent.OnTakeDamaged += _damageNumber.SpawnPopup;
         }
     }
 }

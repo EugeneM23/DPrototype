@@ -2225,7 +2225,6 @@ GameObject:
   - component: {fileID: 7516690853631126249}
   - component: {fileID: 7998608272700366205}
   - component: {fileID: 1430953631813445804}
-  - component: {fileID: 7736683337220559816}
   m_Layer: 7
   m_Name: Enemy_Ghoul
   m_TagString: Untagged
@@ -2377,8 +2376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c2965295df442bda0f885660d3da43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popupPrefab: {fileID: 1259023133563206875, guid: aea097f0b68cc4868a93469220296bdf, type: 3}
   _enemySetings:
-    <ChaseRange>k__BackingField: 10
+    <ChaseRange>k__BackingField: 15
     <AttckRange>k__BackingField: 2
     <CahaseSpeed>k__BackingField: 7
     <PatrolSpeed>k__BackingField: 2
@@ -2387,7 +2387,7 @@ MonoBehaviour:
     <Health>k__BackingField: 30
     <AttckAnimations>k__BackingField:
     - Attack_01
-    <IsPushable>k__BackingField: 1
+    <IsPushable>k__BackingField: 0
 --- !u!114 &5618135351587943864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2438,6 +2438,12 @@ MonoBehaviour:
   - {fileID: 2700031667390519270, guid: 6202591cd210144068a9b4d5348f970c, type: 3}
   - {fileID: 1890696208852678844, guid: 9be670202d44d40d194e51f5d1117585, type: 3}
   - {fileID: 7325492475399192643, guid: d30f728c3d17d478189442147d8c0e1f, type: 3}
+  - {fileID: 2360933683143488451, guid: 8363210a2821f487ba74f7c704159e5d, type: 3}
+  - {fileID: 5016170632959171363, guid: 8aac63a67d70843399687c41957a9705, type: 3}
+  - {fileID: 8859926575668995837, guid: 6e4449c3ed27b4a09893d0760724314f, type: 3}
+  - {fileID: 5936082179827903908, guid: c2454618cf83749a8b9377d2f83b703c, type: 3}
+  - {fileID: 5494213943435191861, guid: 0d93dfab5f2ca4df4b02ca908706baff, type: 3}
+  - {fileID: 5371219466416337994, guid: 58e79888014bd42e185861ebccdb73a0, type: 3}
 --- !u!114 &7998608272700366205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2467,20 +2473,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
---- !u!114 &7736683337220559816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5481907973978787791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb86b7056a14eb0ac9925ee6c2bf661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupPrefab: {fileID: 1259023133563206875, guid: 7b8c01b1d7077754fbbd8454e3cbab63, type: 3}
-  target: {fileID: 8136789233410780891}
 --- !u!1 &5585570460900715633
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,12 +2,17 @@ using System;
 using System.Collections;
 using Modules;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay
 {
     public class Bullet : MonoBehaviour
     {
+        [SerializeField] private bool _isPushableBullet;
+        [SerializeField] private float _impulsPower;
+        [SerializeField] private float _impulsTime;
+
         public event Action<Bullet> OnDispose;
 
         private BulletRicochetComponent _bulletRicochet;
@@ -31,14 +36,19 @@ namespace Gameplay
             transform.rotation = rotation;
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnCollisionEnter(Collision target)
         {
-            if (other.gameObject.TryGetComponent(out IDamageable damageable))
+            if (target.gameObject.TryGetComponent(out IDamageable damageable))
                 damageable.TakeDamage(_bulletDamage.Damage);
+
+            if (target.gameObject.TryGetComponent(out PushableObject pushable) && _isPushableBullet)
+            {
+                pushable.SetImpulse(transform.forward, _impulsPower, _impulsTime);
+            }
 
             if (_bulletRicochet.CanRicochet)
             {
-                var direction = _bulletRicochet.Ricochet(other);
+                var direction = _bulletRicochet.Ricochet(target);
                 _bulletMove.SetDirection(direction);
                 return;
             }
