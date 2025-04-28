@@ -1,3 +1,4 @@
+using DamageNumbersPro;
 using Game;
 using Gameplay;
 using Modules;
@@ -15,7 +16,7 @@ namespace Gameplay
         [SerializeField] private PlayerSetings _playerSetings;
         [SerializeField] private Vector3 _healtBarOffset;
         [SerializeField] private GameObject _weaponPrefab;
-
+        [SerializeField] private DamageNumber _popupPrefab;
         public override void InstallBindings()
         {
             Container
@@ -26,7 +27,7 @@ namespace Gameplay
             PlayerInputInstaller.Install(Container);
             PlayerMovementInstaller.Install(Container, _playerSetings);
             PlayerHealthInstaller.Install(Container, _playerSetings.MaxHealth, _healtBarOffset, gameObject.transform,
-                playerHealtBar);
+                playerHealtBar, _popupPrefab);
             PlayerAnimationInstaller.Install(Container);
             PlayerEffectsInstaller.Install(Container, _hitEffect);
 
