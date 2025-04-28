@@ -18,7 +18,6 @@ public class BulletInstaller : MonoInstaller
         Container
             .Bind<BulletDamageComponent>()
             .AsSingle()
-            .WithArguments(this._damage)
             .NonLazy();
 
         Container

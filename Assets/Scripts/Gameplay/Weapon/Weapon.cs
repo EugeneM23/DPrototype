@@ -43,6 +43,7 @@ namespace Gameplay
             {
                 _muzzleFlash.gameObject.SetActive(false);
             }
+
             CoolDown();
         }
 
@@ -51,11 +52,11 @@ namespace Gameplay
             if (_readyToFire)
             {
                 _muzzleFlash.gameObject.SetActive(true);
+                _muzzleFlash.Play();
 
                 _readyToFire = false;
                 OnFire?.Invoke();
-                
-                _muzzleFlash.Play();
+
 
                 _shellSpawner.Create(_shellPoint.position, _shellPoint.rotation, _setings.ShellImpulse,
                     _setings.ImpulsePower);
@@ -72,7 +73,6 @@ namespace Gameplay
 
                 lastTimeShoot = _setings.FireRate;
             }
-            
         }
 
         private void CoolDown()
@@ -91,7 +91,8 @@ namespace Gameplay
 
             Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
             float randomY = Random.Range(-_setings.Scatter, _setings.Scatter);
-            Quaternion scatterRotation = Quaternion.Euler(0f, randomY, 0f);
+            float randomX = Random.Range(-_setings.Scatter, _setings.Scatter);
+            Quaternion scatterRotation = Quaternion.Euler(randomX, randomY, 0f);
             Quaternion finalRotation = scatterRotation * lookRotation;
             return finalRotation;
         }
