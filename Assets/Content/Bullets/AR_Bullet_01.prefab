@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPushableBullet: 1
-  _impulsePower: 0
-  _lostImpulseOverTime: 0
-  _maxImpulseForce: 0
-  _impulseDuration: 0
+  _impulsePower: 6
+  _lostImpulseOverTime: 5
+  _maxImpulseForce: 50
+  _impulseDuration: 0.1
+  _impactParticles: {fileID: 198063466146349274, guid: 019abd81a10c54ce8bdd5285084861ff, type: 3}

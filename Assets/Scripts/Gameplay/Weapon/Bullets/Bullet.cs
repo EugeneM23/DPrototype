@@ -12,7 +12,7 @@ namespace Gameplay
         [SerializeField] private float _lostImpulseOverTime;
         [SerializeField] private float _maxImpulseForce;
         [SerializeField] private float _impulseDuration;
-
+        [SerializeField] private ParticleSystem _impactParticles;
         public event Action<Bullet> OnDispose;
 
         private BulletRicochetComponent _bulletRicochet;
@@ -64,11 +64,26 @@ namespace Gameplay
             Dispose();
         }
 
+        private void SpawnImpactEffect(Collision collision)
+        {
+            if (_impactParticles == null || collision.contactCount == 0)
+                return;
+
+            ContactPoint contact = collision.GetContact(0);
+
+            Quaternion rotation = Quaternion.LookRotation(contact.normal);
+            Instantiate(_impactParticles, contact.point, rotation);
+        }
+
         private void HandleDamage(Collision collision)
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var damageable))
             {
                 damageable.TakeDamage(_bulletDamage.Damage);
+            }
+            else
+            {
+                SpawnImpactEffect(collision);
             }
         }
 
