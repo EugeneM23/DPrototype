@@ -14,5 +14,5 @@ AssetOrigin:
   productId: 186447
   packageName: Damage Numbers Pro
   packageVersion: 4.47
-  assetPath: Assets/DamageNumbersPro/Scripts/DamageNumberGUI.cs
+  assetPath: Assets/Plugins/DamageNumbersPro/Scripts/DamageNumberGUI.cs
   uploadId: 731065

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class JumpToMovingTarget : MonoBehaviour
 {
+    [SerializeField] private GameObject _pickUpPrefab;
     public float jumpPower = 2f;
     public float jumpDuration = 1f;
 
@@ -16,7 +17,7 @@ public class JumpToMovingTarget : MonoBehaviour
         target = playerTransform;
         Vector3 startPos = transform.position;
         Vector3 originalScale = transform.localScale;
-        Vector3 enlargedScale = originalScale * 1.7f; // Можешь изменить на свой вкус
+        Vector3 enlargedScale = originalScale * 1.7f;
 
         float elapsed = 0f;
 
@@ -33,12 +34,24 @@ public class JumpToMovingTarget : MonoBehaviour
                 transform.position = newPos;
             }, jumpDuration, jumpDuration)
             .SetEase(Ease.Linear)
-            .OnComplete(() => Destroy(gameObject)); // Удалить объект после прыжка
+            .OnComplete(() =>
+            {
+                GameObject go = Instantiate(_pickUpPrefab, transform.position, Quaternion.identity);
+                go.transform.SetParent(playerTransform.transform);
 
-        // Анимация масштаба: увеличение к середине и уменьшение к концу
-        Sequence scaleSequence = DOTween.Sequence();
-        scaleSequence.Append(transform.DOScale(enlargedScale, jumpDuration / 2f).SetEase(Ease.OutQuad));
-        scaleSequence.Append(transform.DOScale(Vector3.zero, jumpDuration / 2f).SetEase(Ease.InQuad));
+                Destroy(gameObject);
+            });
+
+        // Scale + Rotation анимация
+        Sequence scaleAndRotate = DOTween.Sequence();
+
+        // Масштаб: увеличение и уменьшение
+        scaleAndRotate.Append(transform.DOScale(enlargedScale, jumpDuration / 2f).SetEase(Ease.OutQuad));
+        scaleAndRotate.Append(transform.DOScale(Vector3.zero, jumpDuration / 2f).SetEase(Ease.InQuad));
+
+        // Вращение: по всем осям (360° на протяжении всего прыжка)
+        transform.DORotate(new Vector3(0, 360, 360), jumpDuration, RotateMode.FastBeyond360)
+            .SetEase(Ease.Linear);
     }
 
     private void OnTriggerEnter(Collider other)

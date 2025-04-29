@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lootPrefabs:
-  - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
-  - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
-  - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
+  - {fileID: 3058956916689198035, guid: 70051ebcc7c34467ead2d11fa6b9a289, type: 3}
+  - {fileID: 3058956916689198035, guid: 70051ebcc7c34467ead2d11fa6b9a289, type: 3}
+  - {fileID: 3058956916689198035, guid: 70051ebcc7c34467ead2d11fa6b9a289, type: 3}
   jumpDuration: 0.7
   jumpPower: 5
   numJumps: 0

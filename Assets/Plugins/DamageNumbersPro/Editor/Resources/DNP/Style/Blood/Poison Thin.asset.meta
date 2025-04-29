@@ -11,5 +11,6 @@ AssetOrigin:
   productId: 186447
   packageName: Damage Numbers Pro
   packageVersion: 4.47
-  assetPath: Assets/DamageNumbersPro/Editor/Resources/DNP/Style/Blood/Poison Thin.asset
+  assetPath: Assets/Plugins/DamageNumbersPro/Editor/Resources/DNP/Style/Blood/Poison
+    Thin.asset
   uploadId: 731065

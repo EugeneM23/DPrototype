@@ -23,7 +23,7 @@ namespace Gameplay
                 GameObject go = Instantiate(item, transform.position, Quaternion.identity);
 
                 Vector3 targetPosition = transform.position + Random.insideUnitSphere * 6;
-                targetPosition.y = transform.position.y;
+                targetPosition.y = transform.position.y + 1;
                 go.transform.DOJump(targetPosition, jumpPower, numJumps, jumpDuration).SetEase(Ease.Linear);
                 yield return new WaitForSeconds(0.1f);
             }
