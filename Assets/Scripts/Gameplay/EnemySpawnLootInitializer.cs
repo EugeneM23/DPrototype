@@ -1,3 +1,4 @@
+using System;
 using Gameplay.Modules;
 using UnityEngine;
 using Zenject;
@@ -12,6 +13,11 @@ namespace Gameplay
         private void OnEnable()
         {
             _healthComponent.OnDespawn += InitSpawnLoot;
+        }
+
+        private void OnDisable()
+        {
+            _healthComponent.OnDespawn -= InitSpawnLoot;
         }
 
         private void InitSpawnLoot(HealthComponentBase obj)

@@ -2579,7 +2579,7 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
   _isCycle: 1
   _spawnTime: 1
-  _startCount: 10
+  _startCount: 2
 --- !u!114 &1034023470
 MonoBehaviour:
   m_ObjectHideFlags: 0

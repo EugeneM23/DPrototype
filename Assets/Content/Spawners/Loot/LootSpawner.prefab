@@ -48,5 +48,6 @@ MonoBehaviour:
   - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
   - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
   - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
-  - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
-  - {fileID: 3058956916689198035, guid: d3f9a2edbfccf4df89d660d28dc19080, type: 3}
+  jumpDuration: 0.7
+  jumpPower: 5
+  numJumps: 1
