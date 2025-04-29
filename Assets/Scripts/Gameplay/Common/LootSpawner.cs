@@ -25,7 +25,7 @@ namespace Gameplay
                 Vector3 targetPosition = transform.position + Random.insideUnitSphere * 6;
                 targetPosition.y = transform.position.y;
                 go.transform.DOJump(targetPosition, jumpPower, numJumps, jumpDuration).SetEase(Ease.Linear);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.1f);
             }
         }
     }
