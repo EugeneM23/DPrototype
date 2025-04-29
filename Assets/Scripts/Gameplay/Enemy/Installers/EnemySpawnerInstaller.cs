@@ -1,6 +1,7 @@
 using Gameplay.Modules;
 using NewEnemy;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Gameplay
@@ -8,8 +9,9 @@ namespace Gameplay
     public class EnemySpawnerInstaller : MonoInstaller
     {
         [SerializeField] private HealthComponentBase _enemyPrefab;
-        [SerializeField] private bool IsCycle;
+        [SerializeField] private bool _isCycle;
         [SerializeField] private float _spawnTime;
+        [SerializeField] private int _startCount;
 
         public override void InstallBindings()
         {
@@ -25,7 +27,7 @@ namespace Gameplay
             Container
                 .BindInterfacesAndSelfTo<EnemySpawner>()
                 .AsSingle()
-                .WithArguments(transform.position, IsCycle, _spawnTime)
+                .WithArguments(transform.position, _isCycle, _spawnTime, _startCount)
                 .NonLazy();
         }
     }

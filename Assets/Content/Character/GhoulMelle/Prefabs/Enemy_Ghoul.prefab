@@ -2381,7 +2381,7 @@ MonoBehaviour:
   _enemySetings:
     <ChaseRange>k__BackingField: 15
     <AttckRange>k__BackingField: 3
-    <CahaseSpeed>k__BackingField: 7
+    <CahaseSpeed>k__BackingField: 4
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 10
     <Damage>k__BackingField: 30
