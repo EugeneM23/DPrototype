@@ -27,8 +27,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.6997833, y: 3.6665435, z: -3.0241814}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6856436261161303961}
   - {fileID: 7572122336199189929}
@@ -51,7 +51,7 @@ MonoBehaviour:
   GroundHeight: 0
   LightIntensityMultiplier: 1
   DecalLifeTimeSeconds: 30
-  DecalRenderingMode: 0
+  DecalRenderingMode: 1
   DebugAnimationTime: 0.25
 --- !u!1 &1973713627921900910
 GameObject:

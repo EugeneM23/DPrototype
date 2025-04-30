@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8277158053328706933, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -705989213810811815, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -72,10 +76,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: GullRagDollBody_02
       objectReference: {fileID: 0}
+    - target: {fileID: 3937959912087298859, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981540257814642675, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3cf4b820565924aa5aad8d189ff6cb4b, type: 2}
     - target: {fileID: 6892376958846997336, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3cf4b820565924aa5aad8d189ff6cb4b, type: 2}
+    - target: {fileID: 7042566896776364467, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354488629040311525, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7354488629040311525, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -86,9 +106,6 @@ PrefabInstance:
     - {fileID: 4847594852134149047, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6040026332208920255}
     - targetCorrespondingSourceObject: {fileID: 3256684802130647663, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2997181768192133646}
@@ -843,23 +860,6 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!1 &4478416663782328807 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e8efac3d4c96341039813764d1db44cf, type: 3}
-  m_PrefabInstance: {fileID: 3668148823179572406}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6040026332208920255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4478416663782328807}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499b85c40f9f24e4098272bced8876b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4499094008278167854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8320365392235035240, guid: e8efac3d4c96341039813764d1db44cf, type: 3}

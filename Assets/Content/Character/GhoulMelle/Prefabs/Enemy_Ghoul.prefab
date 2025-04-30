@@ -2227,6 +2227,7 @@ GameObject:
   - component: {fileID: 1430953631813445804}
   - component: {fileID: -439591907279018038}
   - component: {fileID: 3645924743835173250}
+  - component: {fileID: 7428135903665175413}
   m_Layer: 7
   m_Name: Enemy_Ghoul
   m_TagString: Untagged
@@ -2244,8 +2245,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1, y: 2.1, z: 2.1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7613607501244364801}
   - {fileID: 2276385680682933897}
@@ -2382,7 +2383,7 @@ MonoBehaviour:
   _enemySetings:
     <ChaseRange>k__BackingField: 15
     <AttckRange>k__BackingField: 3
-    <CahaseSpeed>k__BackingField: 4
+    <CahaseSpeed>k__BackingField: 7
     <PatrolSpeed>k__BackingField: 2
     <AttakRotationSpeed>k__BackingField: 10
     <Damage>k__BackingField: 30
@@ -2500,6 +2501,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnLoot: {fileID: 1697953937226313906, guid: 5d3a66101d088428fa4048ec9834bf85, type: 3}
+--- !u!114 &7428135903665175413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481907973978787791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c686dafa477534f60bf66a3fff32bc49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dollPrefab: {fileID: 4478416663782328807, guid: c9171d1309e5d48828c25131361ea64b, type: 3}
 --- !u!1 &5585570460900715633
 GameObject:
   m_ObjectHideFlags: 0

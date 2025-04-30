@@ -3,7 +3,7 @@ using Gameplay;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Gameplay
 {
     public class WeaponInstaller : MonoInstaller
     {
@@ -18,6 +18,11 @@ namespace Game
         public override void InstallBindings()
         {
             GameObject go = new GameObject("BulletPool");
+
+            /*Container
+                .Bind<WeaponRecoilComponent>()
+                .AsSingle()
+                .NonLazy();*/
 
             Container
                 .BindInterfacesAndSelfTo<Weapon>()

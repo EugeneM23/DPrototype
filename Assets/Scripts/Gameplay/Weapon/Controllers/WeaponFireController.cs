@@ -9,6 +9,7 @@ namespace Gameplay
         private readonly Player _player;
         private readonly Weapon _weapon;
         private readonly CameraShakeComponent _cameraShakeComponent;
+        private WeaponRecoilComponent _weaponRecoilComponent;
 
         public WeaponFireController(Player player, Weapon weapon, CameraShakeComponent cameraShakeComponent)
         {

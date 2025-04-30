@@ -740,7 +740,7 @@ MonoBehaviour:
   GroundHeight: 0
   LightIntensityMultiplier: 1
   DecalLifeTimeSeconds: 30
-  DecalRenderingMode: 0
+  DecalRenderingMode: 1
   DebugAnimationTime: 0.25
 --- !u!1 &6696309532250514586
 GameObject:
