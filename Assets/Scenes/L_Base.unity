@@ -524,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &250389412
 Transform:
   m_ObjectHideFlags: 0
@@ -695,13 +695,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5899105, y: -0, z: -0, w: 0.8074687}
-  m_LocalPosition: {x: 0, y: 21.57, z: -5.78}
+  m_LocalRotation: {x: 0.46415186, y: -0, z: -0, w: 0.88575566}
+  m_LocalPosition: {x: 0, y: 18.87, z: -9.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 72.301, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 55.311, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &591707721
 Transform:
   m_ObjectHideFlags: 0
@@ -2499,7 +2499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1029731364
 Transform:
   m_ObjectHideFlags: 0
@@ -2636,7 +2636,7 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 7516690853631126249, guid: 4df7d7ec46ea84bc4b99ebe11e8d4e0e, type: 3}
   _isCycle: 1
   _spawnTime: 1
-  _startCount: 10
+  _startCount: 0
 --- !u!114 &1034023470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2771,8 +2771,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: -7776074291255282540, guid: 6909a2a448fa448b4a51c021ea8ccf45, type: 3}
-  _isCycle: 0
-  _spawnTime: 10
+  _isCycle: 1
+  _spawnTime: 3
   _startCount: 1
 --- !u!114 &1176875071
 MonoBehaviour:
@@ -3089,7 +3089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1538354618
 Transform:
   m_ObjectHideFlags: 0
@@ -3153,8 +3153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 440409809092466216, guid: 405dd809342ba4e1d887f4cf0b43f990, type: 3}
-  _isCycle: 0
-  _spawnTime: 3
+  _isCycle: 1
+  _spawnTime: 1
   _startCount: 1
 --- !u!114 &1538354622
 MonoBehaviour:
@@ -3193,7 +3193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1601614405
 Transform:
   m_ObjectHideFlags: 0
@@ -3328,7 +3328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1742723737
 Transform:
   m_ObjectHideFlags: 0
